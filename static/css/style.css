@@ -1,0 +1,159 @@
+html, body {
+	background: white url("../img/gray_jean.png") repeat;
+}
+.title {
+	padding-left:0 !important;
+	padding-right:0 !important;
+}
+.nav {
+    margin-bottom: 0 !important;
+}
+.pic {
+    text-align: center;
+    border-radius: 25px;
+    padding: 1em;
+}
+.social-icons {
+    width:100%;
+    margin-left: 0px;
+    text-align: center;
+}
+.social-icons li {
+    font-size: 2em;
+}
+.social-icon-links{
+    text-align: center;
+    font-size: 2em;
+}
+.social-icon-links li {
+    padding-bottom: 0;
+}
+section {
+    text-align: center;
+}
+.title {
+    width: 20% !important;
+}
+#tagline{
+    font-style: italic;
+    font-weight: normal;
+}
+#github-username, #twitter-username{
+    font-style: italic;
+    font-weight: normal;
+    margin-top: 0.5em;
+}
+#name{
+    margin-bottom: -10px;
+}
+#contact{
+    text-align: center;
+}
+.emailtext {
+    padding-top: 0.125em;
+    padding-bottom: 0.125em;
+    padding-right: .5em;
+    text-align:right
+}
+.content {
+    display: none;
+}
+.content .columns{
+    padding-left:0;
+    padding-right:0;
+}
+.language {
+	text-align: right;
+	padding-right: 10px !important;
+}
+.content .columns .panel ul{
+	padding-left: 1em;
+}
+.row .language {
+	height: 30px;
+}
+.decoration{
+    height:10px;
+    width:100%;
+    background-color: #2ba6cb;
+}
+.language-bar {
+    height:10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #2ba6cb;
+}
+.social {
+    padding-left:0.5em !important;
+    padding-right:0.5em !important;
+    margin-bottom:0;
+}
+.email-text {
+    padding: 0.125em 0.25em 0.125em;
+    text-align: right 
+}
+.social .row .small-4 {
+    padding-right: 0;
+}
+#email .row .small-6 {
+    padding-right: 0.125em;
+    padding-left: 0.125em;
+}
+.background-tagline {
+	position: absolute;
+	top: 200px;
+	left: 50px;
+	right: 50px;
+	text-align:center;
+}
+#twitter-name, #github-name {
+    margin-top:-3px;
+    margin-bottom: 10px;
+}
+.social-pic {
+    border-radius: 10px !important;
+    padding: 0.25em;
+    margin-top: -0.25em;
+}
+#left-column {
+    padding: 0 1em;
+}
+.social-update {
+    margin: 0.25em;
+    padding: 0.25em;
+    border-top: thin black ;
+    border-bottom: thin black ;
+}
+.social-update p {
+    margin-bottom: 0;
+}
+.twitter-follow-button, .github-follow-button {
+    margin-top: 10px;
+}
+.post-time {
+    margin-left: 0.5em;
+    font-size: 0.75em;
+}
+.info {
+    background-color: #eee;
+    border: 1px solid #ccc;
+    margin: 0.5em;
+}
+.info-header {
+    background-color: #ccc;
+    border: 1px solid #aaa;
+    margin: 0.5em;
+}
+.info-tagline {
+    font-style: italic;
+}
+.info-pic {
+    width: 100%;
+    border: black 5px; 
+}
+.content .columns .panel {
+    margin-bottom: 0;
+}
+html {
+       overflow-y: scroll;
+}
