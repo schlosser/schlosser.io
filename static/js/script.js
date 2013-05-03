@@ -2,7 +2,7 @@ $(function(){
     //blog rendering
     var blog_dir = "static/blog/";
     $.get(blog_dir+"file_list.txt", function(data){
-        $.each(data.split("\n"), function(i, val){
+        $.each(data.split("\n").reverse(), function(i, val){
             $.get(blog_dir+val, function(data){
                 var post = $('<div>', {"class":"post", html:data});
                 //console.log(post.html);
