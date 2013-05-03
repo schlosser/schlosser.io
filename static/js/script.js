@@ -18,13 +18,12 @@ $(document).ready(function(){
     loadFile();
     
     //Slashes to Hashes
-    if(page === "") {
+    var pages = ['home', 'about', 'projects', 'resources', 'blog'];
+    if(page === "" && pages.indexOf(window.location.hash.slice(1)) < 0) {
         window.location.hash="home";
     }
-    else {
-        var pages = ['home', 'about', 'projects', 'resources', 'blog'];
+    else if(page !== ""){
         if(pages.indexOf(page) >= 0) {
-            console.log("failure")
             function capitalize(string) {
                 return string.charAt(0).toUpperCase() + string.slice(1);
             }
@@ -33,7 +32,6 @@ $(document).ready(function(){
             window.history.pushState({id:page}, title, new_url);
         }
         else {
-            console.log("success!");
             var title = 'Dan Schlosser';
             var new_url = '/#home';
             window.history.pushState({id:page}, title, new_url);
@@ -46,7 +44,7 @@ $(document).ready(function(){
         $(current_hash).slideDown('slow');
         $(current_hash+'-button').attr("disabled", "disabled");
         $('#email').slideDown('slow');        
-    }, 1000);
+    }, 100);
     
     //Main Content Tabs
     $('.nav').click(function(e){
