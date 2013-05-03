@@ -1,4 +1,21 @@
 $(document).ready(function(){
+    //blog rendering
+    var reader = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP');
+    function loadFile() {
+        console.log("loadFile")
+        reader.open('get', "static/blog/2013-04-05.html", true); 
+        reader.onreadystatechange = displayContents;
+        reader.send(null);
+    }
+    function displayContents() {
+        if(reader.readyState==4) {
+            var post = $('<div>').addClass('post')
+                                 .html(reader.responseText);
+            //console.log(post.html);
+            $('#blog-posts').append(post);
+        }
+    }
+    loadFile();
     
     //Slashes to Hashes
     if(page === "") {
