@@ -5,12 +5,22 @@ $(document).ready(function(){
         window.location.hash="home";
     }
     else {
-        function capitalize(string) {
-            return string.charAt(0).toUpperCase() + string.slice(1);
+        var pages = ['home', 'about', 'projects', 'resources', 'blog'];
+        if(pages.indexOf(page) >= 0) {
+            console.log("failure")
+            function capitalize(string) {
+                return string.charAt(0).toUpperCase() + string.slice(1);
+            }
+            var title = capitalize(page)+'| Dan Schlosser';
+            var new_url = '/#'+page;
+            window.history.pushState({id:page}, title, new_url);
         }
-        var title = capitalize(page)+'| Dan Schlosser';
-        var new_url = '/#'+page;
-        window.history.pushState({id:page}, title, new_url);
+        else {
+            console.log("success!");
+            var title = 'Dan Schlosser';
+            var new_url = '/#home';
+            window.history.pushState({id:page}, title, new_url);
+        }
     }
 
     //Page Load Animation

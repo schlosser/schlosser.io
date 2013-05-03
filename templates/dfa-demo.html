@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+	<head>
+		<title>DFA Community Team Posting Demo</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/normalize.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/foundation.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/general_foundicons.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/social_foundicons.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/dfa-demo.css')}}"/>
+        
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/foundation/foundation.js')}}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/foundation/foundation.section.js')}}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/vendor/custom.modernizr.js')}}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/dfa-demo.js')}}"></script> 
+        
+	</head>
+	<body>
+	    <div class="page row">
+        	<div class="large-12 columns">
+        	    <div class="row">
+                    <div class="large-3 columns">
+                        <img src="{{url_for('static', filename='img/dfa-logo.jpeg')}}"/>
+                    </div>
+                    <div class="large-9 columns">
+                        <h1>Community Team Comment Page</h1>
+                    </div>
+                    <hr/>
+                </div>
+        	    <div class="row">
+            	    <div class="large-12 columns comments">
+            			<div class="comment">
+            			    <h5>Dan</h5> 
+            				<p>This is an example comment.</p>
+
+            			</div>
+            		</div>
+        		</div>
+        		<hr/>
+        		<div class="form row">
+            		<div class="large-12 columns">
+            		    <div class="row">
+            		        <div class="large-12 columns">
+            		            <h4>Add your own comment</h4>
+            		        </div>
+            		    </div>
+                        <div class="row">
+                            <div class="large-2 columns">
+                                <h5>Name:</h5>
+                            </div>
+                            <div class="large-10 columns">
+                                <input type="text" id="namebox" placeholder="Enter your name here.">
+                            </div>
+                            
+                        </div>            		    
+            			<div class="row">
+            			    <div class="large-12 columns">
+            			        <textarea name="comments" cols="25" rows="5" placeholder="Enter your comments here."></textarea>
+            			    </div>
+            			</div>
+            		</div>
+        		</div>
+        		<div class="wait-msg row">
+                    <div class="large-12 columns">
+                        <div class="panel callout">
+                            <div class="row">
+                                <div class="large-8 columns">
+                                    <p>Pause before you post! Do you want to continue? 
+                                        <span data-tooltip class="has-tip" title="This is a Design for America initiative to encourage thoughtful commenting.">[?]</span></p>
+                                </div>
+                                <div class="large-4 columns">
+                                    <div class="button secondary small" id="edit">Edit</div>
+                                    <div class="button success small" id="continue">Continue</div>    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                            <div class="large-12 columns">
+                                <div id="submit" class="button success medium">Submit</div>
+                            </div>
+                        </div>
+            </div>
+		</div>
+	</body>
+</html>

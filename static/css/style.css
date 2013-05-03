@@ -28,9 +28,6 @@ html, body {
 .social-icon-links li {
     padding-bottom: 0;
 }
-social-content {
-    dispaly
-}
 section {
     text-align: center;
 }
@@ -159,4 +156,16 @@ section {
 }
 html {
        overflow-y: scroll;
+}
+.social-button {
+    color: #2ba6cb;
+}
+.social-button:hover {
+    color: #2795b6;
+    cursor: hand; 
+    cursor: pointer;
+}
+.resource {
+    padding-left:1em;
+    padding-right:1em;
 }
