@@ -1,85 +1,58 @@
 $(document).ready(function(){
-    if (page !== "") {
-        navToTab(page);
+    
+    //Slashes to Hashes
+    if(page === "") {
+        window.location.hash="home";
     }
+    else {
+        function capitalize(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+        var title = capitalize(page)+'| Dan Schlosser';
+        var new_url = '/#'+page;
+        window.history.pushState({id:page}, title, new_url);
+    }
+
+    //Page Load Animation
+    setTimeout(function(){
+        var current_hash = window.location.hash;
+        $(current_hash).slideDown('slow');
+        $(current_hash+'-button').attr("disabled", "disabled");
+        $('#email').slideDown('slow');        
+    }, 1000);
     
     //Main Content Tabs
     $('.nav').click(function(e){
         e.preventDefault();
         var id = $(this).attr('href');
-        navToTab(id);
-    });
-    
-    function navToTab(id) {
         var callback = function() {
             $(id).slideDown();
+            window.location.hash=id;
+            $(id+"-button").attr("disabled", "disabled");
         };
         var hash = window.location.hash;
-        $('.content').slideUp(callback);
-        var pageTitle= id + ' | Dan Schlosser';
-        //var urlPath= id;
-      //  window.history.pushState({"pageTitle":pageTitle},"", urlPath);
-    }
+        if (hash) {
+            $(hash).slideUp(function(){
+                callback();
+            });
+        } else{
+            callback();
+        }
+        $(hash+"-button").removeAttr("disabled");
+     });
     
     //Social Tabs
-    $('social-content').slideUp();
-    var isSocialHome = true;    
-    $('#email-button').click(function(){
-        if(isSocialHome){
-            $('#email').slideDown();
-            isSocialHome = false;
-        }else {
-            goSocialHome();
-            if(!$('#email').is(":visible")){
-                setTimeout(function(){$('#email').slideDown();}, 500);
-            }else{
-                isSocialHome=true;
-        }}
+    $('.social-content').hide();
+    $('.social-button').click(function(){
+        var id = $(this).data('target');
+        console.log("first");
+        $('.social-content').slideUp();
+        setTimeout(function(){
+            console.log("second");
+            $(id).slideDown();
+        }, 500);    
     });
-    $('#github-button').click(function(){
-        if(isSocialHome){
-            $('#github').slideDown();
-            isSocialHome = false;
-        }else {
-            goSocialHome();
-            if(!$('#github').is(":visible")){
-                setTimeout(function(){$('#github').slideDown();}, 500);
-            }else{
-                isSocialHome=true;
-        }}
-    });
-    $('#twitter-button').click(function(){
-        if(isSocialHome){
-            $('#twitter').slideDown();
-            isSocialHome = false;
-        }else {
-            goSocialHome();
-            if(!$('#twitter').is(":visible")){
-                setTimeout(function(){$('#twitter').slideDown();}, 500);
-            }else{
-                isSocialHome=true;
-        }}
-    });
-    $('#more-social-button').click(function(){
-        if(isSocialHome){
-            $('#more-social').slideDown();
-            isSocialHome = false;
-        }else {
-            goSocialHome();
-            if(!$('#more-social').is(":visible")){
-                setTimeout(function(){$('#more-social').slideDown();}, 500);
-            }else{
-                isSocialHome=true;
-        }}
-    }); 
-});
-
-function goSocialHome(){
     
-}
-
-
-
 
 
     //GitHub Configuration
@@ -91,11 +64,9 @@ function goSocialHome(){
     }
     jQuery.fn.loadRepositories = function(username) {
       this.html("<span>Querying GitHub for " + "danrschlosser" +"'s repositories...</span>");
-      var target = this;
-      console.log("here");
+      var target = this
       $.githubUser(username, function(data) {
         var repos = data;
-        console.log(repos);
         sortByNumberOfWatchers(repos);
     
         var list = $('<div/>').addClass("github-repos");
@@ -133,7 +104,6 @@ function goSocialHome(){
                             anch.href = url;
                             anch.target = "_blank";
                             anch.innerHTML = url;
-                            console.log(url);
                             wrap.appendChild(anch);
                             return wrap.innerHTML;
                         });
@@ -153,3 +123,4 @@ function goSocialHome(){
             $tweets.append($('<a class="social-update" href="http://www.twitter.com/danrschlosser">View more tweets...</a>'));
         }
     );
+});
