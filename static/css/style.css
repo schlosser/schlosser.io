@@ -98,6 +98,11 @@ section {
 .social .row .small-4 {
     padding-right: 0;
 }
+.signature {
+    text-align: right;
+    padding-right: 20%;
+    font-style: italic;
+}
 #email .row .small-6 {
     padding-right: 0.125em;
     padding-left: 0.125em;
