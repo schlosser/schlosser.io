@@ -1,6 +1,9 @@
 html, body {
 	background: white url("../img/gray_jean.png") repeat;
 }
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Roboto Slab", serif;
+}
 html {
        overflow-y: scroll;
 }
