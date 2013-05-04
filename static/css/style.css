@@ -154,11 +154,19 @@ section {
     width: 100%; 
     border-radius: 10px;
 }
-.project-link {
+.info-link, .project-link {
     font-size: 2em;
 }
-.project-tags {
+.info-tags, .project-tags {
     list-style: none;
+}
+.info-tags li {
+    float: left;
+    margin: 0.25em;
+    padding: 0.125em 0.25em;
+    font-size: 0.75em;
+    background-color: #ccc;
+    border: 1px solid #aaa;
 }
 .project-tags li {
     float: left;
