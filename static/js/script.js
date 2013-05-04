@@ -43,19 +43,23 @@ $(function(){
     }, 100);
     
     //Main Content Tabs
+    var animating = false;
     $('.nav').click(function(e){
         e.preventDefault();
+        if(animating || $(this).attr("disabled") == "disabled") {
+            return;
+        }
+        animating = true;
         var id = $(this).attr('href');
         var callback = function() {
             $(id).slideDown();
             window.location.hash=id;
             $(id+"-button").attr("disabled", "disabled");
+            animating = false;
         };
         var hash = window.location.hash;
         if (hash) {
-            $(hash).slideUp(function(){
-                callback();
-            });
+            $(hash).slideUp(callback);
         } else{
             callback();
         }
