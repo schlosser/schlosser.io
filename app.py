@@ -9,6 +9,11 @@ from flask import Response
 app = Flask(__name__)
 
 class routes:
+	@app.route('/r/<resource>')
+	def resource(resource=""):
+		print "trying to get" + resource
+		return render_template('iframe.html', resource=resource)
+	
  	@app.route('/dfa-demo')
  	def dfa():
  		print "dfa"

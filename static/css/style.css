@@ -1,6 +1,9 @@
 html, body {
 	background: white url("../img/gray_jean.png") repeat;
 }
+html {
+       overflow-y: scroll;
+}
 .title {
 	padding-left:0 !important;
 	padding-right:0 !important;
@@ -134,28 +137,39 @@ section {
     margin-left: 0.5em;
     font-size: 0.75em;
 }
-.info {
+.info, .project {
     background-color: #eee;
     border: 1px solid #ccc;
     margin: 0.5em;
 }
-.info-header {
+.info-header{
     background-color: #ccc;
     border: 1px solid #aaa;
     margin: 0.5em;
 }
-.info-tagline {
+.info-tagline, .project-tagline{
     font-style: italic;
 }
-.info-pic {
-    width: 100%;
-    border: black 5px; 
+.info-pic, .project-pic{
+    width: 100%; 
+    border-radius: 10px;
+}
+.project-link {
+    font-size: 2em;
+}
+.project-tags {
+    list-style: none;
+}
+.project-tags li {
+    float: left;
+    margin: 0.25em;
+    padding: 0.125em 0.25em;
+    font-size: 0.75em;
+    background-color: #ccc;
+    border: 1px solid #aaa;
 }
 .content .columns .panel {
     margin-bottom: 0;
-}
-html {
-       overflow-y: scroll;
 }
 .social-button {
     color: #2ba6cb;
