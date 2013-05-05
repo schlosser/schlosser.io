@@ -16,7 +16,7 @@ $(function(){
     
     //Konami Code
     $('.konami-box').hide();
-    $(function() {
+    function rotate() {
         var $konami = $("#konami");
         rotate(0);
         function rotate(degree) {        
@@ -26,9 +26,9 @@ $(function(){
                 rotate(++degree);
             },5);
         };
-    }); 
+    }; 
     var konami = new Konami(function(){
-        $('.konami-box').show()
+        $('.konami-box').show(rotate)
     });   
     
     //Slashes to Hashes
