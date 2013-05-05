@@ -1,5 +1,6 @@
 html, body {
 	background: white url("../img/gray_jean.png") repeat;
+	font-family: "Noto Sans", sans-serif;
 }
 h1, h2, h3, h4, h5, h6 {
     font-family: "Roboto Slab", serif;
@@ -154,9 +155,6 @@ section {
     background-color: #ccc;
     border: 1px solid #aaa;
     margin: 0.5em;
-}
-.info-tagline, .project-tagline{
-    font-style: italic;
 }
 .info-pic, .project-pic{
     width: 100%; 
