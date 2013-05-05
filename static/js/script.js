@@ -16,31 +16,20 @@ $(function(){
     
     //Konami Code
     $('.konami-box').hide();
-    var isDesktop = (function() {
-      return !('ontouchstart' in window) // works on most browsers 
-      || !('onmsgesturechange' in window); // works on ie10
-     })();
-     if( isDesktop ){ 
-        function rotate() {
-            var $konami = $("#konami");
-            rotate(0);
-            function rotate(degree) {        
-                $konami.css({ WebkitTransform: 'rotate(' + degree + 'deg)'});  
-                $konami.css({ '-moz-transform': 'rotate(' + degree + 'deg)'});                      
-                timer = setTimeout(function() {
-                    rotate(++degree);
-                },5);
-            };
-        }; 
-    }
-    else {
-        $('.konami-box').show();
-    }
-    
-    
-    
+    /* Breaks mobile
+    function rotate() {
+        var $konami = $("#konami");
+        rotate(0);
+        function rotate(degree) {        
+            $konami.css({ WebkitTransform: 'rotate(' + degree + 'deg)'});  
+            $konami.css({ '-moz-transform': 'rotate(' + degree + 'deg)'});                      
+            timer = setTimeout(function() {
+                rotate(++degree);
+            },5);
+        };
+    };*/ 
     var konami = new Konami(function(){
-        $('.konami-box').show(rotate)
+        $('.konami-box').show()//rotate) //<--breaks mobile
     });   
     
     //Slashes to Hashes
