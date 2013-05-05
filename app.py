@@ -9,6 +9,11 @@ from flask import Response
 app = Flask(__name__)
 
 class routes:
+	@app.route('/admin')
+	def admin():
+		print "admin"
+		return render_template('admin.html')
+	
 	@app.route('/r/<resource>')
 	def resource(resource=""):
 		print "trying to get" + resource
@@ -21,8 +26,8 @@ class routes:
 		
 	@app.route('/<tab>')
 	def yay(tab=""):
-		if tab == "dfa-demo":
-			return redirect(url_for('dfa-demo'))
+		if tab == "dfa-demo" or tab == "admin":
+			return redirect(url_for(tab))
 		print "tabbing to ", tab
 		d = dict(page=tab)
 		return redirect(url_for('home', **d))
