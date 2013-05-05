@@ -33,6 +33,9 @@ $(function(){
             };
         }; 
     }
+    else {
+        $('.konami-box').show();
+    }
     
     
     
