@@ -11,7 +11,25 @@ $(function(){
             });
         });
     });
-           
+       
+    
+    
+    //Konami Code
+    $('.konami-box').hide();
+    $(function() {
+        var $konami = $("#konami");
+        rotate(0);
+        function rotate(degree) {        
+            $konami.css({ WebkitTransform: 'rotate(' + degree + 'deg)'});  
+            $konami.css({ '-moz-transform': 'rotate(' + degree + 'deg)'});                      
+            timer = setTimeout(function() {
+                rotate(++degree);
+            },5);
+        };
+    }); 
+    var konami = new Konami(function(){
+        $('.konami-box').show()
+    });   
     
     //Slashes to Hashes
     var pages = ['home', 'about', 'projects', 'resources', 'blog'];
