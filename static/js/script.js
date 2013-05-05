@@ -27,10 +27,10 @@ $(function(){
                 rotate(++degree);
             },5);
         };
-    };*/ 
+    };
     var konami = new Konami(function(){
         $('.konami-box').show()//rotate) //<--breaks mobile
-    });   
+    });*/   
     
     //Slashes to Hashes
     var pages = ['home', 'about', 'projects', 'resources', 'blog'];
