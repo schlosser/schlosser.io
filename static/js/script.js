@@ -52,14 +52,14 @@ $(function(){
         animating = true;
         var id = $(this).attr('href');
         var callback = function() {
-            $(id).slideDown();
+            $(id).slideDown('slow');
             window.location.hash=id;
             $(id+"-button").attr("disabled", "disabled");
             animating = false;
         };
         var hash = window.location.hash;
         if (hash) {
-            $(hash).slideUp(callback);
+            $(hash).slideUp('slow', callback);
         } else{
             callback();
         }
@@ -71,10 +71,10 @@ $(function(){
     $('.social-button').click(function(){
         var id = $(this).data('target');
         console.log("first");
-        $('.social-content').slideUp();
+        $('.social-content').slideUp('slow');
         setTimeout(function(){
             console.log("second");
-            $(id).slideDown();
+            $(id).slideDown('slow');
         }, 500);    
     });
     
