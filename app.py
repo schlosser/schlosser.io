@@ -9,6 +9,11 @@ from flask import Response
 app = Flask(__name__)
 
 class routes:
+	
+	@app.route('/rss.xml')
+	def rss():
+		return url_for('static', filename='rss.xml')
+		
 	@app.route('/admin')
 	def admin():
 		print "admin"
@@ -26,7 +31,8 @@ class routes:
 		
 	@app.route('/<tab>')
 	def yay(tab=""):
-		if tab == "dfa-demo" or tab == "admin":
+		redirects = ['dfa-demo', 'admin', 'rss.xml']
+		if tab in redirects:
 			return redirect(url_for(tab))
 		print "tabbing to ", tab
 		d = dict(page=tab)
@@ -44,4 +50,4 @@ class routes:
 		return render_template('index.html')
 	
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
