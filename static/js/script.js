@@ -5,7 +5,7 @@ $(function(){
     var single_post_id = "";
     var blog_dir = "static/blog/";
     $.get(blog_dir+"file_list.txt", function(data){
-        $.each(data.split("\n").sort(), function(i, val){
+        $.each(data.split("\n").sort().reverse(), function(i, val){
             if(!val) return;
             all_blog_posts.push("post-"+val.slice(0, -5))
             $.get(blog_dir+val, function(data){
