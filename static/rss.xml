@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<rss version="2.0"><channel><title>Dan Schlosser</title><link>http://danrs.ch/</link><description>The latest blog posts, updates, and other news from Dan Schlosser.</description><lastBuildDate>Thu, 09 May 2013 22:54:44 GMT</lastBuildDate><generator>PyRSS2Gen-1.1.0</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>A "Hello World" of sorts</title><link>http://danrs.ch/blog/post-2013-05-04</link><description>
+<rss version="2.0"><channel><title>Dan Schlosser</title><link>http://danrs.ch/</link><description>The latest blog posts, updates, and other news from Dan Schlosser.</description><lastBuildDate>Thu, 09 May 2013 22:56:32 GMT</lastBuildDate><generator>PyRSS2Gen-1.1.0</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>A "Hello World" of sorts</title><link>http://danrs.ch/blog/post-2013-05-04</link><description>
 
 How exciting, finally after over a year of rumination and weeks of development, danrs.ch is finally live!  This site has been in the pipeline for a while, and I certainly have some lofty goals for it in the future.  On this blog page, I will share my most recent thoughts and projects. I plan to post about technology, music, culture, or whatever else is affecting my life in the moment.
 
@@ -9,7 +9,7 @@ If you have thoughts or comments that you would like to share, please send me an
 
 </description><guid isPermaLink="true">http://danrs.ch/blog/post-2013-05-04</guid><pubDate>Sat, 04 May 2013 12:00:00 GMT</pubDate></item><item><title>Updates: RSS and Blog Features</title><link>http://danrs.ch/blog/post-2013-05-09</link><description>tes: RSS and Blog Features
 
-April 9, 2013
+May 9, 2013
 
 I've just updated the site with a few new features!  I now have an RSS Feed, where you can subscribe to my blog posts! In addition, I have also added blog post preview to the blog roll, so that longer posts don't take up the whole screen.  Plus, there's a nifty animation transitioning from the blog into a post and back!  Click the "see-more" button to try it out, and be sure to let me know what you think!
 

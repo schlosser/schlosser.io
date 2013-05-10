@@ -110,11 +110,10 @@ $(function(){
     }, 100);
     
     //Internal Linking
-    $('.internal-link').click(function(e){
+    $(document).on('click', '.internal-link', function(e){
         e.preventDefault();
-        $($(this).attr('target')).click();
-    });
-    
+        $($(this).attr('target')).click();        
+    })
     
     //Main Content Tabs
     var animating = false;
