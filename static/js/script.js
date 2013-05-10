@@ -21,7 +21,7 @@ $(function(){
                     var $others = $('#blog-posts hr:not(:first), .post:not(#' + post_id + ')');
                     single_post_id = post_id;
                     var callback = function(){
-                        $('#blog-posts h2').html('&#x25c0 Blog').wrap('<a id="blog-home-link" href="#">');
+                        $('#blog-posts h2').html('&#x25c0; Blog').wrap('<a id="blog-home-link" href="#">');
                         $this.hide();                                
                         var slice = paragraphs.slice(2);
                         slice.wrapAll('<div class="extra-wrapper">').slideDown();
