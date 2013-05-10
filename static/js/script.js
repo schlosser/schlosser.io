@@ -1,23 +1,65 @@
 $(function(){
+    
     //blog rendering
+    var all_blog_posts = [];
+    var single_post_id = "";
     var blog_dir = "static/blog/";
     $.get(blog_dir+"file_list.txt", function(data){
         $.each(data.split("\n").sort().reverse(), function(i, val){
+            if(!val) return;
+            all_blog_posts.push("post-"+val.slice(0, -5))
             $.get(blog_dir+val, function(data){
-                var post = $('<div>', {"class":"post", html:data});
-                //console.log(post.html);
+                data = data.replace("<h3>", "<h3 class='post-title'>")
+                           .replace("<em>", "<em class='post-date'>");
+                var post_id = "post-"+val.slice(0, -5);
+                var $post = $('<div>', {"class":"post", html:data, "id":post_id});
+                var paragraphs = $post.children('p')
+                paragraphs.slice(2).hide();
+                $post.append($('<a>', {"class":"see-more", html:"See more &hellip;", href:"#", click:function(e){
+                    e.preventDefault();
+                    var $this = $(this);
+                    var $others = $('#blog-posts hr:not(:first), .post:not(#' + post_id + ')');
+                    single_post_id = post_id;
+                    var callback = function(){
+                        $('#blog-posts h2').html('&#x25c0 Blog').wrap('<a id="blog-home-link" href="#">');
+                        $this.hide();                                
+                        var slice = paragraphs.slice(2);
+                        slice.wrapAll('<div class="extra-wrapper">').slideDown();
+                    };
+                    if ($others.length) {
+                        $others.slideUp();
+                        window.setTimeout(callback, 500);
+                    }
+                    else {
+                        callback();
+                    }
+                }}));
                 $('#blog-posts').append($('<hr/>'));
-                $('#blog-posts').append(post);               
+                $('#blog-posts').append($post);               
             });
         });
     });
-       
+    $(document).on('click','#blog-home-link', function(e){
+        e.preventDefault();
+        $(this).children('h2').html('Blog');
+        if(!single_post_id) return;
+        var $post = $('#'+single_post_id);
+        var $others = $('#blog-posts hr:not(:first), .post:not(#' + single_post_id + ')');        
+        $('.see-more').slideDown();
+        var $extras = $post.children('.extra-wrapper').slideUp(function(){
+            $('.extra-wrapper p:first-child').unwrap();
+            $('#blog-posts-title').unwrap();
+            $post.children('p').slice(2).hide();
+            $others.slideDown();
+        }); 
+    });
+    
     
     
     //Konami Code
     $('.konami-box').hide();
-    /* Breaks mobile
-    function rotate() {
+    //Breaks mobile
+    /* function rotate() {
         var $konami = $("#konami");
         rotate(0);
         function rotate(degree) {        
@@ -29,10 +71,16 @@ $(function(){
         };
     };
     var konami = new Konami(function(){
-        $('.konami-box').show()//rotate) //<--breaks mobile
-    });*/   
+        $('.konami-box').show(rotate) //<--breaks mobile
+    });   */
     
     //Slashes to Hashes
+    
+    setTimeout(function(){
+        if(all_blog_posts.indexOf(linked_post_id)>=0){
+            $("#"+linked_post_id+" .see-more").click();
+        }
+    }, 1000);
     var pages = ['home', 'about', 'projects', 'resources', 'blog'];
     if(page === "" && pages.indexOf(window.location.hash.slice(1)) < 0) {
         window.location.hash="home";
@@ -60,6 +108,13 @@ $(function(){
         $(current_hash+'-button').attr("disabled", "disabled");
         $('#email').slideDown('slow');        
     }, 100);
+    
+    //Internal Linking
+    $('.internal-link').click(function(e){
+        e.preventDefault();
+        $($(this).attr('target')).click();
+    });
+    
     
     //Main Content Tabs
     var animating = false;
