@@ -1,25 +1,12 @@
-<?xml version="1.0"?>
-<rss version="2.0">
-  <channel>
-    <title>John Smith News</title>
-    <link>http://danrs.ch</link>
-    <description>Latest stories form John Smith</description>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 10 Jun 2003 09:41:01 GMT</lastBuildDate>
-
-    <item>
-      <title>My First Article</title>
-      <link>http://danrs.ch/blog</link>
-      <description>It's my first article. Hello World!</description>
-      <pubDate>Tue, 03 Jun 2003 09:39:21 GMT</pubDate>
-    </item>
-    
-    <item>
-      <title>My Second Article - I have bought a cat</title>
-      <link>http://danrs.ch/blog</link>
-      <description>I've boght a cat. Now I have a pet.</description>
-      <pubDate>Tue, 17 Jan 2007 10:39:21 GMT</pubDate>
-    </item>
-	
-  </channel>
-</rss>
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rss version="2.0"><channel><title>Dan Schlosser</title><link>http://danrs.ch/</link><description>The latest blog posts, updates, and other news from Dan Schlosser.</description><lastBuildDate>Thu, 09 May 2013 22:16:40 GMT</lastBuildDate><generator>PyRSS2Gen-1.1.0</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>A "Hello World" of sorts</title><link>http://danrs.ch/blog/2013-05-04</link><description>
+How exciting, finally after over a year of rumination and weeks of development, danrs.ch is finally live!  This site has been in the pipeline for a while, and I certainly have some lofty goals for it in the future.  On this blog page, I will share my most recent thoughts and projects. I plan to post about technology, music, culture, or whatever else is affecting my life in the moment.
+As my website reaches launch, I want to take this opportunity to thank Alex Akers, an iOS developer and friend who was extremely helpful in getting everything up and running.
+If you have thoughts or comments that you would like to share, please send me an email at dan@danrs.ch, I'd love to hear from you! Hello, World!
+</description><guid isPermaLink="true">http://danrs.ch/blog/2013-05-04</guid><pubDate>Sat, 04 May 2013 12:00:00 GMT</pubDate></item><item><title>Whatup Doc</title><link>http://danrs.ch/blog/2013-05-08</link><description>
+How exciting, finally after over a year of rumination and weeks of development, danrs.ch is finally live!  This site has been in the pipeline for a while, and I certainly have some lofty goals for it in the future.  On this blog page, I will share my most recent thoughts and projects. I plan to post about technology, music, culture, or whatever else is affecting my life in the moment.
+How exciting, finally after over a year of rumination and weeks of development, danrs.ch is finally live!  This site has been in the pipeline for a while, and I certainly have some lofty goals for it in the future.  On this blog page, I will share my most recent thoughts and projects. I plan to post about technology, music, culture, or whatever else is affecting my life in the moment.
+How exciting, finally after over a year of rumination and weeks of development, danrs.ch is finally live!  This site has been in the pipeline for a while, and I certainly have some lofty goals for it in the future.  On this blog page, I will share my most recent thoughts and projects. I plan to post about technology, music, culture, or whatever else is affecting my life in the moment.
+As my website reaches launch, I want to take this opportunity to thank Alex Akers, an iOS developer and friend who was extremely helpful in getting everything up and running.
+If you have thoughts or comments that you would like to share, please send me an email at dan@danrs.ch, I'd love to hear from you! Hello, World!
+</description><guid isPermaLink="true">http://danrs.ch/blog/2013-05-08</guid><pubDate>Wed, 08 May 2013 12:00:00 GMT</pubDate></item></channel></rss>
