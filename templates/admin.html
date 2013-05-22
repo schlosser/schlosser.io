@@ -1,6 +1,44 @@
 <!doctype html>
 <html>
-	<head>
+<head>
+	<meta charset="utf-8" />
+
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Dan Schlosser</title>
+    
+
+    <!-- Included CSS Files (Compressed) -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/normalize.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/foundation.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/general_foundicons.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/social_foundicons.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/admin.css') }}">
+    
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
+    <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,400italic|Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.timeago.js') }}" type="text/javascript"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/foundation/foundation.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/foundation/foundation.section.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/vendor/custom.modernizr.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/markdown.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/history.js')}}"></script>
+    
+    <script src="{{ url_for('static', filename='js/admin.js')}}"></script>   
+
+    <!--[if lt IE 8]>
+        <link rel="stylesheet" href="{{url_for('static', filename='stylesheets/social_foundicons_ie7.css')}}">
+    <![endif]--> 
+    <!--[if lt IE 8]>
+        <link rel="stylesheet" href="stylesheets/general_foundicons_ie7.css">
+    <![endif]-->
+	    
+	    
+	    
 	<!--Google Analytics-->
 	<script type="text/javascript">
 	  var _gaq = _gaq || [];
@@ -15,8 +53,27 @@
 	  })();
 	</script>
 	
-	</head>
-	<body>
-		<h1>ADMINZ ALL THE WAYZ</h1>
-	</body>
+</head>
+<body>
+    <div class="row">
+        <div class="large-12 columns">
+            <h1 id="title">DANRS.CH : ADMIN CONSOLE</h1>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="decoration"></div>
+    </div>
+    <div class="row" >
+        <div class="large-3 columns">
+            
+        </div>
+        <div class="large-9 columns">
+            
+        </div>
+    </div>
+    
+	<script>
+        $(document).foundation();
+    </script>
+</body>
 </html>

@@ -9,24 +9,24 @@ class routes:
 	def rss():
 		return send_from_directory(app.static_folder, request.path[1:])
 		
-	@app.route('/admin')
+	@app.route('/admin/')
 	def admin():
 		return render_template('admin.html')
 	
-	@app.route('/blog/<post_id>')
+	@app.route('/blog/<post_id>/')
 	def post(post_id=""):
 		d = dict(page='blog',post_id=post_id)
 		return redirect(url_for('home', **d))
 	
-	@app.route('/r/<resource>')
+	@app.route('/r/<resource>/')
 	def resource(resource=""):
 		return render_template('iframe.html', resource=resource)
 	
- 	@app.route('/dfa-demo')
+ 	@app.route('/dfa-demo/')
  	def dfa():
  		return render_template('dfa-demo.html')
 		
-	@app.route('/<tab>')
+	@app.route('/<tab>/')
 	def yay(tab=""):
 		redirects = ['dfa-demo', 'admin']
 		if tab in redirects:
