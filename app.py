@@ -22,6 +22,10 @@ class routes:
 	def resource(resource=""):
 		return render_template('iframe.html', resource=resource)
 	
+	@app.route('/sp/<simplePage>/')
+	def simplePage(simplePage=""):
+		return render_template(simplePage+'.html')
+	
  	@app.route('/dfa-demo/')
  	def dfa():
  		return render_template('dfa-demo.html')
