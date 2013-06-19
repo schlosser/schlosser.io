@@ -186,7 +186,7 @@ $(function(){
     
     //Twitter Configuration
     $.getJSON(
-        'http://api.twitter.com/1/statuses/user_timeline.json?callback=?&screen_name=danrschlosser&count=4',
+        'http://api.twitter.com/1.1/statuses/user_timeline.json?callback=?&screen_name=danrschlosser&count=4',
         function (data)
         {
             var $tweets = $('#tweets');
