@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<rss version="2.0"><channel><title>Dan Schlosser</title><link>http://danrs.ch/</link><description>The latest blog posts, updates, and other news from Dan Schlosser.</description><lastBuildDate>Fri, 28 Jun 2013 15:58:01 GMT</lastBuildDate><generator>PyRSS2Gen-1.1.0</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>A "Hello World" of sorts</title><link>http://danrs.ch/blog/post-2013-05-04</link><description>
+<rss version="2.0"><channel><title>Dan Schlosser</title><link>http://danrs.ch/</link><description>The latest blog posts, updates, and other news from Dan Schlosser.</description><lastBuildDate>Sat, 29 Jun 2013 18:10:17 GMT</lastBuildDate><generator>PyRSS2Gen-1.1.0</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>A "Hello World" of sorts</title><link>http://danrs.ch/blog/post-2013-05-04</link><description>
 
 How exciting, finally after over a year of rumination and weeks of development, danrs.ch is finally live!  This site has been in the pipeline for a while, and I certainly have some lofty goals for it in the future.  On this blog page, I will share my most recent thoughts and projects. I plan to post about technology, music, culture, or whatever else is affecting my life in the moment.
 
@@ -17,4 +17,20 @@ This update is in anticipation of longer blog posts to come, and my blog infrast
 
 Browser back and forward buttons are currently unsupported by my website, which is a bummer, and right now while I can link to blog posts, that displayed URL gets changed to the default danrs.ch/#blog.  This means that URL sharing is hard, and if you refresh, you see the blog roll as opposed to the full post.  Further updates will probably involve introducing new URLs for each page to fix this.
 
-</description><guid isPermaLink="true">http://danrs.ch/blog/post-2013-05-09</guid><pubDate>Thu, 09 May 2013 12:00:00 GMT</pubDate></item></channel></rss>
+</description><guid isPermaLink="true">http://danrs.ch/blog/post-2013-05-09</guid><pubDate>Thu, 09 May 2013 12:00:00 GMT</pubDate></item><item><title>I'm on Flickr!</title><link>http://danrs.ch/blog/post-2013-06-29</link><description>on Flickr!
+
+June 29, 2013
+
+In a bold step towards getting into photography, I bought the Sony Alpha NEX-6, a mirrorless interchangeable lens camera with the kit 16-55mm lens.  Although I'm an absolute novice photographer, I'm trying to take myself seriously, and have committed to uploading my photos to my Flickr account. In an age of Dropbox and Google+ instant photo upload, I wasn't convinced that I would need a dedicated service for my photos.  My Galaxy Nexus uploads every food pic and selfie without being asked, which is great, but both Google+ and Dropbox have their disadvantages when handling pictures taken with a proper camera.
+
+Google+ is fine for smartphone photos, but any pictures larger than 2048 x 2048 start to 
+take up valuable Google Drive storage. 
+For Dropbox, even my 21GB of free storage will go fast with 16.1MP (4912 x 3264) photos from my camera.  Because I'm cheep, and Flickr recently upgraded their free accounts to include a whopping 1TB of storage, I've decided to upload photos there.
+
+After having used Flickr for over a month now, I can definitely say that I'm impressed. It's great for my basic uploading and grouping needs, and the photostream view is really nice to showcase my latest photos.  The NEX-6 is extremely portable and takes surprisingly beautiful photos, and it's nice to be able to throw my SD card into my laptop and have a batch of photos uploaded to my stream in under and hour.
+
+Flickr is far from perfect though. It lacks the ability to download photos en mass, and sharing photos to social networks is a little finicky.  It's easy to share one photo or an entire set, but there isn't an easy way to share the best three photos, for example.  The NEX-6 can beam photos to my phone over Wi-Fi Direct, which sort of solves this problem, but it would be nice to be able to post multiple photos from my computer as well.
+
+Posting to Flickr feels a little weird still, most because it's fairly disconnected from the rest of the Internet. (Who really goes and checks for updates on someone's Flickr feed?)  Unless Facebook or Google+ were able to pull in all of my Flickr photos automatically, there really isn't a great solution to these problems.  I certainly glad I moved to Flickr though, there's nothing worse than the feeling that Facebook is the only place where I store my photos online. If I want the perfect free photo-upload service, I'll have to write it myself, I guess.  Big surprise.
+
+</description><guid isPermaLink="true">http://danrs.ch/blog/post-2013-06-29</guid><pubDate>Sat, 29 Jun 2013 12:00:00 GMT</pubDate></item></channel></rss>
