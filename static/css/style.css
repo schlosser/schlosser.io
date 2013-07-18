@@ -8,8 +8,7 @@ and (max-device-width : 480px)
     }
 }
 .title-wrapper {
-    margin-right:0;
-    margin-left:0;
+    margin:0 !important;
     padding-right:15px;
     padding-left:15px;
 }
