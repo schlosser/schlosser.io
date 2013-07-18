@@ -1,3 +1,23 @@
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px)
+{
+    .nav {
+        font-size: .8em;
+    }
+}
+.title-wrapper {
+    margin-right:0;
+    margin-left:0;
+    padding-right:15px;
+    padding-left:15px;
+}
+.title-wrapper > .row {
+    padding:0;
+    margin:0 0 0 1 !important;
+    width: default;
+}
 html, body {
 	background: white url("../img/gray_jean.png") repeat;
 	font-family: "Noto Sans", sans-serif;
@@ -15,9 +35,22 @@ html {
 .title {
 	padding-left:0 !important;
 	padding-right:0 !important;
+    float:right;
+    width: 22.5% !important;
+}
+#home-button {
+    width:100%;
+}
+#home-button-div {
+    width:10%;
+    width: webkit-calc(100% - 90%);
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 .nav {
     margin-bottom: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
     border: none;
 }
 .pic {
@@ -42,9 +75,6 @@ html {
 }
 section {
     text-align: center;
-}
-.title {
-    width: 20% !important;
 }
 #tagline{
     font-style: italic;
