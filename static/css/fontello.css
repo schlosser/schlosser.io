@@ -17,6 +17,7 @@
     src: url('../fonts/fontello.svg?57903182#fontello') format('svg');
   }
 }
+
  
  [class^="icon-"]:before, [class*=" icon-"]:before {
   font-family: "fontello";
@@ -27,7 +28,6 @@
   display: inline-block;
   text-decoration: inherit;
   width: 1em;
-  margin-right: .2em;
   text-align: center;
   /* opacity: .8; */
  
@@ -50,4 +50,3 @@
 }
  
 .icon-home:before { content: '\e800'; } /* '' */
-}
