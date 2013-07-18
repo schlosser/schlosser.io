@@ -8,9 +8,8 @@ and (max-device-width : 480px)
     }
 }
 .title-wrapper {
-    margin:0 !important;
-    padding-right:15px;
-    padding-left:15px;
+    padding-right:0;
+    padding-left:0;
 }
 .title-wrapper > .row {
     padding:0;
