@@ -20,6 +20,7 @@ html, body {
 	background: white url("../img/gray_jean.png") repeat;
 	font-family: "Noto Sans", sans-serif;
 }
+
 strong {
     font-family: "Notto Sans", sans-serif;
     font-weight: bold;
@@ -33,7 +34,7 @@ html {
 .title {
 	padding-left:0 !important;
 	padding-right:0 !important;
-float:right;
+    float:right;
     width: 22.5% !important;
 }
 #home-button {
@@ -41,7 +42,7 @@ float:right;
 }
 #home-button-div {
     width:10%;
-    width: webkit-calc(100% - 90%);
+    width: -webkit-calc(100% - 90%);
     padding-left: 0 !important;
     padding-right: 0 !important;
 }

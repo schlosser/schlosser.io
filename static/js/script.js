@@ -102,16 +102,23 @@ $(function(){
     var animating = false;
     $('.nav').click(function(e){
         e.preventDefault();
+        // $('html').css('min-height', $(document).height());
         if(animating || $(this).attr("disabled") == "disabled") {
             return;
         }
         animating = true;
         var id = $(this).attr('href');
         var callback = function() {
-            $(id).slideDown('slow');
+            $(id).slideDown('slow', function(){
+                // $('html').css('min-height', '');     
+            });
             window.location.hash=id;
             $(id+"-button").attr("disabled", "disabled");
             animating = false;
+            // $('html,body').animate({
+            //     scrollTop: $('.title-wrapper').offset().top},
+            //     'slow');
+            
         };
         var hash = window.location.hash;
         if (hash) {
@@ -120,6 +127,7 @@ $(function(){
             callback();
         }
         $(hash+"-button").removeAttr("disabled");
+        return false;
      });
     
     //Social Tabs
@@ -134,6 +142,10 @@ $(function(){
         }, 500);    
     });
     
+
+    // //Prevent page jump
+    // var offset = $('.title-wrapper').position().top + $(window).height();
+    // $('html').css('min-height', offset);
 
 
     //GitHub Configuration
