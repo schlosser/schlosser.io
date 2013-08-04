@@ -1,4 +1,4 @@
-danrs.ch
-========
+[danrs.ch](http://danrs.ch)
+===========================
 
-My Website -- it's cool.
+This is my personal website.  You can find out more about me there.
