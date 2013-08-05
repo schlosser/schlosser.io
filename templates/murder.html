@@ -1,8 +1,9 @@
 {% extends "simple-page.html" %}
 
-{% block title%}Murder Mystery Puzzles{% endblock %}
+{% block title%}Murder Mystery Puzzles{{ super() }}{% endblock %}
 
 {% block content %}
+	{{ super() }}
 	<h1>MURDER MYSTERY PUZZLES</h1>
 	
 	<p><em>A puzzle game for clever thinkers with free time and not much else.</em></p>
