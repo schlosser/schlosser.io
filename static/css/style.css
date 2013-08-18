@@ -1,11 +1,17 @@
 /* Smartphones (portrait and landscape) ----------- */
-@media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 480px)
-{
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
     .nav {
         font-size: .8em;
     }
+}
+@media only screen and (min-width: 640px) {
+    #social {
+        padding-left: none;
+        padding-top: 1em;
+    }
+}
+[class*="block-grid-4"] > li {
+    width: 25% !important;
 }
 .title-wrapper {
     padding-right:0;
@@ -52,10 +58,12 @@ html {
     padding-right: 0 !important;
     border: none;
 }
-.pic {
+div.pic {
+    padding:1em;
+}
+img.pic {
     text-align: center;
     border-radius: 25px;
-    padding: 1em;
 }
 .social-icons {
     width:100%;
