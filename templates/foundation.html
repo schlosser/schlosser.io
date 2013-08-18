@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	{% block head %}
+    {% block meta %}
+    <meta charset="utf-8" />
+
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+    {% endblock meta%}
+
+
+  	<Title>
+  		{% block title%}{% endblock %}
+    </Title>    
+
+    {% block css %}
+    <!-- Included CSS Files (Compressed) -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/normalize.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/foundation.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/grid-5.css') }}">
+
+    <!--[if lt IE 8]>
+        <link rel="stylesheet" href="{{url_for('static', filename='stylesheets/social_foundicons_ie7.css')}}">
+    <![endif]--> 
+    <!--[if lt IE 8]>
+        <link rel="stylesheet" href="stylesheets/general_foundicons_ie7.css">
+    <![endif]-->
+    {% endblock css %}
+
+    {% block favicon %}
+    <!-- Favicon.ico -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
+    {% endblock favicon %}
+
+    {% block fonts %}
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,400italic|Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+    {% endblock fonts %}
+
+    {% block js %}
+    <!-- Foundation and jQuery -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/foundation/foundation.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/foundation/foundation.section.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/vendor/custom.modernizr.js')}}"></script>
+    {% endblock js %}
+	        
+	<!--Google Analytics-->
+    {% block analytics %}
+	<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-40705748-1']);
+	  _gaq.push(['_setDomainName', 'danrs.ch']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
+    {% endblock analytics %}
+    
+    {% endblock head %}
+</head>
+<body>
+{% block body %}
+{% endblock body %}
+</body>
+</html>

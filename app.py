@@ -1,9 +1,10 @@
 from flask import Flask, Response, make_response, redirect, render_template, \
 	request, url_for, send_from_directory, current_app
 from flask.ext.basicauth import BasicAuth
-import hashlib
+import hashlib, json
 
 app = Flask(__name__)
+data = json.loads(open("data/data.json", "r").read())
 
 app.config['BASIC_AUTH_USERNAME'] = 'd9f10c6233ff8bc87416a83f31daa23cc878d95cdd6d438256a66376'
 app.config['BASIC_AUTH_PASSWORD'] = 'a07652eac7c733cc10bd98002112c49e2788fed39fe2e2e4750b0ab1'
@@ -11,7 +12,6 @@ app.config['BASIC_AUTH_PASSWORD'] = 'a07652eac7c733cc10bd98002112c49e2788fed39fe
 basic_auth = BasicAuth(app)
 
 def _checkHashCredentials(self, username, password):
-
 	hashedUsername = hashlib.sha224(username).hexdigest()
 	hashedPassword = hashlib.sha224(password).hexdigest()
 	correctUsername = current_app.config['BASIC_AUTH_USERNAME']
@@ -64,11 +64,12 @@ class routes:
 		
 	@app.route('/')
 	def home():
+		print data["resources"][1]["html"]
 		keys = request.args.keys()
 		if len(keys):
 			request.args.get("post_id")
-			return render_template('index.html', page=request.args.get("page"), post_id=request.args.get("post_id"))
-		return render_template('index.html')
+			return render_template('index.html', data=data, page=request.args.get("page"), post_id=request.args.get("post_id"))
+		return render_template('index.html', data=data)
 	
 if __name__ == '__main__':
     app.run(debug=True)
