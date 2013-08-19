@@ -5,6 +5,7 @@ import hashlib, json
 
 app = Flask(__name__)
 data = json.loads(open("data/data.json", "r").read())
+blogPosts = json.loads(open("data/blogPosts.json", "r").read())
 
 app.config['BASIC_AUTH_USERNAME'] = 'd9f10c6233ff8bc87416a83f31daa23cc878d95cdd6d438256a66376'
 app.config['BASIC_AUTH_PASSWORD'] = 'a07652eac7c733cc10bd98002112c49e2788fed39fe2e2e4750b0ab1'
@@ -18,7 +19,6 @@ def _checkHashCredentials(self, username, password):
 	correctPassword = current_app.config['BASIC_AUTH_PASSWORD']
 	print username, password, hashedUsername, hashedPassword, correctUsername, correctPassword
 	return hashedUsername == correctUsername and hashedPassword == correctPassword
-
 
 BasicAuth.check_credentials = _checkHashCredentials
 
@@ -68,8 +68,14 @@ class routes:
 		keys = request.args.keys()
 		if len(keys):
 			request.args.get("post_id")
-			return render_template('index.html', data=data, page=request.args.get("page"), post_id=request.args.get("post_id"))
-		return render_template('index.html', data=data)
+			return render_template('index.html', data=data, blogPosts=blogPosts, page=request.args.get("page"), post_id=request.args.get("post_id"))
+		return render_template('index.html', data=data, blogPosts=blogPosts)
+
+
+
+
+
+
 	
 if __name__ == '__main__':
     app.run(debug=True)
