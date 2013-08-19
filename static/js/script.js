@@ -57,8 +57,7 @@ $(function(){
     
     
     
-    //Slashes to Hashes
-    
+    //Slashes to Hashes 
     setTimeout(function(){
         if(all_blog_posts.indexOf(linked_post_id)>=0){
             $("#"+linked_post_id+" .see-more").click();
@@ -109,16 +108,11 @@ $(function(){
         animating = true;
         var id = $(this).attr('href');
         var callback = function() {
-            $(id).slideDown('slow', function(){
-                // $('html').css('min-height', '');     
+            $(id).slideDown('slow', function(){     
             });
             window.location.hash=id;
             $(id+"-button").attr("disabled", "disabled");
             animating = false;
-            // $('html,body').animate({
-            //     scrollTop: $('.title-wrapper').offset().top},
-            //     'slow');
-            
         };
         var hash = window.location.hash;
         if (hash) {
@@ -141,12 +135,6 @@ $(function(){
             $(id).slideDown('slow');
         }, 500);    
     });
-    
-
-    // //Prevent page jump
-    // var offset = $('.title-wrapper').position().top + $(window).height();
-    // $('html').css('min-height', offset);
-
 
     //GitHub Configuration
     $(function() {
@@ -178,95 +166,23 @@ $(function(){
         });
       }
     };
-    
-    //Twitter Configuration
-    /*********************************************************************
-	*  #### Twitter Post Fetcher v7.0 ####
-	*  Coded by Jason Mayes 2013. A present to all the developers out there.
-	*  www.jasonmayes.com
-	*  Please keep this disclaimer with my code if you use it. Thanks. :-)
-	*  Got feedback or questions, ask here: 
-	*  http://www.jasonmayes.com/projects/twitterApi/
-	*  Updates will be posted to this site.
-	*********************************************************************/
-	var twitterFetcher = function () {
-	    function t(d) {
-	        return d.replace(/<b[^>]*>(.*?)<\/b>/gi, function (c, d) {
-	            return d
-	        }).replace(/class=".*?"|data-query-source=".*?"|dir=".*?"|rel=".*?"/gi, "")
-	    }
-	
-	    function m(d, c) {
-	        for (var f = [], e = RegExp("(^| )" + c + "( |$)"), g = d.getElementsByTagName("*"), b = 0, a = g.length; b < a; b++) e.test(g[b].className) && f.push(g[b]);
-	        return f
-	    }
-	    var u = "",
-	        j = 20,
-	        n = !0,
-	        h = [],
-	        p = !1,
-	        k = !0,
-	        l = !0,
-	        q = null,
-	        r = !0;
-	    return {
-	        fetch: function (d, c, f, e, g, b, a) {
-	            void 0 === f && (f = 20);
-	            void 0 === e && (n = !0);
-	            void 0 === g && (g = !0);
-	            void 0 === b && (b = !0);
-	            void 0 === a && (a = "default");
-	            p ? h.push({
-	                id: d,
-	                domId: c,
-	                maxTweets: f,
-	                enableLinks: e,
-	                showUser: g,
-	                showTime: b,
-	                dateFunction: a
-	            }) : (p = !0, u = c, j = f, n = e, l = g, k = b, q = a, c = document.createElement("script"), 
-	            c.type = "text/javascript", 
-	            c.src = "//cdn.syndication.twimg.com/widgets/timelines/" + d + "?&lang=en&callback=twitterFetcher.callback&suppress_response_codes=true&rnd=" + Math.random(), 
-	            document.getElementsByTagName("head")[0].appendChild(c))
-	        },
-	        callback: function (d) {
-	            var c = document.createElement("div");
-	            c.innerHTML = d.body;
-	            "undefined" ===
-	                typeof c.getElementsByClassName && (r = !1);
-	            var f = d = null,
-	                e = null;
-	            r ? (d = c.getElementsByClassName("e-entry-title"), f = c.getElementsByClassName("p-author"), e = c.getElementsByClassName("dt-updated")) : (d = m(c, "e-entry-title"), f = m(c, "p-author"), e = m(c, "dt-updated"));
-	            for (var c = [], g = d.length, b = 0; b < g;) {
-	                if ("string" !== typeof q) {
-	                    var a = new Date(e[b].getAttribute("datetime").replace(/-/g, "/").replace("T", " ").split("+")[0]),
-	                        a = q(a);
-	                    e[b].setAttribute("aria-label", a);
-	                    if (d[b].innerText)
-	                        if (r) e[b].innerText = a;
-	                        else {
-	                            var s = document.createElement("p"),
-	                                v = document.createTextNode(a);
-	                            s.appendChild(v);
-	                            s.setAttribute("aria-label", a);
-	                            e[b] = s
-	                        } else e[b].textContent = a
-	                }
-	                n ? (a = "", l && (a += '<div class="user">' + t(f[b].innerHTML) + "</div>"), a += '<p class="tweet">' + t(d[b].innerHTML) + "</p>", k && (a += '<p class="timePosted">' + e[b].getAttribute("aria-label") + "</p>")) : d[b].innerText ? (a = "", l && (a += '<p class="user">' + f[b].innerText + "</p>"), a += '<p class="tweet">' + d[b].innerText + "</p>", k && (a += '<p class="timePosted">' + e[b].innerText + "</p>")) : (a = "", l && (a += '<p class="user">' + f[b].textContent +
-	                    "</p>"), a += '<p class="tweet">' + d[b].textContent + "</p>", k && (a += '<p class="timePosted">' + e[b].textContent + "</p>"));
-	                c.push(a);
-	                b++
-	            }
-	            c.length > j && c.splice(j, c.length - j);
-	            d = c.length;
-	            f = 0;
-	            e = document.getElementById(u);
-	            for (g = "<ul>"; f < d;) g += "<li>" + c[f] + "</li>", f++;
-	            e.innerHTML = g + "</ul>";
-	            p = !1;
-	            0 < h.length && (twitterFetcher.fetch(h[0].id, h[0].domId, h[0].maxTweets, h[0].enableLinks, h[0].showUser, h[0].showTime, h[0].dateFunction), h.splice(0, 1))
-	        }
-	    }
-	}();
-    twitterFetcher.fetch('347442772464246785', 'tweets', 3, true);
-});
+ });   
+/*********************************************************************
+*  #### Twitter Post Fetcher v10.0 ####
+*  Coded by Jason Mayes 2013. A present to all the developers out there.
+*  www.jasonmayes.com
+*  Please keep this disclaimer with my code if you use it. Thanks. :-)
+*  Got feedback or questions, ask here: 
+*  http://www.jasonmayes.com/projects/twitterApi/
+*  Updates will be posted to this site.
+*********************************************************************/
+var twitterFetcher;
+var twitterFetcher=function(){function x(e){return e.replace(/<b[^>]*>(.*?)<\/b>/gi,function(c,e){return e}).replace(/class=".*?"|data-query-source=".*?"|dir=".*?"|rel=".*?"/gi,"")}function p(e,c){for(var g=[],f=RegExp("(^| )"+c+"( |$)"),a=e.getElementsByTagName("*"),h=0,d=a.length;h<d;h++)f.test(a[h].className)&&g.push(a[h]);return g}var y="",l=20,s=!0,k=[],t=!1,q=!0,r=!0,u=null,v=!0,z=!0,w=null,A=!0;return{fetch:function(e,c,g,f,a,h,d,b,m,n){void 0===g&&(g=20);void 0===f&&(s=!0);void 0===a&&(a=
+!0);void 0===h&&(h=!0);void 0===d&&(d="default");void 0===b&&(b=!0);void 0===m&&(m=null);void 0===n&&(n=!0);t?k.push({id:e,domId:c,maxTweets:g,enableLinks:f,showUser:a,showTime:h,dateFunction:d,showRt:b,customCallback:m,showInteraction:n}):(t=!0,y=c,l=g,s=f,r=a,q=h,z=b,u=d,w=m,A=n,c=document.createElement("script"),c.type="text/javascript",c.src="//cdn.syndication.twimg.com/widgets/timelines/"+e+"?&lang=en&callback=twitterFetcher.callback&suppress_response_codes=true&rnd="+Math.random(),document.getElementsByTagName("head")[0].appendChild(c))},
+callback:function(e){var c=document.createElement("div");c.innerHTML=e.body;"undefined"===typeof c.getElementsByClassName&&(v=!1);e=[];var g=[],f=[],a=[],h=[],d=0;if(v)for(c=c.getElementsByClassName("tweet");d<c.length;){0<c[d].getElementsByClassName("retweet-credit").length?a.push(!0):a.push(!1);if(!a[d]||a[d]&&z)e.push(c[d].getElementsByClassName("e-entry-title")[0]),h.push(c[d].getAttribute("data-tweet-id")),g.push(c[d].getElementsByClassName("p-author")[0]),f.push(c[d].getElementsByClassName("dt-updated")[0]);
+d++}else for(c=p(c,"tweet");d<c.length;)e.push(p(c[d],"e-entry-title")[0]),h.push(c[d].getAttribute("data-tweet-id")),g.push(p(c[d],"p-author")[0]),f.push(p(c[d],"dt-updated")[0]),0<p(c[d],"retweet-credit").length?a.push(!0):a.push(!1),d++;e.length>l&&(e.splice(l,e.length-l),g.splice(l,g.length-l),f.splice(l,f.length-l),a.splice(l,a.length-l));c=[];d=e.length;for(a=0;a<d;){if("string"!==typeof u){var b=new Date(f[a].getAttribute("datetime").replace(/-/g,"/").replace("T"," ").split("+")[0]),b=u(b);
+f[a].setAttribute("aria-label",b);if(e[a].innerText)if(v)f[a].innerText=b;else{var m=document.createElement("p"),n=document.createTextNode(b);m.appendChild(n);m.setAttribute("aria-label",b);f[a]=m}else f[a].textContent=b}b="";s?(r&&(b+='<div class="user">'+x(g[a].innerHTML)+"</div>"),b+='<p class="tweet">'+x(e[a].innerHTML)+"</p>",q&&(b+='<p class="timePosted">'+f[a].getAttribute("aria-label")+"</p>")):e[a].innerText?(r&&(b+='<p class="user">'+g[a].innerText+"</p>"),b+='<p class="tweet">'+e[a].innerText+
+"</p>",q&&(b+='<p class="timePosted">'+f[a].innerText+"</p>")):(r&&(b+='<p class="user">'+g[a].textContent+"</p>"),b+='<p class="tweet">'+e[a].textContent+"</p>",q&&(b+='<p class="timePosted">'+f[a].textContent+"</p>"));A&&(b+='<p class="interact"><a href="https://twitter.com/intent/tweet?in_reply_to='+h[a]+'" class="twitter_reply_icon">Reply</a><a href="https://twitter.com/intent/retweet?tweet_id='+h[a]+'" class="twitter_retweet_icon">Retweet</a><a href="https://twitter.com/intent/favorite?tweet_id='+
+h[a]+'" class="twitter_fav_icon">Favorite</a></p>');c.push(b);a++}if(null==w){e=c.length;g=0;f=document.getElementById(y);for(h="<ul>";g<e;)h+="<hr><li>"+c[g]+"</li>",g++;f.innerHTML=h+"<hr><li><a href='http://twitter.com/danrschlosser'>See more on Twitter...</a></li></ul>"}else w(c);t=!1;0<k.length&&(twitterFetcher.fetch(k[0].id,k[0].domId,k[0].maxTweets,k[0].enableLinks,k[0].showUser,k[0].showTime,k[0].dateFunction,k[0].showRt,k[0].customCallback,k[0].showInteraction),k.splice(0,1))}}}();
+twitterFetcher.fetch('347442772464246785', 'tweets', 3, true, false, true, "default", false, null, false);
+

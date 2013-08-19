@@ -10,6 +10,31 @@
         padding-top: 1em;
     }
 }
+
+/* Twitter Styling */
+#tweets > ul {
+    list-style-type: none;
+    margin-bottom:0;
+}
+#tweets > ul > li {
+    margin-left:0.5em;
+    margin-right:0.5em;
+}
+p.tweet {
+    margin-bottom: 0;
+}
+p.tweet > a {
+    color: #333;
+}
+p.tweet > a:hover {
+    color: #2795b6;
+}
+p.timePosted {
+    font-size: .8em;
+    text-align: right;
+    margin-bottom: 0;
+}
+
 [class*="block-grid-4"] > li {
     width: 25% !important;
 }

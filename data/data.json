@@ -1,234 +1,243 @@
 {
-    "about": {
-        "Education": {
-            "left": [
-                {
-                    "title": "Columbia University",
-                    "tagline": "SEAS Class of 2016, Computer Science with Jazz Studies",
-                    "description": "At Columbia, I have taken (among others) Art of Engineering, Discrete Math, Honors Math, and Intro to Computing.  Next semester, I will be taking Honors Data Structures, Computer Science Theory, and Advanced Programming.",
-                    "tags": [
-                        "Python",
-                        "C",
-                        "Matlab"
-                    ],
-                    "links": [
-                        {
-                            "clickthroughLink": {
-                                "local": "no",
-                                "link": "http://www.columbia.edu/"
-                            },
-                            "class": "gen-foundicon-globe"
-                        }
-                    ]
-                }
-            ],
-            "right": [
-                {
-                    "title": "Lexington High School",
-                    "tagline": "Class of 2012",
-                    "description": "I grew up in Lexington, MA, and at Lexington High school I took AP Computer Science, AP Calculus, Intro to Programming, and more.",
-                    "tags": [
-                        "Java",
-                        "C++"
-                    ],
-                    "links": [
-                        {
-                            "clickthroughLink": {
-                                "local": "no",
-                                "link": "http://lps.lexingtonma.org/lexingtonhs"
-                            },
-                            "class": "gen-foundicon-globe"
-                        }
-                    ]
-                }
+    "about": [
+        {
+            "title": "Education",
+            "content": [
+                [
+                    {
+                        "title": "Columbia University",
+                        "tagline": "SEAS Class of 2016, Computer Science with Jazz Studies",
+                        "description": "At Columbia, I have taken (among others) Art of Engineering, Discrete Math, Honors Math, and Intro to Computing.  Next semester, I will be taking Honors Data Structures, Computer Science Theory, and Advanced Programming.",
+                        "tags": [
+                            "Python",
+                            "C",
+                            "Matlab"
+                        ],
+                        "links": [
+                            {
+                                "clickthroughLink": {
+                                    "local": "no",
+                                    "link": "http://www.columbia.edu/"
+                                },
+                                "class": "gen-foundicon-globe"
+                            }
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "title": "Lexington High School",
+                        "tagline": "Class of 2012",
+                        "description": "I grew up in Lexington, MA, and at Lexington High school I took AP Computer Science, AP Calculus, Intro to Programming, and more.",
+                        "tags": [
+                            "Java",
+                            "C++"
+                        ],
+                        "links": [
+                            {
+                                "clickthroughLink": {
+                                    "local": "no",
+                                    "link": "http://lps.lexingtonma.org/lexingtonhs"
+                                },
+                                "class": "gen-foundicon-globe"
+                            }
+                        ]
+                    }
+                ]
             ]
         },
-        "Work Experience": {
-            "left": [
-                {
-                    "image": {
-                        "type": "image/x-png",
-                        "image": "img/facebook-logo.jpg",
-                        "clickthroughLink": {
-                            "local": "no",
-                            "link": "https://www.facebook.com/facebook"
-                        }
-                    },
-                    "tagline": "Intern, July-August 2013",
-                    "description": "Working with Facebook's engineers at the Menlo Park Campus, I will spend two months learning Objective-C and iOS this summer.  As a part of the \"Facebook U\" program, I will work alongside Facebook engineers to learn app development.",
-                    "tags": [
-                        "iOS",
-                        "Mobile",
-                        "Objective-C"
-                    ],
-                    "links": [
-                        {
+        {
+            "title": "Work Experience",
+            "content": [
+                [
+                    {
+                        "image": {
+                            "type": "image/x-png",
+                            "image": "img/facebook-logo.jpg",
                             "clickthroughLink": {
                                 "local": "no",
                                 "link": "https://www.facebook.com/facebook"
-                            },
-                            "class": "gen-foundicon-globe"
-                        }
-                    ]
-                },
-                {
-                    "image": {
-                        "type": "image/x-png",
-                        "image": "img/mitre-logo.png",
-                        "clickthroughLink": {
-                            "local": "no",
-                            "link": "http://mitre.org/"
-                        }
+                            }
+                        },
+                        "tagline": "Intern, July-August 2013",
+                        "description": "Working with Facebook's engineers at the Menlo Park Campus, I will spend two months learning Objective-C and iOS this summer.  As a part of the \"Facebook U\" program, I will work alongside Facebook engineers to learn app development.",
+                        "tags": [
+                            "iOS",
+                            "Mobile",
+                            "Objective-C"
+                        ],
+                        "links": [
+                            {
+                                "clickthroughLink": {
+                                    "local": "no",
+                                    "link": "https://www.facebook.com/facebook"
+                                },
+                                "class": "gen-foundicon-globe"
+                            }
+                        ]
                     },
-                    "tagline": "Intern, June-August 2012",
-                    "description": "At MITRE's Bedford campus, I developed a web service using Java Enterprise Edition and Netbeans, and did research on emerging technologies.",
-                    "tags": [
-                        "Java EE",
-                        "Netbeans",
-                        "Research"
-                    ],
-                    "links": [
-                        {
+                    {
+                        "image": {
+                            "type": "image/x-png",
+                            "image": "img/mitre-logo.png",
                             "clickthroughLink": {
                                 "local": "no",
-                                "link": "http://www.mitre.org/"
-                            },
-                            "class": "gen-foundicon-globe"
-                        }
-                    ]
-                }
-            ],
-            "right": [
-                {
-                    "image": {
-                        "type": "image/x-png",
-                        "image": "img/google-logo.jpg",
-                        "clickthroughLink": {
-                            "local": "no",
-                            "link": "http://www.google.com/intl/en/jobs/students/proscho/programs/uscanada/androidcamp/"
-                        }
-                    },
-                    "tagline": "Android Camp Participant, June 2013",
-                    "description": "Working at the Mountain View campus, I will spend a week this summer learning how to develop Android Apps from Google Engineers.",
-                    "tags": [
-                        "Android",
-                        "Mobile",
-                        "Java",
-                        "XML"
-                    ],
-                    "links": [
-                        {
+                                "link": "http://mitre.org/"
+                            }
+                        },
+                        "tagline": "Intern, June-August 2012",
+                        "description": "At MITRE's Bedford campus, I developed a web service using Java Enterprise Edition and Netbeans, and did research on emerging technologies.",
+                        "tags": [
+                            "Java EE",
+                            "Netbeans",
+                            "Research"
+                        ],
+                        "links": [
+                            {
+                                "clickthroughLink": {
+                                    "local": "no",
+                                    "link": "http://www.mitre.org/"
+                                },
+                                "class": "gen-foundicon-globe"
+                            }
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "image": {
+                            "type": "image/x-png",
+                            "image": "img/google-logo.jpg",
                             "clickthroughLink": {
                                 "local": "no",
                                 "link": "http://www.google.com/intl/en/jobs/students/proscho/programs/uscanada/androidcamp/"
-                            },
-                            "class": "gen-foundicon-globe"
-                        }
-                    ]
-                },
-                {
-                    "image": {
-                        "type": "image/x-png",
-                        "image": "img/ihi-logo.png",
-                        "clickthroughLink": {
-                            "local": "no",
-                            "link": "http://www.ihi.org/Pages/default.aspx"
-                        }
+                            }
+                        },
+                        "tagline": "Android Camp Participant, June 2013",
+                        "description": "Working at the Mountain View campus, I will spend a week this summer learning how to develop Android Apps from Google Engineers.",
+                        "tags": [
+                            "Android",
+                            "Mobile",
+                            "Java",
+                            "XML"
+                        ],
+                        "links": [
+                            {
+                                "clickthroughLink": {
+                                    "local": "no",
+                                    "link": "http://www.google.com/intl/en/jobs/students/proscho/programs/uscanada/androidcamp/"
+                                },
+                                "class": "gen-foundicon-globe"
+                            }
+                        ]
                     },
-                    "tagline": "Intern, July-August 2010",
-                    "description": "As an intern at the Institute for Healthcare Improvement, I was part of the IT support staff, repairing computer software and hardware, as well as working with imaging software like Ghost and Bart PE.",
-                    "tags": [
-                        "IT",
-                        "Hardware Repair",
-                        "Imaging"
-                    ],
-                    "links": [
-                        {
+                    {
+                        "image": {
+                            "type": "image/x-png",
+                            "image": "img/ihi-logo.png",
                             "clickthroughLink": {
                                 "local": "no",
                                 "link": "http://www.ihi.org/Pages/default.aspx"
-                            },
-                            "class": "gen-foundicon-globe"
-                        }
-                    ]
-                }
+                            }
+                        },
+                        "tagline": "Intern, July-August 2010",
+                        "description": "As an intern at the Institute for Healthcare Improvement, I was part of the IT support staff, repairing computer software and hardware, as well as working with imaging software like Ghost and Bart PE.",
+                        "tags": [
+                            "IT",
+                            "Hardware Repair",
+                            "Imaging"
+                        ],
+                        "links": [
+                            {
+                                "clickthroughLink": {
+                                    "local": "no",
+                                    "link": "http://www.ihi.org/Pages/default.aspx"
+                                },
+                                "class": "gen-foundicon-globe"
+                            }
+                        ]
+                    }
+                ]
             ]
         },
-        "Clubs and Activities": {
-            "left": [
-                {
-                    "title": "Application Development Initiative (CU)",
-                    "tagline": "Executive Committee Member",
-                    "description": "The Application Development Initiative is an organization that promotes technical aptitude and application development on campus.  As a member, I help organize workshops, tech talks, and hackathons.",
-                    "tags": [
-                        "Markdown",
-                        "Ruby"
-                    ],
-                    "links": [
-                        {
-                            "clickthroughLink": {
-                                "local": "no",
-                                "link": "http://adicu.com/"
-                            },
-                            "class": "gen-foundicon-globe"
-                        }
-                    ]
-                },
-                {
-                    "title": "2 Bits and a Byte Robotics Team (LHS)",
-                    "tagline": "Programmer",
-                    "description": "2 Bits and a Byte is a <a target=\"_blank\" href=\"http://www.usfirst.org/roboticsprograms/ftc\">FIRST FTC</a> robotics team based out of Lexington High School.  In 2012, we went to the FTC World Championship in St. Louis, where we won 6th place.",
-                    "tags": [
-                        "Robot C",
-                        "Robotics"
-                    ],
-                    "links": [
-                        {
-                            "clickthroughLink": {
-                                "local": "no",
-                                "link": "http://www.lexrobotics.com/"
-                            },
-                            "class": "gen-foundicon-globe"
-                        }
-                    ]
-                }
-            ],
-            "right": [
-                {
-                    "title": "Design for America (CU)",
-                    "tagline": "Team member",
-                    "description": "Design for America is a design-based community service organization that attempts to apply human-centered design to a variety of issues, as to promote sustainable solutions and lasting change. As a team member, I have worked to tackle issues of rainwater management and community development at Columbia.",
-                    "tags": [
-                        "HTML",
-                        "CSS",
-                        "Javascript",
-                        "jQuery"
-                    ],
-                    "links": [
-                        {
-                            "clickthroughLink": {
-                                "local": "no",
-                                "link": "http://dfa-barnardcolumbia.com/s"
-                            },
-                            "class": "gen-foundicon-globe"
-                        }
-                    ]
-                },
-                {
-                    "title": "Jazz Combo (CU)",
-                    "tagline": "Vibraphonist",
-                    "description": "Meeting weekly, we rehearse music for semseterly performances.  I have been lucky to have some of my compositions featured in our repertoire."
-                },
-                {
-                    "title": "Jazz Septet (LHS)",
-                    "tagline": "Vibraphonist",
-                    "description": "The LHS Jazz Septet is a student-run jazz combo that performs quarterly at Lexington High School.  I was a vibraphonist for the group."
-                }
+        {
+            "title": "Clubs and Activities",
+            "content": [
+                [
+                    {
+                        "title": "Application Development Initiative (CU)",
+                        "tagline": "Executive Committee Member",
+                        "description": "The Application Development Initiative is an organization that promotes technical aptitude and application development on campus.  As a member, I help organize workshops, tech talks, and hackathons.",
+                        "tags": [
+                            "Markdown",
+                            "Ruby"
+                        ],
+                        "links": [
+                            {
+                                "clickthroughLink": {
+                                    "local": "no",
+                                    "link": "http://adicu.com/"
+                                },
+                                "class": "gen-foundicon-globe"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "2 Bits and a Byte Robotics Team (LHS)",
+                        "tagline": "Programmer",
+                        "description": "2 Bits and a Byte is a <a target=\"_blank\" href=\"http://www.usfirst.org/roboticsprograms/ftc\">FIRST FTC</a> robotics team based out of Lexington High School.  In 2012, we went to the FTC World Championship in St. Louis, where we won 6th place.",
+                        "tags": [
+                            "Robot C",
+                            "Robotics"
+                        ],
+                        "links": [
+                            {
+                                "clickthroughLink": {
+                                    "local": "no",
+                                    "link": "http://www.lexrobotics.com/"
+                                },
+                                "class": "gen-foundicon-globe"
+                            }
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "title": "Design for America (CU)",
+                        "tagline": "Team member",
+                        "description": "Design for America is a design-based community service organization that attempts to apply human-centered design to a variety of issues, as to promote sustainable solutions and lasting change. As a team member, I have worked to tackle issues of rainwater management and community development at Columbia.",
+                        "tags": [
+                            "HTML",
+                            "CSS",
+                            "Javascript",
+                            "jQuery"
+                        ],
+                        "links": [
+                            {
+                                "clickthroughLink": {
+                                    "local": "no",
+                                    "link": "http://dfa-barnardcolumbia.com/s"
+                                },
+                                "class": "gen-foundicon-globe"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Jazz Combo (CU)",
+                        "tagline": "Vibraphonist",
+                        "description": "Meeting weekly, we rehearse music for semseterly performances.  I have been lucky to have some of my compositions featured in our repertoire."
+                    },
+                    {
+                        "title": "Jazz Septet (LHS)",
+                        "tagline": "Vibraphonist",
+                        "description": "The LHS Jazz Septet is a student-run jazz combo that performs quarterly at Lexington High School.  I was a vibraphonist for the group."
+                    }
+                ]
             ]
         }
-    },
-    "projects": {
-        "left": [
+    ],
+    "projects": [
+        [
             {
                 "title": "Composition: Over Sea",
                 "image": {
@@ -319,7 +328,7 @@
                 ]
             }
         ],
-        "right": [
+        [
             {
                 "title": "danrs.ch",
                 "image": {
@@ -396,7 +405,7 @@
                 ]
             }
         ]
-    },
+    ],
     "resources": [
         {
             "id": "dfa-demo",
