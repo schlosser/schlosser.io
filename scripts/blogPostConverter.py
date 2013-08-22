@@ -2,14 +2,13 @@ import json
 from os import listdir
 from os.path import join
 
-blogPostsDirectory = "../static/blog/"
-outputFilename = "../data/blogPosts.json"
+blogPostsDirectory = "static/blog/"
+outputFilename = "data/blogPosts.json"
 
 def main():
 	posts = []
 	postFiles = [f for f in listdir(blogPostsDirectory) if f.endswith('.html')]
 	for postFile in postFiles:
-		print postFile
 		content = open(join(blogPostsDirectory, postFile), "r").read()
 		post = {
 			"id": postFile.rstrip('.html').strip(),
