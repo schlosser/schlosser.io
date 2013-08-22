@@ -35,6 +35,13 @@ p.timePosted {
     margin-bottom: 0;
 }
 
+.preview {
+    margin-top: 1.25em;
+}
+
+.hidden {
+    display:none;
+}
 [class*="block-grid-4"] > li {
     width: 25% !important;
 }
@@ -85,6 +92,7 @@ html {
 }
 div.pic {
     padding:1em;
+    text-align: center;
 }
 img.pic {
     text-align: center;
@@ -271,6 +279,7 @@ section {
 }
 .page-title {
     margin-top: 0;
+    margin-bottom:0 !important;
 }
 
 
