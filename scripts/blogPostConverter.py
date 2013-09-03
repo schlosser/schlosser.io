@@ -2,8 +2,8 @@ import json
 from os import listdir
 from os.path import join
 
-blogPostsDirectory = "static/blog/"
-outputFilename = "data/blogPosts.json"
+blogPostsDirectory = "../static/blog/"
+outputFilename = "../data/blogPosts.json"
 
 def main():
 	posts = []
