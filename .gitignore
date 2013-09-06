@@ -1,5 +1,8 @@
 .project
 .pydevproject
 .DS_Store
+*.pyc
+data/flaskconfig.py
+data\flaskconfig.py
 data/auth_keys
 data\auth_keys
