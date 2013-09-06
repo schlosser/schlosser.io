@@ -1,34 +1,44 @@
 from flask import Flask, Response, make_response, redirect, render_template, \
-	request, url_for, send_from_directory, current_app
+	request, url_for, send_from_directory, current_app, session, flash
 from flask.ext.basicauth import BasicAuth
 import hashlib, json
+from data import flaskconfig
 
 app = Flask(__name__)
 data = json.loads(open("data/data.json", "r").read())
 blogPosts = json.loads(open("data/blogPosts.json", "r").read())
-auth_keys = open("data/auth_keys", "r").read().split("\n")
-app.config['BASIC_AUTH_USERNAME'] = auth_keys[0]
-app.config['BASIC_AUTH_PASSWORD'] = auth_keys[1]
-
+app.secret_key = flaskconfig.secret_key
 basic_auth = BasicAuth(app)
 
-def _checkHashCredentials(self, username, password):
+def checkCredentials(username, password):
 	hashedUsername = hashlib.sha224(username).hexdigest()
 	hashedPassword = hashlib.sha224(password).hexdigest()
-	correctUsername = current_app.config['BASIC_AUTH_USERNAME']
-	correctPassword = current_app.config['BASIC_AUTH_PASSWORD']
-	print username, password, hashedUsername, hashedPassword, correctUsername, correctPassword
+	correctUsername = flaskconfig.userHash
+	correctPassword = flaskconfig.passHash
 	return hashedUsername == correctUsername and hashedPassword == correctPassword
-
-BasicAuth.check_credentials = _checkHashCredentials
 
 class routes:
 	
 	@app.route('/admin/')
-	@basic_auth.required
 	def admin():
-		return render_template('admin.html')
-	
+		if ("admin" in session and session["admin"]):
+			return render_template('admin.html')
+		return redirect(url_for("login"))
+
+	@app.route("/login", methods=["GET"])
+	def login():
+		if ("admin" in session and session["admin"]):
+			return redirect(url_for("admin"))
+		return render_template('login.html')
+
+	@app.route("/login", methods=["POST"])
+	def validate():
+		if checkCredentials(request.form.get("username"), request.form.get("password")):
+			session["admin"] = True
+			return redirect(url_for("admin"))
+		flash("You typed an incorrect username / password combination.  Please try again.")
+		return redirect(url_for("login"))
+
 	@app.route('/rss.xml')
 	def rss():
 		return send_from_directory(app.static_folder, request.path[1:])
