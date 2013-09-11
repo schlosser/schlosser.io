@@ -408,6 +408,12 @@
     ],
     "resources": [
         {
+            "id": "cbs-wayfinder",
+            "title": "Columbia Business School Wayfinder Mockup",
+            "html": "<p>Created as a homework assignment in IEOR 4573, this web site is a mockup for the touchscreen entryway wayfinder in Columbia Buesiness School's Uris Hall.</p>",
+            "link": "http://danrs.ch/r/cbs-wayfinder"
+        },
+        {
             "id": "dfa-demo",
             "title": "DFA Community Team Demo",
             "html": "<p>The Design for America Community Team is developing a prototype commenting system for internet forums that encourages users to post thoughtfully.  To do this, we developed a panel that appears before posting is completed that offers users an option to edit their post.</p>",
