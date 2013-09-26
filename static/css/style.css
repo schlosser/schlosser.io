@@ -98,7 +98,6 @@ div.pic {
 }
 img.pic {
     text-align: center;
-    border-radius: 25px;
 }
 .social-icons {
     width:100%;
@@ -200,7 +199,6 @@ section {
     margin-bottom: 10px;
 }
 .social-pic {
-    border-radius: 10px !important;
     padding: 0.25em;
     margin-top: -0.25em;
 }
@@ -235,7 +233,6 @@ section {
 }
 .info-pic, .project-pic{
     width: 100%; 
-    border-radius: 10px;
 }
 .info-link, .project-link {
     font-size: 2em;
