@@ -39,7 +39,7 @@ else
 		CO_POST_IMAGES_OUTPUT=$(git checkout -b post-images 2>&1)
 		if [[ "$CO_POST_IMAGES_OUTPUT" == *"$ALREADY_EXISTS"* ]]; then
 			echo "Branch post-images already exists. (SUCCESS)"
-		elif [["$CO_POST_IMAGES_OUTPUT" == *"$SWITCHED_TO"* ]]; then
+		elif [[ "$CO_POST_IMAGES_OUTPUT" == *"$SWITCHED_TO"* ]]; then
 			echo "Checked out branch post-images. (SUCCESS)"
 		else
 			echo "Checkout of branch post-images failed: " "$CO_POST_IMAGES_OUTPUT"
@@ -54,7 +54,7 @@ else
 			CO_GITHUB_OUTPUT=$(git checkout -b github 2>&1)
 			if [[ "$CO_GITHUB_OUTPUT" == *"$ALREADY_EXISTS"* ]]; then
 				echo "Branch github already exists. (SUCCESS)"
-			elif [["$CO_GITHUB_OUTPUT" == *"$SWITCHED_TO"* ]]; then
+			elif [[ "$CO_GITHUB_OUTPUT" == *"$SWITCHED_TO"* ]]; then
 				echo "Checked out branch github. (SUCCESS)"
 			else
 				echo "Checkout of branch github failed: " "$CO_GITHUB_OUTPUT"
