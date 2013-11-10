@@ -204,8 +204,8 @@
                 [
                     {
                         "title": "Design for America (CU)",
-                        "tagline": "Team member",
-                        "description": "Design for America is a design-based community service organization that attempts to apply human-centered design to a variety of issues, as to promote sustainable solutions and lasting change. As a team member, I have worked to tackle issues of rainwater management and community development at Columbia.",
+                        "tagline": "Technology Executive",
+                        "description": "Design for America is a design-based community service organization that attempts to apply human-centered design to a variety of issues, as to promote sustainable solutions and lasting change. As the Technology Executive, I am in charge of managing DFA's website, forming relationships with the technology community, and working with teams to use technology in their designs.",
                         "tags": [
                             "HTML",
                             "CSS",
@@ -408,22 +408,16 @@
     ],
     "resources": [
         {
-            "id": "cbs-wayfinder",
-            "title": "Columbia Business School Wayfinder Mockup",
-            "html": "<p>Created as a homework assignment in IEOR 4573, this web site is a mockup for the touchscreen entryway wayfinder in Columbia Buesiness School's Uris Hall.</p>",
-            "link": "http://danrs.ch/r/cbs-wayfinder"
-        },
-        {
             "id": "dfa-demo",
             "title": "DFA Community Team Demo",
             "html": "<p>The Design for America Community Team is developing a prototype commenting system for internet forums that encourages users to post thoughtfully.  To do this, we developed a panel that appears before posting is completed that offers users an option to edit their post.</p>",
-            "link": "http://danrs.ch/dfa-demo"
+            "link": "/dfa-demo"
         },
         {
             "id": "making-windows-work",
             "title": "Talk: Making Windows Work",
             "html": "<p>Tired of people making fun of you for using Windows? Check out this talk, and to learn how to put the \"Win\" back in \"Windows\"!  Get the spark back, with cool tips and tricks that'll make you wonder how you ever lived without! Topics include:</p><ul><li>Using Command Prompt like a pro</li><li>Effective development and collaboration techniques</li><li>Managing without a package manager</li><li>An intro to batch programming</li><li>More tips and tricks!</li></ul>",
-            "link": "http://danrs.ch/r/making-windows-work"
+            "link": "/r/making-windows-work"
         },
         {
             "id": "the-power-of-video-game-design",
