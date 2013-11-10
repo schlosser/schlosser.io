@@ -1,6 +1,7 @@
 #! /bin/sh
 
 ALREADY_EXISTS="already exists"
+SWITCHED_TO="Switched to"
 SUCCESSFUL=true
 
 ORIGIN_OUTPUT=$(git remote add origin dan@danrs.ch:~/danrs-ch.git 2>&1)
@@ -36,15 +37,13 @@ else
 	else
 		git fetch origin
 		CO_POST_IMAGES_OUTPUT=$(git checkout -b post-images 2>&1)
-		if [ ! -z "$CO_POST_IMAGES_OUTPUT" ]; then
-			if [[ "$CO_POST_IMAGES_OUTPUT" == *"$ALREADY_EXISTS"* ]]; then
-				echo "Branch post-images already exists. (SUCCESS)"
-			else
-				echo "Checkout of branch post-images failed: " "$CO_POST_IMAGES_OUTPUT"
-				SUCCESSFUL=false
-			fi
-		else
+		if [[ "$CO_POST_IMAGES_OUTPUT" == *"$ALREADY_EXISTS"* ]]; then
+			echo "Branch post-images already exists. (SUCCESS)"
+		elif [["$CO_POST_IMAGES_OUTPUT" == *"$SWITCHED_TO"* ]]; then
 			echo "Checked out branch post-images. (SUCCESS)"
+		else
+			echo "Checkout of branch post-images failed: " "$CO_POST_IMAGES_OUTPUT"
+			SUCCESSFUL=false
 		fi
 		if ! $SUCCESSFUL ; then
 			echo "Ran with errors. (FAILURE)"
@@ -53,15 +52,13 @@ else
 			
 			git fetch github
 			CO_GITHUB_OUTPUT=$(git checkout -b github 2>&1)
-			if [ ! -z "$CO_GITHUB_OUTPUT" ]; then
-				if [[ "$CO_GITHUB_OUTPUT" == *"$ALREADY_EXISTS"* ]]; then
-					echo "Branch github already exists. (SUCCESS)"
-				else
-					echo "Checkout of branch github failed: " "$CO_GITHUB_OUTPUT"
-					SUCCESSFUL=false
-				fi
-			else
+			if [[ "$CO_GITHUB_OUTPUT" == *"$ALREADY_EXISTS"* ]]; then
+				echo "Branch github already exists. (SUCCESS)"
+			elif [["$CO_GITHUB_OUTPUT" == *"$SWITCHED_TO"* ]]; then
 				echo "Checked out branch github. (SUCCESS)"
+			else
+				echo "Checkout of branch github failed: " "$CO_GITHUB_OUTPUT"
+				SUCCESSFUL=false
 			fi
 			if ! $SUCCESSFUL ; then
 				echo "Ran with errors. (FAILURE)"
