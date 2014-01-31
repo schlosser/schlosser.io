@@ -12,7 +12,7 @@ def main():
     rssLink = "http://danrs.ch/"
     rssDescription = "The latest blog posts, updates, and other news from Dan Schlosser."
     rssItems = []
-    
+
     # Populate rssItems
     blogPath = "../static/blog/"
     for filename in [ f for f in listdir("../static/blog/") if isfile(join("../static/blog/",f)) ]:
@@ -20,7 +20,7 @@ def main():
         postFile = open("../static/blog/"+filename)
         postText = postFile.read()
         postFile.close()
-        
+
         # Create Data structure
         h3start, h3end = postText.find('<h3>')+4, postText.find('</h3>')
         postTitle = postText[h3start:h3end]
@@ -32,8 +32,8 @@ def main():
         postPubDate = datetime.datetime(
                       int(filename[0:4]),
                       int(filename[5:7]),
-                      int(filename[8:10]), 12, 00) 
-         
+                      int(filename[8:10]), 12, 00)
+
         # Append the post
         rssItems.append(PyRSS2Gen.RSSItem(
              title = postTitle,
@@ -41,15 +41,15 @@ def main():
              description = postDescription,
              guid = postGuid,
              pubDate = postPubDate))
-    
-    # Create RSS data structure 
+
+    # Create RSS data structure
     rss = PyRSS2Gen.RSS2(
         title = rssTitle,
         link = rssLink,
         description = rssDescription,
         lastBuildDate = datetime.datetime.now(),
         items = rssItems)
-    
+
     # Write to RSS file
     rss.write_xml(open("../static/rss.xml", "w"))
 
