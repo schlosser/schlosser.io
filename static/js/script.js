@@ -1,7 +1,7 @@
 $(function(){
  // From Flask:
  //
- // var page = the /directory of the page linked 
+ // var page = the /directory of the page linked
  // var linked_post_id = the id of the format 2013-05-09 in /blog/post-2013-05-09
  // var post_ids = ['2013-05-09', '2013-04-16',...]
     var current_hash = window.location.hash;
@@ -14,7 +14,7 @@ $(function(){
     }
 
     var animating = false;
-    var executeSlide = function(elementsToHide, elementsToShow, elementsToSlideUp, elementsToSlideDown, shouldHideBackArrow, shouldShowBackArrow, postIdToWrap, postIdToUnwrap) {   
+    var executeSlide = function(elementsToHide, elementsToShow, elementsToSlideUp, elementsToSlideDown, shouldHideBackArrow, shouldShowBackArrow, postIdToWrap, postIdToUnwrap) {
         console.log("----------------\nExecuting slide with variables:");
         console.log("elementsToHide: ", elementsToHide);
         console.log("elementsToShow: ", elementsToShow);
@@ -41,7 +41,7 @@ $(function(){
                 elementsToHide.hide();
             }
             if(elementsToShow) {
-                elementsToShow.show(); 
+                elementsToShow.show();
             }
             // This is not wrapped in ifelse because if you don't have elements to slide down I don't know what you're doing here...
             elementsToSlideDown.slideDown("slow", function() {
@@ -63,7 +63,7 @@ $(function(){
         console.log("----------------\nChanging hash:")
         console.log("current_hash = " + current_hash);
         console.log("newHash = " + newHash);
-        
+
         if(animating){return;} // Currenly animating, return.
         animating = true;
 
@@ -89,7 +89,7 @@ $(function(){
                 if (hashIsPartOfBlog(newHash)){
                     // Should slide up the hidden part of the currently displayed blog post
                     elementsToSlideUp = $("."+old_post_id+".hidden");
-                } 
+                }
                 else {
                     //The entire blog will slide up, hide the hidden part of all posts and show the other posts and this post's "See more..." link
                     elementsToSlideUp = $("#blog");
@@ -135,10 +135,10 @@ $(function(){
                     // Going to /#blog/post-YYYY-MM-DD from a page other than a blog, so slide down the whole blog. Hide the new post's "See more..." link and all other posts, and show the full current post
                     var post_ids_to_hide = post_ids.slice();
                     post_ids_to_hide.splice(post_ids.indexOf(new_post_id), 1);
-                    elementsToHide = $("."+new_post_id+".page-link, #"+post_ids_to_hide.join(", #")); 
+                    elementsToHide = $("."+new_post_id+".page-link, #"+post_ids_to_hide.join(", #"));
                     elementsToShow = $("."+new_post_id+".hidden");
                     elementsToSlideDown = $("#blog");
-                }   
+                }
             }
         } else if(hashIsPartOfBlog(newHash)){
             //But the hidden divs should be hidden!
@@ -151,7 +151,7 @@ $(function(){
                 post_ids_to_slide_down.splice(post_ids.indexOf(old_post_id), 1);
                 elementsToSlideDown = $("."+old_post_id+".page-link, #"+post_ids_to_slide_down.join(", #"));
             } else {
-                // Going from a /#page to /#blog, slide down the whole blog. 
+                // Going from a /#page to /#blog, slide down the whole blog.
                 elementsToSlideDown = $("#blog");
             }
         } else {
@@ -219,7 +219,7 @@ $(function(){
             elementsToSlideDown = $(current_hash);
         }
         executeSlide(elementsToHide, elementsToShow, null, elementsToSlideDown, false, shouldShowBackArrow, null, postIdToUnwrap);
-        $('#email').slideDown('slow');        
+        $('#email').slideDown('slow');
     }, 100);
 
     // Buttons that make pages slide
@@ -230,7 +230,7 @@ $(function(){
 
         if($(this).attr("disabled") != "disabled") {
             var hash = $(this).attr('href');
-            window.location.hash = hash;  
+            window.location.hash = hash;
         }
     });
 
@@ -240,13 +240,13 @@ $(function(){
         // Does this get called on page load and if so fix that.
         changeToHash(window.location.hash);
     });
-   
+
     //Internal Linking
-    $(document).on('click', '.internal-link', function(e){
+    $('.internal-link').click(function(e){
         e.preventDefault();
-        $($(this).data('target')).click();        
-    })
-    
+        $($(this).attr('target')).click();
+    });
+
     //Social Tabs
     $('.social-content').hide();
     $('.social-button').click(function(){
@@ -254,7 +254,7 @@ $(function(){
         $('.social-content').slideUp('slow');
         setTimeout(function(){
             $(id).slideDown('slow');
-        }, 500);    
+        }, 500);
     });
 
     //GitHub Configuration
@@ -270,7 +270,7 @@ $(function(){
       $.githubUser(username, function(data) {
         var repos = data;
         sortByNumberOfWatchers(repos);
-    
+
         var list = $('<div/>').addClass("github-repos");
         target.empty().append(list);
         list.append('<hr/>');
@@ -280,21 +280,21 @@ $(function(){
         });
         list.append($('<a class="social-update" href="http://github.com/danrschlosser">See more on GitHub...</a>'));
       });
-    
+
       function sortByNumberOfWatchers(repos) {
         repos.sort(function(a,b) {
           return b.watchers - a.watchers;
         });
       }
     };
- });   
+ });
 
 /*********************************************************************
 *  #### Twitter Post Fetcher v10.0 ####
 *  Coded by Jason Mayes 2013. A present to all the developers out there.
 *  www.jasonmayes.com
 *  Please keep this disclaimer with my code if you use it. Thanks. :-)
-*  Got feedback or questions, ask here: 
+*  Got feedback or questions, ask here:
 *  http://www.jasonmayes.com/projects/twitterApi/
 *  Updates will be posted to this site.
 *********************************************************************/
