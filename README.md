@@ -3,7 +3,7 @@
 
 This is my personal website.  You can find out more about me there.
 
-Set up
+Setup
 ------
 
 (in the top level directory)
@@ -14,8 +14,9 @@ Set up
 
 Running
 -------
-
-    python app.py  # runs on localhost:5000
+    python app.py debug # Development
+    python app.py       # Deployment
+    # runs on localhost:5000
 
 Debugging errors
 ----------------

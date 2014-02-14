@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	{% block head %}
+    {% block meta %}
+    <meta charset="utf-8" />
+
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+    {% endblock meta%}
+
+
+  	<Title>
+  		{% block title%}{% endblock %}
+    </Title>
+
+    {% block css%}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reset.min.css') }}">
+
+    {% assets "scss_base" %}
+    <link rel=stylesheet type=text/css href="{{ ASSET_URL }}">
+    {% endassets %}
+    {% endblock css%}
+
+    {% block favicon %}
+    <!-- Favicon.ico -->
+    <link rel="shortcut icon"
+        href=" {{url_for('static', filename='img/favicon.ico') }}"
+        type="image/x-icon">
+    <link rel="icon"
+        href="{{ url_for('static', filename='img/favicon.ico') }}"
+        type="image/x-icon">
+    {% endblock favicon %}
+
+    {% block fonts %}
+    <!-- Google Fonts -->
+    {% endblock fonts %}
+
+    {% block js %}
+    <!-- Foundation and jQuery -->
+    <script type="text/javascript"
+        src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="{{ url_for('static', filename='js/vendor/custom.modernizr.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/script.js')}}"></script>
+    {% endblock js %}
+
+	<!--Google Analytics-->
+    {% block analytics %}
+	<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-40705748-1']);
+	  _gaq.push(['_setDomainName', 'danrs.ch']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
+    {% endblock analytics %}
+
+    {% endblock head %}
+</head>
+<body>
+{% block body %}
+{% endblock body %}
+</body>
+</html>
