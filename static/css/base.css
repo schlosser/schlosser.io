@@ -93,50 +93,18 @@ code, tt {
           background-color: transparent;
           border: none; }
 
-.sidebar {
+body {
   background-color: #333;
-  color: #fff;
-  height: 100%;
-  float: left;
-  display: inline-block;
-  text-align: right;
-  position: fixed; }
-  .sidebar .inner {
-    margin-right: 1.5rem; }
+  margin-top: 20%; }
 
-.main {
-  background-color: #eee;
-  color: #000;
-  min-height: 100%;
-  float: left;
-  display: inline-block; }
-  .main h4, .main h5, .main h6 {
-    font-family: 'Cabin', sans-serif; }
-    .main.even {
-      margin-left: 50%; }
-      .main .inner {
-        margin-left: 1rem; }
-        .main .inner .content {
-          margin: 0 2rem; }
-
-.title-spacer {
-  height: 100px;
-  position: relative; }
-
-  .fixed-title {
-    position: fixed;
+  .main {
+    background-color: #333;
+    color: #fff;
+    min-height: 100%;
+    float: left;
     width: 100%;
-    top: 0;
-    background-color: #eee;
-    margin-top: 0;
-}
+    text-align: center;
+    display: inline-block; }
 
-    .site-title a:hover {
-      border-bottom: none; }
-
-      nav a {
-        font-size: 2rem;
-        line-height: 3rem; }
-
-        .even {
-          width: 50%; }
+    .sentance {
+      font-size: 2em; }
