@@ -1,0 +1,70 @@
+$sidebarBg: #333;
+$sidebarText: #fff;
+$mainBg: #eee;
+$mainText: #000;
+
+.sidebar {
+	background-color: $sidebarBg;
+	color: $sidebarText;
+	height: 100%;
+	float: left;
+	display: inline-block;
+	text-align: right;
+	position: fixed;
+
+	.inner {
+		margin-right: 1.5rem;
+	}
+}
+
+.main {
+	background-color: $mainBg;
+	color: $mainText;
+	min-height: 100%;
+	float: left;
+	display: inline-block;
+
+	h4, h5, h6 {
+		font-family: 'Cabin', sans-serif;
+	}
+
+	&.even {
+		margin-left: 50%;
+	}
+
+	.inner {
+		margin-left: 1rem;
+
+		.content {
+			margin:0 2rem;
+		}
+	}
+}
+
+.title-spacer {
+	height: 100px;
+	position: relative;
+}
+
+.fixed-title {
+	position:fixed;
+	width: 100%;
+	top: 0;
+
+	background-color: $mainBg;
+	margin-top: 0;
+	padding-bottom: ;
+}
+
+.site-title a:hover {
+	border-bottom: none;
+}
+
+nav a {
+	font-size: 2rem;
+	line-height: 3rem;
+}
+
+.even {
+	width: 50%;
+}
