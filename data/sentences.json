@@ -1,0 +1,104 @@
+{
+	"sentences": [
+		{
+			"verb":"study",
+			"obj": "Computer Science",
+			"prep": "at",
+			"noun": "Columbia"},
+		{
+			"verb":"study",
+			"obj": "jazz",
+			"prep": "at",
+			"noun": "Columbia"},
+		{
+			"verb":"study",
+			"obj": "design",
+			"prep": "at",
+			"noun": "Columbia"},
+		{
+			"verb":"study",
+			"obj": "design",
+			"prep": "in",
+			"noun": "New York"},
+		{
+			"verb":"design",
+			"obj": "web sites",
+			"prep": "for",
+			"noun": "fun"},
+		{
+			"verb":"design",
+			"obj": "web sites",
+			"prep": "about",
+			"noun": "tech clubs"},
+		{
+			"verb":"build",
+			"obj": "apps",
+			"prep": "about",
+			"noun": "music"},
+		{
+			"verb":"build",
+			"obj": "apps",
+			"prep": "about",
+			"noun": "Twitter"},
+		{
+			"verb":"build",
+			"obj": "experiences",
+			"prep": "with",
+			"noun": "code"},
+		{
+			"verb":"build",
+			"obj": "apps",
+			"prep": "with",
+			"noun": "Python"},
+		{
+			"verb":"build",
+			"obj": "apps",
+			"prep": "with",
+			"noun": "Java"},
+		{
+			"verb":"build",
+			"obj": "apps",
+			"prep": "with",
+			"noun": "JavaScript"},
+		{
+			"verb":"build",
+			"obj": "web sites",
+			"prep": "with",
+			"noun": "&lt;div&gt;s"},
+		{
+			"verb":"design",
+			"obj": "web sites",
+			"prep": "with",
+			"noun": "colors"},
+		{
+			"verb":"build",
+			"obj": "castles",
+			"prep": "with",
+			"noun": "LEGOS"},
+		{
+			"verb":"build",
+			"obj": "friendships",
+			"prep": "with",
+			"noun": "humans"},
+		{
+			"verb":"play",
+			"obj": "the Vibraphone",
+			"prep": "at",
+			"noun": "Columbia"},
+		{
+			"verb":"play",
+			"obj": "outside",
+			"prep": "in",
+			"noun": "inclement weather"},
+		{
+			"verb":"play",
+			"obj": "videogames",
+			"prep": "for",
+			"noun": "fun"},
+		{
+			"verb":"play",
+			"obj": "outside",
+			"prep": "with",
+			"noun": "friends"}
+	]
+}

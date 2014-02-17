@@ -1,26 +1,22 @@
 from flask import Flask, redirect, render_template, \
 	request, url_for, send_from_directory, session, flash
 from flask.ext.basicauth import BasicAuth
-import hashlib
+import hashlib, json
 from sys import argv
 from data import flaskconfig
 
 app = Flask(__name__)
 
-
 # Debug configurations
-if len(argv) == 2 and argv[1] == "debug":
-	app.config['DEBUG'] = True
-	app.config['HOST'] = "0.0.0.0"
-
+debug =  len(argv) == 2 and argv[1] == "debug"
 # SCSS rendering
-if app.debug:
+if debug:
 	from flask.ext.assets import Environment, Bundle
 	assets = Environment(app)
 	assets.url = app.static_url_path
 	scss_base = Bundle('scss/base.scss', 'scss/app.scss', filters='pyscss', output='css/base.css')
 	scss_blog =  Bundle('scss/blog.scss', filters='pyscss', output='css/blog.css')
-	scss_home =  Bundle('scss/home.scss',  filters='pyscss', output='css/blog.css')
+	scss_home =  Bundle('scss/home.scss',  filters='pyscss', output='css/home.css')
 	assets.register('scss_base', scss_base)
 	assets.register('scss_blog', scss_blog)
 	assets.register('scss_home', scss_home)
@@ -29,9 +25,15 @@ if app.debug:
 app.secret_key = flaskconfig.secret_key
 basic_auth = BasicAuth(app)
 
+sentences = json.dumps(json.loads(open("data/sentences.json", "r").read()))
+
 @app.route('/')
 def home():
-	return render_template("index.html")
+	return render_template("site.html", sentences = sentences)
+
+@app.route('/blog')
+def blog():
+	return render_template("blog.html", sentences = sentences)
 
 @app.route('/admin/')
 def admin():
@@ -74,4 +76,7 @@ def checkCredentials(username, password):
 
 
 if __name__ == '__main__':
-	app.run()
+	if debug:
+		app.run(debug=True, host="0.0.0.0")
+	else:
+		app.run()
