@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block css %}
+{{super() }}
+<style type="text/css">
+.sentence {
+	padding-right: 3rem;
+	line-height: 3rem;
+}
+</style>
+{% endblock css %}
+
+{% block body %}
+{% for sentence in sentences %}
+	<span class="sentence">I {{sentence.verb | safe}} {{sentence.obj | safe}} {{sentence.prep | safe}} {{sentence.noun | safe}}</span>
+{% endfor %}
+{% endblock %}

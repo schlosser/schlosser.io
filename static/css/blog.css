@@ -6,33 +6,48 @@
     text-align: left;
     display: block; }
 
-.site-title {
-  height: 7rem;
-  background-color: #333;
-  z-index: 1; }
+.fixed {
+  position: fixed;
+  top: 0;
+  left: 0; }
 
-  .fixed {
-    position: fixed;
-    top: 0;
-    left: 0; }
+  .title-spacer {
+    height: 6rem;
+    display: none; }
+    .title-spacer.live {
+      display: block; }
 
-    .title-spacer {
-      height: 7rem;
-      display: none; }
-      .title-spacer.live {
-        display: block; }
+.anchor {
+  width: 1px;
+  height: 1px;
+  content: " "; }
 
-.posts {
-  margin: 0 auto;
-  display: block;
-  position: relative;
-  width: 95%;
-  max-width: 40rem;
-  text-align: left; }
-  .posts .post {
-    border: 1px solid #555;
-    border-radius: 5px;
-    margin: 1rem 0;
-    padding: 2rem;
-    color: #333;
-    background-color: #eee; }
+  .post-date {
+    margin: 0 0 2rem;
+    font-style: italic;
+    font-size: 1.2rem;
+    line-height: 2rem; }
+
+    .blog-title {
+      margin-top: 3rem; }
+
+      .posts {
+        margin: 0 auto;
+        display: block;
+        position: relative;
+        width: 95%;
+        max-width: 40rem;
+        text-align: left; }
+        .posts .post {
+          border: 1px solid #555;
+          border-radius: 5px;
+          margin: 1rem 0;
+          padding: 2rem;
+          color: #333;
+          background-color: #ddd; }
+          .posts .post p {
+            margin-bottom: 1rem; }
+            .posts .post p a {
+              text-decoration: underline; }
+              .posts .post p a:hover {
+                color: #666; }

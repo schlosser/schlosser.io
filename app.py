@@ -16,24 +16,34 @@ if debug:
 	assets.url = app.static_url_path
 	scss_base = Bundle('scss/base.scss', 'scss/app.scss', filters='pyscss', output='css/base.css')
 	scss_blog =  Bundle('scss/blog.scss', filters='pyscss', output='css/blog.css')
-	scss_home =  Bundle('scss/home.scss',  filters='pyscss', output='css/home.css')
 	assets.register('scss_base', scss_base)
 	assets.register('scss_blog', scss_blog)
-	assets.register('scss_home', scss_home)
 
 # Authentication Setup
 app.secret_key = flaskconfig.secret_key
 basic_auth = BasicAuth(app)
 
 sentences = json.dumps(json.loads(open("data/sentences.json", "r").read()))
-
+blog_posts = json.loads(open("data/blogPosts.json", "r").read())
 @app.route('/')
 def home():
 	return render_template("site.html", sentences = sentences)
 
 @app.route('/blog')
 def blog():
-	return render_template("blog.html", sentences = sentences)
+	return render_template("blog.html", sentences = sentences, posts=blog_posts)
+
+@app.route('/blog/post-<post_id>')
+def post(post_id):
+	post = {}
+	for p in blog_posts:
+		if p["id"] == post_id:
+			post = p
+	return render_template("post.html", sentences=sentences, post=post)
+
+@app.route('/all')
+def all():
+	return render_template("all.html", sentences = json.loads(sentences)["sentences"])
 
 @app.route('/admin/')
 def admin():

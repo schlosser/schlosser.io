@@ -6,62 +6,101 @@ $(window).bind("load", function() {
 		$lowerFirstInnerText = $(".lowercase-first span"),
 		$lowerLastInnerText = $(".lowercase-last span"),
 		$lowerNBSP = $(".lowercase-nbsp"),
-		nbspWidth = calculateWordWidth(" ", ["site-title"]),
-		titleFinalWidth = calculateWordWidth("DRS", ["site-title"]),
-		lowerFirstOriginalWidth = calculateWordWidth($lowerFirstInnerText.text(), ["site-title"]),
-		lowerLastOriginalWidth = calculateWordWidth($lowerLastInnerText.text(), ["site-title"]);
-	var titleOriginalWidth = function() {
-		return $(window).width();
-	};
+		nbspWidth = function() {
+			return calculateWordWidth("&nbsp;", ["site-title"]);
+		},
+		titleFinalWidth = function () {
+			return	calculateWordWidth("D", ["site-title"]) +
+				calculateWordWidth("R", ["site-title"]) +
+				calculateWordWidth("S", ["site-title"]);
+		},
+		lowerFirstOriginalWidth = function() {
+			if ($(window).width() < 1024) {
+				return "auto"
+			}
+			return calculateWordWidth($lowerFirstInnerText.text(), ["site-title"]);
+		},
+		lowerLastOriginalWidth = function() {
+			if ($(window).width() < 1024) {
+				return "auto"
+			}
+			return calculateWordWidth($lowerLastInnerText.text(), ["site-title"]);
+		},
+		titleOriginalWidth = function() {
+			return $("body").width();
+		};
+
 
 	// Set the original width of the lowercase letters
-	$lowerFirstInnerText.css({"width": lowerFirstOriginalWidth});
-	$lowerLastInnerText.css({"width": lowerLastOriginalWidth});
+	console.log(lowerFirstOriginalWidth());
+	console.log("what")
+	console.log(lowerLastOriginalWidth());
 
+	$lowerFirstInnerText.css({"width": lowerFirstOriginalWidth()});
+	$lowerLastInnerText.css({"width": lowerLastOriginalWidth()});
 	$(window).scroll(updateTitle);
+	window.addEventListener('orientationchange', resizedw);
+	window.addEventListener('resize', resizedw);
 
 	function updateTitle() {
-		var spacerDistanceToTop = $titleSpacer.offset().top - $(window).scrollTop(),
-			distanceToTop;
-		if ($title.hasClass("fixed")) {
-			distanceToTop = 0;
-		} else {
-			distanceToTop = $title.offset().top - $(window).scrollTop();
+		if ($(window).width() > 1024) {
+			console.log("desktop")
+			var spacerDistanceToTop = $titleSpacer.offset().top - $(window).scrollTop(),
+				distanceToTop;
+			if ($title.hasClass("fixed")) {
+				distanceToTop = 0;
+			} else {
+				distanceToTop = $title.offset().top - $(window).scrollTop();
+			}
+
+			var percentageLeft = Math.max(distanceToTop, 0)/$title.offset().top;
+
+			if (percentageLeft >= 1) {
+				$lowerNBSP.css({"width": nbspWidth()});
+				$title.css({"width": titleOriginalWidth()});
+				$lowerFirst.css({"width": lowerFirstOriginalWidth()});
+				$lowerLast.css({"width": lowerLastOriginalWidth()});
+				$lowerFirstInnerText.css({"width": lowerFirstOriginalWidth()});
+				$lowerLastInnerText.css({"width": lowerLastOriginalWidth()});
+
+				$title.removeClass("fixed");
+				$titleSpacer.removeClass("live");
+			} else if (spacerDistanceToTop <= 0 && distanceToTop <= 0) {
+				$lowerFirst.css({"width": 0});
+				$lowerLast.css({"width": 0});
+				$lowerNBSP.css({"width": 0});
+				$title.css({"width": titleFinalWidth()});
+
+				$title.addClass("fixed");
+				$titleSpacer.addClass("live");
+			} else if (percentageLeft > 0 && distanceToTop > 0 || spacerDistanceToTop >= 0){
+				$title.removeClass("fixed");
+				$titleSpacer.removeClass("live");
+
+				var lowerFirstNewWidth = lowerFirstOriginalWidth() * percentageLeft,
+					lowerLastNewWidth = lowerLastOriginalWidth() * percentageLeft,
+					titleNewWidth = (titleOriginalWidth() - titleFinalWidth())*percentageLeft + titleFinalWidth(),
+					nbspNewWidth = nbspWidth() * percentageLeft;
+				$lowerNBSP.animate({"width": nbspNewWidth}, 5);
+				$lowerFirst.animate({"width": lowerFirstNewWidth}, 5);
+				$lowerLast.animate({"width": lowerLastNewWidth}, 5);
+				$title.animate({"width": titleNewWidth}, 5);
+			}
 		}
-
-		var percentageLeft = Math.max(distanceToTop, 0)/$title.offset().top;
-
-		if (percentageLeft >= 1) {
-			console.log(1);
-			$title.removeClass("fixed");
-			$titleSpacer.removeClass("live");
-
-			$lowerNBSP.animate({"width": nbspWidth}, 10);
-			$title.css({"width": titleOriginalWidth()});
-			$lowerFirst.css({"width": lowerFirstOriginalWidth});
-			$lowerLast.css({"width": lowerLastOriginalWidth});
-		} else if (spacerDistanceToTop <= 0 && distanceToTop <= 0) {
-			console.log(2);
-			$lowerFirst.css({"width": 0});
-			$lowerLast.css({"width": 0});
-
-			$lowerNBSP.animate({"width": 0}, 10);
-			$title.addClass("fixed");
-			$titleSpacer.addClass("live");
-			$title.animate({"width": titleFinalWidth}, 10);
-		} else if (percentageLeft > 0 && distanceToTop > 0 || spacerDistanceToTop >= 0){
-			console.log(3);
-			$title.removeClass("fixed");
-			$titleSpacer.removeClass("live");
-
-			$lowerNBSP.animate({"width": nbspWidth}, 10);
-			var lowerFirstNewWidth = lowerFirstOriginalWidth * percentageLeft,
-				lowerLastNewWidth = lowerLastOriginalWidth * percentageLeft,
-				titleNewWidth = (titleOriginalWidth() - titleFinalWidth)*percentageLeft + titleFinalWidth;
-			$lowerFirst.animate({"width": lowerFirstNewWidth}, 5);
-			$lowerLast.animate({"width": lowerLastNewWidth}, 5);
-			$title.animate({"width": titleNewWidth}, 5);
+		else {
+			doMobile();
 		}
+	}
+
+	function doMobile() {
+		console.log("mobile");
+		// $title.removeClass("fixed")
+		// $lowerNBSP.css({"width": nbspWidth()});
+		// $title.css({"width": titleOriginalWidth()});
+		// $lowerFirst.css({"width": lowerFirstOriginalWidth()});
+		// $lowerLast.css({"width": lowerLastOriginalWidth()});
+		// $lowerFirstInnerText.css({"width": lowerFirstOriginalWidth()});
+		// $lowerLastInnerText.css({"width": lowerLastOriginalWidth()});
 	}
 
 	function calculateWordWidth(text, classes) {
@@ -72,30 +111,17 @@ $(window).bind("load", function() {
 		div.innerHTML = text;
 		document.body.appendChild(div);
 		var width = jQuery(div).outerWidth(true);
-		div.parentNode.removeChild(div);
+		// div.parentNode.removeChild(div);
 		return width;
 	}
 
 	function resizedw() {
-		console.log("sup");
-		var spacerDistanceToTop = $titleSpacer.offset().top - $(window).scrollTop(),
-			distanceToTop;
-		if ($title.hasClass("fixed")) {
-			distanceToTop = 0;
+		if ($(window).width() > 1024) {
+			console.log("desktop");
+			updateTitle();
 		} else {
-			distanceToTop = $title.offset().top - $(window).scrollTop();
-		}
-		var percentageLeft = Math.max(distanceToTop, 0)/$title.offset().top;
-		if (percentageLeft >= 1) {
-			$title.css({"width": titleOriginalWidth()});
-		} else if (spacerDistanceToTop <= 0 && distanceToTop <= 0) {
-			$title.animate({"width": titleFinalWidth}, 10);
-		} else if (percentageLeft > 0 && distanceToTop > 0 || spacerDistanceToTop >= 0){
-			var titleNewWidth = (titleOriginalWidth() - titleFinalWidth)*percentageLeft + titleFinalWidth;
-			$title.animate({"width": titleNewWidth}, 5);
+
+			doMobile();
 		}
 	}
-
-	window.addEventListener('orientationchange', resizedw);
-	window.addEventListener('resize', resizedw);
 });

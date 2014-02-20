@@ -1,3 +1,5 @@
+$blue: #00DFFC;
+
 .lowercase {
 	height: 5rem;
 	display: inline-block;
@@ -8,25 +10,34 @@
 	}
 }
 
-.site-title {
-	height: 7rem;
-	background-color: #333;
-	z-index: 1;
-}
-
-
 .fixed {
 	position: fixed;
 	top:0;
 	left: 0;
 }
 .title-spacer {
-
-	height: 7rem;
+	height: 6rem;
 	display: none;
 	&.live {
 		display: block;
 	}
+}
+
+.anchor {
+	width: 1px;
+	height: 1px;
+	content: " ";
+}
+
+.post-date {
+	margin: 0 0 2rem;
+	font-style: italic;
+	font-size: 1.2rem;
+	line-height: 2rem;
+}
+
+.blog-title {
+	margin-top: 3rem;
 }
 
 .posts {
@@ -43,6 +54,18 @@
 		margin: 1rem 0;
 		padding: 2rem;
 		color: #333;
-		background-color: #eee;
+		background-color: #ddd;
+
+		p  {
+			margin-bottom: 1rem;
+
+			a {
+				text-decoration: underline;
+
+				&:hover {
+					color: lighten(#333, 20%);
+				}
+			}
+		}
 	}
 }
