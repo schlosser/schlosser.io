@@ -10,14 +10,13 @@ app = Flask(__name__)
 # Debug configurations
 debug =  len(argv) == 2 and argv[1] == "debug"
 # SCSS rendering
-if debug:
-	from flask.ext.assets import Environment, Bundle
-	assets = Environment(app)
-	assets.url = app.static_url_path
-	scss_base = Bundle('scss/base.scss', 'scss/app.scss', filters='pyscss', output='css/base.css')
-	scss_blog =  Bundle('scss/blog.scss', filters='pyscss', output='css/blog.css')
-	assets.register('scss_base', scss_base)
-	assets.register('scss_blog', scss_blog)
+from flask.ext.assets import Environment, Bundle
+assets = Environment(app)
+assets.url = app.static_url_path
+scss_base = Bundle('scss/base.scss', 'scss/app.scss', filters='pyscss', output='css/base.css')
+scss_blog =  Bundle('scss/blog.scss', filters='pyscss', output='css/blog.css')
+assets.register('scss_base', scss_base)
+assets.register('scss_blog', scss_blog)
 
 # Authentication Setup
 app.secret_key = flaskconfig.secret_key
