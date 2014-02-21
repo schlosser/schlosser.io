@@ -30,11 +30,6 @@ $(window).bind("load", function() {
 			return $("body").width();
 		};
 
-
-	// Set the original width of the lowercase letters
-	console.log(lowerFirstOriginalWidth());
-	console.log(lowerLastOriginalWidth());
-
 	$lowerFirstInnerText.css({"width": lowerFirstOriginalWidth()});
 	$lowerLastInnerText.css({"width": lowerLastOriginalWidth()});
 	$(window).scroll(updateTitle);
