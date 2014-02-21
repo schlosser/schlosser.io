@@ -16,13 +16,13 @@ $(window).bind("load", function() {
 		},
 		lowerFirstOriginalWidth = function() {
 			if ($(window).width() < 1024) {
-				return "auto"
+				return "auto";
 			}
 			return calculateWordWidth($lowerFirstInnerText.text(), ["site-title"]);
 		},
 		lowerLastOriginalWidth = function() {
 			if ($(window).width() < 1024) {
-				return "auto"
+				return "auto";
 			}
 			return calculateWordWidth($lowerLastInnerText.text(), ["site-title"]);
 		},
@@ -33,7 +33,6 @@ $(window).bind("load", function() {
 
 	// Set the original width of the lowercase letters
 	console.log(lowerFirstOriginalWidth());
-	console.log("what")
 	console.log(lowerLastOriginalWidth());
 
 	$lowerFirstInnerText.css({"width": lowerFirstOriginalWidth()});
@@ -44,7 +43,6 @@ $(window).bind("load", function() {
 
 	function updateTitle() {
 		if ($(window).width() > 1024) {
-			console.log("desktop")
 			var spacerDistanceToTop = $titleSpacer.offset().top - $(window).scrollTop(),
 				distanceToTop;
 			if ($title.hasClass("fixed")) {
@@ -93,14 +91,13 @@ $(window).bind("load", function() {
 	}
 
 	function doMobile() {
-		console.log("mobile");
-		// $title.removeClass("fixed")
-		// $lowerNBSP.css({"width": nbspWidth()});
-		// $title.css({"width": titleOriginalWidth()});
-		// $lowerFirst.css({"width": lowerFirstOriginalWidth()});
-		// $lowerLast.css({"width": lowerLastOriginalWidth()});
-		// $lowerFirstInnerText.css({"width": lowerFirstOriginalWidth()});
-		// $lowerLastInnerText.css({"width": lowerLastOriginalWidth()});
+		$title.removeClass("fixed")
+		$lowerNBSP.css({"width": nbspWidth()});
+		$title.css({"width": titleOriginalWidth()});
+		$lowerFirst.css({"width": lowerFirstOriginalWidth()});
+		$lowerLast.css({"width": lowerLastOriginalWidth()});
+		$lowerFirstInnerText.css({"width": lowerFirstOriginalWidth()});
+		$lowerLastInnerText.css({"width": lowerLastOriginalWidth()});
 	}
 
 	function calculateWordWidth(text, classes) {
@@ -117,7 +114,6 @@ $(window).bind("load", function() {
 
 	function resizedw() {
 		if ($(window).width() > 1024) {
-			console.log("desktop");
 			updateTitle();
 		} else {
 
