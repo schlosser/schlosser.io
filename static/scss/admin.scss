@@ -9,6 +9,7 @@ $brightdarkred: #ac2925;
 
 
 .page-title {
+	margin-top: 1rem;
 	color: white;
 	text-align: center;
 }
@@ -16,7 +17,7 @@ $brightdarkred: #ac2925;
 .admin-panel {
 	border: 1px solid $lightgray;
 	border-radius: 5px;
-	margin: 2rem auto;
+	margin: 1rem auto 2rem;
 	max-width: 50rem;
 	padding: 2rem;
 	color: $gray;

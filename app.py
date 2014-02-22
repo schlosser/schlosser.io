@@ -118,9 +118,10 @@ def checkCredentials(username, password):
 	return hashedUsername == correctUsername and hashedPassword == correctPassword
 
 def update_json():
-	json_string = json.dumps({"sentences": sentences}, sort_keys=True, indent=4, separators=(',', ': '))
+	string = json.dumps({"sentences": sentences}, sort_keys=True, indent=4, separators=(',', ': '))
 	with open("data/sentences.json", "w") as f:
-		f.write(json_string)
+		f.write(string)
+	json_string = string
 
 if __name__ == '__main__':
 	if debug:

@@ -16,7 +16,7 @@
 	{% for sentence in sentences %}
 	{% if loop.index0 is divisibleby 2 %}
 	<li class="admin-sentence" id="{{sentence._id}}">
-		<p class="sentence-text">I {{sentence.verb | safe}} {{sentence.obj | safe}} {{sentence.prep | safe}} {{sentence.noun | safe}}</p>
+		<p class="sentence-text">I {{sentence.verb | safe}} {{sentence.obj | safe}} {{sentence.prep | safe}} {{sentence.noun | safe}}.</p>
 		<span class="delete"><i class="icon-trash"></i></a></span>
 		<form class="confirm" action="/admin/sentences/delete/{{sentence._id}}"method="post">
 			<input class="cancel" value="Cancel" type="button" />
@@ -31,7 +31,7 @@
 	{% for sentence in sentences %}
 	{% if not loop.index0 is divisibleby 2 %}
 	<li class="admin-sentence" id="{{sentence._id}}">
-		<p class="sentence-text">I {{sentence.verb | safe}} {{sentence.obj | safe}} {{sentence.prep | safe}} {{sentence.noun | safe}}</p>
+		<p class="sentence-text">I {{sentence.verb | safe}} {{sentence.obj | safe}} {{sentence.prep | safe}} {{sentence.noun | safe}}.</p>
 		<span class="delete"><i class="icon-trash"></i></a></span>
 		<form class="confirm" action="/admin/sentences/delete/{{sentence._id}}"method="post">
 			<input class="cancel" value="Cancel" type="button" />

@@ -1,11 +1,12 @@
 .page-title {
+  margin-top: 1rem;
   color: white;
   text-align: center; }
 
   .admin-panel {
     border: 1px solid #888888;
     border-radius: 5px;
-    margin: 2rem auto;
+    margin: 1rem auto 2rem;
     max-width: 50rem;
     padding: 2rem;
     color: #333333;
