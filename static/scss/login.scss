@@ -1,0 +1,33 @@
+.login-wrapper {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 50%;
+	margin: -10rem auto 0;
+	height: 20rem;
+	width: 95%;
+	max-width: 25rem;
+
+	form {
+		input[type="text"], input[type="password"] {
+			font-size: 1.5rem;
+			line-height: 2rem;
+			margin: 0.5rem 0;
+			width: 100%;
+		}
+
+		input[type="submit"] {
+			visibility: hidden;
+		}
+	}
+
+	.error-message {
+		text-align: center;
+		font-size: 0.8rem;
+		width: 100%;
+		color: white;
+		padding-left:3px;
+		padding-right: 3px;
+
+	}
+}

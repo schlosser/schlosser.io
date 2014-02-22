@@ -1,19 +1,30 @@
 {% extends "base.html" %}
+
+{% block css %}
+{{ super() }}
+
+{% assets "scss_admin" %}
+<link rel=stylesheet type=text/css href="{{ ASSET_URL }}">
+{% endassets %}
+
+{% endblock %}
+
 {% block body %}
+<div class="login-wrapper">
 
-<div class="error-message">
-	{% with messages = get_flashed_messages() %}
-		{% if messages %}
-			{% for message in messages%}
-				<p>{{message}}</p>
-			{% endfor %}
-		{% endif %}
-	{% endwith %}
+	<form action="/login" method="post">
+	    <input type="text" name="username" placeholder="Username" />
+	    <input type="password" name="password" placeholder="Password" />
+		<input type="submit" value="Submit" />
+	</form>
+	<div class="error-message">
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				{% for message in messages%}
+					<p>{{message}}</p>
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+	</div>
 </div>
-<form action="/login" method="post">
-    Username: <input type="text" name="username" /><br />
-    Password: <input type="password" name="password" /><br />
-<input type="submit" value="Submit" />
-</form>
-
 {% endblock body %}

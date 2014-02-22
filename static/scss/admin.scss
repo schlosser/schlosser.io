@@ -1,0 +1,162 @@
+$blue: #00DFFC;
+$lightgray: #888888;
+$gray: #333333;
+$offwhite: #dddddd;
+$red: #d9534f;
+$darkred: #d43f3a;
+$brightred: #d2322d;
+$brightdarkred: #ac2925;
+
+
+.page-title {
+	color: white;
+	text-align: center;
+}
+
+.admin-panel {
+	border: 1px solid $lightgray;
+	border-radius: 5px;
+	margin: 2rem auto;
+	max-width: 50rem;
+	padding: 2rem;
+	color: $gray;
+	background-color: $offwhite;
+}
+
+.tools {
+	border-bottom: 1px solid $gray;
+	margin: 0 -1rem;
+
+	.tool {
+		display: inline-block;
+		font-size: 1.2rem;
+		font-weight: bold;
+		line-height: 2rem;
+		height: 2rem;
+		a {	padding: 0 1.5rem;}
+
+		&:hover {
+			background-color: darken($offwhite, 5%);
+		}
+	}
+}
+
+.add-sentence {
+	position: relative;
+	margin: 2rem 0.5rem 0;
+
+	input {
+		font-size: 1rem;
+
+		&[type="text"] {
+			padding: 0.2rem;
+			width: 20%;
+		}
+
+		&[type="submit"] {
+			position: absolute;
+			right:0;
+			padding: 0.25rem 0.5rem;
+			top: 0.1rem;
+		}
+	}
+}
+
+input[type="button"], input[type="submit"] {
+	border: none;
+	border-radius: 2px;
+	padding: 0.25rem;
+	background-color: $offwhite;
+	border: 1px solid lighten($gray, 10%);
+	color: $gray;
+	margin: 0;
+
+	&:hover {
+		background-color: darken($offwhite, 10%);
+	}
+}
+
+.sentences {
+	margin: 2rem 0 0;
+	width: 47.5%;
+	float:left;
+	display: inline-block;
+
+	&.left {
+		margin-right: 5%;
+	}
+
+	.admin-sentence {
+		position: relative;
+		border-radius: 2px;
+
+		&.left {
+			margin-right: 10%;
+		}
+
+		&:hover {
+
+			.delete {
+				display: inline;
+			}
+		}
+
+		.delete {
+			display: none;
+			right: 0.2rem;
+			top: 0.2rem;
+			padding: 0.25rem 0;
+			position: absolute;
+			font-size: 1.2rem;
+			border-radius: 20px;
+			border: 2px solid $gray;
+
+			&:hover {
+				background-color: darken($offwhite, 10%);
+			}
+		}
+
+		.sentence-text {
+			font-size: 1rem;
+			padding: 0.25rem 0.5rem;
+			display: inline-block;
+			position: relative;
+		}
+
+		.confirm {
+			display:none;
+			text-align: center;
+
+			input {
+				max-width: 5rem;
+				width: 50%;
+			}
+
+			input[type="submit"] {
+				background-color: $red;
+				border: 1px solid $darkred;
+				color: white;
+
+				&:hover {
+					background-color: $brightred;
+					border: 1px solid $brightdarkred;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 480px) {
+
+	.tools .tool {
+		margin-bottom: 1px;
+	}
+
+	.sentences{
+		width: 100%;
+		margin: 0;
+		&.left {
+			margin-top: 2rem;
+		}
+	}
+}

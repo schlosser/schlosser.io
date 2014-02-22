@@ -1,0 +1,47 @@
+{% extends "admin.html" %}
+
+{% block title %}Edit Sentences | {{super()}}{% endblock %}
+
+{% block content %}
+<form class="add-sentence" action="/admin/sentences/add" method="post">
+	<label class="i">I</label>
+	<input type="text" placeholder="verb" name="verb" required/>
+	<input type="text" placeholder="object" name="obj" required/>
+	<input type="text" placeholder="preposition" name="prep" required/>
+	<input type="text" placeholder="noun" name="noun" required/>
+	<label class="period">.</label>
+	<input type="submit" value="Add" />
+</form>
+<ul class="sentences left">
+	{% for sentence in sentences %}
+	{% if loop.index0 is divisibleby 2 %}
+	<li class="admin-sentence" id="{{sentence._id}}">
+		<p class="sentence-text">I {{sentence.verb | safe}} {{sentence.obj | safe}} {{sentence.prep | safe}} {{sentence.noun | safe}}</p>
+		<span class="delete"><i class="icon-trash"></i></a></span>
+		<form class="confirm" action="/admin/sentences/delete/{{sentence._id}}"method="post">
+			<input class="cancel" value="Cancel" type="button" />
+			<input text="Delete" value="Delete" type="submit" />
+		</form>
+	</li>
+	{%endif%}
+	{% endfor %}
+	<li style="clear:both;"></li>
+</ul>
+<ul class="sentences">
+	{% for sentence in sentences %}
+	{% if not loop.index0 is divisibleby 2 %}
+	<li class="admin-sentence" id="{{sentence._id}}">
+		<p class="sentence-text">I {{sentence.verb | safe}} {{sentence.obj | safe}} {{sentence.prep | safe}} {{sentence.noun | safe}}</p>
+		<span class="delete"><i class="icon-trash"></i></a></span>
+		<form class="confirm" action="/admin/sentences/delete/{{sentence._id}}"method="post">
+			<input class="cancel" value="Cancel" type="button" />
+			<input text="Delete" value="Delete" type="submit" />
+		</form>
+	</li>
+	{%endif%}
+	{% endfor %}
+	<li style="clear:both;"></li>
+</ul>
+<div style="clear:both;"></div>
+
+{% endblock %}

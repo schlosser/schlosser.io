@@ -113,7 +113,7 @@ body {
   height: 6rem;
   z-index: 1; }
 
-  .blog-title a:hover {
+  .page-title a:hover {
     color: #00DFFC; }
 
     .main {
@@ -140,8 +140,7 @@ body {
             top: 0;
             position: relative;
             overflow: hidden;
-            display: inline-block;
-            å; }
+            display: inline-block; }
             .sentence .word span.visible {
               height: 2.5rem;
               position: absolute;

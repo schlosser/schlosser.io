@@ -86,7 +86,7 @@ $(window).bind("load", function() {
 	}
 
 	function doMobile() {
-		$title.removeClass("fixed")
+		$title.removeClass("fixed");
 		$lowerNBSP.css({"width": nbspWidth()});
 		$title.css({"width": titleOriginalWidth()});
 		$lowerFirst.css({"width": lowerFirstOriginalWidth()});

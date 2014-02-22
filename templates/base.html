@@ -11,11 +11,12 @@
 
 
   	<Title>
-  		{% block title%}{% endblock %}
+  		{% block title%}Dan R Schlosser{% endblock %}
     </Title>
 
     {% block css%}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reset.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/fontello.css') }}">
 
     {% assets "scss_base" %}
     <link rel=stylesheet type=text/css href="{{ ASSET_URL }}">
@@ -57,6 +58,9 @@
 </head>
 <body>
 {% block body %}
+<script type="text/javascript">
+  var jsonString = '{{ sentences | safe }}';
+</script>
 {% endblock body %}
 {% block js %}
 <!-- jQuery and Modernizr -->

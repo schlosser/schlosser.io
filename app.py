@@ -1,36 +1,44 @@
 from flask import Flask, redirect, render_template, \
-	request, url_for, send_from_directory, session, flash
+	request, url_for, session, flash
 from flask.ext.basicauth import BasicAuth
-import hashlib, json
+from flask.ext.assets import Environment, Bundle
 from sys import argv
 from data import flaskconfig
+import hashlib, json
 
 app = Flask(__name__)
 
 # Debug configurations
 debug =  len(argv) == 2 and argv[1] == "debug"
+
 # SCSS rendering
-from flask.ext.assets import Environment, Bundle
 assets = Environment(app)
 assets.url = app.static_url_path
 scss_base = Bundle('scss/base.scss', 'scss/app.scss', filters='pyscss', output='css/base.css')
 scss_blog =  Bundle('scss/blog.scss', filters='pyscss', output='css/blog.css')
+scss_admin = Bundle('scss/admin.scss', 'scss/login.scss', filters='pyscss', output='css/admin.css')
 assets.register('scss_base', scss_base)
 assets.register('scss_blog', scss_blog)
+assets.register('scss_admin', scss_admin)
 
 # Authentication Setup
 app.secret_key = flaskconfig.secret_key
 basic_auth = BasicAuth(app)
 
-sentences = json.dumps(json.loads(open("data/sentences.json", "r").read()))
+# Load Data from JSON
+json_string = json.dumps(json.loads(open("data/sentences.json", "r").read()))
+sentences = json.loads(json_string)["sentences"]
+next_id = max(sentences, key=lambda k:k["_id"])["_id"] + 1
 blog_posts = json.loads(open("data/blogPosts.json", "r").read())
+
+
 @app.route('/')
 def home():
-	return render_template("site.html", sentences = sentences)
+	return render_template("site.html", sentences = json_string)
 
 @app.route('/blog')
 def blog():
-	return render_template("blog.html", sentences = sentences, posts=blog_posts)
+	return render_template("blog.html", sentences = json_string, posts=blog_posts)
 
 @app.route('/blog/post-<post_id>')
 def post(post_id):
@@ -38,17 +46,51 @@ def post(post_id):
 	for p in blog_posts:
 		if p["id"] == post_id:
 			post = p
-	return render_template("post.html", sentences=sentences, post=post)
+	return render_template("post.html", sentences=json_string, post=post)
 
-@app.route('/all')
-def all():
-	return render_template("all.html", sentences = json.loads(sentences)["sentences"])
+@app.route('/admin/sentences')
+def view_sentences():
+	if not ("admin" in session and session["admin"]):
+		return redirect(url_for("login"))
+	return render_template('sentences.html', sentences = sentences)
 
-@app.route('/admin/')
+@app.route('/admin/sentences/add', methods=["POST"])
+def add_sentence():
+	if not ("admin" in session and session["admin"]):
+		return redirect(url_for("login"))
+	new_sentence = {
+		"_id": next_id,
+		"verb": request.form["verb"],
+		"obj": request.form["obj"],
+		"prep": request.form["prep"],
+		"noun": request.form["noun"],
+	}
+	sentences.append(new_sentence)
+	update_json()
+	return redirect(url_for("view_sentences"))
+
+@app.route('/admin/sentences/delete/<_id>', methods=["POST"])
+def delete_sentence(_id):
+	should_update = False
+	for sentence in sentences:
+		if sentence["_id"] == int(_id):
+			sentences.remove(sentence)
+			should_update = True
+	if should_update:
+		update_json()
+	return redirect(url_for("view_sentences"))
+
+@app.route('/admin/posts')
+def posts():
+	if not ("admin" in session and session["admin"]):
+		return redirect(url_for("login"))
+	return render_template('posts.html')
+
+@app.route('/admin')
 def admin():
-	if ("admin" in session and session["admin"]):
-		return render_template('admin.html')
-	return redirect(url_for("login"))
+	if not ("admin" in session and session["admin"]):
+		return redirect(url_for("login"))
+	return render_template('admin.html')
 
 @app.route("/login", methods=["GET"])
 def login():
@@ -61,16 +103,8 @@ def validate():
 	if checkCredentials(request.form.get("username"), request.form.get("password")):
 		session["admin"] = True
 		return redirect(url_for("admin"))
-	flash("You typed an incorrect username / password combination.  Please try again.")
+	flash("Incorrect username / password combination.")
 	return redirect(url_for("login"))
-
-@app.route('/rss.xml')
-def rss():
-	return send_from_directory(app.static_folder, request.path[1:])
-
-@app.route('/r/<resource>/')
-def resource(resource=""):
-	return render_template('iframe.html', resource=resource)
 
 @app.route('/favicon.ico')
 def icon():
@@ -83,6 +117,10 @@ def checkCredentials(username, password):
 	correctPassword = flaskconfig.passHash
 	return hashedUsername == correctUsername and hashedPassword == correctPassword
 
+def update_json():
+	json_string = json.dumps({"sentences": sentences}, sort_keys=True, indent=4, separators=(',', ': '))
+	with open("data/sentences.json", "w") as f:
+		f.write(json_string)
 
 if __name__ == '__main__':
 	if debug:

@@ -1,4 +1,7 @@
 $blue: #00DFFC;
+$gray: #333333;
+$darkgray: #555555;
+$offwhite: #dddddd;
 
 .lowercase {
 	height: 5rem;
@@ -49,12 +52,12 @@ $blue: #00DFFC;
 	text-align: left;
 
 	.post {
-		border: 1px solid #555;
+		border: 1px solid $darkgray;
 		border-radius: 5px;
 		margin: 1rem 0;
 		padding: 2rem;
-		color: #333;
-		background-color: #ddd;
+		color: $gray;
+		background-color: $offwhite;
 
 		p  {
 			margin-bottom: 1rem;
@@ -63,7 +66,7 @@ $blue: #00DFFC;
 				text-decoration: underline;
 
 				&:hover {
-					color: lighten(#333, 20%);
+					color: lighten($gray, 20%);
 				}
 			}
 		}

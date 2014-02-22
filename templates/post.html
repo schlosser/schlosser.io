@@ -1,4 +1,6 @@
 {% extends "blog.html" %}
+
+{% block title %}{{post.title}} | {{super()}}{%endblock%}
 {% block posts %}
 <li class="post" id="read">
 	<h3 class="post-title"><a href="/blog/post-{{post.id}}">{{post.title}}</a></h3>

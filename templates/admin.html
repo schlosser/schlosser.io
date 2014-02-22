@@ -1,28 +1,30 @@
-{% extends "foundation.html" %}
+{% extends "base.html" %}
+
 {% block css %}
 {{super()}}
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-
+{% assets "scss_admin" %}
+<link rel=stylesheet type=text/css href="{{ ASSET_URL }}">
+{% endassets %}
 {% endblock css%}
+
+{% block js %}
+{{ super() }}
+<script src="{{url_for('static', filename='js/admin.js') }}"></script>
+{% endblock %}
+
+{% block title %}Admin | {{super()}}{% endblock %}
+
 {% block body %}
-    <div class="row">
-        <div class="large-12 columns">
-            <h1 id="title">DANRS.CH : ADMIN CONSOLE</h1>
-        </div>
-    </div>
-    <div class="row" >
-        <div class="decoration"></div>
-    </div>
-    <div class="row" >
-        <div class="large-3 columns">
-            
-        </div>
-        <div class="large-9 columns">
-            
-        </div>
-    </div>
-    
-	<script>
-        $(document).foundation();
-    </script>
+<h1 class="page-title"><a href="/admin">Admin Tools</a></h1>
+
+<div class="admin-panel">
+<ul class="tools">
+    <li class="tool"><a href="/admin/sentences">Sentences</a></li>
+    <li class="tool"><a href="/admin/posts">Blog Posts</a></li>
+</ul>
+{% block content %}
+{% endblock %}
+
+</div>
+
 {% endblock body %}
