@@ -65,6 +65,7 @@ def add_sentence():
 		"prep": request.form["prep"],
 		"noun": request.form["noun"],
 	}
+	next_id += 1
 	sentences.append(new_sentence)
 	update_json()
 	return redirect(url_for("view_sentences"))
