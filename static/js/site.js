@@ -14,8 +14,10 @@ $(function() {
 	function sentencesAreSimilar(a, b) {
 		difference = 0;
 		for (var key in a) {
-			if (! b.hasOwnProperty(key) || b[key] != a[key])
-				difference += 1;
+			if (key != "_id") {
+				if (! b.hasOwnProperty(key) || b[key] != a[key])
+					difference += 1;
+			}
 		}
 		return difference > 0 && difference < 4;
 	}
