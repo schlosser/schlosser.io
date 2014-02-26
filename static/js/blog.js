@@ -103,7 +103,7 @@ $(window).bind("load", function() {
 		div.innerHTML = text;
 		document.body.appendChild(div);
 		var width = jQuery(div).outerWidth(true);
-		// div.parentNode.removeChild(div);
+		div.parentNode.removeChild(div);
 		return width;
 	}
 
