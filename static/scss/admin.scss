@@ -110,11 +110,8 @@ input[type="button"], input[type="submit"] {
 			margin-right: 10%;
 		}
 
-		&:hover, .touch {
-
-			.delete {
-				display: inline;
-			}
+		&:hover .delete, .delete.touch {
+			display: inline;
 		}
 
 		.delete {
