@@ -1,4 +1,7 @@
 $(function() {
+	if (Modernizr.touch) {
+		$(".delete").addClass("touch");
+	}
 	$(".delete").click(function() {
 		$(this).siblings("form").slideToggle(200);
 	});
