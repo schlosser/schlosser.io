@@ -97,11 +97,11 @@
 body {
   background-color: #1f1f21; }
 
-  .lowercase {
+  .name-fragment {
     height: 5rem;
     display: inline-block;
     overflow: hidden; }
-    .lowercase span {
+    .name-fragment span {
       text-align: left;
       display: block; }
 

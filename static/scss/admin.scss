@@ -110,8 +110,12 @@ input[type="button"], input[type="submit"] {
 			margin-right: 10%;
 		}
 
-		&:hover .delete, .delete.touch {
+		&:hover .delete {
 			display: inline;
+		}
+
+		.touch {
+			display: none !important;
 		}
 
 		.delete {
@@ -170,6 +174,33 @@ input[type="button"], input[type="submit"] {
 }
 
 @media only screen and (max-width: 480px) {
+	.add-sentence  {
+
+		clear: both;
+		margin: 2rem auto 0;
+		text-align: center;
+		.i, .period {
+			display: none;
+		}
+
+		input[type="text"] {
+			width: 90% !important;
+			display: inline-block;
+		}
+		input[type="submit"] {
+			padding: 0.4rem;
+			width: 100px;
+			margin-top: 0.25rem;
+			position: relative !important;
+			top: inherit !important;
+
+		}
+	}
+
+	.sentence-text {
+		font-size: 1.3rem !important;
+		margin-bottom: 0.5rem;
+	}
 	.tools .tool {
 		margin-bottom: 1px;
 	}

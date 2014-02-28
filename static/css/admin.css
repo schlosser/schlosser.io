@@ -78,17 +78,19 @@ input[type="button"], input[type="submit"] {
         margin-right: 10%; }
         .sentences .admin-sentence:hover .delete {
           display: inline; }
-      .sentences .admin-sentence .delete {
-        display: none;
-        right: 0.2rem;
-        top: 0.2rem;
-        padding: 0.25rem 0;
-        position: absolute;
-        font-size: 1.2rem;
-        border-radius: 20px;
-        border: 2px solid #333333; }
-        .sentences .admin-sentence .delete:hover {
-          background-color: #c4c4c4; }
+          .sentences .admin-sentence .touch {
+            display: none !important; }
+            .sentences .admin-sentence .delete {
+              display: none;
+              right: 0.2rem;
+              top: 0.2rem;
+              padding: 0.25rem 0;
+              position: absolute;
+              font-size: 1.2rem;
+              border-radius: 20px;
+              border: 2px solid #333333; }
+              .sentences .admin-sentence .delete:hover {
+                background-color: #c4c4c4; }
       .sentences .admin-sentence .sentence-text {
         font-size: 1rem;
         padding: 0.25rem 0.5rem;
@@ -117,13 +119,31 @@ input[type="button"], input[type="submit"] {
 }
 
 @media only screen and (max-width: 480px) {
-  .tools .tool {
-    margin-bottom: 1px;   }
-    .sentences {
-      width: 100%;
-      margin: 0;   }
-      .sentences.left {
-        margin-top: 2rem;   }
+  .add-sentence {
+    clear: both;
+    margin: 2rem auto 0;
+    text-align: center;   }
+    .add-sentence .i, .add-sentence .period {
+      display: none;   }
+      .add-sentence input[type="text"] {
+        width: 90% !important;
+        display: inline-block;   }
+        .add-sentence input[type="submit"] {
+          padding: 0.4rem;
+          width: 100px;
+          margin-top: 0.25rem;
+          position: relative !important;
+          top: inherit !important;   }
+  .sentence-text {
+    font-size: 1.3rem !important;
+    margin-bottom: 0.5rem;   }
+    .tools .tool {
+      margin-bottom: 1px;   }
+      .sentences {
+        width: 100%;
+        margin: 0;   }
+        .sentences.left {
+          margin-top: 2rem;   }
 }
 
 .login-wrapper {
