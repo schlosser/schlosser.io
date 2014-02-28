@@ -14,9 +14,9 @@ debug =  len(argv) == 2 and argv[1] == "debug"
 # SCSS rendering
 assets = Environment(app)
 assets.url = app.static_url_path
-scss_base = Bundle('scss/base.scss', 'scss/app.scss', filters='pyscss', output='css/base.css')
-scss_blog =  Bundle('scss/blog.scss', filters='pyscss', output='css/blog.css')
-scss_admin = Bundle('scss/admin.scss', 'scss/login.scss', filters='pyscss', output='css/admin.css')
+scss_base = Bundle('scss/colors.scss', 'scss/base.scss', 'scss/app.scss', filters='pyscss', output='css/base.css', depends='scss/colors.scss')
+scss_blog =  Bundle('scss/colors.scss', 'scss/blog.scss', filters='pyscss', output='css/blog.css', depends='scss/colors.scss')
+scss_admin = Bundle('scss/colors.scss', 'scss/admin.scss', 'scss/login.scss', filters='pyscss', output='css/admin.css', depends='scss/colors.scss')
 assets.register('scss_base', scss_base)
 assets.register('scss_blog', scss_blog)
 assets.register('scss_admin', scss_admin)
