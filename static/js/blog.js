@@ -1,11 +1,11 @@
 $(window).bind("load", function() {
 	var $title = $(".site-title"),
 		$titleSpacer = $(".title-spacer"),
-		$lowerFirst = $(".lowercase-first"),
-		$lowerLast = $(".lowercase-last"),
-		$lowerFirstInnerText = $(".lowercase-first span"),
-		$lowerLastInnerText = $(".lowercase-last span"),
-		$lowerNBSP = $(".lowercase-nbsp"),
+		$fragmentFirst = $(".fragment-first"),
+		$fragmentLast = $(".fragment-last"),
+		$fragmentFirstInnerText = $(".fragment-first span"),
+		$fragmentLastInnerText = $(".fragment-last span"),
+		$fragmentNBSP = $(".fragment-nbsp"),
 		nbspWidth = function() {
 			return calculateWordWidth("&nbsp;", ["site-title"]);
 		},
@@ -14,24 +14,24 @@ $(window).bind("load", function() {
 				calculateWordWidth("R", ["site-title"]) +
 				calculateWordWidth("S", ["site-title"]);
 		},
-		lowerFirstOriginalWidth = function() {
+		fragmentFirstOriginalWidth = function() {
 			if ($(window).width() < 1024) {
 				return "auto";
 			}
-			return calculateWordWidth($lowerFirstInnerText.text(), ["site-title"]);
+			return calculateWordWidth($fragmentFirstInnerText.text(), ["site-title"]);
 		},
-		lowerLastOriginalWidth = function() {
+		fragmentLastOriginalWidth = function() {
 			if ($(window).width() < 1024) {
 				return "auto";
 			}
-			return calculateWordWidth($lowerLastInnerText.text(), ["site-title"]);
+			return calculateWordWidth($fragmentLastInnerText.text(), ["site-title"]);
 		},
 		titleOriginalWidth = function() {
 			return $("body").width();
 		};
 
-	$lowerFirstInnerText.css({"width": lowerFirstOriginalWidth()});
-	$lowerLastInnerText.css({"width": lowerLastOriginalWidth()});
+	$fragmentFirstInnerText.css({"width": fragmentFirstOriginalWidth()});
+	$fragmentLastInnerText.css({"width": fragmentLastOriginalWidth()});
 	$(window).scroll(updateTitle);
 	window.addEventListener('orientationchange', resizedw);
 	window.addEventListener('resize', resizedw);
@@ -49,19 +49,19 @@ $(window).bind("load", function() {
 			var percentageLeft = Math.max(distanceToTop, 0)/$title.offset().top;
 
 			if (percentageLeft >= 1) {
-				$lowerNBSP.css({"width": nbspWidth()});
+				$fragmentNBSP.css({"width": nbspWidth()});
 				$title.css({"width": titleOriginalWidth()});
-				$lowerFirst.css({"width": lowerFirstOriginalWidth()});
-				$lowerLast.css({"width": lowerLastOriginalWidth()});
-				$lowerFirstInnerText.css({"width": lowerFirstOriginalWidth()});
-				$lowerLastInnerText.css({"width": lowerLastOriginalWidth()});
+				$fragmentFirst.css({"width": fragmentFirstOriginalWidth()});
+				$fragmentLast.css({"width": fragmentLastOriginalWidth()});
+				$fragmentFirstInnerText.css({"width": fragmentFirstOriginalWidth()});
+				$fragmentLastInnerText.css({"width": fragmentLastOriginalWidth()});
 
 				$title.removeClass("fixed");
 				$titleSpacer.removeClass("live");
 			} else if (spacerDistanceToTop <= 0 && distanceToTop <= 0) {
-				$lowerFirst.css({"width": 0});
-				$lowerLast.css({"width": 0});
-				$lowerNBSP.css({"width": 0});
+				$fragmentFirst.css({"width": 0});
+				$fragmentLast.css({"width": 0});
+				$fragmentNBSP.css({"width": 0});
 				$title.css({"width": titleFinalWidth()});
 
 				$title.addClass("fixed");
@@ -70,13 +70,13 @@ $(window).bind("load", function() {
 				$title.removeClass("fixed");
 				$titleSpacer.removeClass("live");
 
-				var lowerFirstNewWidth = lowerFirstOriginalWidth() * percentageLeft,
-					lowerLastNewWidth = lowerLastOriginalWidth() * percentageLeft,
+				var fragmentFirstNewWidth = fragmentFirstOriginalWidth() * percentageLeft,
+					fragmentLastNewWidth = fragmentLastOriginalWidth() * percentageLeft,
 					titleNewWidth = (titleOriginalWidth() - titleFinalWidth())*percentageLeft + titleFinalWidth(),
 					nbspNewWidth = nbspWidth() * percentageLeft;
-				$lowerNBSP.animate({"width": nbspNewWidth}, 5);
-				$lowerFirst.animate({"width": lowerFirstNewWidth}, 5);
-				$lowerLast.animate({"width": lowerLastNewWidth}, 5);
+				$fragmentNBSP.animate({"width": nbspNewWidth}, 5);
+				$fragmentFirst.animate({"width": fragmentFirstNewWidth}, 5);
+				$fragmentLast.animate({"width": fragmentLastNewWidth}, 5);
 				$title.animate({"width": titleNewWidth}, 5);
 			}
 		}
@@ -87,12 +87,12 @@ $(window).bind("load", function() {
 
 	function doMobile() {
 		$title.removeClass("fixed");
-		$lowerNBSP.css({"width": nbspWidth()});
+		$fragmentNBSP.css({"width": nbspWidth()});
 		$title.css({"width": titleOriginalWidth()});
-		$lowerFirst.css({"width": lowerFirstOriginalWidth()});
-		$lowerLast.css({"width": lowerLastOriginalWidth()});
-		$lowerFirstInnerText.css({"width": lowerFirstOriginalWidth()});
-		$lowerLastInnerText.css({"width": lowerLastOriginalWidth()});
+		$fragmentFirst.css({"width": fragmentFirstOriginalWidth()});
+		$fragmentLast.css({"width": fragmentLastOriginalWidth()});
+		$fragmentFirstInnerText.css({"width": fragmentFirstOriginalWidth()});
+		$fragmentLastInnerText.css({"width": fragmentLastOriginalWidth()});
 	}
 
 	function calculateWordWidth(text, classes) {
