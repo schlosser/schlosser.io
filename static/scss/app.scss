@@ -1,9 +1,7 @@
-$mainBg: #1f1f21;
-$mainText: #fff;
-$blue: #00DFFC;
+@import 'colors';
 
 body {
-  background-color: $mainBg;
+  background-color: $background;
 }
 
 .name-fragment {
@@ -17,7 +15,7 @@ body {
 }
 
 .site-title {
-  color: $blue;
+  color: $accent;
   font-size: 5rem;
   line-height: 6rem;
   margin-bottom: 1rem;
@@ -26,12 +24,12 @@ body {
 }
 
 .page-title a:hover {
-  color: $blue;
+  color: $accent;
 }
 
 .main {
-  background-color: $mainBg;
-  color: $mainText;
+  background-color: ;
+  color: $backgroundText;
   width: 100%;
   text-align: center;
   top: 20%;
@@ -43,7 +41,6 @@ body {
   font-size: 2rem;
   height: 2.5rem;
   margin: 0;
-  color: $mainText;
 
   .word {
     display: inline-block;
@@ -98,10 +95,10 @@ body {
     margin: 0 0.5rem;
     i {
       font-size: 2rem;
-      color: white;
+      color: $backgroundText;
 
       &:hover {
-        color: $blue;
+        color: $accent;
       }
     }
 

@@ -1,6 +1,6 @@
 .page-title {
   margin-top: 1rem;
-  color: white;
+  color: #e7e7e7;
   text-align: center; }
 
   .welcome {
@@ -17,16 +17,15 @@
       height: 5rem; }
 
       .admin-panel {
-        border: 1px solid #888888;
         border-radius: 5px;
         margin: 1rem auto 2rem;
         max-width: 50rem;
         padding: 2rem;
-        color: #333333;
-        background-color: #dddddd; }
+        color: #1f1f21;
+        background-color: #e7e7e7; }
 
         .tools {
-          border-bottom: 1px solid #333333;
+          border-bottom: 1px solid #1f1f21;
           margin: 0 -1rem; }
           .tools .tool {
             display: inline-block;
@@ -37,7 +36,7 @@
             .tools .tool a {
               padding: 0 1.5rem; }
               .tools .tool:hover {
-                background-color: #d0d0d0; }
+                background-color: #cecece; }
 
 .add-sentence {
   position: relative;
@@ -57,12 +56,12 @@ input[type="button"], input[type="submit"] {
   border: none;
   border-radius: 2px;
   padding: 0.25rem;
-  background-color: #dddddd;
-  border: 1px solid #4d4d4d;
-  color: #333333;
+  background-color: #e7e7e7;
+  border: 1px solid #1f1f21;
+  color: #1f1f21;
   margin: 0; }
   input[type="button"]:hover, input[type="submit"]:hover {
-    background-color: #c4c4c4; }
+    background-color: #cecece; }
 
 .sentences {
   margin: 2rem 0 0;
@@ -88,9 +87,9 @@ input[type="button"], input[type="submit"] {
               position: absolute;
               font-size: 1.2rem;
               border-radius: 20px;
-              border: 2px solid #333333; }
+              border: 2px solid #1f1f21; }
               .sentences .admin-sentence .delete:hover {
-                background-color: #c4c4c4; }
+                background-color: #cecece; }
       .sentences .admin-sentence .sentence-text {
         font-size: 1rem;
         padding: 0.25rem 0.5rem;
@@ -105,7 +104,7 @@ input[type="button"], input[type="submit"] {
             .sentences .admin-sentence .confirm input[type="submit"] {
               background-color: #d9534f;
               border: 1px solid #d43f3a;
-              color: white; }
+              color: #e7e7e7; }
               .sentences .admin-sentence .confirm input[type="submit"]:hover {
                 background-color: #d2322d;
                 border: 1px solid #ac2925; }

@@ -1,7 +1,4 @@
-$blue: #00DFFC;
-$gray: #333333;
-$darkgray: #555555;
-$offwhite: #dddddd;
+@import 'colors';
 
 .name-fragment {
 	height: 5rem;
@@ -52,12 +49,11 @@ $offwhite: #dddddd;
 	text-align: left;
 
 	.post {
-		border: 1px solid $darkgray;
 		border-radius: 5px;
 		margin: 1rem 0;
 		padding: 2rem;
-		color: $gray;
-		background-color: $offwhite;
+		color: $panelsText;
+		background-color: $panels;
 
 		p  {
 			margin-bottom: 1rem;
@@ -66,7 +62,7 @@ $offwhite: #dddddd;
 				text-decoration: underline;
 
 				&:hover {
-					color: lighten($gray, 20%);
+					color: $panelsTextLinkHover;
 				}
 			}
 		}
