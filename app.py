@@ -29,6 +29,10 @@ basic_auth = BasicAuth(app)
 json_string = json.dumps(json.loads(open("data/sentences.json", "r").read()))
 sentences = json.loads(json_string)["sentences"]
 next_id = max(sentences, key=lambda k:k["_id"])["_id"] + 1
+try:
+	print next_id
+except:
+	print "wtf is next_id"
 blog_posts = json.loads(open("data/blogPosts.json", "r").read())
 
 
@@ -56,6 +60,7 @@ def view_sentences():
 
 @app.route('/admin/sentences/add', methods=["POST"])
 def add_sentence():
+	global next_id
 	if not ("admin" in session and session["admin"]):
 		return redirect(url_for("login"))
 	new_sentence = {

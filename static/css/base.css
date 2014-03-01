@@ -96,7 +96,7 @@
                                   border: none; }
 
 body {
-  background-color: #527578; }
+  background-color: #1f1f21; }
 
   .name-fragment {
     height: 5rem;
@@ -107,7 +107,7 @@ body {
       display: block; }
 
 .site-title {
-  color: #e9d8c4;
+  color: #00DFFC;
   font-size: 5rem;
   line-height: 6rem;
   margin-bottom: 1rem;
@@ -115,10 +115,10 @@ body {
   z-index: 1; }
 
   .page-title a:hover {
-    color: #e9d8c4; }
+    color: #00DFFC; }
 
     .main {
-      color: #e9d8c4;
+      color: #e7e7e7;
       width: 100%;
       text-align: center;
       top: 20%;
@@ -172,9 +172,9 @@ body {
         margin: 0 0.5rem; }
         .social li i {
           font-size: 2rem;
-          color: #e9d8c4; }
+          color: #e7e7e7; }
           .social li i:hover {
-            color: #e9d8c4; }
+            color: #00DFFC; }
         .social li a:hover {
           border-bottom: none !important; }
 

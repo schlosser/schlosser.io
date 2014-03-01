@@ -1,7 +1,7 @@
 
 .page-title {
   margin-top: 1rem;
-  color: #e9d8c4;
+  color: #e7e7e7;
   text-align: center; }
 
   .welcome {
@@ -22,11 +22,11 @@
         margin: 1rem auto 2rem;
         max-width: 50rem;
         padding: 2rem;
-        color: #47423F;
-        background-color: #FFFFFF; }
+        color: #1f1f21;
+        background-color: #e7e7e7; }
 
         .tools {
-          border-bottom: 1px solid #47423F;
+          border-bottom: 1px solid #1f1f21;
           margin: 0 -1rem; }
           .tools .tool {
             display: inline-block;
@@ -37,7 +37,7 @@
             .tools .tool a {
               padding: 0 1.5rem; }
               .tools .tool:hover {
-                background-color: #ccc; }
+                background-color: #b4b4b4; }
 
 .add-sentence {
   position: relative;
@@ -57,12 +57,12 @@ input[type="button"], input[type="submit"] {
   border: none;
   border-radius: 2px;
   padding: 0.25rem;
-  background-color: #FFFFFF;
-  border: 1px solid #47423F;
-  color: #47423F;
+  background-color: #e7e7e7;
+  border: 1px solid #1f1f21;
+  color: #1f1f21;
   margin: 0; }
   input[type="button"]:hover, input[type="submit"]:hover {
-    background-color: #ccc; }
+    background-color: #b4b4b4; }
 
 .sentences {
   margin: 2rem 0 0;
@@ -88,9 +88,9 @@ input[type="button"], input[type="submit"] {
               position: absolute;
               font-size: 1.2rem;
               border-radius: 20px;
-              border: 2px solid #47423F; }
+              border: 2px solid #1f1f21; }
               .sentences .admin-sentence .delete:hover {
-                background-color: #ccc; }
+                background-color: #b4b4b4; }
       .sentences .admin-sentence .sentence-text {
         font-size: 1rem;
         padding: 0.25rem 0.5rem;
@@ -105,7 +105,7 @@ input[type="button"], input[type="submit"] {
             .sentences .admin-sentence .confirm input[type="submit"] {
               background-color: #d9534f;
               border: 1px solid #d43f3a;
-              color: #FFFFFF; }
+              color: #e7e7e7; }
               .sentences .admin-sentence .confirm input[type="submit"]:hover {
                 background-color: #d2322d;
                 border: 1px solid #ac2925; }
