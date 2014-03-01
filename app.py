@@ -29,10 +29,6 @@ basic_auth = BasicAuth(app)
 json_string = json.dumps(json.loads(open("data/sentences.json", "r").read()))
 sentences = json.loads(json_string)["sentences"]
 next_id = max(sentences, key=lambda k:k["_id"])["_id"] + 1
-try:
-	print next_id
-except:
-	print "wtf is next_id"
 blog_posts = json.loads(open("data/blogPosts.json", "r").read())
 
 
