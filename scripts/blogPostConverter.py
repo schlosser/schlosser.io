@@ -13,7 +13,7 @@ def main():
 		post = {
 			"id": postFile.rstrip('.html').strip(),
 			"class": postFile.rstrip('.html').strip(),
-			"title": content[content.index('<h3>')+4: content.index('</h3>')].strip(),
+			"title": findTitle(content),
 			"date": content[content.index('<em>')+4: content.index('</em>')].strip(),
 			"preview": content[content.index('</em></p>')+9: content.index('<hr />')].strip(),
 			"hidden": content[content.index('<hr />')+6:].strip(),
@@ -22,4 +22,10 @@ def main():
 	with open(outputFilename, 'w') as outfile:
   		json.dump(posts, outfile, indent=4, separators=(',', ': '))
 
-if __name__ == '__main__': main()
+def findTitle(content):
+	return content[
+		content.index('<h3') + content[content.index('<h3'):].index('>') + 1
+		: content.index('</h3>')].strip()
+
+if __name__ == '__main__':
+	main()

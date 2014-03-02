@@ -13,10 +13,27 @@
   left: 0; }
 
   .title-spacer {
+    margin-bottom: 1rem;
     height: 6rem;
     display: none; }
     .title-spacer.live {
       display: block; }
+
+.top {
+  text-align: center;
+  width: 100%;
+  font-size: 2rem;
+  height: 2.5rem;
+  position: absolute;
+  bottom: -1rem;
+  left: 0;
+  right: 0; }
+  .top a {
+    text-decoration: none !important;
+    transform: ease 0.2s all;
+    -webkit-transform: ease 0.2s all; }
+    .top a:hover {
+      font-size: 2.5rem; }
 
 .anchor {
   width: 1px;
@@ -36,6 +53,7 @@
         margin: 0 auto;
         display: block;
         position: relative;
+        margin-bottom: 3rem;
         width: 95%;
         max-width: 40rem;
         text-align: left; }
@@ -43,11 +61,12 @@
           border-radius: 5px;
           margin: 1rem 0;
           padding: 2rem;
-          color: #47423F;
-          background-color: #FFFFFF; }
+          position: relative;
+          color: #1f1f21;
+          background-color: #e7e7e7; }
           .posts .post p {
             margin-bottom: 1rem; }
             .posts .post p a {
               text-decoration: underline; }
               .posts .post p a:hover {
-                color: #625b57; }
+                color: #38383b; }

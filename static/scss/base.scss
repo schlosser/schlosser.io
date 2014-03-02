@@ -73,14 +73,16 @@ a {
 }
 
 code, tt {
-  margin: 0 2px;
-  padding: 0 5px;
-  white-space: nowrap;
-  border: 1px solid #eaeaea;
   background-color: #f8f8f8;
-  border-radius: 3px; }
+  border: 1px solid #cccccc;
+  padding: 0 3px;
+  border-radius: 3px;
+  font-size: 1rem;
+  font-family: "Courier New", Courier, monospace;
+  white-space: nowrap; }
 
 pre code {
+  font-size: 0.8rem;
   margin: 0;
   padding: 0;
   white-space: pre;
@@ -90,7 +92,6 @@ pre code {
 .highlight pre {
   background-color: #f8f8f8;
   border: 1px solid #cccccc;
-  font-size: 13px;
   line-height: 19px;
   overflow: auto;
   padding: 6px 10px;
@@ -99,11 +100,13 @@ pre code {
 pre {
   background-color: #f8f8f8;
   border: 1px solid #cccccc;
-  font-size: 13px;
   line-height: 19px;
+  margin-bottom: 1rem;
   overflow: auto;
   padding: 6px 10px;
-  border-radius: 3px; }
-  pre code, pre tt {
+  border-radius: 3px;
+  code, tt {
     background-color: transparent;
-    border: none; }
+    border: none;
+  }
+}

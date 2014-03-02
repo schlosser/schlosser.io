@@ -30,11 +30,44 @@ $(window).bind("load", function() {
 			return $("body").width();
 		};
 
+	$("a[href='#top']").click(function (e) {
+		$("html, body").animate({ scrollTop: 0 }, "fast");
+
+		return false;
+	})
+
 	$fragmentFirstInnerText.css({"width": fragmentFirstOriginalWidth()});
 	$fragmentLastInnerText.css({"width": fragmentLastOriginalWidth()});
-	$(window).scroll(updateTitle);
-	window.addEventListener('orientationchange', resizedw);
-	window.addEventListener('resize', resizedw);
+
+	/* Ensure that only one event gets called at a time. */
+	var scrollTimerId,
+		wheelTimerId,
+		orientationchangeTimerId,
+		resizeTimerId;
+	$(window).scroll(function() {
+		clearTimeout(wheelTimerId);
+		clearTimeout(orientationchangeTimerId);
+		clearTimeout(resizeTimerId);
+		scrollTimerId = setTimeout(updateTitle, 1);
+	});
+	window.addEventListener('wheel', function() {
+		clearTimeout(scrollTimerId);
+		clearTimeout(orientationchangeTimerId);
+		clearTimeout(resizeTimerId);
+		wheelTimerId= setTimeout(updateTitle, 1);
+	});
+	window.addEventListener('orientationchange', function() {
+		clearTimeout(scrollTimerId);
+		clearTimeout(wheelTimerId);
+		clearTimeout(resizeTimerId);
+		orientationchangeTimerId = setTimeout(updateTitle, 1);
+	});
+	window.addEventListener('resize', function() {
+		clearTimeout(scrollTimerId);
+		clearTimeout(wheelTimerId);
+		clearTimeout(orientationchangeTimerId);
+		resizeTimerId = setTimeout(updateTitle, 1);
+	});
 
 	function updateTitle() {
 		if ($(window).width() > 1024) {
@@ -74,10 +107,10 @@ $(window).bind("load", function() {
 					fragmentLastNewWidth = fragmentLastOriginalWidth() * percentageLeft,
 					titleNewWidth = (titleOriginalWidth() - titleFinalWidth())*percentageLeft + titleFinalWidth(),
 					nbspNewWidth = nbspWidth() * percentageLeft;
-				$fragmentNBSP.animate({"width": nbspNewWidth}, 5);
-				$fragmentFirst.animate({"width": fragmentFirstNewWidth}, 5);
-				$fragmentLast.animate({"width": fragmentLastNewWidth}, 5);
-				$title.animate({"width": titleNewWidth}, 5);
+				$fragmentNBSP.stop().animate({"width": nbspNewWidth}, 5);
+				$fragmentFirst.stop().animate({"width": fragmentFirstNewWidth}, 5);
+				$fragmentLast.stop().animate({"width": fragmentLastNewWidth}, 5);
+				$title.stop().animate({"width": titleNewWidth}, 5);
 			}
 		}
 		else {
@@ -105,14 +138,5 @@ $(window).bind("load", function() {
 		var width = jQuery(div).outerWidth(true);
 		div.parentNode.removeChild(div);
 		return width;
-	}
-
-	function resizedw() {
-		if ($(window).width() > 1024) {
-			updateTitle();
-		} else {
-
-			doMobile();
-		}
 	}
 });
