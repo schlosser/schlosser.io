@@ -31,10 +31,11 @@ $(window).bind("load", function() {
 		};
 
 	$("a[href='#top']").click(function (e) {
-		$("html, body").animate({ scrollTop: 0 }, "fast");
-
+		$("html, body").animate({ scrollTop: 0 }, "fast", function() {
+			updateTitle();
+		});
 		return false;
-	})
+	});
 
 	$fragmentFirstInnerText.css({"width": fragmentFirstOriginalWidth()});
 	$fragmentLastInnerText.css({"width": fragmentLastOriginalWidth()});
