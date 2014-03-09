@@ -112,10 +112,6 @@ def validate():
 def icon():
 	return url_for('static', filename='img/favicon.ico')
 
-@app.route('/robots.txt')
-def robots():
-	return url_for('static', filename='robots.txt')
-
 def checkCredentials(username, password):
 	hashedUsername = hashlib.sha224(username).hexdigest()
 	hashedPassword = hashlib.sha224(password).hexdigest()
