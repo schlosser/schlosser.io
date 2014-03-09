@@ -1,6 +1,7 @@
 {% extends "blog.html" %}
 
 {% block metaDescription %}{{post.preview | striptags | safe}}{% endblock %}
+{% block metaType %}article{% endblock %}
 {% block title %}{{post.title}} | {{super()}}{%endblock%}
 {% block posts %}
 <li class="post" id="read">

@@ -4,15 +4,35 @@
 	{% block head %}
     {% block meta %}
     <meta charset="utf-8" />
+    <Title>{% block title%}Dan R Schlosser{% endblock %}</Title>
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content="{% block metaDescription %}Dan Schlosser is a Computer Science student at Columbia University.  Find him as danrschlosser on Github, Twitter, Facebook and Flickr.{% endblock %}" />
-    <meta name="robots" content="NOODP">
+
+    <meta name="author" content="Dan R Schlosser">
+    <meta name="robots" content="NOODP, index, follow" />
+
+    <!-- Google Authorship and Publisher Markup -->
+    <link rel="author" href="https://plus.google.com/u/0/+DanRSchlosser1/posts"/>
+    <link rel="publisher" href="https://plus.google.com/u/0/+DanRSchlosser1"/>
+
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="{{ self.title() }}">
+    <meta itemprop="description" content="{{ self.metaDescription() }}">
+    <meta itemprop="image" content="http://www.gravatar.com/avatar/16346c8f1f174017cc7ff89ea9bc743e.png">
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:site" content="@danrschlosser">
+    <meta name="twitter:title" content="{{ self.title() }}">
+    <meta name="twitter:description" content="{{ self.metaDescription() }}">
+    <meta name="twitter:creator" content="@danrschlosser">
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="{{ self.title() }}" />
+    <meta property="og:type" content="{% block metaType %}website{% endblock %}" />
+    <meta property="og:url" content="http://danrschlosser.com" />
+    <meta property="og:image" content="http://www.gravatar.com/avatar/16346c8f1f174017cc7ff89ea9bc743e.png" />
+    <meta property="og:description" content="{{ self.metaDescription() }}" />
     {% endblock meta%}
-
-
-  	<Title>
-  		{% block title%}Dan R Schlosser{% endblock %}
-    </Title>
 
     {% block css%}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reset.min.css') }}">
