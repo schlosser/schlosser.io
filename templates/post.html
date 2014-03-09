@@ -1,5 +1,6 @@
 {% extends "blog.html" %}
 
+{% block metaDescription %}{{post.preview | safe}}{% endblock %}
 {% block title %}{{post.title}} | {{super()}}{%endblock%}
 {% block posts %}
 <li class="post" id="read">
