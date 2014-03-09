@@ -1,5 +1,6 @@
 @import 'colors';
 
+
 .name-fragment {
 	height: 5rem;
 	display: inline-block;
@@ -23,6 +24,8 @@
 		display: block;
 	}
 }
+
+
 
 .top {
 	text-align: center;
@@ -51,14 +54,24 @@
 }
 
 .post-date {
-	margin: 0 0 2rem;
-	font-style: italic;
+	margin: 0 0.5rem 2rem 0 ;
 	font-size: 1.2rem;
 	line-height: 2rem;
+	font-weight: bold;
+	display: inline-block;
+}
+
+.byline {
+	font-style: italic;
+	display: inline-block;
+	font-size: 1.2rem;
+	line-height: 2rem;
+	margin-top: 0;
 }
 
 .blog-title {
 	margin-top: 3rem;
+	margin-bottom: 2rem;
 }
 
 .posts {
