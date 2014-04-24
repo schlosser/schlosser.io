@@ -99,7 +99,7 @@ body {
   background-color: #1f1f21; }
 
   .name-fragment {
-    height: 5rem;
+    height: 4.75rem;
     display: inline-block;
     overflow: hidden; }
     .name-fragment span {
@@ -107,15 +107,15 @@ body {
       display: block; }
 
 .site-title {
-  color: #00DFFC;
-  font-size: 5rem;
+  color: #09c4ff;
+  font-size: 4.75rem;
   line-height: 6rem;
   margin-bottom: 1rem;
   height: 6rem;
   z-index: 1; }
 
   .page-title a:hover {
-    color: #00DFFC; }
+    color: #09c4ff; }
 
     .main {
       color: #e7e7e7;
@@ -174,7 +174,7 @@ body {
           font-size: 2rem;
           color: #e7e7e7; }
           .social li i:hover {
-            color: #00DFFC; }
+            color: #09c4ff; }
         .social li a:hover {
           border-bottom: none !important; }
 
