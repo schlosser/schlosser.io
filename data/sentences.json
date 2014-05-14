@@ -209,6 +209,13 @@
             "obj": "Makefiles",
             "prep": "make",
             "verb": "make "
+        },
+        {
+            "_id": 30,
+            "noun": "Venmo",
+            "obj": "for the summer",
+            "prep": "at",
+            "verb": "intern"
         }
     ]
 }

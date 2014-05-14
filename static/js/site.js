@@ -60,6 +60,8 @@ $(function() {
 
 	function setLiveSentence(newSentence) {
 		if (print) {
+			console.log("sentences = ", sentences);
+			console.log("usedSentences = ", usedSentences);
 			console.log("newSentence = ", newSentence);
 		}
 		for (var key in newSentence) {
@@ -75,9 +77,9 @@ $(function() {
 
 		if (newText != $visible.html()) {
 			if (print) {
-				console.log("filling in ", key, " with ", newText);
-				console.log("$invisible = ", $invisible);
-				console.log("$visible = ", $visible);
+				// console.log("filling in ", key, " with ", newText);
+				// console.log("$invisible = ", $invisible);
+				// console.log("$visible = ", $visible);
 			}
 			$invisible.css("width", $invisible.width());
 			$visible.stop().animate(
