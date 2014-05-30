@@ -14,6 +14,7 @@ Setup
 
 Running
 -------
+
     python app.py debug # Development
     python app.py       # Deployment
     # runs on localhost:5000
