@@ -55,7 +55,7 @@ $(function() {
 		setLiveSentence(newSentence);
 		currentSentence = newSentence;
 		clearTimeout(highestTimeoutId);
-		highestTimeoutId = setTimeout(sentenceLoop, 6000);
+		highestTimeoutId = setTimeout(sentenceLoop, 4000);
 	}
 
 	function setLiveSentence(newSentence) {

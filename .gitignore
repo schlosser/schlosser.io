@@ -5,8 +5,10 @@
 *.pyc
 data/flaskconfig.py
 data/auth_keys
+data/sentences.json
 lib
 src
 include
 deactivate
 *.webassets-cache
+
