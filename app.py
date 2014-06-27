@@ -1,5 +1,5 @@
 from flask import Flask, redirect, render_template, \
-	request, url_for, session, flash
+	request, url_for, session, flash#, jsonify
 from flask.ext.basicauth import BasicAuth
 from flask.ext.assets import Environment, Bundle
 from sys import argv
@@ -14,9 +14,9 @@ debug =  len(argv) == 2 and argv[1] == "debug"
 # SCSS rendering
 assets = Environment(app)
 assets.url = app.static_url_path
-scss_base = Bundle('scss/colors.scss', 'scss/base.scss', 'scss/app.scss', filters='pyscss', output='css/base.css', depends='scss/colors.scss')
-scss_blog =  Bundle('scss/colors.scss', 'scss/blog.scss', filters='pyscss', output='css/blog.css', depends='scss/colors.scss')
-scss_admin = Bundle('scss/colors.scss', 'scss/admin.scss', 'scss/login.scss', filters='pyscss', output='css/admin.css', depends='scss/colors.scss')
+scss_base = Bundle('scss/colors.scss', 'scss/base.scss', 'scss/app.scss', filters='pyscss', output='css/base.%(version)s.css', depends='scss/colors.scss')
+scss_blog =  Bundle('scss/colors.scss', 'scss/blog.scss', filters='pyscss', output='css/blog.css', depends='scss/colors.%(version)s.scss')
+scss_admin = Bundle('scss/colors.scss', 'scss/admin.scss', 'scss/login.scss', filters='pyscss', output='css/admin.%(version)s.css', depends='scss/colors.scss')
 assets.register('scss_base', scss_base)
 assets.register('scss_blog', scss_blog)
 assets.register('scss_admin', scss_admin)
@@ -54,33 +54,56 @@ def view_sentences():
 		return redirect(url_for("login"))
 	return render_template('sentences.html', sentences = sentences)
 
+# @app.route('/api/sentences')
+# def api_sentences():
+# 	return json_string
+
+# @app.route('/api/sentences/add', methods=['POST'])
+# def api_add_sentence():
+# 	sentence = _add_sentence(request.form)
+# 	return jsonify({"data": sentence})
+
+# @app.route('/api/sentences/delete/<_id>', methods=["POST"])
+# def api_delete_sentence(_id):
+# 	sentence = _delete_sentence(_id)
+# 	return jsonify({"deleted":sentence})
+
 @app.route('/admin/sentences/add', methods=["POST"])
 def add_sentence():
-	global next_id
 	if not ("admin" in session and session["admin"]):
 		return redirect(url_for("login"))
+	_add_sentence(request.form)
+	return redirect(url_for("view_sentences"))
+
+def _add_sentence(form):
+	global next_id
 	new_sentence = {
 		"_id": next_id,
-		"verb": request.form["verb"],
-		"obj": request.form["obj"],
-		"prep": request.form["prep"],
-		"noun": request.form["noun"],
+		"verb": form["verb"],
+		"obj": form["obj"],
+		"prep": form["prep"],
+		"noun": form["noun"],
 	}
 	next_id += 1
 	sentences.append(new_sentence)
 	update_json()
-	return redirect(url_for("view_sentences"))
+	return new_sentence
 
 @app.route('/admin/sentences/delete/<_id>', methods=["POST"])
 def delete_sentence(_id):
+	return redirect(url_for("view_sentences"))
+
+def _delete_sentence(_id):
+	deleted = None
 	should_update = False
 	for sentence in sentences:
 		if sentence["_id"] == int(_id):
+			deleted = sentence.copy()
 			sentences.remove(sentence)
 			should_update = True
 	if should_update:
 		update_json()
-	return redirect(url_for("view_sentences"))
+	return deleted
 
 @app.route('/admin/posts')
 def posts():
@@ -120,6 +143,7 @@ def checkCredentials(username, password):
 	return hashedUsername == correctUsername and hashedPassword == correctPassword
 
 def update_json():
+	global json_string
 	string = json.dumps({"sentences": sentences}, sort_keys=True, indent=4, separators=(',', ': '))
 	with open("data/sentences.json", "w") as f:
 		f.write(string)
