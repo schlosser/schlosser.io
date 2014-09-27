@@ -110,3 +110,14 @@ pre {
     border: none;
   }
 }
+
+hr {
+  border: none;
+  background-color: $panelsText;
+  height: 0.125rem;
+  margin: 2rem 0;
+}
+
+img {
+  max-width: 100%;
+}

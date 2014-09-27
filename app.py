@@ -54,20 +54,6 @@ def view_sentences():
 		return redirect(url_for("login"))
 	return render_template('sentences.html', sentences = sentences)
 
-# @app.route('/api/sentences')
-# def api_sentences():
-# 	return json_string
-
-# @app.route('/api/sentences/add', methods=['POST'])
-# def api_add_sentence():
-# 	sentence = _add_sentence(request.form)
-# 	return jsonify({"data": sentence})
-
-# @app.route('/api/sentences/delete/<_id>', methods=["POST"])
-# def api_delete_sentence(_id):
-# 	sentence = _delete_sentence(_id)
-# 	return jsonify({"deleted":sentence})
-
 @app.route('/admin/sentences/add', methods=["POST"])
 def add_sentence():
 	if not ("admin" in session and session["admin"]):
