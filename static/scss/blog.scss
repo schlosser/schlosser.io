@@ -13,12 +13,12 @@
 
 .fixed {
 	position: fixed;
-	top:0;
-	left: 0;
+	top:-1rem;
+	left: 1rem;
 }
 .title-spacer {
 	margin-bottom: 1rem;
-	height: 6rem;
+	height: 3.5rem;
 	display: none;
 	&.live {
 		display: block;

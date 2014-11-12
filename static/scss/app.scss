@@ -4,6 +4,13 @@ body {
   background-color: $background;
 }
 
+.text-links {
+  font-family: 'st_marie_thinthin', sans-serif;
+  text-transform: uppercase;
+  font-size: 1.5rem !important;
+  line-height: 1.5rem;
+}
+
 .name-fragment {
   height: 4.75rem;
   display: inline-block;
@@ -21,6 +28,7 @@ body {
   margin-bottom: 1rem;
   height: 6rem;
   z-index: 1;
+  vertical-align: middle;
 }
 
 .page-title a:hover {
@@ -35,6 +43,7 @@ body {
   top: 20%;
   position: relative;
   display: block;
+  padding: 0 1rem;
 }
 
 .sentence {
@@ -88,7 +97,7 @@ body {
 .social {
   display: block;
   position: relative;
-  margin: 2rem 0;
+  margin: 1rem 0;
   text-align: center;
   li {
     display: inline-block;

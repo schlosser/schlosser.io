@@ -10,9 +10,9 @@ $(window).bind("load", function() {
 			return calculateWordWidth("&nbsp;", ["site-title"]);
 		},
 		titleFinalWidth = function () {
-			return	calculateWordWidth("D", ["site-title"]) +
-				calculateWordWidth("R", ["site-title"]) +
-				calculateWordWidth("S", ["site-title"]);
+			return	calculateWordWidth("D", ["text-links"]) +
+				calculateWordWidth("R", ["text-links"]) +
+				calculateWordWidth("S", ["text-links"]);
 		},
 		fragmentFirstOriginalWidth = function() {
 			if ($(window).width() < 1024) {
@@ -28,6 +28,18 @@ $(window).bind("load", function() {
 		},
 		titleOriginalWidth = function() {
 			return $("body").width();
+		},
+		titleOriginalFontSize = function() {
+			return 4.75;
+		},
+		titleFinalFontSize = function() {
+			return 1.5;
+		},
+		titleOriginalHeight = function() {
+			return 6;
+		},
+		titleFinalHeight = function() {
+			return 3.5;
 		};
 
 	$("a[href='#top']").click(function (e) {
@@ -83,8 +95,14 @@ $(window).bind("load", function() {
 			var percentageLeft = Math.max(distanceToTop, 0)/$title.offset().top;
 
 			if (percentageLeft >= 1) {
+				/* Top of the page, animation hasn't started, title is centered */
 				$fragmentNBSP.css({"width": nbspWidth()});
-				$title.css({"width": titleOriginalWidth()});
+				$title.css({
+					"width": titleOriginalWidth(),
+					"font-size": titleOriginalFontSize() + 'rem',
+					"line-height": titleOriginalHeight(),
+					"height": titleOriginalHeight()
+				});
 				$fragmentFirst.css({"width": fragmentFirstOriginalWidth()});
 				$fragmentLast.css({"width": fragmentLastOriginalWidth()});
 				$fragmentFirstInnerText.css({"width": fragmentFirstOriginalWidth()});
@@ -93,25 +111,41 @@ $(window).bind("load", function() {
 				$title.removeClass("fixed");
 				$titleSpacer.removeClass("live");
 			} else if (spacerDistanceToTop <= 0 && distanceToTop <= 0) {
+				/* Animation complete, title fixed left */
 				$fragmentFirst.css({"width": 0});
 				$fragmentLast.css({"width": 0});
 				$fragmentNBSP.css({"width": 0});
-				$title.css({"width": titleFinalWidth()});
+				$title.css({
+					"width": titleFinalWidth(),
+					"font-size": titleFinalFontSize() + 'rem',
+					"line-height": titleFinalHeight(),
+					"height": titleFinalHeight()
+				});
+
 
 				$title.addClass("fixed");
 				$titleSpacer.addClass("live");
 			} else if (percentageLeft > 0 && distanceToTop > 0 || spacerDistanceToTop >= 0){
+				/* Animation in progress */
 				$title.removeClass("fixed");
 				$titleSpacer.removeClass("live");
 
 				var fragmentFirstNewWidth = fragmentFirstOriginalWidth() * percentageLeft,
 					fragmentLastNewWidth = fragmentLastOriginalWidth() * percentageLeft,
+					titleNewFontSize = titleFinalFontSize() + (titleOriginalFontSize() - titleFinalFontSize()) * percentageLeft + 'rem',
+					titleNewHeight = titleFinalHeight() + (titleOriginalHeight() - titleFinalHeight()) * percentageLeft + 'rem',
 					titleNewWidth = (titleOriginalWidth() - titleFinalWidth())*percentageLeft + titleFinalWidth(),
 					nbspNewWidth = nbspWidth() * percentageLeft;
 				$fragmentNBSP.stop().animate({"width": nbspNewWidth}, 5);
 				$fragmentFirst.stop().animate({"width": fragmentFirstNewWidth}, 5);
 				$fragmentLast.stop().animate({"width": fragmentLastNewWidth}, 5);
-				$title.stop().animate({"width": titleNewWidth}, 5);
+				console.log(titleNewFontSize);
+				$title.stop().animate({
+					"width": titleNewWidth,
+					"font-size": titleNewFontSize,
+					"line-height": titleNewHeight,
+					"height": titleNewHeight
+				}, 5);
 			}
 		}
 		else {

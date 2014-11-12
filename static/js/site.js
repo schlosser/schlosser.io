@@ -8,19 +8,9 @@ $(function() {
 		highestTimeoutId = 0;
 	resetSentences();
 	var currentSentence = sentences[0];
+	console.log(currentSentence);
 	setLiveSentence(currentSentence);
 	sentenceLoop();
-
-	function sentencesAreSimilar(a, b) {
-		difference = 0;
-		for (var key in a) {
-			if (key != "_id") {
-				if (! b.hasOwnProperty(key) || b[key] != a[key])
-					difference += 1;
-			}
-		}
-		return difference > 0 && difference < 4;
-	}
 
 	function resetSentences() {
 		if (print) {
@@ -40,14 +30,9 @@ $(function() {
 		}
 		var newSentence;
 		for (var i = 0; i < sentences.length; i++) {
-			if (sentencesAreSimilar(currentSentence, sentences[i])) {
-				newSentence = sentences[i];
-				usedSentences = usedSentences.concat(sentences.splice(i, 1));
-				break;
-			} else if (i+1 == sentences.length) {
-				resetSentences();
-				i=-1;
-			}
+			newSentence = sentences[i];
+			usedSentences = usedSentences.concat(sentences.splice(i, 1));
+			break;
 		}
 		if (print) {
 			console.log("i = ", i , " sentences.length = ", sentences.length);

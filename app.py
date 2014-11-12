@@ -137,6 +137,6 @@ def update_json():
 
 if __name__ == '__main__':
 	if debug:
-		app.run(debug=True, host="0.0.0.0")
+		app.run(debug=True, host="0.0.0.0", threaded=True)
 	else:
-		app.run()
+		app.run(threaded=True)
