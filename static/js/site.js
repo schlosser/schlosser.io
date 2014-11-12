@@ -29,11 +29,8 @@ $(function() {
 			resetSentences();
 		}
 		var newSentence;
-		for (var i = 0; i < sentences.length; i++) {
-			newSentence = sentences[i];
-			usedSentences = usedSentences.concat(sentences.splice(i, 1));
-			break;
-		}
+		newSentence = sentences[0];
+		usedSentences = usedSentences.concat(sentences.splice(0, 1));
 		if (print) {
 			console.log("i = ", i , " sentences.length = ", sentences.length);
 		}
