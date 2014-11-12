@@ -1,5 +1,5 @@
 from flask import Flask, redirect, render_template, \
-	request, url_for, session, flash#, jsonify
+	request, url_for, session, flash, jsonify
 from flask.ext.basicauth import BasicAuth
 from flask.ext.assets import Environment, Bundle
 from sys import argv
@@ -34,11 +34,15 @@ blog_posts = json.loads(open("data/blogPosts.json", "r").read())
 
 @app.route('/')
 def home():
-	return render_template("site.html", sentences = json_string)
+	return render_template("site.html")
 
 @app.route('/blog')
 def blog():
-	return render_template("blog.html", sentences = json_string, posts=blog_posts)
+	return render_template("blog.html", posts=blog_posts)
+
+@app.route('/sentences')
+def get_sentences():
+	return jsonify({"sentences": sentences})
 
 @app.route('/blog/post-<post_id>')
 def post(post_id):
@@ -46,13 +50,13 @@ def post(post_id):
 	for p in blog_posts:
 		if p["id"] == post_id:
 			post = p
-	return render_template("post.html", sentences=json_string, post=post)
+	return render_template("post.html", post=post)
 
 @app.route('/admin/sentences')
 def view_sentences():
 	if not ("admin" in session and session["admin"]):
 		return redirect(url_for("login"))
-	return render_template('sentences.html', sentences = sentences)
+	return render_template('sentences.html', sentences=sentences)
 
 @app.route('/admin/sentences/add', methods=["POST"])
 def add_sentence():

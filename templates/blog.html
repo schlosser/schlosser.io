@@ -1,23 +1,23 @@
-{% extends "site.html" %}
+{%- extends "site.html" -%}
 
-{% block title %}Blog | {{ super() }}{% endblock %}
+{%- block title -%}Blog | {{ super() }}{%- endblock -%}
 
-{% block activePage %}blog{% endblock %}
+{%- block activePage -%}blog{%- endblock -%}
 
-{% block js %}
+{%- block js -%}
 {{ super() }}
 <script type="text/javascript" src="{{ url_for('static', filename='js/blog.js')}}"></script>
-{% endblock %}
+{%- endblock -%}
 
-{% block css %}
+{%- block css -%}
 {{ super() }}
 
-{% assets "scss_blog" %}
+{%- assets "scss_blog" -%}
 <link rel=stylesheet type=text/css href="{{ ASSET_URL }}">
-{% endassets %}
-{% endblock css %}
+{%- endassets -%}
+{%- endblock css -%}
 
-{% block siteTitle %}
+{%- block siteTitle -%}
 <div class="name-fragment">
 	<span>D</span>
 </div><div class="name-fragment fragment-first">
@@ -33,13 +33,13 @@
 </div><div class="name-fragment fragment-last">
 	<span>chlosser</span>
 </div>
-{%endblock%}
+{%-endblock-%}
 
-{% block content %}
+{%- block content -%}
 {{ super() }}
 <ul class="posts">
-{% block posts %}
-{% for post in posts%}
+{%- block posts -%}
+{%- for post in posts-%}
 	<li class="post">
 		<h3 class="post-title"><a href="/blog/post-{{post.id}}#read">{{post.title}}</a></h3>
 		<h4 class="post-date"><a href="/blog/post-{{post.id}}#read">{{post.date}}</a></h4>
@@ -48,7 +48,7 @@
 		<p class="read-more"><a href="/blog/post-{{post.id}}#read">
 			read more...</a><p>
 	</li>
-{% endfor%}
-{% endblock %}
+{%- endfor-%}
+{%- endblock -%}
 </ul>
-{% endblock %}
+{%- endblock -%}

@@ -1,25 +1,20 @@
 <!DOCTYPE HTML>
-<html>
-<head>
-	{% block head %}
-    {% block meta %}
+<html><head>
+	{%- block head -%}
+    {%- block meta -%}
     <meta charset="utf-8" />
-    <Title>{% block title%}Dan R Schlosser{% endblock %}</Title>
+    <Title>{%- block title -%}Dan R Schlosser{%- endblock -%}</Title>
     <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="{% block metaDescription %}Dan Schlosser is a Computer Science student at Columbia University.  Find him as danrschlosser on Github, Twitter, Facebook and Flickr.{% endblock %}" />
-
+    <meta name="description" content="{%- block metaDescription -%}Dan Schlosser is a Computer Science student at Columbia University.  Find him as danrschlosser on Github, Twitter, Facebook and Flickr.{%- endblock -%}" />
     <meta name="author" content="Dan R Schlosser">
     <meta name="robots" content="NOODP, index, follow" />
-
     <!-- Google Authorship and Publisher Markup -->
     <link rel="author" href="https://plus.google.com/u/0/+DanRSchlosser1/posts"/>
     <link rel="publisher" href="https://plus.google.com/u/0/+DanRSchlosser1"/>
-
     <!-- Schema.org markup for Google+ -->
     <meta itemprop="name" content="{{ self.title() }}">
     <meta itemprop="description" content="{{ self.metaDescription() }}">
     <meta itemprop="image" content="http://www.gravatar.com/avatar/16346c8f1f174017cc7ff89ea9bc743e.png">
-
     <!-- Twitter Card data -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@danrschlosser">
@@ -28,41 +23,32 @@
     <meta name="twitter:creator" content="@danrschlosser">
     <meta name="twitter:image:src" content="http://www.gravatar.com/avatar/16346c8f1f174017cc7ff89ea9bc743e.png">
     <meta name="twitter:domain" content="danrschlosser.com">
-
     <!-- Open Graph data -->
     <meta property="og:title" content="{{ self.title() }}" />
-    <meta property="og:type" content="{% block metaType %}website{% endblock %}" />
+    <meta property="og:type" content="{%- block metaType -%}website{%- endblock -%}" />
     <meta property="og:url" content="http://danrschlosser.com" />
     <meta property="og:image" content="http://www.gravatar.com/avatar/16346c8f1f174017cc7ff89ea9bc743e.png" />
     <meta property="og:description" content="{{ self.metaDescription() }}" />
-    {% endblock meta%}
-
-    {% block css%}
+    {%- endblock meta-%}
+    <!-- CSS styles -->
+    {%- block css-%}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reset.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/fontello.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/github.css') }}">
-    {% assets "scss_base" %}
+    {%- assets "scss_base" -%}
     <link rel=stylesheet type=text/css href="{{ ASSET_URL }}">
-    {% endassets %}
-    {% endblock css%}
-
-    {% block favicon %}
-    <!-- Favicon.ico -->
-    <link rel="shortcut icon"
-        href=" {{url_for('static', filename='img/favicon.ico') }}"
-        type="image/x-icon">
-    <link rel="icon"
-        href="{{ url_for('static', filename='img/favicon.ico') }}"
-        type="image/x-icon">
-    {% endblock favicon %}
-
-    {% block fonts %}
+    {%- endassets -%}
+    {%- endblock css-%}
+    {%- block favicon -%}
+    <link rel="shortcut icon" href=" {{url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
+    {%- endblock favicon -%}
+    {%- block fonts -%}
     <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Cabin:400,700' rel='stylesheet' type='text/css'>
-    {% endblock fonts %}
-
+    {%- endblock fonts -%}
 	<!--Google Analytics-->
-    {% block analytics %}
+    {%- block analytics -%}
 	<script type="text/javascript">
 	  var _gaq = _gaq || [];
 	  _gaq.push(['_setAccount', 'UA-40705748-1']);
@@ -75,30 +61,22 @@
 		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	  })();
 	</script>
-    {% endblock analytics %}
-
+    {%- endblock analytics -%}
     <!-- Highlight.js -->
-    {% block highlight %}
+    {%- block highlight -%}
     <script src="{{ url_for('static', filename='js/highlight.min.js') }}"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    {% endblock %}
-
+    {%- endblock -%}
     <a href="https://plus.google.com/u/0/+DanRSchlosser1?rel=author"></a>
-
-    {% endblock head %}
-</head>
-<body>
-{% block body %}
-<script type="text/javascript">
-  var jsonString = '{{ sentences | safe }}';
-</script>
-{% endblock body %}
-{% block js %}
+    {%- endblock head -%}
+</head><body>
+{%- block body -%}
+{%- endblock body -%}
+{%- block js -%}
 <!-- jQuery and Modernizr -->
     <script type="text/javascript"
-        src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+            src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript"
-        src="{{ url_for('static', filename='js/vendor/custom.modernizr.js')}}"></script>
-{% endblock %}
-</body>
-</html>
+            src="{{ url_for('static', filename='js/vendor/custom.modernizr.js')}}"></script>
+{%- endblock -%}
+</body></html>

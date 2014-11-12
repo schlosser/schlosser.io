@@ -1,10 +1,10 @@
-{% extends "blog.html" %}
+{%- extends "blog.html" -%}
 
-{% block metaDescription %}{{post.preview | striptags | safe}}{% endblock %}
-{% block metaType %}article{% endblock %}
-{% block title %}{{post.title}} | {{super()}}{%endblock%}
-{% block posts %}
-<li class="post" id="read">
+{%- block metaDescription -%}{{post.preview | striptags | safe}}{%- endblock -%}
+{%- block metaType -%}article{%- endblock -%}
+{%- block title -%}{{post.title}} | {{super()}}{%-endblock-%}
+{%- block posts -%}
+<li class="post">
 	<h3 class="post-title">{{post.title}}</h3>
 		<h4 class="post-date">{{post.date}}</h4>
 		<h4 class="byline">By Dan Schlosser</h4>
@@ -12,4 +12,4 @@
 		{{post.hidden | safe}}
 		<p class="top"><a href="#top">&#x25B2;</a></p>
 </li>
-{% endblock %}
+{%- endblock -%}

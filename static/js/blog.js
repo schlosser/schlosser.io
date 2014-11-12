@@ -35,15 +35,11 @@ $(window).bind("load", function() {
 		titleOriginalFontSize = function() {
 			return ($(window).width() > 1024) ? 4.75 : 4;
 		},
-		titleFinalFontSize = function() {
-			return 1.3;
-		},
+		titleFinalFontSize = 1.3,
 		titleOriginalHeight = function() {
 			return ($(window).width() > 1024) ? 6 : 4;;
 		},
-		titleFinalHeight = function() {
-			return 3.3;
-		};
+		titleFinalHeight = 3.3;
 
 	$("a[href='#top']").click(function (e) {
 		$("html, body").animate({ scrollTop: 0 }, "fast", function() {
@@ -64,25 +60,25 @@ $(window).bind("load", function() {
 		clearTimeout(wheelTimerId);
 		clearTimeout(orientationchangeTimerId);
 		clearTimeout(resizeTimerId);
-		scrollTimerId = setTimeout(updateTitle, 1);
+		scrollTimerId = setTimeout(updateTitle, 4);
 	});
 	window.addEventListener('wheel', function() {
 		clearTimeout(scrollTimerId);
 		clearTimeout(orientationchangeTimerId);
 		clearTimeout(resizeTimerId);
-		wheelTimerId= setTimeout(updateTitle, 1);
+		wheelTimerId= setTimeout(updateTitle, 4);
 	});
 	window.addEventListener('orientationchange', function() {
 		clearTimeout(scrollTimerId);
 		clearTimeout(wheelTimerId);
 		clearTimeout(resizeTimerId);
-		orientationchangeTimerId = setTimeout(updateTitle, 1);
+		orientationchangeTimerId = setTimeout(updateTitle, 4);
 	});
 	window.addEventListener('resize', function() {
 		clearTimeout(scrollTimerId);
 		clearTimeout(wheelTimerId);
 		clearTimeout(orientationchangeTimerId);
-		resizeTimerId = setTimeout(updateTitle, 1);
+		resizeTimerId = setTimeout(updateTitle, 4);
 	});
 
 	function updateTitle() {
@@ -121,9 +117,9 @@ $(window).bind("load", function() {
 				$fragmentNBSP.css({"width": 0});
 				$title.css({
 					"width": titleFinalWidth(),
-					"font-size": titleFinalFontSize() + 'rem',
-					"line-height": titleFinalHeight() + 'rem',
-					"height": titleFinalHeight() + 'rem'
+					"font-size": titleFinalFontSize + 'rem',
+					"line-height": titleFinalHeight + 'rem',
+					"height": titleFinalHeight + 'rem'
 				});
 
 
@@ -136,8 +132,8 @@ $(window).bind("load", function() {
 
 				var fragmentFirstNewWidth = Math.ceil(fragmentFirstOriginalWidth() * percentageLeft),
 					fragmentLastNewWidth = Math.ceil(fragmentLastOriginalWidth() * percentageLeft),
-					titleNewFontSize = titleFinalFontSize() + (titleOriginalFontSize() - titleFinalFontSize()) * percentageLeft + 'rem',
-					titleNewHeight = titleFinalHeight() + (titleOriginalHeight() - titleFinalHeight()) * percentageLeft + 'rem',
+					titleNewFontSize = titleFinalFontSize + (titleOriginalFontSize() - titleFinalFontSize) * percentageLeft + 'rem',
+					titleNewHeight = titleFinalHeight + (titleOriginalHeight() - titleFinalHeight) * percentageLeft + 'rem',
 					titleNewWidth = Math.ceil((titleOriginalWidth() - titleFinalWidth())*percentageLeft + titleFinalWidth()),
 					nbspNewWidth = Math.ceil(nbspWidth() * percentageLeft);
 				$fragmentNBSP.stop().animate({"width": nbspNewWidth}, 5);
@@ -196,7 +192,7 @@ $(window).bind("load", function() {
 		div.innerHTML = text;
 		document.body.appendChild(div);
 		var width = jQuery(div).outerWidth(true);
-		// div.parentNode.removeChild(div);
+		div.parentNode.removeChild(div);
 		return width + 1;
 	}
 });

@@ -1,17 +1,5 @@
 @import 'colors';
 
-
-.name-fragment {
-	height: 4.75rem;
-	display: inline-block;
-	overflow: hidden;
-	vertical-align: middle;
-	span {
-		text-align: left;
-		display: block;
-	}
-}
-
 .fixed {
 	position: fixed;
 	top:0;
@@ -25,7 +13,6 @@
 		display: block;
 	}
 }
-
 
 
 .top {

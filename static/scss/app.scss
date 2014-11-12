@@ -15,6 +15,7 @@ body {
   height: 4.75rem;
   display: inline-block;
   overflow: hidden;
+  vertical-align: middle;
   span {
     text-align: left;
     display: block;
@@ -25,7 +26,6 @@ body {
   color: $accent;
   font-size: 4.75rem;
   line-height: 6rem;
-  margin-bottom: 1rem;
   height: 6rem;
   z-index: 200;
   vertical-align: middle;
@@ -47,9 +47,9 @@ body {
 }
 
 .sentence {
+  margin: 2rem 0 0.5rem;
   font-size: 2rem;
   height: 2.5rem;
-  margin: 0;
 
   .word {
     display: inline-block;
@@ -127,8 +127,10 @@ body {
       position: fixed;
       z-index: 100;
       padding: 1rem;
-      left: 1rem;
-      right: 1rem;
+      left: 0;
+      right: 0;
+      padding: 1rem;
+      box-shadow: 0 2px 5px $background;
       background-color: $background;
     }
   }

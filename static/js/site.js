@@ -2,15 +2,18 @@ $(function() {
 
 	var print = false;
 
-	var data = $.parseJSON(jsonString);
-	var usedSentences = data["sentences"],
+	var usedSentences,
+		currentSentence,
 		sentences = [],
 		highestTimeoutId = 0;
-	resetSentences();
-	var currentSentence = sentences[0];
-	console.log(currentSentence);
-	setLiveSentence(currentSentence);
-	sentenceLoop();
+	$.getJSON("/sentences", function(json){
+		usedSentences = json["sentences"];
+		resetSentences();
+		currentSentence = sentences[0];
+		console.log(currentSentence);
+		setLiveSentence(currentSentence);
+		sentenceLoop();
+	});
 
 	function resetSentences() {
 		if (print) {
