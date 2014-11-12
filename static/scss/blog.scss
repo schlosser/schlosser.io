@@ -5,6 +5,7 @@
 	height: 4.75rem;
 	display: inline-block;
 	overflow: hidden;
+	vertical-align: middle;
 	span {
 		text-align: left;
 		display: block;
@@ -13,7 +14,7 @@
 
 .fixed {
 	position: fixed;
-	top:-1rem;
+	top:0;
 	left: 1rem;
 }
 .title-spacer {
@@ -67,6 +68,12 @@
 	font-size: 1.2rem;
 	line-height: 2rem;
 	margin-top: 0;
+}
+
+.active-blog .blog-link, 
+.active-projects .projects-link, 
+.active-talks .talks-link {
+	color: $accent
 }
 
 .blog-title {

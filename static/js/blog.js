@@ -1,6 +1,9 @@
 $(window).bind("load", function() {
-	var $title = $(".site-title"),
+	var MIN = 768,
+		$title = $(".site-title"),
 		$titleSpacer = $(".title-spacer"),
+		$links = $('.social ul'),
+		$linksWrapper = $('.social'),
 		$fragmentFirst = $(".fragment-first"),
 		$fragmentLast = $(".fragment-last"),
 		$fragmentFirstInnerText = $(".fragment-first span"),
@@ -15,31 +18,31 @@ $(window).bind("load", function() {
 				calculateWordWidth("S", ["text-links"]);
 		},
 		fragmentFirstOriginalWidth = function() {
-			if ($(window).width() < 1024) {
+			if ($(window).width() < MIN) {
 				return "auto";
 			}
 			return calculateWordWidth($fragmentFirstInnerText.text(), ["site-title"]);
 		},
 		fragmentLastOriginalWidth = function() {
-			if ($(window).width() < 1024) {
+			if ($(window).width() < MIN) {
 				return "auto";
 			}
 			return calculateWordWidth($fragmentLastInnerText.text(), ["site-title"]);
 		},
 		titleOriginalWidth = function() {
-			return $("body").width();
+			return $("body").innerWidth() - 32;
 		},
 		titleOriginalFontSize = function() {
-			return 4.75;
+			return ($(window).width() > 1024) ? 4.75 : 4;
 		},
 		titleFinalFontSize = function() {
-			return 1.5;
+			return 1.3;
 		},
 		titleOriginalHeight = function() {
-			return 6;
+			return ($(window).width() > 1024) ? 6 : 4;;
 		},
 		titleFinalHeight = function() {
-			return 3.5;
+			return 3.3;
 		};
 
 	$("a[href='#top']").click(function (e) {
@@ -83,7 +86,7 @@ $(window).bind("load", function() {
 	});
 
 	function updateTitle() {
-		if ($(window).width() > 1024) {
+		if ($(window).width() > MIN) {
 			var spacerDistanceToTop = $titleSpacer.offset().top - $(window).scrollTop(),
 				distanceToTop;
 			if ($title.hasClass("fixed")) {
@@ -91,6 +94,7 @@ $(window).bind("load", function() {
 			} else {
 				distanceToTop = $title.offset().top - $(window).scrollTop();
 			}
+			console.log(distanceToTop)
 
 			var percentageLeft = Math.max(distanceToTop, 0)/$title.offset().top;
 
@@ -98,15 +102,15 @@ $(window).bind("load", function() {
 				/* Top of the page, animation hasn't started, title is centered */
 				$fragmentNBSP.css({"width": nbspWidth()});
 				$title.css({
-					"width": titleOriginalWidth(),
+					"width": Math.ceil(titleOriginalWidth()),
 					"font-size": titleOriginalFontSize() + 'rem',
-					"line-height": titleOriginalHeight(),
-					"height": titleOriginalHeight()
+					"line-height": titleOriginalHeight() + 'rem',
+					"height": titleOriginalHeight() + 'rem'
 				});
-				$fragmentFirst.css({"width": fragmentFirstOriginalWidth()});
-				$fragmentLast.css({"width": fragmentLastOriginalWidth()});
-				$fragmentFirstInnerText.css({"width": fragmentFirstOriginalWidth()});
-				$fragmentLastInnerText.css({"width": fragmentLastOriginalWidth()});
+				$fragmentFirst.css({"width": Math.ceil(fragmentFirstOriginalWidth())});
+				$fragmentLast.css({"width": Math.ceil(fragmentLastOriginalWidth())});
+				$fragmentFirstInnerText.css({"width": Math.ceil(fragmentFirstOriginalWidth())});
+				$fragmentLastInnerText.css({"width": Math.ceil(fragmentLastOriginalWidth())});
 
 				$title.removeClass("fixed");
 				$titleSpacer.removeClass("live");
@@ -118,8 +122,8 @@ $(window).bind("load", function() {
 				$title.css({
 					"width": titleFinalWidth(),
 					"font-size": titleFinalFontSize() + 'rem',
-					"line-height": titleFinalHeight(),
-					"height": titleFinalHeight()
+					"line-height": titleFinalHeight() + 'rem',
+					"height": titleFinalHeight() + 'rem'
 				});
 
 
@@ -130,16 +134,15 @@ $(window).bind("load", function() {
 				$title.removeClass("fixed");
 				$titleSpacer.removeClass("live");
 
-				var fragmentFirstNewWidth = fragmentFirstOriginalWidth() * percentageLeft,
-					fragmentLastNewWidth = fragmentLastOriginalWidth() * percentageLeft,
+				var fragmentFirstNewWidth = Math.ceil(fragmentFirstOriginalWidth() * percentageLeft),
+					fragmentLastNewWidth = Math.ceil(fragmentLastOriginalWidth() * percentageLeft),
 					titleNewFontSize = titleFinalFontSize() + (titleOriginalFontSize() - titleFinalFontSize()) * percentageLeft + 'rem',
 					titleNewHeight = titleFinalHeight() + (titleOriginalHeight() - titleFinalHeight()) * percentageLeft + 'rem',
-					titleNewWidth = (titleOriginalWidth() - titleFinalWidth())*percentageLeft + titleFinalWidth(),
-					nbspNewWidth = nbspWidth() * percentageLeft;
+					titleNewWidth = Math.ceil((titleOriginalWidth() - titleFinalWidth())*percentageLeft + titleFinalWidth()),
+					nbspNewWidth = Math.ceil(nbspWidth() * percentageLeft);
 				$fragmentNBSP.stop().animate({"width": nbspNewWidth}, 5);
 				$fragmentFirst.stop().animate({"width": fragmentFirstNewWidth}, 5);
 				$fragmentLast.stop().animate({"width": fragmentLastNewWidth}, 5);
-				console.log(titleNewFontSize);
 				$title.stop().animate({
 					"width": titleNewWidth,
 					"font-size": titleNewFontSize,
@@ -147,16 +150,38 @@ $(window).bind("load", function() {
 					"height": titleNewHeight
 				}, 5);
 			}
+			updateNav();
 		}
 		else {
 			doMobile();
 		}
 	}
 
+	function updateNav() {
+		var spacerDistanceToTop = $linksWrapper.offset().top - $(window).scrollTop(),
+			distanceToTop;
+		if ($links.hasClass("fixed")) {
+			distanceToTop = 0;
+		} else {
+			distanceToTop = $links.offset().top - $(window).scrollTop();
+		}	
+		if (spacerDistanceToTop > 0) {	
+			$links.removeClass('fixed');
+		} else if (spacerDistanceToTop <= 0 && ! $links.hasClass('fixed')) {
+			$links.addClass('fixed');
+		}
+	}
+
 	function doMobile() {
 		$title.removeClass("fixed");
+		$links.removeClass('fixed');
 		$fragmentNBSP.css({"width": nbspWidth()});
-		$title.css({"width": titleOriginalWidth()});
+		$title.css({
+			"width": titleOriginalWidth(),
+			"font-size": titleOriginalFontSize() + 'rem',
+			"line-height": titleOriginalHeight() + 'rem',
+			"height": titleOriginalHeight() + 'rem'
+		});
 		$fragmentFirst.css({"width": fragmentFirstOriginalWidth()});
 		$fragmentLast.css({"width": fragmentLastOriginalWidth()});
 		$fragmentFirstInnerText.css({"width": fragmentFirstOriginalWidth()});
@@ -171,7 +196,7 @@ $(window).bind("load", function() {
 		div.innerHTML = text;
 		document.body.appendChild(div);
 		var width = jQuery(div).outerWidth(true);
-		div.parentNode.removeChild(div);
-		return width;
+		// div.parentNode.removeChild(div);
+		return width + 1;
 	}
 });

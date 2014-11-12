@@ -2,6 +2,8 @@
 
 {% block title %}Blog | {{ super() }}{% endblock %}
 
+{% block activePage %}blog{% endblock %}
+
 {% block js %}
 {{ super() }}
 <script type="text/javascript" src="{{ url_for('static', filename='js/blog.js')}}"></script>
@@ -35,7 +37,6 @@
 
 {% block content %}
 {{ super() }}
-<h1 class="page-title"><a href="/blog">Blog</a></h1>
 <ul class="posts">
 {% block posts %}
 {% for post in posts%}
