@@ -76,7 +76,10 @@ $(function() {
 		div.setAttribute('class', classes.join(' '));
 		div.innerHTML = text;
 		document.body.appendChild(div);
-		var width = window.getComputedStyle(div,null).width
+		/* Get a string of the form '12.455px' */
+		var widthString = window.getComputedStyle(div,null).width;
+		/* Parse that to a number of the form 12.455 */
+		var width = parseFloat(widthString.substring(0,widthString.length-2));
 		div.parentNode.removeChild(div);
 		return width;
 	}
