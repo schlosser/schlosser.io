@@ -10,33 +10,20 @@ $(function() {
 		usedSentences = json["sentences"];
 		resetSentences();
 		currentSentence = sentences[0];
-		console.log(currentSentence);
 		setLiveSentence(currentSentence);
 		sentenceLoop();
 	});
 
 	function resetSentences() {
-		if (print) {
-			console.log("reset");
-		}
 		sentences = sentences.concat(usedSentences.concat());
 		usedSentences = [];
 		sentences.sort(function(){ return 0.5 - Math.random(); });
 	}
 
 	function sentenceLoop() {
-		if (print) {
-			console.log("looping");
-		}
-		if (sentences.length < 1) {
-			resetSentences();
-		}
-		var newSentence;
-		newSentence = sentences[0];
+		if (sentences.length < 1) { resetSentences();}
+		var newSentence = sentences[0];
 		usedSentences = usedSentences.concat(sentences.splice(0, 1));
-		if (print) {
-			console.log("i = ", i , " sentences.length = ", sentences.length);
-		}
 		setLiveSentence(newSentence);
 		currentSentence = newSentence;
 		clearTimeout(highestTimeoutId);
@@ -44,13 +31,10 @@ $(function() {
 	}
 
 	function setLiveSentence(newSentence) {
-		if (print) {
-			console.log("sentences = ", sentences);
-			console.log("usedSentences = ", usedSentences);
-			console.log("newSentence = ", newSentence);
-		}
 		for (var key in newSentence) {
-			setKey(key, newSentence);
+			if (key !== '_id') {
+				setKey(key, newSentence);
+			}
 		}
 	}
 
@@ -60,32 +44,22 @@ $(function() {
 			$invisible = $(".sentence ." + key + " .invisible"),
 			newText = newSentence[key];
 
-		if (newText != $visible.html()) {
-			if (print) {
-				// console.log("filling in ", key, " with ", newText);
-				// console.log("$invisible = ", $invisible);
-				// console.log("$visible = ", $visible);
-			}
-			$invisible.css("width", $invisible.width());
-			$visible.stop().animate(
-				{"opacity": 0},
-				200,
-				"linear",
-				function() {
+		if (newText !== $visible.html()) {
+			$invisible.css('width', window.getComputedStyle($invisible[0],null).width);
+			$visible.stop().animate({"opacity": 0}, 200)
+				.promise().done(function() {
 					$visible.html("");
 					$invisible.html("");
 					newWidth = calculateWordWidth(newText, ["sentence"]);
-					$invisible.stop().animate(
-						{"width": newWidth},
-						200,
-						"linear",
-						function() {
+					$invisible.stop().animate({"width": newWidth}, 200)
+						.promise().done(function() {
 							if (print) {
 								console.log("setting text..");
 							}
 							$invisible.html(newText);
 							$visible.html(newText);
-							$visible.stop().animate({"opacity":1}, 200, function() {
+							$visible.stop().animate({"opacity":1}, 200)
+								.promise().done(function() {
 								$invisible.css("width", "auto");
 							});
 						}
@@ -102,7 +76,7 @@ $(function() {
 		div.setAttribute('class', classes.join(' '));
 		div.innerHTML = text;
 		document.body.appendChild(div);
-		var width = jQuery(div).outerWidth(true);
+		var width = window.getComputedStyle(div,null).width
 		div.parentNode.removeChild(div);
 		return width;
 	}
