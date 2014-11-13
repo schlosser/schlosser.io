@@ -58,7 +58,6 @@
 }
 
 .active-blog .blog-link, 
-.active-projects .projects-link, 
 .active-talks .talks-link {
 	color: $accent
 }
@@ -68,7 +67,7 @@
 	margin-bottom: 2rem;
 }
 
-.posts {
+.cards {
 	margin: 0 auto;
 	display: block;
 	position: relative;
@@ -77,7 +76,7 @@
 	max-width: 45rem;
 	text-align: left;
 
-	.post {
+	.card {
 		border-radius: 5px;
 		margin: 1rem 0;
 		padding: 2rem;

@@ -15,10 +15,10 @@ debug =  len(argv) == 2 and argv[1] == "debug"
 assets = Environment(app)
 assets.url = app.static_url_path
 scss_base = Bundle('scss/colors.scss', 'scss/base.scss', 'scss/app.scss', filters='pyscss', output='css/base.%(version)s.css', depends='scss/colors.scss')
-scss_blog =  Bundle('scss/colors.scss', 'scss/blog.scss', filters='pyscss', output='css/blog.css', depends='scss/colors.%(version)s.scss')
+scss_page =  Bundle('scss/colors.scss', 'scss/page.scss', filters='pyscss', output='css/blog.css', depends='scss/colors.%(version)s.scss')
 scss_admin = Bundle('scss/colors.scss', 'scss/admin.scss', 'scss/login.scss', filters='pyscss', output='css/admin.%(version)s.css', depends='scss/colors.scss')
 assets.register('scss_base', scss_base)
-assets.register('scss_blog', scss_blog)
+assets.register('scss_page', scss_page)
 assets.register('scss_admin', scss_admin)
 
 # Authentication Setup
@@ -30,7 +30,7 @@ json_string = json.dumps(json.loads(open("data/sentences.json", "r").read()))
 sentences = json.loads(json_string)["sentences"]
 next_id = max(sentences, key=lambda k:k["_id"])["_id"] + 1
 blog_posts = json.loads(open("data/blogPosts.json", "r").read())
-
+talk_data = json.loads(open('data/talks.json', 'r').read())
 
 @app.route('/')
 def home():
@@ -39,6 +39,10 @@ def home():
 @app.route('/blog')
 def blog():
 	return render_template("blog.html", posts=blog_posts)
+
+@app.route('/talks')
+def talks():
+	return render_template("talks.html", talks=talk_data['talks'])
 
 @app.route('/sentences')
 def get_sentences():

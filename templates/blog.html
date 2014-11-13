@@ -1,46 +1,13 @@
-{%- extends "site.html" -%}
-
+{%- extends "page.html" -%}
 {%- block title -%}Blog | {{ super() }}{%- endblock -%}
-
 {%- block activePage -%}blog{%- endblock -%}
-
-{%- block js -%}
-{{ super() }}
-<script type="text/javascript" src="{{ url_for('static', filename='js/blog.js')}}"></script>
-{%- endblock -%}
-
-{%- block css -%}
-{{ super() }}
-
-{%- assets "scss_blog" -%}
-<link rel=stylesheet type=text/css href="{{ ASSET_URL }}">
-{%- endassets -%}
-{%- endblock css -%}
-
-{%- block siteTitle -%}
-<div class="name-fragment">
-	<span>D</span>
-</div><div class="name-fragment fragment-first">
-	<span>an</span>
-</div><div class="name-fragment fragment-nbsp">
-	<span>&nbsp;</span>
-</div><div class="name-fragment">
-	<span>R</span>
-</div><div class="name-fragment fragment-nbsp">
-	<span>&nbsp;</span>
-</div><div class="name-fragment">
-	<span>S</span>
-</div><div class="name-fragment fragment-last">
-	<span>chlosser</span>
-</div>
-{%-endblock-%}
 
 {%- block content -%}
 {{ super() }}
-<ul class="posts">
+<ul class="cards">
 {%- block posts -%}
 {%- for post in posts-%}
-	<li class="post">
+	<li class="card">
 		<h3 class="post-title"><a href="/blog/post-{{post.id}}#read">{{post.title}}</a></h3>
 		<h4 class="post-date"><a href="/blog/post-{{post.id}}#read">{{post.date}}</a></h4>
 		<h4 class="byline"><a href="/blog/post-{{post.id}}#read">By Dan Schlosser</a></h4>
