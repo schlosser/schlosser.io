@@ -33,11 +33,16 @@ $(window).bind("load", function() {
 			return $("body").innerWidth() - 32;
 		},
 		titleOriginalFontSize = function() {
-			return ($(window).width() > 1024) ? 4.75 : 4;
+			var width = $(window).width();
+			if (width > 1024) return 4.75;
+			if (width > 768) return 4;
+			return 3;
 		},
 		titleFinalFontSize = 1.3,
 		titleOriginalHeight = function() {
-			return ($(window).width() > 1024) ? 6 : 4;;
+			var width = $(window).width();
+			if (width > 1024) return 6;
+			return 4;
 		},
 		titleFinalHeight = 3.3;
 

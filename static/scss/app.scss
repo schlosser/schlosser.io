@@ -29,7 +29,6 @@ body {
   height: 6rem;
   z-index: 200;
   vertical-align: middle;
-
 }
 
 .page-title a:hover {
@@ -151,7 +150,6 @@ body {
   }
   .site-title{
     font-size: 3rem;
-    line-height: 4rem;
   }
   .social {
     height: 6rem;
@@ -159,13 +157,16 @@ body {
     max-width: 30rem;
     margin: 1rem auto 0;
     ul li {
-      font-size: 1.5rem;
+      font-size: 1rem;
       margin: 0 0 2rem;
       width: 30%;
     }
   }
   .main {
     top: 10%;
+  }
+  .sentence {
+    font-size: 1.3rem;
   }
 }
 
