@@ -1,6 +1,11 @@
 {
 	"talks": [
 		{
+			"title": "Intermediate Flask",
+			"link": "https://github.com/danrschlosser/intermediate-flask",
+			"description": "<p>Written as a natural extension of the my Accelerated Introduction to Web Development talk, this tutorial covers advanced topics in Flask, including building large Flask apps, managing dependencies, using a database, and processing form data.</p>"
+		},
+		{
 			"title": "Learn to Learn to Program",
 			"link": "http://static.danrschlosser.com/learn-to-learn-to-program.pdf",
 			"description": "<p>Learning to program can be intimidating.  This talk attempts to outline everything you need to do and know in order to learn to program.</p>"
@@ -19,7 +24,7 @@
 			"title": "Making Windows Work",
 			"link": "http://static.danrschlosser.com/making-windows-work/",
 			"description": "<p>Tired of people making fun of you for using Windows? Come on down to learn how to put the &ldquo;Win&rdquo; back in &ldquo;Windows&rdquo;! Get the spark back, with cool tips and tricks that\"ll wonder how you ever lived without!<p><p>Learn how to:<p><ul><li>Develop and Collaborate effectively</li><li>Manage without a package manager</li><li>Command Prompt like a pro</li><li>Multitask with ease Bring your laptops!</li></ul>"
-		}, 
+		},
 		{
 			"title": "The Power of Video Game Design",
 			"link": "http://prezi.com/pwgh25hftgej/?utm_campaign=share&utm_medium=copy&rc=ex0share",
