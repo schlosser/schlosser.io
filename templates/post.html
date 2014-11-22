@@ -6,10 +6,10 @@
 {%- block posts -%}
 <li class="card">
 	<h3 class="post-title">{{post.title}}</h3>
-		<h4 class="post-date">{{post.date}}</h4>
-		<h4 class="byline">By Dan Schlosser</h4>
-		{{post.preview | safe}}
-		{{post.hidden | safe}}
-		<p class="top"><a href="#top">&#x25B2;</a></p>
+	<h4 class="post-date">{{post.date}}</h4>
+	<h4 class="byline">By Dan Schlosser</h4>
+	{{post.preview | safe}}
+	{{post.hidden | safe}}
+	<p class="top"><a href="#top">&#x25B2;</a></p>
 </li>
 {%- endblock -%}

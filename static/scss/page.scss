@@ -57,7 +57,7 @@
 	margin-top: 0;
 }
 
-.active-blog .blog-link, 
+.active-blog .blog-link,
 .active-talks .talks-link {
 	color: $accent
 }
@@ -84,7 +84,7 @@
 		color: $panelsText;
 		background-color: $panels;
 
-		p  {
+		p, ul, ol  {
 			margin-bottom: 1rem;
 
 			a {
