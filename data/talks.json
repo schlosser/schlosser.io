@@ -1,6 +1,10 @@
 {
 	"talks": [
 		{
+			"title": "Rethinking Scale",
+			"link": "http://static.danrschlosser.com/rethinking-scale.pdf",
+			"description": "<p>I gave this talk at <a href='http://hackcon.io' target='_blank'>Hackcon II</a> this February.  In it I talk about <a href='https://adicu.com'>ADI's</a> <a href='http://devfe.st'>DevFest</a>, and how ADI scales DevFest in accordance with our values: education, community, and technical excitement.</p>"
+		},{
 			"title": "Intermediate Flask",
 			"link": "https://github.com/danrschlosser/intermediate-flask",
 			"description": "<p>Written as a natural extension of the my Accelerated Introduction to Web Development talk, this tutorial covers advanced topics in Flask, including building large Flask apps, managing dependencies, using a database, and processing form data.</p>"
@@ -12,7 +16,7 @@
 		},
 		{
 			"title": "An Accelerated Introduction to Web Development",
-			"link": "http://old.adicu.com/intro-webdev",
+			"link": "http://learn.adicu.com/webdev",
 			"description": "<p>This talk walks through all of the steps to learning to build your first web application.  It covers Python, Flask, APIs, HTML, and CSS.</p>"
 		},
 		{
