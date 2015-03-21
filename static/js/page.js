@@ -1,4 +1,5 @@
 $(window).bind("load", function() {
+	var md = new MobileDetect(window.navigator.userAgent);
 	var MIN = 768,
 		$title = $(".site-title"),
 		$titleSpacer = $(".title-spacer"),
@@ -87,7 +88,8 @@ $(window).bind("load", function() {
 	});
 
 	function updateTitle() {
-		if ($(window).width() > MIN) {
+		if ($(window).width() > MIN && md.mobile() == null) {
+			console.log("desktop");
 			var spacerDistanceToTop = $titleSpacer.offset().top - $(window).scrollTop(),
 				distanceToTop;
 			if ($title.hasClass("fixed")) {
@@ -154,7 +156,9 @@ $(window).bind("load", function() {
 			updateNav();
 		}
 		else {
-			doMobile();
+			if (md.mobile() == null) {
+				doSmallDesktop();
+			}
 		}
 	}
 
@@ -165,15 +169,15 @@ $(window).bind("load", function() {
 			distanceToTop = 0;
 		} else {
 			distanceToTop = $links.offset().top - $(window).scrollTop();
-		}	
-		if (spacerDistanceToTop > 0) {	
+		}
+		if (spacerDistanceToTop > 0) {
 			$links.removeClass('fixed');
 		} else if (spacerDistanceToTop <= 0 && ! $links.hasClass('fixed')) {
 			$links.addClass('fixed');
 		}
 	}
 
-	function doMobile() {
+	function doSmallDesktop() {
 		$title.removeClass("fixed");
 		$links.removeClass('fixed');
 		$fragmentNBSP.css({"width": nbspWidth()});

@@ -74,9 +74,11 @@
 {%- endblock body -%}
 {%- block js -%}
 <!-- jQuery and Modernizr -->
-    <script type="text/javascript"
-            src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script type="text/javascript"
-            src="{{ url_for('static', filename='js/vendor/custom.modernizr.js')}}"></script>
+<script type="text/javascript"
+        src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript"
+        src="{{ url_for('static', filename='js/vendor/custom.modernizr.js')}}"></script>
+
+<script src="//cdn.jsdelivr.net/mobile-detect.js/0.4.3/mobile-detect.min.js"></script>
 {%- endblock -%}
 </body></html>
