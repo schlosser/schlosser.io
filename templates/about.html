@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{%- block css -%}
+{{ super() }}
+{%- assets "scss_about" -%}
+    <link rel=stylesheet type=text/css href="{{ ASSET_URL }}">
+{%- endassets -%}
+{%- endblock -%}
+
+{%- block body -%}
+<section class="dark" id="hello">
+	<h1 class="hello">
+		<span class="first-half">Hello there.</span>
+		<span class="second-half">I'm <em>Dan</em>.</span>
+	</h1>
+</section>
+<section class="dark">
+	<div class="window">
+		<div class="pane" style="background-image: url(http://www.cs.columbia.edu/~rasooli/index_files/columbia.jpg)"></div>
+		<div class="pane" style="background-image: url(http://www.cs.columbia.edu/~rasooli/index_files/columbia.jpg)"></div>
+		<div class="pane" style="background-image: url(http://www.cs.columbia.edu/~rasooli/index_files/columbia.jpg)"></div>
+		<div class="pane" style="background-image: url(http://www.cs.columbia.edu/~rasooli/index_files/columbia.jpg)"></div>
+		<div class="pane" style="background-image: url(http://www.cs.columbia.edu/~rasooli/index_files/columbia.jpg)"></div>
+		<div class="pane" style="background-image: url(http://www.cs.columbia.edu/~rasooli/index_files/columbia.jpg)"></div>
+	</div>
+</section>
+<section class="title-section" style="background-image: url(http://www.cs.columbia.edu/~rasooli/index_files/columbia.jpg)">
+</section>
+<section class="dark">
+	<div class="window right">
+		<div class="pane" style="background-image: url(http://www.cs.columbia.edu/~rasooli/index_files/columbia.jpg)"></div>
+		<div class="pane" style="background-image: url(http://www.cs.columbia.edu/~rasooli/index_files/columbia.jpg)"></div>
+		<div class="pane" style="background-image: url(http://www.cs.columbia.edu/~rasooli/index_files/columbia.jpg)"></div>
+		<div class="pane" style="background-image: url(http://www.cs.columbia.edu/~rasooli/index_files/columbia.jpg)"></div>
+		<div class="pane" style="background-image: url(http://www.cs.columbia.edu/~rasooli/index_files/columbia.jpg)"></div>
+		<div class="pane" style="background-image: url(http://www.cs.columbia.edu/~rasooli/index_files/columbia.jpg)"></div>
+	</div>
+</section>
+<section class="dark"></section>
+<section class="dark"></section>
+<section class="dark"></section>
+<section class="dark"></section>
+
+{%- endblock -%}
+
+{% block js %}
+{{super()}}
+<!-- <script type="text/javascript">
+$(function() {
+	var update = function() {
+		var start = $('.title-section').offset().top  + $('.title-section').height() - $(window).height();
+		var end = $('.title-section').offset().top + $('.title-section').height();
+		var offset = Math.max($(window).scrollTop() - start, 0);
+		var offset = Math.min(offset/(end-start), 1);
+		var offset = (1 - offset)*50;
+		$('.title-section h2').css({
+			"transform": "translate3d(0px, " + offset + "px, 0px)"
+		})
+	}
+	$(window).scroll(function() {
+		window.requestAnimationFrame(update);
+	});
+});
+</script> -->
+{% endblock %}

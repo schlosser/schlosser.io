@@ -1,0 +1,179 @@
+@import 'colors';
+
+@mixin animated($function, $timing, $delay: 0s) {
+	-webkit-animation: $function $timing ease-in-out $delay;
+       -moz-animation: $function $timing ease-in-out $delay;
+         -o-animation: $function $timing ease-in-out $delay;
+            animation: $function $timing ease-in-out $delay;
+}
+
+@-webkit-keyframes fade_in_slide_right {
+	0% {
+		opacity: 0;
+		transform: translate3d(-2rem, 0, 0);
+	}
+	80% {
+		opacity: 0;
+		transform: translate3d(-2rem, 0, 0);
+	}
+	100% {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}
+@keyframes fade_in_slide_right {
+	0% {
+		opacity: 0;
+		transform: translate3d(-2rem, 0, 0);
+	}
+	80% {
+		opacity: 0;
+		transform: translate3d(-2rem, 0, 0);
+	}
+	100% {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+
+@-webkit-keyframes slide_left {
+	0% {
+		transform: translate3d(6rem, 0, 0);
+	}
+	60% {
+		transform: translate3d(6rem, 0, 0);
+	}
+	100% {
+		transform: translate3d(0, 0, 0);
+	}
+}
+@keyframes slide_left {
+	0% {
+		transform: translate3d(6rem, 0, 0);
+	}
+	60% {
+		transform: translate3d(6rem, 0, 0);
+	}
+	100% {
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+
+h1 {
+	font-family: 'st_marie_thinthin', sans-serif;
+	em {
+		color :$accent;
+	}
+}
+
+
+body {
+	background-color: $white;
+}
+section {
+	width: 100%;
+	overflow: hidden;
+
+	&.dark {
+		background-color: $background;
+		min-height: 20rem;
+	}
+	&.title-section {
+		position: relative;
+		background-position: top center;
+		background-size: cover;
+		background-attachment: fixed;
+		height: 30rem;
+		.scrim {
+			position: relative;
+			// background-color: $background;
+			background-color: #FF9025;
+			height: 100%;
+			width: 100%;
+			opacity: 0.0;
+			z-index: 2;
+		}
+		h2 {
+			position: absolute;
+			text-transform: uppercase;
+			padding: 0 3rem;
+			z-index: 3;
+			bottom: 1rem;
+			line-height: 3rem;
+			vertical-align: middle;
+			color: $background;
+			font-size: 7rem;
+			font-weight: bold;
+		}
+	}
+}
+
+#hello {
+	height: 50rem;
+	position: relative;
+	background-position: center center;
+	background-size: cover;
+
+	.scrim {
+		background-color: $background;
+		@include animated(pop_in_and_fade, 4s);
+		opacity: 0.7;
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		z-index: 2;
+	}
+
+	.hello {
+		color: $white;
+		height: 20rem;
+		padding: 10rem 0;
+		text-align: center;
+		position: relative;
+		z-index: 3;
+		.first-half {
+			@include animated(slide_left, 1.5s);
+		}
+		.second-half {
+			@include animated(fade_in_slide_right, 1.5s);
+		}
+	}
+}
+
+.window {
+	width: 40rem;
+	height: 20rem;
+	margin: 4rem;
+
+}
+
+.window .pane {
+	background-attachment: fixed;
+	background-position: center center;
+	background-size: cover;
+	display: inline-block;
+	float: left;
+	width: 12rem;
+	height: 12rem;
+	margin: 0.5rem;
+	-webkit-filter: blur(2px);
+	filter: blur(2px);
+}
+
+.right {
+	float: right;
+}
+
+
+$hex-unit: 4rem;
+$other: 2.30940107676;
+.hexagon {
+	position: relative;
+	margin: 15rem;
+	height: ($hex-unit * 2 * $other);
+	width: ($hex-unit + $other);
+
+
+}

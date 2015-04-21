@@ -9,17 +9,19 @@ import hashlib, json
 app = Flask(__name__)
 
 # Debug configurations
-debug =  len(argv) == 2 and argv[1] == "debug"
+debug = len(argv) == 2 and argv[1] == "debug"
 
 # SCSS rendering
 assets = Environment(app)
 assets.url = app.static_url_path
 scss_base = Bundle('scss/colors.scss', 'scss/base.scss', 'scss/app.scss', filters='pyscss', output='css/base.%(version)s.css', depends='scss/colors.scss')
-scss_page =  Bundle('scss/colors.scss', 'scss/page.scss', filters='pyscss', output='css/blog.css', depends='scss/colors.%(version)s.scss')
+scss_page = Bundle('scss/colors.scss', 'scss/page.scss', filters='pyscss', output='css/blog.css', depends='scss/colors.%(version)s.scss')
 scss_admin = Bundle('scss/colors.scss', 'scss/admin.scss', 'scss/login.scss', filters='pyscss', output='css/admin.%(version)s.css', depends='scss/colors.scss')
+scss_about = Bundle('scss/colors.scss', 'scss/about.scss', filters='pyscss', output='css/admin.%(version)s.css', depends='scss/colors.scss')
 assets.register('scss_base', scss_base)
 assets.register('scss_page', scss_page)
 assets.register('scss_admin', scss_admin)
+assets.register('scss_about', scss_about)
 
 # Authentication Setup
 app.secret_key = flaskconfig.secret_key
@@ -28,13 +30,17 @@ basic_auth = BasicAuth(app)
 # Load Data from JSON
 json_string = json.dumps(json.loads(open("data/sentences.json", "r").read()))
 sentences = json.loads(json_string)["sentences"]
-next_id = max(sentences, key=lambda k:k["_id"])["_id"] + 1
+next_id = max(sentences, key=lambda k: k["_id"])["_id"] + 1
 blog_posts = json.loads(open("data/blogPosts.json", "r").read())
 talk_data = json.loads(open('data/talks.json', 'r').read())
 
 @app.route('/')
 def home():
 	return render_template("site.html")
+
+@app.route('/about')
+def about():
+	return render_template("about.html")
 
 @app.route('/blog')
 def blog():
