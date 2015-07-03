@@ -1,11 +1,12 @@
 @import 'colors';
+@import 'fonts';
 
 body {
   background-color: $background;
 }
 
 .text-links {
-  font-family: 'st_marie_thinthin', sans-serif;
+  font-family: $display;
   text-transform: uppercase;
   font-size: 1.3rem !important;
   line-height: 1.3rem;

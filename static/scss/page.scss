@@ -1,4 +1,5 @@
 @import 'colors';
+@import 'fonts';
 
 .fixed {
 	position: fixed;
@@ -14,6 +15,25 @@
 	}
 }
 
+.event {
+	width: 100%;
+	max-width: 25em;
+	margin: 0 auto;
+	line-height: 1.2rem;
+	.event-title {
+		@include border-box;
+		padding-left: 0.5rem;
+	}
+	.event-time-period {
+		@include border-box;
+		display: inline-block;
+		width: 6rem;
+		text-align: right;
+	}
+	.sub-events {
+		margin-left: 10rem;
+	}
+}
 
 .top {
 	text-align: center;

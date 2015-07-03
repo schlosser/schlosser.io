@@ -1,65 +1,39 @@
-{% extends "base.html" %}
+{%- extends "page.html" -%}
+{%- block title -%}About | {{ super() }}{%- endblock -%}
+{%- block activePage -%}about{%- endblock -%}
 
-{%- block css -%}
+{% set events = [
+	('2012-2016', 'Columbia University', 'https://www.columbia.edu',[
+		('Application Development Initiative', 'https://adicu.com'),
+		('Design for America', 'http://bcdfa.com'),
+	]),
+	('2015', 'Google APM', 'https://www.google.com/', []),
+	('2015', 'Google APM', 'https://www.google.com/', []),
+	('2014', 'Venmo Engineering Intern', 'https://venmo.com/', []),
+	('2013', 'Facebook University Intern', 'https://www.facebook.com/', []),
+	('2012', 'Android Camp Participant', 'https://www.google.com/', []),
+	('2012', 'MITRE', 'http://www.mitre.org/', []),
+	('2008-2012', 'Lexington High School', 'http://lps.lexingtonma.org/lexingtonhs', []),
+]%}
+
+{%- block content -%}
 {{ super() }}
-{%- assets "scss_about" -%}
-    <link rel=stylesheet type=text/css href="{{ ASSET_URL }}">
-{%- endassets -%}
-{%- endblock -%}
+<div class="cards">
+	<div class="card">
+		{% for event_time_period, event_title, url, subevents in events %}
+		<div class="event">
+			<span class="md-6 event-time-period">{{ event_time_period }}</span>
+			<span class="md-6 event-title">
+				<span><a href="{{ url }}">{{ event_title }}</a></span>
+			</span>
+			<div class="sub-events">
+			{% for title, url in subevents %}
+				<div><a href="{{ url }}">{{ title }}</a></div>
+			{% endfor %}
+			</div>
+		</div>
 
-{%- block body -%}
-<section class="dark" id="hello">
-	<h1 class="hello">
-		<span class="first-half">Hello there.</span>
-		<span class="second-half">I'm <em>Dan</em>.</span>
-	</h1>
-</section>
-<section class="dark">
-	<div class="window">
-		<div class="pane" style="background-image: url(http://www.cs.columbia.edu/~rasooli/index_files/columbia.jpg)"></div>
-		<div class="pane" style="background-image: url(http://www.cs.columbia.edu/~rasooli/index_files/columbia.jpg)"></div>
-		<div class="pane" style="background-image: url(http://www.cs.columbia.edu/~rasooli/index_files/columbia.jpg)"></div>
-		<div class="pane" style="background-image: url(http://www.cs.columbia.edu/~rasooli/index_files/columbia.jpg)"></div>
-		<div class="pane" style="background-image: url(http://www.cs.columbia.edu/~rasooli/index_files/columbia.jpg)"></div>
-		<div class="pane" style="background-image: url(http://www.cs.columbia.edu/~rasooli/index_files/columbia.jpg)"></div>
+		{% endfor %}
 	</div>
-</section>
-<section class="title-section" style="background-image: url(http://www.cs.columbia.edu/~rasooli/index_files/columbia.jpg)">
-</section>
-<section class="dark">
-	<div class="window right">
-		<div class="pane" style="background-image: url(http://www.cs.columbia.edu/~rasooli/index_files/columbia.jpg)"></div>
-		<div class="pane" style="background-image: url(http://www.cs.columbia.edu/~rasooli/index_files/columbia.jpg)"></div>
-		<div class="pane" style="background-image: url(http://www.cs.columbia.edu/~rasooli/index_files/columbia.jpg)"></div>
-		<div class="pane" style="background-image: url(http://www.cs.columbia.edu/~rasooli/index_files/columbia.jpg)"></div>
-		<div class="pane" style="background-image: url(http://www.cs.columbia.edu/~rasooli/index_files/columbia.jpg)"></div>
-		<div class="pane" style="background-image: url(http://www.cs.columbia.edu/~rasooli/index_files/columbia.jpg)"></div>
-	</div>
-</section>
-<section class="dark"></section>
-<section class="dark"></section>
-<section class="dark"></section>
-<section class="dark"></section>
-
+</div>
 {%- endblock -%}
-
-{% block js %}
-{{super()}}
-<!-- <script type="text/javascript">
-$(function() {
-	var update = function() {
-		var start = $('.title-section').offset().top  + $('.title-section').height() - $(window).height();
-		var end = $('.title-section').offset().top + $('.title-section').height();
-		var offset = Math.max($(window).scrollTop() - start, 0);
-		var offset = Math.min(offset/(end-start), 1);
-		var offset = (1 - offset)*50;
-		$('.title-section h2').css({
-			"transform": "translate3d(0px, " + offset + "px, 0px)"
-		})
-	}
-	$(window).scroll(function() {
-		window.requestAnimationFrame(update);
-	});
-});
-</script> -->
-{% endblock %}

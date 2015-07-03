@@ -36,7 +36,10 @@ scss_about = Bundle('scss/colors.scss',
                     'scss/about.scss',
                     filters='pyscss',
                     output='css/about.%(version)s.css',
-                    depends='scss/colors.scss')
+                    depends=['scss/about_base.scss',
+                             'scss/colors.scss',
+                             'scss/utils.scss',
+                             'animations.scss'])
 assets.register('scss_base', scss_base)
 assets.register('scss_page', scss_page)
 assets.register('scss_admin', scss_admin)
@@ -50,7 +53,6 @@ basic_auth = BasicAuth(app)
 json_string = json.dumps(json.loads(open("data/sentences.json", "r").read()))
 sentences = json.loads(json_string)["sentences"]
 next_id = max(sentences, key=lambda k: k["_id"])["_id"] + 1
-blog_posts = json.loads(open("data/blogPosts.json", "r").read())
 talk_data = json.loads(open('data/talks.json', 'r').read())
 
 
@@ -64,9 +66,10 @@ def about():
     return render_template("about.html")
 
 
+@app.route('/blog/post-<post_id>')
 @app.route('/blog')
 def blog():
-    return render_template("blog.html", posts=blog_posts)
+    return redirect('https://medium.com/@danrschlosser')
 
 
 @app.route('/talks')
@@ -77,15 +80,6 @@ def talks():
 @app.route('/sentences')
 def get_sentences():
     return jsonify({"sentences": sentences})
-
-
-@app.route('/blog/post-<post_id>')
-def post(post_id):
-    post = {}
-    for p in blog_posts:
-        if p["id"] == post_id:
-            post = p
-    return render_template("post.html", post=post)
 
 
 @app.route('/admin/sentences')
