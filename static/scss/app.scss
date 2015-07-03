@@ -150,24 +150,49 @@ body {
     width: 100%;
   }
   .site-title{
-    font-size: 3rem;
-  }
-  .social {
-    height: 6rem;
-    position: relative;
-    max-width: 30rem;
-    margin: 1rem auto 0;
-    ul li {
-      font-size: 1rem;
-      margin: 0 0 1rem;
-      width: 30%;
-    }
+    font-size: 4rem;
+    line-height: 4.5rem;
   }
   .main {
     top: 10%;
   }
   .sentence {
-    font-size: 1.3rem;
+    font-size: 1.8rem;
+    line-height: 2rem;
+  }
+  .mobile-only {
+    display: block;
+  }
+}
+
+.mobile-only {
+  display: none;
+}
+@media only screen and (max-width: 639px) {
+  .site-title{
+    font-size: 3rem;
+    line-height: 3.5rem;
+  }
+
+  .sentence {
+    font-size: 1.4rem;
+    line-height: 1.5rem;
+  }
+
+  .social {
+    height: 6rem;
+    position: relative;
+    margin: 1rem auto 0;
+    ul li {
+      font-size: 1rem;
+      margin: 0 0.5rem 1rem;
+    }
+  }
+  .mobile-only {
+    display: block;
+  }
+  .cards {
+    margin-bottom: 3rem !important;
   }
 }
 

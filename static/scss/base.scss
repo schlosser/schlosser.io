@@ -18,41 +18,41 @@ strong {
   font-weight: 700;
 }
 
-h1 {
+h1, .h1 {
 	font-size: 4rem;
 	line-height: 5rem;
 }
 
-h2 {
+h2, .h2 {
 	font-size: 3rem;
 	line-height: 4rem;
 }
 
-h3 {
+h3, .h3 {
   margin-bottom: 1rem;
 	font-size: 2.5rem;
 	line-height: 3rem;
 }
 
-h4 {
+h4, .h4 {
 	margin: 1rem 0 0.5rem;
 	font-size: 2rem;
 	line-height: 3rem;
 }
 
-h5 {
+h5, .h5 {
 	margin: 1rem 0 0.5rem;
 	font-size: 1.5rem;
 	line-height: 3rem;
 }
 
-h6 {
+h6, .h6 {
 	margin: 1rem 0 0.5rem;
 	font-size: 1rem;
 	line-height: 2rem;
 }
 
-p, ul, ol {
+p, .p, ul, ol {
 	font-size: 1.2rem;
 	line-height: 1.7rem;
 

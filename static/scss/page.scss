@@ -16,18 +16,18 @@
 }
 
 .event {
-	width: 100%;
-	max-width: 25em;
-	margin: 0 auto;
-	line-height: 1.2rem;
+	margin-top: 0.5rem;
+	position: relative;
 	.event-title {
 		@include border-box;
-		padding-left: 0.5rem;
+		margin-left: 7rem;
+		display: block;
 	}
 	.event-time-period {
+		font-weight: bold;
+		position: absolute;
 		@include border-box;
-		display: inline-block;
-		width: 6rem;
+		width: 6.5rem;
 		text-align: right;
 	}
 	.sub-events {
@@ -77,7 +77,7 @@
 	margin-top: 0;
 }
 
-.active-blog .blog-link,
+.active-about .about-link,
 .active-talks .talks-link {
 	color: $accent
 }
@@ -91,7 +91,7 @@
 	margin: 0 auto;
 	display: block;
 	position: relative;
-	margin-bottom: 3rem;
+	margin-bottom: 20rem;
 	width: 95%;
 	max-width: 45rem;
 	text-align: left;

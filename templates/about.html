@@ -2,37 +2,46 @@
 {%- block title -%}About | {{ super() }}{%- endblock -%}
 {%- block activePage -%}about{%- endblock -%}
 
-{% set events = [
-	('2012-2016', 'Columbia University', 'https://www.columbia.edu',[
-		('Application Development Initiative', 'https://adicu.com'),
-		('Design for America', 'http://bcdfa.com'),
-	]),
-	('2015', 'Google APM', 'https://www.google.com/', []),
-	('2015', 'Google APM', 'https://www.google.com/', []),
-	('2014', 'Venmo Engineering Intern', 'https://venmo.com/', []),
-	('2013', 'Facebook University Intern', 'https://www.facebook.com/', []),
-	('2012', 'Android Camp Participant', 'https://www.google.com/', []),
-	('2012', 'MITRE', 'http://www.mitre.org/', []),
-	('2008-2012', 'Lexington High School', 'http://lps.lexingtonma.org/lexingtonhs', []),
+{% set currently = [
+	('2012-2016', 'Columbia University SEAS, B.S. in Computer Science', 'https://www.columbia.edu'),
+	('2015', 'Google APM on Polymer', 'https://www.polymer-project.com/'),
+	('2012', 'Application Development Initiative', 'https://adicu.com'),
+	('2012', 'Design for America', 'http://bcdfa.com'),
+	('2014', 'ADI Labs', 'https://adicu.com/labs'),
+	('2014', 'DevFest', 'http://devfe.st'),
+	('2014', 'HackCon', 'http://hackcon.io/')
+]%}
+{% set past = [
+	('2014-2015', 'Pundit Tracker', 'http://pundittracker.com/'),
+	('2014', 'Venmo', 'https://venmo.com/'),
+	('2013', 'Facebook', 'https://www.facebook.com/'),
+	('2013', 'Android Camp', 'https://www.google.com/'),
+	('2012', 'MITRE', 'http://www.mitre.org/'),
+	('2008-2012', 'Lexington High School', 'http://lps.lexingtonma.org/lexingtonhs'),
+	('2010', 'Institute for Healthcare Improvement', 'http://www.ihi.org/Pages/default.aspx'),
 ]%}
 
 {%- block content -%}
 {{ super() }}
 <div class="cards">
 	<div class="card">
-		{% for event_time_period, event_title, url, subevents in events %}
-		<div class="event">
-			<span class="md-6 event-time-period">{{ event_time_period }}</span>
-			<span class="md-6 event-title">
+		<h4>Currently</h4>
+		{% for event_time_period, event_title, url in currently %}
+		<div class="event p">
+			<span class="event-time-period">{{ event_time_period }}</span>
+			<span class="event-title">
 				<span><a href="{{ url }}">{{ event_title }}</a></span>
 			</span>
-			<div class="sub-events">
-			{% for title, url in subevents %}
-				<div><a href="{{ url }}">{{ title }}</a></div>
-			{% endfor %}
-			</div>
 		</div>
-
+		{% endfor %}
+		<h4>Past</h4>
+		{% for event_time_period, event_title, url in past %}
+		<div class="event p">
+			<span class="event-time-period">{{ event_time_period }}</span>
+			<span class="event-title">
+				<span><a href="{{ url }}">{{ event_title }}</a></span>
+			</span>
+		</div>
 		{% endfor %}
 	</div>
 </div>
