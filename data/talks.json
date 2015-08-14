@@ -2,8 +2,8 @@
 	"talks": [
 		{
 			"title": "Rethinking Scale",
-			"link": "http://static.danrschlosser.com/rethinking-scale.pdf",
-			"description": "<p>I gave this talk at <a href='http://hackcon.io' target='_blank'>Hackcon II</a> this February.  In it I talk about <a href='https://adicu.com'>ADI's</a> <a href='http://devfe.st'>DevFest</a>, and how ADI scales DevFest in accordance with our values: education, community, and technical excitement.</p>"
+			"link": "https://www.youtube.com/watch?v=YG08VXm_bFY",
+			"description": "<p>I gave this talk at <a href='http://hackcon.io' target='_blank'>Hackcon II</a> this February.  In it I talk about <a href='https://adicu.com'>ADI's</a> <a href='http://devfe.st'>DevFest</a>, and how ADI scales DevFest in accordance with our values: education, community, and technical excitement.</p><p>Check out the <a href=\"https://www.youtube.com/watch?v=YG08VXm_bFY\">video from Hackcon II</a> or <a href=\"http://static.danrschlosser.com/rethinking-scale.pdf\">read the slides</a>."
 		},{
 			"title": "Intermediate Flask",
 			"link": "https://github.com/danrschlosser/intermediate-flask",
@@ -21,8 +21,8 @@
 		},
 		{
 			"title": "When &ldquo;Awesome&rdquo; is Isolating",
-			"link": "http://static.danrschlosser.com/hackcon.pdf",
-			"description": "<p>Too often, hackathon organizers focus on making their events &ldquo;awesome&rdquo;.  However, this often results in losing sight of how to attract new members, grow our communities, and focus on learning.  DevFest, Columbia's week-long workshop series and hackathon focus on education, community, and building.  I gave this talk at <a href=\"http://hackcon.io\">HackCon</a> in February, 2014.</p>"
+			"link": "https://www.youtube.com/watch?v=3L68tkWIc30",
+			"description": "<p>Too often, hackathon organizers focus on making their events &ldquo;awesome&rdquo;.  However, this often results in losing sight of how to attract new members, grow our communities, and focus on learning.  DevFest, Columbia's week-long workshop series and hackathon focus on education, community, and building.  I gave this talk at <a href=\"http://hackcon.io\">HackCon</a> in February, 2014.</p><p>Check out the <a href=\"https://www.youtube.com/watch?v=3L68tkWIc30\">video from Hackcon II</a> or <a href=\"http://static.danrschlosser.com/hackcon.pdf\">read the slides</a>."
 		},
 		{
 			"title": "Making Windows Work",

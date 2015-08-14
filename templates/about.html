@@ -12,13 +12,13 @@
 	('2014', 'HackCon', 'http://hackcon.io/')
 ]%}
 {% set past = [
-	('2014-2015', 'Pundit Tracker', 'http://pundittracker.com/'),
+	('2014-2015', 'Pundit Tracker', ''),
 	('2014', 'Venmo', 'https://venmo.com/'),
 	('2013', 'Facebook', 'https://www.facebook.com/'),
 	('2013', 'Android Camp', 'https://www.google.com/'),
 	('2012', 'MITRE', 'http://www.mitre.org/'),
-	('2008-2012', 'Lexington High School', 'http://lps.lexingtonma.org/lexingtonhs'),
 	('2010', 'Institute for Healthcare Improvement', 'http://www.ihi.org/Pages/default.aspx'),
+	('2008-2012', 'Lexington High School', 'http://lps.lexingtonma.org/lexingtonhs'),
 ]%}
 
 {%- block content -%}
@@ -30,7 +30,13 @@
 		<div class="event p">
 			<span class="event-time-period">{{ event_time_period }}</span>
 			<span class="event-title">
-				<span><a href="{{ url }}">{{ event_title }}</a></span>
+				<span>
+					{% if url %}
+					<a href="{{ url }}">{{ event_title }}</a>
+					{% else %}
+					{{ event_title }}
+					{% endif %}
+				</span>
 			</span>
 		</div>
 		{% endfor %}
@@ -39,7 +45,13 @@
 		<div class="event p">
 			<span class="event-time-period">{{ event_time_period }}</span>
 			<span class="event-title">
-				<span><a href="{{ url }}">{{ event_title }}</a></span>
+				<span>
+					{% if url %}
+					<a href="{{ url }}">{{ event_title }}</a>
+					{% else %}
+					{{ event_title }}
+					{% endif %}
+				</span>
 			</span>
 		</div>
 		{% endfor %}
