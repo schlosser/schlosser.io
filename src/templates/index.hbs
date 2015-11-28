@@ -1,15 +1,33 @@
 {{#extend "base"}}
 {{#content "main" mode="prepend"}}
-<div class="content">
-    <h1>Dan Schlosser</h1>
-    <h2>Founder at <a href="https://minimill.co">Minimill</a>, APM intern at <a href="https://www.google.com">Google</a>, senior at <a href="https://columbia.edu">Columbia</a>.  Student leader in <a href="https://adicu.com">ADI</a>, <a href="https://bcdfa.com">DFA</a>, and <a href="https://adicu.com/labs">ADI Labs</a>.  Ex-intern at <a href="https://venmo.com">Venmo</a>, <a href="https://www.facebook.com">Facebook</a>.</h2>
-</div>
-<div class="shapes">
-    <div class="box box-1"></div>
-    <div class="box box-2"></div>
-    <div class="box box-3"></div>
-<div class="box box-4"></div>
-    <div class="box box-5"></div>
+<div class="all">
+    <div class="stage">
+        <div class="content">
+            <div class="spotlight blue">
+                <div class="content">
+                    {{> text-content }}
+                </div>
+            </div>
+            <div class="spotlight orange">
+                <div class="content">
+                    {{> text-content }}
+                </div>
+            </div>
+            <div class="spotlight red">
+                <div class="content">
+                    {{> text-content }}
+                </div>
+            </div>
+            <div class="normal-text">
+                {{> text-content }}
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="for-selection">
+            {{> text-content }}
+        </div>
+    </div>
 </div>
 {{/content}}
 {{/extend}}

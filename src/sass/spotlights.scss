@@ -1,0 +1,112 @@
+$start: 10rem;
+$end: -5rem;
+
+@mixin spotlight-animation-keyframes($animation-data, $factor) {
+  0% {
+    left: (map-get($animation-data, start-left) * $factor);
+    top: (map-get($animation-data, start-top) * $factor);
+  }
+
+  100% {
+    left: (map-get($animation-data, end-left) * $factor);
+    top: (map-get($animation-data, end-top) * $factor);
+  }
+}
+
+@mixin animated() {
+  animation: spotlight-move 2s ease;
+
+  > .content {
+    animation: spotlight-content-move 2s ease;
+  }
+}
+
+$offset: 4rem;
+$size: 20rem;
+
+.spotlight {
+  box-sizing: border-box;
+  width: $size;
+  height: $size;
+  left: $end;
+  top: $end;
+  border-radius: 50%;
+  position: absolute;
+  overflow: hidden;
+  user-select: none;
+  z-index: 2;
+
+  &.blue {
+    background-color: rgba($blue,0.5);
+    @include animated;
+  }
+
+  &.red {
+    background-color: rgba($red,0.5);
+  }
+
+  &.orange {
+    background-color: rgba($yellow,0.5);
+  }
+
+  .content {
+    position: absolute;
+    width: $content-width;
+    left: -$end;
+    top: -$end;
+    transform: none;
+  }
+
+  &.red, &.blue {
+    h1, h2, a {
+      color: $white;
+    }
+  }
+}
+
+.normal-text {
+  z-index: 1;
+  user-select: none;
+}
+
+.for-selection {
+  z-index: 5;
+
+  h1, h2, a {
+    color: rgba(0,0,0,0);
+  }
+
+  &::selection {
+    background-color: $black;
+    color: $white;
+  }
+}
+
+$animations: (
+  blue: (start-top: 10rem, start-left: 0rem, end-top: -12rem, end-left: 15rem),
+  orange: (start-top: 5rem, start-left: -10rem, end-top: 15rem, end-left: 5rem),
+  red: (start-top: -15rem, start-left: 40rem, end-top: 5rem, end-left: -5rem)
+);
+
+@each $color, $animation-data in $animations {
+  @keyframes #{$color}-spotlight {
+    @include spotlight-animation-keyframes($animation-data, 1);
+  }
+  @keyframes #{$color}-spotlight-content {
+    @include spotlight-animation-keyframes($animation-data, -1);
+  }
+}
+
+@each $color, $animation-data in $animations {
+  .spotlight.#{$color} {
+    animation: #{$color}-spotlight 2s ease;
+    left: map-get($animation-data, end-left);
+    top: map-get($animation-data, end-top);
+
+    > .content {
+      animation: #{$color}-spotlight-content 2s ease;
+      left: -1 * map-get($animation-data, end-left);
+      top: -1 * map-get($animation-data, end-top);
+    }
+  }
+}

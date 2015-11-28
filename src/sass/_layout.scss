@@ -1,29 +1,52 @@
 $content-width: 50rem;
 
-.content {
-  @include clearfix;
-  position: absolute;
-  margin: 0 auto;
-  max-width: $content-width;
-  padding: 4rem;
-  top: 50%;
-  left: 5rem;
-  right: 5rem;
-  transform: translateY(-50%);
-  z-index: 2;
+.all {
+  position: relative;
+  min-height: 100%;
+  box-sizing: border-box;
 }
 
-@media screen and (max-width: $phone-landscape-max) {
-  .content {
-    box-sizing:border-box;
-    padding: 0;
+.stage {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+
+  > .content {
+    height: 1000%;
+  }
+}
+
+.content {
+  @include clearfix;
+  position: relative;
+  margin: 0 auto;
+  width: $content-width;
+  max-width: 80vw;
+  z-index: 2;
+  // position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+}
+.stage > .content {
+  top: 10rem;
+}
+
+.all > .content {
+  padding: 10rem 0 5rem;
+}
+
+@media screen and (max-width: $tablet-portrait-max) {
+  .stage > .content {
+    top: 2rem;
+  }
+
+  .all > .content {
     position: relative;
-    left: auto;
-    top: auto;
-    right: auto;
-    padding: 6rem 3rem;
-    width: 100%;
-    transform: none;
+    padding: 2rem;
   }
 
   section {
