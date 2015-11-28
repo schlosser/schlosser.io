@@ -1,0 +1,104 @@
+@mixin slide($angle, $distance) {
+    0% {
+        transform: none;
+    }
+
+    40% {
+        transform: translate(cos($angle) * $distance, -1 * sin($angle) * $distance);
+        opacity:1
+        // Hide the element before we flip
+    }
+
+    49% {
+        opacity: 0;
+        transform: translate(cos($angle) * $distance, -1 * sin($angle) * $distance);
+    }
+
+    50% {
+        opacity: 0;
+        transform: translate(-1 * cos($angle) * $distance, sin($angle) * $distance);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translate(-1 * cos($angle) * $distance, sin($angle) * $distance);
+    }
+
+    100% {
+        transform: none;
+    }
+
+
+}
+
+@keyframes slide-1 { @include slide(0deg, 80rem) }
+@keyframes slide-2 { @include slide(320deg, 80rem) }
+@keyframes slide-3 { @include slide(120deg, 50rem) }
+@keyframes slide-4 { @include slide(30deg, 80rem) }
+@keyframes slide-5 { @include slide(220deg, 50rem) }
+
+.shapes {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.box {
+    position: absolute;
+}
+
+.box-1 {
+  background-color: rgba($blue, 0.5);
+  width:  20rem;
+  height: 10rem;
+  top: 50%;
+  left: 50%;
+  animation-delay: 1s;
+}
+
+.box-2 {
+  background-color: rgba($red, 0.5);
+  width:  10rem;
+  height: 10rem;
+  border-radius: 50%;
+  top: 60%;
+  left: 40%;
+}
+
+.box-3 {
+  width: 0;
+  height: 0;
+  border-right: 7.07106781187rem $transparent solid;
+  border-left: 7.07106781187rem $transparent solid;
+  border-bottom: 10rem rgba($yellow, 0.5) solid;
+  top: 40%;
+  left: 40%;
+}
+
+.box-4 {
+  background-color: rgba($green, 0.5);
+  width:  15rem;
+  height: 15rem;
+  top: 30%;
+  left: 20%;
+  animation-delay: 2s;
+}
+
+.box-5 {
+  background-color: rgba($orange, 0.5);
+  width:  20rem;
+  height: 10rem;
+  left: 70%;
+  top: 30%;
+  animation-delay: 5s;
+}
+
+@for $i from 1 through 5 {
+    .box-#{$i} {
+        animation: slide-#{$i} 20s linear infinite;
+    }
+}

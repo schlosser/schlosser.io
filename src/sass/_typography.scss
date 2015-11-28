@@ -1,0 +1,58 @@
+// Font weights
+$extra-bold: 800;
+$bold: 700;
+$medium: 500;
+$regular: 400;
+$light: 300;
+
+
+$display: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$sans: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+h1, %h1 {
+  font-size: 4rem;
+  font-weight: $regular;
+  font-family: $display;
+  margin-bottom: 1rem;
+}
+
+h2, %h2 {
+  color: $gray;
+  font-size: 2rem;
+  font-family: $display;
+  font-weight: $regular;
+  line-height: 2;
+}
+
+h3, %h3 {
+  font-size: 1.5rem;
+  letter-spacing: .5px;
+}
+
+h4, %h4 {
+  font-size: 1.1rem;
+  letter-spacing: .5px;
+}
+
+h5, %h5 {
+  font-size: .75rem;
+  text-transform: uppercase;
+}
+
+p, .p {
+  font-size: 1rem;
+}
+
+strong {
+  font-weight: $medium;
+}
+
+@media screen and (max-width: $phone-landscape-max) {
+  h1, %h1 {
+    font-size: 3rem;
+  }
+
+  h2, %h2 {
+    font-size: 2rem;
+  }
+}

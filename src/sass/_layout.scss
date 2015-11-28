@@ -1,0 +1,33 @@
+$content-width: 50rem;
+
+.content {
+  @include clearfix;
+  position: absolute;
+  margin: 0 auto;
+  max-width: $content-width;
+  padding: 4rem;
+  top: 50%;
+  left: 5rem;
+  right: 5rem;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+@media screen and (max-width: $phone-landscape-max) {
+  .content {
+    box-sizing:border-box;
+    padding: 0;
+    position: relative;
+    left: auto;
+    top: auto;
+    right: auto;
+    padding: 6rem 3rem;
+    width: 100%;
+    transform: none;
+  }
+
+  section {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}

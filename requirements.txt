@@ -1,8 +1,0 @@
-Flask==0.10.1
-Flask-BasicAuth==0.2.0
-Jinja2==2.7.1
-MarkupSafe==0.18
-PyRSS2Gen==1.0.0
-Werkzeug==0.9.4
-pyScss==1.2.0.post3
-Flask-Assets==0.8

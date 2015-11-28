@@ -1,15 +1,2 @@
-.project
-.pydevproject
-.Python
-.DS_Store
-*.pyc
-static/css/*
-data/flaskconfig.py
-data/auth_keys
-data/sentences.json
-lib
-src
-include
-deactivate
-*.webassets-cache
-
+node_modules
+dist/*

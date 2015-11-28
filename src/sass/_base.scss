@@ -1,0 +1,28 @@
+html, body {
+  background-color: $white;
+  color: $black;
+  font-family: $sans;
+  font-size: 16px;
+  font-weight: $light;
+  height: 100%;
+  line-height: 1.5;
+  position: relative;
+}
+
+a, a:hover {
+  color: $black;
+  text-decoration: none;
+  border-bottom: 0.25rem solid currentcolor;
+}
+
+img {
+  max-width: 100%;
+}
+
+@mixin clearfix {
+  &:after {
+    clear: both;
+    content: ' ';
+    display: block;
+  }
+}
