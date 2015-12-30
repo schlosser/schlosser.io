@@ -1,0 +1,36 @@
+$plus-bound: 2rem;
+
+.plus-bounds {
+    div {
+        position: absolute;
+    }
+
+
+    .top, .bottom {
+        height: 2rem;
+        left: 0;
+        right: 0;
+    }
+
+    .left, .right {
+        width: 2rem;
+        top: 0;
+        bottom: 0;
+    }
+
+    .top {
+        top: 0;
+    }
+
+    .bottom {
+        bottom: 0;
+    }
+
+    .right {
+        right: 0;
+    }
+
+    .left {
+        left: 0;
+    }
+}

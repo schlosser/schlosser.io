@@ -1,33 +1,13 @@
 {{#extend "base"}}
 {{#content "main" mode="prepend"}}
-<div class="all">
-    <div class="stage">
-        <div class="content">
-            <div class="spotlight blue">
-                <div class="content">
-                    {{> text-content }}
-                </div>
-            </div>
-            <div class="spotlight orange">
-                <div class="content">
-                    {{> text-content }}
-                </div>
-            </div>
-            <div class="spotlight red">
-                <div class="content">
-                    {{> text-content }}
-                </div>
-            </div>
-            <div class="normal-text">
-                {{> text-content }}
-            </div>
-        </div>
+<div class="plus-box">
+    <div class="plus-bounds">
+        <div class="top"></div>
+        <div class="bottom"></div>
+        <div class="left"></div>
+        <div class="right"></div>
     </div>
-    <div class="content">
-        <div class="for-selection">
-            {{> text-content }}
-        </div>
-    </div>
+    <div class="plus-content"></div>
 </div>
 {{/content}}
 {{/extend}}
