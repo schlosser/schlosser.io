@@ -11,36 +11,32 @@ $sans: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 h1, %h1 {
   font-size: 4rem;
-  font-weight: $regular;
   font-family: $display;
-  margin-bottom: 1rem;
+  font-weight: $regular;
+
 }
 
 h2, %h2 {
-  color: $gray;
-  font-size: 2rem;
-  font-family: $display;
-  font-weight: $regular;
-  line-height: 2;
-}
-
-h3, %h3 {
   font-size: 1.5rem;
-  letter-spacing: .5px;
+  font-weight: $regular;
+  font-family: $display;
+  text-transform: lowercase;
+  margin-bottom: 0.5rem;
 }
 
-h4, %h4 {
-  font-size: 1.1rem;
-  letter-spacing: .5px;
-}
-
-h5, %h5 {
-  font-size: .75rem;
-  text-transform: uppercase;
-}
-
-p, .p {
+p, %p {
   font-size: 1rem;
+  font-weight: $regular;
+  font-family: $display;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+ul, ol {
+  li {
+    display: block;
+    @extend %p;
+  }
 }
 
 strong {

@@ -1,0 +1,68 @@
+section, .tile {
+  @include clearfix;
+  align-items: center;
+  height: 75%;
+  justify-content: center;
+  position: relative;
+  display: flex;
+
+  .tile {
+    @include clearfix;
+    width: 50%;
+    position: relative;
+    height: 100%;
+    transition: 0.3s ease transform;
+
+    .inner {
+      transition: 0.3s ease transform;
+    }
+
+  }
+  &.smaller {
+
+    .tile:first-child {
+      transform: translate3d(-50%, 0, 0);
+    }
+
+    .tile:last-child {
+      transform: translate3d(-100%, 0, 0);
+    }
+
+    .inner {
+      transform: translate3d(25%, 0, 0);
+    }
+  }
+}
+
+.red {
+  background-color: $red;
+  color: $white;
+}
+
+.blue {
+  background-color: $blue;
+  color: $white;
+  z-index: 100;
+}
+
+.green {
+  background-color: $green;
+  color: $white;
+}
+
+.white {
+  background-color: $white;
+  color: $black;
+  z-index: 80;
+}
+
+.gray {
+  background-color: $gray;
+  color: $black;
+}
+
+.light-gray {
+  background-color: $light-gray;
+  color: $black;
+  z-index: 90;
+}
