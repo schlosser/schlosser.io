@@ -1,55 +1,37 @@
 {{#extend "base"}}
 {{#content "main" mode="prepend"}}
 <section>
-    <div class="inner">
-        <h1>Dan Schlosser</h1>
-        <h2>Developer, Product Manager, Founder</h2>
-        <p>Github&nbsp;&nbsp;|&nbsp;&nbsp;Medium&nbsp;&nbsp;|&nbsp;&nbsp;Twitter&nbsp;&nbsp;|&nbsp;&nbsp;Facebook&nbsp;&nbsp;|&nbsp;&nbsp;Linkedin&nbsp;&nbsp;|&nbsp;&nbsp;Contact</p>
+    <div class="content">
+        <h1 class="name">Dan Schlosser</h1>
+        <h2 id="subtitle">Developer, Product Manager, Founder</h2>
     </div>
 </section>
 <section>
-    <div class="tile blue">
-        <div class="inner">
-            <p>Work</p>
-        </div>
-    </div>
-    <div class="tile light-gray">
-        <div class="inner">
-            <ul>
-                <li>Minimill</li>
-                <li>Google APM</li>
-                <li>Venmo</li>
-                <li>Facebook</li>
-                <li>MITRE</li>
-            </ul>
-        </div>
+    <ul class="cards">
+        <li class="card">
+            <img src="img/minimill-logo.png">
+        </li>
+        <li class="card">
+            <img src="img/minimill-logo.png">
+        </li>
+        <li class="card">
+            <img src="img/minimill-logo.png">
+        </li>
+        <li class="card">
+            <img src="img/minimill-logo.png">
+        </li>
+    </ul>
+</section>
+<section>
+    <div class="content">
+        <h1 class="name">Dan Schlosser</h1>
+        <p id="social">Github&nbsp;&nbsp;|&nbsp;&nbsp;Medium&nbsp;&nbsp;|&nbsp;&nbsp;Twitter&nbsp;&nbsp;|&nbsp;&nbsp;Facebook&nbsp;&nbsp;|&nbsp;&nbsp;Linkedin&nbsp;&nbsp;|&nbsp;&nbsp;Contact</p>
     </div>
 </section>
-<section class="red">
-    <div class="tile">
-        <div class="tile blue">
-            <div class="inner">
-                <p>Work</p>
-            </div>
-        </div>
-        <div class="tile light-gray">
-            <div class="inner">
-                <ul>
-                    <li>Minimill</li>
-                    <li>Google APM</li>
-                    <li>Venmo</li>
-                    <li>Facebook</li>
-                    <li>MITRE</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="tile white">
-        <div class="inner">
-            <p>Dan Schlosser</p>
-        </div>
-    </div>
-</section>
-<script type="text/javascript" src="/js/tile.js"></script>
+<script type="text/javascript">
+    window.fitText(document.getElementsByClassName('name'), 0.98);
+    window.fitText(document.getElementById('subtitle'), 2.65);
+    window.fitText(document.getElementById('social'), 4);
+</script>
 {{/content}}
 {{/extend}}

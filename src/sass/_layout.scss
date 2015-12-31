@@ -1,24 +1,5 @@
 $content-width: 50rem;
 
-.all {
-  position: relative;
-  min-height: 100%;
-  box-sizing: border-box;
-}
-
-.stage {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  overflow: hidden;
-
-  > .content {
-    height: 1000%;
-  }
-}
-
 .content {
   @include clearfix;
   position: relative;
@@ -26,31 +7,12 @@ $content-width: 50rem;
   width: $content-width;
   max-width: 80vw;
   z-index: 2;
-  // position: absolute;
-  // top: 50%;
-  // left: 50%;
-  // transform: translate(-50%, -50%);
-}
-.stage > .content {
-  top: 10rem;
 }
 
-.all > .content {
-  padding: 10rem 0 5rem;
+section {
+  padding: 2.5rem;
 }
 
-@media screen and (max-width: $tablet-portrait-max) {
-  .stage > .content {
-    top: 2rem;
-  }
-
-  .all > .content {
-    position: relative;
-    padding: 2rem;
-  }
-
-  section {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
-  }
+body {
+  padding: 5rem 0;
 }

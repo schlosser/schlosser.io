@@ -13,15 +13,17 @@ h1, %h1 {
   font-size: 4rem;
   font-family: $display;
   font-weight: $regular;
-
+  text-transform: uppercase;
+  letter-spacing: 5px;
 }
 
 h2, %h2 {
   font-size: 1.5rem;
   font-weight: $regular;
   font-family: $display;
-  text-transform: lowercase;
+  text-transform: uppercase;
   margin-bottom: 0.5rem;
+  letter-spacing: 2px;
 }
 
 p, %p {
@@ -30,6 +32,7 @@ p, %p {
   font-family: $display;
   text-transform: uppercase;
   margin-bottom: 1rem;
+  letter-spacing: 1px;
 }
 
 ul, ol {
