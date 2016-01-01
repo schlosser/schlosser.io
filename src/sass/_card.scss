@@ -1,0 +1,52 @@
+.cards {
+  align-items: stretch;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .card {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 2.5rem;
+    width: 50%;
+
+    .text {
+      justify-content: space-between;
+      display: flex;
+    }
+
+    p {
+      box-sizing: border-box;
+      text-align: center;
+      max-width: 75%;
+      padding: 0 1rem;
+    }
+
+    h4 {
+      flex: 1;
+      &:last-child {
+        text-align: right;
+      }
+    }
+  }
+}
+
+.social {
+  a {
+    color: $gray;
+
+    &:hover {
+      color: $black;
+    }
+  }
+  .divider {
+    padding: 0 0.5rem;
+  }
+}
+@media screen and (max-width: $tablet-portrait-max) {
+  .cards .card {
+    width: 100%;
+    padding: 2.5rem 0 0;
+
+  }
+}

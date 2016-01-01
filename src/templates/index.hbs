@@ -1,37 +1,105 @@
 {{#extend "base"}}
-{{#content "main" mode="prepend"}}
-<section>
-    <div class="content">
-        <h1 class="name">Dan Schlosser</h1>
-        <h2 id="subtitle">Developer, Product Manager, Founder</h2>
-    </div>
-</section>
+{{#content "main" mode="append"}}
+{{> header }}
 <section>
     <ul class="cards">
         <li class="card">
-            <img src="img/minimill-logo.png">
+            <img src="/img/minimill.png">
+            <div class="text">
+                <h4>Work</h4>
+                <p>Founder and developer at Minimill, a design agency for branding, web, and mobile.</p>
+                <h4>2015</h4>
+            </div>
         </li>
         <li class="card">
-            <img src="img/minimill-logo.png">
+            <img src="/img/google.jpeg">
+            <div class="text">
+                <h4>Work</h4>
+                <p>Associate Product Mananger Intern at Google working on the Polymer Team.</p>
+                <h4>2015</h4>
+            </div>
         </li>
         <li class="card">
-            <img src="img/minimill-logo.png">
+            <img src="/img/technica.png">
+            <div class="text">
+                <h4>Team</h4>
+                <p>Web developer for the all-female hackathon at University of Maryland.</p>
+                <h4>2015</h4>
+            </div>
         </li>
         <li class="card">
-            <img src="img/minimill-logo.png">
+            <img src="/img/adi.png">
+            <div class="text">
+                <h4>Team</h4>
+                <p>4-year member of ADI, the tech and Computer Science club at Columbia University.</p>
+                <h4>2012<br>-2015</h4>
+            </div>
+        </li>
+        <li class="card">
+            <img src="/img/dfa.jpg">
+            <div class="text">
+                <h4>Team</h4>
+                <p>President of Barnard-Columbia Design for America, a human centered design studio.</p>
+                <h4>2012<br>-2015</h4>
+            </div>
+        </li>
+        <li class="card">
+            <img src="/img/substituteteacher.js.png">
+            <div class="text">
+                <h4>Code</h4>
+                <p>A small JavaScript library for creating a rotating set of taglines.</p>
+                <h4>2015</h4>
+            </div>
+        </li>
+        <li class="card">
+            <img src="/img/venmo.png">
+            <div class="text">
+                <h4>Work</h4>
+                <p>Software engineering intern at Venmo working on the Venmo API and platform.</p>
+                <h4>2014</h4>
+            </div>
+        </li>
+        <li class="card">
+            <img src="/img/adicu.com.png">
+            <div class="text">
+                <h4>Code</h4>
+                <p>The Website for the ADI, the tech club at Columbia, built using Eventum.</p>
+                <h4>2014</h4>
+            </div>
+        </li>
+        <li class="card">
+            <img src="/img/eventum.png">
+            <div class="text">
+                <h4>Code</h4>
+                <p>Eventum: an open source content management system for event-driven websites.</p>
+                <h4>2014</h4>
+            </div>
+        </li>
+        <li class="card">
+            <img src="/img/hackcon.png">
+            <div class="text">
+                <h4>Team</h4>
+                <p>Organizer for Hackcon II, III, and IV, the hackathon organizers' conference.</p>
+                <h4>2013<br>-2015</h4>
+            </div>
+        </li>
+        <li class="card">
+            <img src="/img/campusdata.png">
+            <div class="text">
+                <h4>Team</h4>
+                <p>Founding memeber of Campus Data, and organization that promots open data at universities.</p>
+                <h4>2013<br>-2015</h4>
+            </div>
+        </li>
+        <li class="card">
+            <img src="/img/facebook.png">
+            <div class="text">
+                <h4>Work</h4>
+                <p>Facebook University Intern working on the Facebook for iOS App.</p>
+                <h4>2013</h4>
+            </div>
         </li>
     </ul>
 </section>
-<section>
-    <div class="content">
-        <h1 class="name">Dan Schlosser</h1>
-        <p id="social">Github&nbsp;&nbsp;|&nbsp;&nbsp;Medium&nbsp;&nbsp;|&nbsp;&nbsp;Twitter&nbsp;&nbsp;|&nbsp;&nbsp;Facebook&nbsp;&nbsp;|&nbsp;&nbsp;Linkedin&nbsp;&nbsp;|&nbsp;&nbsp;Contact</p>
-    </div>
-</section>
-<script type="text/javascript">
-    window.fitText(document.getElementsByClassName('name'), 0.98);
-    window.fitText(document.getElementById('subtitle'), 2.65);
-    window.fitText(document.getElementById('social'), 4);
-</script>
 {{/content}}
 {{/extend}}
