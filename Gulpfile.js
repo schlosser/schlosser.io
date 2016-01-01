@@ -93,6 +93,9 @@ gulp.task('images:optimized', function() {
       multipass: true,
     }))
     .pipe(gulp.dest('./dist/img'));
+  gulp.src('src/favicon.ico')
+    .pipe(plumber())
+    .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('fonts', function() {
@@ -145,7 +148,7 @@ gulp.task('build:optimized', ['sass:optimized', 'images:optimized', 'fonts', 'js
 
 gulp.task('deploy', ['build:optimized'], function() {
   gulp.src('')
-    .pipe(shell('scp -r dist/* dan@danrs.ch:/srv/schlosser-io/public_html/'))
+    .pipe(shell('scp -r dist/* dan@danrs.ch:/srv/schlosser.io/public_html/'))
     .on('finish', function() {
       process.stdout.write('Deployed to schlosser.io');
     });
