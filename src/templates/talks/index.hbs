@@ -1,0 +1,19 @@
+{{#extend "base"}}
+{{#content "main" mode="append"}}
+<section>
+    <div class="content">
+        <ul class="talks">
+            {{#each talks}}
+                <li class="talk">
+                    <header>
+                        <h3><a href="{{this.link}}">{{{this.title}}}</a></h3>
+                        <h4>{{this.date}}</h4>
+                    </header>
+                    {{{this.description}}}
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+</section>
+{{/content}}
+{{/extend}}

@@ -1,0 +1,45 @@
+.talk {
+  padding: 0 0 3rem;
+
+  header {
+    align-items: flex-start;
+    display: flex;
+    margin-bottom: 1rem;
+
+    h3 {
+      flex: 1;
+      margin: 0;
+    }
+
+    h4 {
+      margin: 0;
+      padding: 0.125rem;
+    }
+  }
+
+  ul {
+    margin-left: 2rem;
+
+    li {
+      position: relative;
+
+      &:before {
+        background-color: currentcolor;
+        border-radius: 50%;
+        content: ' ';
+        display: block;
+        height: 3em;
+        left: -1.25rem;
+        position: absolute;
+        top: 0.6em;
+        transform: scale(0.1);
+        transform-origin: 0 0;
+        width: 3em;
+      }
+    }
+  }
+
+  p a {
+    text-decoration: underline;
+  }
+}

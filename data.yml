@@ -1,9 +1,130 @@
 meta:
-  title: ""
-  description: ""
+  title: "Dan Schlosser"
+  description: "Hey there!  I'm Dan Schlosser, a NYC-based developer, product manager, and team player.  Let's get in touch!"
   facebook_image: ""  # /img/facebook.png
   twitter_image: ""  # /img/twitter.png
   image: ""  # /img/share.png
-  twitter_handle: ""  # @minimill_co
-  domain: ""  # minimill.co
-  url: ""  # https://minimill.co
+  twitter_handle: "@danrschlosser"
+  domain: "schlosser.io"
+  url: "https://schlosser.io"
+projects:
+- name: Minimill
+  img: "/img/minimill.png"
+  link: "https://minimill.co/"
+  category: Work
+  description: |
+    Founder and developer at Minimill, a design agency for branding, web, and mobile.
+  year: "2015"
+- name: Google
+  img: "/img/google.jpeg"
+  link: "https://www.google.com/"
+  category: Work
+  description: |
+    Associate Product Mananger Intern at Google working on the Polymer Team.
+  year: "2015"
+- name: Technica
+  img: "/img/technica.png"
+  link: "http://gotechnica.org/"
+  category: Team
+  description: |
+    Web developer for the all-female hackathon at University of Maryland.
+  year: "2015"
+- name: Adi
+  img: "/img/adi.png"
+  link: "https://adicu.com/"
+  category: Team
+  description: |
+    4-year m"ember of ADI, the tech and Computer Science club at Columbia University."
+  year: "2012<br>-2015"
+- name: Dfa
+  img: "/img/dfa.jpg"
+  link: "http://bcdfa.com/"
+  category: Team
+  description: |
+    President of Barnard-Columbia Design for America, a human centered design studio.
+  year: "2012<br>-2015"
+- name: Substituteteacher.js
+  img: "/img/substituteteacher.js.png"
+  link: "http://danrschlosser.github.io/substituteteacher.js/"
+  category: Code
+  description: |
+    A small JavaScript library for creating a rotating set of taglines.
+  year: "2015"
+- name: Venmo
+  img: "/img/venmo.png"
+  link: "https://venmo.com/"
+  category: Work
+  description: |
+    Software engineering intern at Venmo working on the Venmo API and platform.
+  year: "2014"
+- name: Adicu.com
+  img: "/img/adicu.com.png"
+  link: "https://adicu.com/"
+  category: Code
+  description: |
+    The Website for the ADI, the tech club at Columbia, built using Eventum.
+  year: "2014"
+- name: Eventum
+  img: "/img/eventum.png"
+  link: "https://github.com/danrschlosser/eventum"
+  category: Code
+  description: |
+    Eventum: an open source content management system for event-driven websites.
+  year: "2014"
+- name: Hackcon
+  img: "/img/hackcon.png"
+  link: "http://hackcon.io/"
+  category: Team
+  description: |
+    Organizer for Hackcon II, III, and IV, the hackathon organizers' conference.
+  year: "2013<br>-2015"
+- name: Campus Data
+  img: "/img/campusdata.png"
+  link: "http://campusdata.org/"
+  category: Team
+  description: |
+    Founding memeber of Campus Data, and organization that promotes open data at universities.
+  year: "2013<br>-2015"
+- name: Facebook
+  img: "/img/facebook.png"
+  link: "https://www.facebook.com/"
+  category: Work
+  description: |
+    Facebook University Intern working on the Facebook for iOS App.
+  year: "2013"
+talks:
+- title: "Rethinking Scale"
+  link: "https://www.youtube.com/watch?v=YG08VXm_bFY"
+  description: |
+    <p>I gave this talk at <a href='http://hackcon.io' target='_blank'>Hackcon II</a> this February.  In it I talk about <a href='https://adicu.com'>ADI's</a> <a href='http://devfe.st'>DevFest</a>, and how ADI scales DevFest in accordance with our values: education, community, and technical excitement.</p><p>Check out the <a href="https://www.youtube.com/watch?v=YG08VXm_bFY">video from Hackcon II</a> or <a href="http://static.danrschlosser.com/rethinking-scale.pdf">read the slides</a>.
+  date: 2015
+- title: "Intermediate Flask"
+  link: "https://github.com/danrschlosser/intermediate-flask"
+  description: |
+    <p>Written as a natural extension of the my Accelerated Introduction to Web Development talk, this tutorial covers advanced topics in Flask, including building large Flask apps, managing dependencies, using a database, and processing form data.</p>
+  date: 2014
+- title: "Learn to Learn to Program"
+  link: "http://static.danrschlosser.com/learn-to-learn-to-program.pdf"
+  description: |
+    <p>Learning to program can be intimidating.  This talk attempts to outline everything you need to do and know in order to learn to program.</p>
+  date: 2013
+- title: "An Accelerated Introduction to Web Development"
+  link: "http://learn.adicu.com/webdev"
+  description: |
+    <p>This talk walks through all of the steps to learning to build your first web application.  It covers Python, Flask, APIs, HTML, and CSS.</p>
+  date: 2013
+- title: "When &ldquo;Awesome&rdquo; is Isolating"
+  link: "https://www.youtube.com/watch?v=3L68tkWIc30"
+  description: |
+    <p>Too often, hackathon organizers focus on making their events &ldquo;awesome&rdquo;.  However, this often results in losing sight of how to attract new members, grow our communities, and focus on learning.  DevFest, Columbia's week-long workshop series and hackathon focus on education, community, and building.  I gave this talk at <a href="http://hackcon.io">HackCon</a> in February, 2014.</p><p>Check out the <a href="https://www.youtube.com/watch?v=3L68tkWIc30">video from the first Hackcon</a> or <a href="http://static.danrschlosser.com/hackcon.pdf">read the slides</a>.
+  date: 2014
+- title: "Making Windows Work"
+  link: "http://static.danrschlosser.com/making-windows-work/"
+  description: |
+    <p>Tired of people making fun of you for using Windows? Come on down to learn how to put the &ldquo;Win&rdquo; back in &ldquo;Windows&rdquo;! Get the spark back, with cool tips and tricks that"ll wonder how you ever lived without!<p>
+  date: 2012
+- title: "The Power of Video Game Design"
+  link: "http://prezi.com/pwgh25hftgej/?utm_campaign=share&utm_medium=copy&rc=ex0share"
+  description: |
+    <p>The traditional discussion of the role of video games in our culture is misguided. Can we think about video games differently?</p><p>This talk was influenced by Jane McGonigal's book Reality Is Broken.</p>
+  date: 2012

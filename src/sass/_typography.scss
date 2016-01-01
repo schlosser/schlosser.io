@@ -10,45 +10,52 @@ $display: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $sans: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 h1, %h1 {
-  font-size: 4rem;
   font-family: $display;
+  font-size: 4rem;
   font-weight: $regular;
-  text-transform: uppercase;
-  letter-spacing: 5px;
+  line-height: 1.25;
+  transform: translateX(-0.05em);
 }
 
 h2, %h2 {
   color: $gray;
+  font-family: $display;
   font-size: 1.5rem;
   font-weight: $regular;
-  font-family: $display;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
   letter-spacing: 2px;
+  margin-bottom: 1rem;
+  text-transform: lowercase;
+}
+
+h3, %h3 {
+  font-family: $display;
+  font-size: 1.5rem;
+  font-weight: $regular;
+  margin-bottom: 1rem;
 }
 
 h4, %h4 {
   color: $gray;
+  font-family: $display;
   font-size: 1rem;
   font-weight: $regular;
-  font-family: $display;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
   letter-spacing: 1px;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
 }
 
 p, %p {
+  font-family: $sans;
   font-size: 1rem;
   font-weight: $regular;
-  font-family: $sans;
-  margin-bottom: 1rem;
   letter-spacing: 0.5px;
+  margin-bottom: 1rem;
 }
 
 ul, ol {
   li {
-    display: block;
     @extend %p;
+    display: block;
   }
 }
 

@@ -3,30 +3,31 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
 
-  .card {
+.card {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 2.5rem;
+  width: 50%;
+
+  .text {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  p {
     box-sizing: border-box;
-    margin: 0;
-    padding: 2.5rem;
-    width: 50%;
+    max-width: 75%;
+    padding: 0 1rem;
+    text-align: center;
+  }
 
-    .text {
-      justify-content: space-between;
-      display: flex;
-    }
+  h4 {
+    flex: 1;
 
-    p {
-      box-sizing: border-box;
-      text-align: center;
-      max-width: 75%;
-      padding: 0 1rem;
-    }
-
-    h4 {
-      flex: 1;
-      &:last-child {
-        text-align: right;
-      }
+    &:last-child {
+      text-align: right;
     }
   }
 }
@@ -39,14 +40,15 @@
       color: $black;
     }
   }
+
   .divider {
     padding: 0 0.5rem;
   }
 }
+
 @media screen and (max-width: $tablet-portrait-max) {
   .cards .card {
-    width: 100%;
     padding: 2.5rem 0 0;
-
+    width: 100%;
   }
 }

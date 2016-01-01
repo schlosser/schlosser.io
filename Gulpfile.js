@@ -134,7 +134,7 @@ gulp.task('templates:optimized', ['templates'], function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch('./src/templates/**/*.hbs', ['templates'], reload);
+  gulp.watch(['./src/templates/**/*.hbs', './src/partials/**/*.hbs'], ['templates'], reload);
   gulp.watch('./src/sass/**/*.scss', ['sass'], reload);
   gulp.watch('./src/img/**/*', ['images'], reload);
   gulp.watch(['./src/js/**/*.js', 'Gulpfile.js'], ['js'], reload);
@@ -145,9 +145,9 @@ gulp.task('build:optimized', ['sass:optimized', 'images:optimized', 'fonts', 'js
 
 gulp.task('deploy', ['build:optimized'], function() {
   gulp.src('')
-    .pipe(shell('scp -r dist/* root@minimill.co:/srv/work/private_html/schlosser-io/'))
+    .pipe(shell('scp -r dist/* dan@danrs.ch:/srv/schlosser-io/public_html/'))
     .on('finish', function() {
-      process.stdout.write('Deployed to work.minimill.co/dan/');
+      process.stdout.write('Deployed to schlosser.io');
     });
 });
 

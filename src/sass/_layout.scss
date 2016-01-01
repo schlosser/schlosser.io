@@ -1,11 +1,11 @@
-$content-width: 50rem;
+$content-width: 40rem;
 
 .content {
   @include clearfix;
-  position: relative;
   margin: 0 auto;
-  width: 100%;
   max-width: $content-width;
+  position: relative;
+  width: 100%;
   z-index: 2;
 }
 
@@ -15,4 +15,9 @@ section {
 
 body {
   padding: 5rem 0;
+}
+
+footer {
+  padding: 1rem;
+  text-align: center;
 }
