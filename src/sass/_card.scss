@@ -50,5 +50,53 @@
   .cards .card {
     padding: 2.5rem 0 0;
     width: 100%;
+
+    .text {
+      flex-wrap: wrap;
+
+      h4 {
+        margin-bottom: 0.25rem;
+
+        br {
+          display: none;
+        }
+      }
+
+      p {
+        order: 3;
+        max-width: 100%;
+        text-align: left;
+        padding: 0;
+      }
+    }
+  }
+
+  .social {
+    display: flex;
+    margin: 0;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+
+    a {
+      display: inline-block;
+      font-size: 1rem;
+      height: 2.25rem;
+      line-height: 2.25rem;
+      vertical-align: middle;
+      width: 33.333333%;
+
+      &:nth-of-type(2), &:nth-of-type(5) {
+        text-align: center;
+      }
+
+      &:nth-of-type(3), &:nth-of-type(6) {
+        text-align: right;
+      }
+    }
+  }
+
+  .divider {
+    display: none;
   }
 }

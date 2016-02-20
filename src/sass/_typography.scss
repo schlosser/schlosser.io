@@ -22,7 +22,7 @@ h2, %h2 {
   font-family: $display;
   font-size: 1.5rem;
   font-weight: $regular;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   margin-bottom: 1rem;
   text-transform: lowercase;
 }
@@ -63,12 +63,14 @@ strong {
   font-weight: $medium;
 }
 
-@media screen and (max-width: $phone-landscape-max) {
-  h1, %h1 {
-    font-size: 3rem;
+@media screen and (max-width: $phone-portrait-max) {
+  h1 {
+    margin-bottom: 0;
   }
 
-  h2, %h2 {
-    font-size: 2rem;
+  h2 {
+    font-size: 1.5rem !important;
+    margin-bottom: 2rem;
+    line-height: 1.25;
   }
 }

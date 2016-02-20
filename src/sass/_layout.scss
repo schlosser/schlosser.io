@@ -21,3 +21,13 @@ footer {
   padding: 1rem;
   text-align: center;
 }
+
+@media screen and (max-width: $tablet-portrait-max) {
+  section {
+    padding: 0.5rem 2.5rem;
+  }
+
+  body {
+    padding: 2.5rem 0;
+  }
+}
