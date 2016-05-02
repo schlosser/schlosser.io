@@ -46,7 +46,7 @@ projects:
   year: "2012<br>-2015"
 - name: Substituteteacher.js
   img: "/img/substituteteacher.js.png"
-  link: "http://danrschlosser.github.io/substituteteacher.js/"
+  link: "http://schlosser.github.io/substituteteacher.js/"
   category: Code
   description: |
     A small JavaScript library for creating a rotating set of taglines.
@@ -67,7 +67,7 @@ projects:
   year: "2014"
 - name: Eventum
   img: "/img/eventum.png"
-  link: "https://github.com/danrschlosser/eventum"
+  link: "https://github.com/schlosser/eventum"
   category: Code
   description: |
     Eventum: an open source content management system for event-driven websites.
@@ -117,7 +117,7 @@ talks:
     Hackcon II</a> or <a href="https://static.schlosser.io/rethinking-scale.pdf">read the slides</a>.</p>
   date: 2015
 - title: "Intermediate Flask"
-  link: "https://github.com/danrschlosser/intermediate-flask"
+  link: "https://github.com/schlosser/intermediate-flask"
   description: |
     <p>Written as a natural extension of the my Accelerated Introduction to Web Development talk, this
     tutorial covers advanced topics in Flask, including building large Flask apps, managing dependencies,
