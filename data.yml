@@ -15,7 +15,7 @@ projects:
   category: Work
   description: |
     Founder and developer at Minimill, a design agency for branding, web, and mobile.
-  year: "2015"
+  year: "2015<br>-2016"
 - name: Google
   img: "/img/google.jpeg"
   link: "https://www.google.com/"
@@ -36,14 +36,14 @@ projects:
   category: Team
   description: |
     4-year member of ADI, the tech and Computer Science club at Columbia University.
-  year: "2012<br>-2015"
+  year: "2012<br>-2016"
 - name: Dfa
   img: "/img/dfa.jpg"
   link: "http://bcdfa.com/"
   category: Team
   description: |
     President of Barnard-Columbia Design for America, a human centered design studio.
-  year: "2012<br>-2015"
+  year: "2012<br>-2016"
 - name: Substituteteacher.js
   img: "/img/substituteteacher.js.png"
   link: "http://schlosser.github.io/substituteteacher.js/"
@@ -78,14 +78,14 @@ projects:
   category: Team
   description: |
     Organizer for Hackcon II, III, and IV, the hackathon organizers' conference.
-  year: "2013<br>-2015"
+  year: "2013<br>-2016"
 - name: Campus Data
   img: "/img/campusdata.png"
   link: "http://campusdata.org/"
   category: Team
   description: |
     Founding memeber of Campus Data, and organization that promotes open data at universities.
-  year: "2013<br>-2015"
+  year: "2013<br>-2016"
 - name: Facebook
   img: "/img/facebook.png"
   link: "https://www.facebook.com/"
