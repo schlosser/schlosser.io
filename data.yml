@@ -21,7 +21,7 @@ projects:
   link: "https://www.google.com/"
   category: Work
   description: |
-    Associate Product Mananger Intern at Google working on the Polymer Team.
+    Associate Product Manager Intern at Google working on the Polymer Team.
   year: "2015"
 - name: Technica
   img: "/img/technica.png"
@@ -63,7 +63,7 @@ projects:
   link: "https://adicu.com/"
   category: Code
   description: |
-    The Website for the ADI, the tech club at Columbia, built using Eventum.
+    The Website for ADI, the tech club at Columbia, built using Eventum.
   year: "2014"
 - name: Eventum
   img: "/img/eventum.png"
@@ -84,7 +84,7 @@ projects:
   link: "http://campusdata.org/"
   category: Team
   description: |
-    Founding memeber of Campus Data, and organization that promotes open data at universities.
+    Founding member of Campus Data, an organization that promotes open data at universities.
   year: "2013<br>-2016"
 - name: Facebook
   img: "/img/facebook.png"
