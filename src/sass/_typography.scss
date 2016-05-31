@@ -63,6 +63,22 @@ strong {
   font-weight: $medium;
 }
 
+article {
+  h3:not(:first-child) {
+    margin-top: 2rem;
+  }
+
+  ul {
+    padding-left: 2rem;
+
+    li {
+      display: list-item;
+      list-style-type: disc;
+    }
+  }
+
+}
+
 @media screen and (max-width: $phone-portrait-max) {
   h1 {
     font-size: 3.5rem !important;
