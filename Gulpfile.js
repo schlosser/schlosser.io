@@ -105,7 +105,13 @@ gulp.task('fonts', function() {
 });
 
 gulp.task('templates', function() {
-  var templateData = yaml.safeLoad(fs.readFileSync('data.yml', 'utf-8'));
+  var dataFiles = ['meta', 'projects', 'podcasts', 'talks'];
+
+  var templateData = {};
+  dataFiles.forEach(function(str) {
+    templateData[str] = yaml.safeLoad(fs.readFileSync('data/' + str + '.yml', 'utf-8'))[str];
+  });
+
   var options = {
     ignorePartials: true, //ignores the unknown footer2 partial in the handlebars template, defaults to false
     batch: ['./src/partials/'],
@@ -137,7 +143,7 @@ gulp.task('templates:optimized', ['templates'], function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch(['./src/templates/**/*.hbs', './src/partials/**/*.hbs', 'data.yml'], ['templates'], reload);
+  gulp.watch(['./src/templates/**/*.hbs', './src/partials/**/*.hbs', './data/*.yml'], ['templates'], reload);
   gulp.watch('./src/sass/**/*.scss', ['sass'], reload);
   gulp.watch('./src/img/**/*', ['images'], reload);
   gulp.watch(['./src/js/**/*.js', 'Gulpfile.js'], ['js'], reload);

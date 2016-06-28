@@ -1,0 +1,85 @@
+projects:
+- name: Minimill
+  img: "/img/minimill.png"
+  link: "https://minimill.co/"
+  category: Work
+  description: |
+    Founder and developer at Minimill, a design agency for branding, web, and mobile.
+  year: "2015<br>-2016"
+- name: Google
+  img: "/img/google.jpeg"
+  link: "https://www.google.com/"
+  category: Work
+  description: |
+    Associate Product Manager Intern at Google working on the Polymer Team.
+  year: "2015"
+- name: Technica
+  img: "/img/technica.png"
+  link: "http://gotechnica.org/"
+  category: Team
+  description: |
+    Web developer for the all-female hackathon at University of Maryland.
+  year: "2015"
+- name: Adi
+  img: "/img/adi.png"
+  link: "https://adicu.com/"
+  category: Team
+  description: |
+    4-year member of ADI, the tech and Computer Science club at Columbia University.
+  year: "2012<br>-2016"
+- name: Dfa
+  img: "/img/dfa.jpg"
+  link: "http://bcdfa.com/"
+  category: Team
+  description: |
+    President of Barnard-Columbia Design for America, a human centered design studio.
+  year: "2012<br>-2016"
+- name: Substituteteacher.js
+  img: "/img/substituteteacher.js.png"
+  link: "http://schlosser.github.io/substituteteacher.js/"
+  category: Code
+  description: |
+    A small JavaScript library for creating a rotating set of taglines.
+  year: "2015"
+- name: Venmo
+  img: "/img/venmo.png"
+  link: "https://venmo.com/"
+  category: Work
+  description: |
+    Software engineering intern at Venmo working on the Venmo API and platform.
+  year: "2014"
+- name: Adicu.com
+  img: "/img/adicu.com.png"
+  link: "https://adicu.com/"
+  category: Code
+  description: |
+    The Website for ADI, the tech club at Columbia, built using Eventum.
+  year: "2014"
+- name: Eventum
+  img: "/img/eventum.png"
+  link: "https://github.com/schlosser/eventum"
+  category: Code
+  description: |
+    Eventum: an open source content management system for event-driven websites.
+  year: "2014"
+- name: Hackcon
+  img: "/img/hackcon.png"
+  link: "http://hackcon.io/"
+  category: Team
+  description: |
+    Organizer for Hackcon II, III, and IV, the hackathon organizers' conference.
+  year: "2013<br>-2016"
+- name: Campus Data
+  img: "/img/campusdata.png"
+  link: "http://campusdata.org/"
+  category: Team
+  description: |
+    Founding member of Campus Data, an organization that promotes open data at universities.
+  year: "2013<br>-2016"
+- name: Facebook
+  img: "/img/facebook.png"
+  link: "https://www.facebook.com/"
+  category: Work
+  description: |
+    Facebook University Intern working on the Facebook for iOS App.
+  year: "2013"

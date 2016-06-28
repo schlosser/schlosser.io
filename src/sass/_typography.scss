@@ -44,11 +44,28 @@ h4, %h4 {
   text-transform: uppercase;
 }
 
+h5, %h5 {
+  font-family: $display;
+  font-size: 1.2rem;
+  font-weight: $regular;
+  margin-bottom: 0.5rem;
+}
+
+h6, %h6 {
+  color: $gray;
+  font-family: $display;
+  font-size: 0.75rem;
+  font-weight: $regular;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
 p, %p {
   font-family: $sans;
   font-size: 1rem;
   font-weight: $regular;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.25px;
   margin-bottom: 1rem;
 }
 
@@ -75,6 +92,10 @@ article {
       display: list-item;
       list-style-type: disc;
     }
+  }
+
+  em {
+    font-style: italic;
   }
 
 }

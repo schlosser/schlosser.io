@@ -1,0 +1,32 @@
+{{#extend "base"}}
+{{#content "main" mode="append"}}
+<section>
+    <article class="content">
+        <h3>Podcasts</h3>
+        <p>This is a (mostly) complete list of the podcasts I am listening to right now and recommend to all! The order is semi-random. Enjoy!</p>
+        {{#each podcasts}}
+        <div class="podcast">
+            <div class="info">
+                <img src="/img/podcasts/{{this.id}}.jpg" alt="{{{this.title}}}">
+                <span class="links">
+                    <a href="{{this.link}}">Web</a>
+                    <a href="{{this.itunes}}">iTunes</a>
+                </span>
+            </div>
+            <div class="text">
+                <h5 id="{{this.id}}">{{{this.title}}}</h5>
+                <h6>
+                    <span class="tags">
+                        {{#each tags}}
+                        <span class="tag">{{this}}</span>
+                        {{/each}}
+                    </span>
+                </h6>
+                <p>{{{this.description}}}</p>
+            </div>
+        </div>
+        {{/each}}
+    </article>
+</section>
+{{/content}}
+{{/extend}}

@@ -25,6 +25,10 @@ footer {
 @media screen and (max-width: $tablet-portrait-max) {
   section {
     padding: 0.5rem 2.5rem;
+
+    + section {
+      padding-top: 2.5rem;
+    }
   }
 
   body {
