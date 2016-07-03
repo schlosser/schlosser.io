@@ -25,6 +25,9 @@ var uglify = require('gulp-uglify');
 var yaml = require('js-yaml');
 
 handlebars.Handlebars.registerHelper(layouts(handlebars.Handlebars));
+handlebars.Handlebars.registerHelper("aspectRatioAsPaddingPercent", function(aspectRatio) {
+  return (1 / aspectRatio * 100) + '%';
+});
 
 gulp.task('sass:lint', function() {
   gulp.src('./src/sass/*.scss')
@@ -105,7 +108,7 @@ gulp.task('fonts', function() {
 });
 
 gulp.task('templates', function() {
-  var dataFiles = ['meta', 'projects', 'podcasts', 'talks'];
+  var dataFiles = ['meta', 'projects', 'podcasts', 'talks', 'photography'];
 
   var templateData = {};
   dataFiles.forEach(function(str) {
