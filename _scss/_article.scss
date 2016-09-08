@@ -1,0 +1,151 @@
+article {
+  h2 {
+    font-family: $sans;
+    margin-bottom: 1.5rem;
+  }
+
+  h3 {
+    font-family: $sans;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  h4 {
+    font-size: 1rem;
+    margin: 1rem 0;
+
+    a {
+      @extend %subtle-link;
+    }
+  }
+
+  blockquote {
+    background-color: $lighter-gray;
+    margin: 0 auto;
+    margin: 3rem;
+    padding: 3rem;
+  }
+
+  pre {
+    background-color: $lighter-gray;
+    margin: 1.5rem 0;
+    padding: 2rem;
+
+    code {
+      line-height: 1.85;
+      padding: 0;
+    }
+  }
+
+  code {
+    background-color: $lighter-gray;
+    font-family: $monospace;
+    margin: 0 0.25rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  ol, ul {
+    margin: 1.5rem 0;
+    padding-left: 3rem;
+
+    li {
+      list-style-position: outside;
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+    }
+  }
+
+  ol li {
+    list-style: decimal;
+  }
+
+  ul li {
+    list-style: disc;
+  }
+
+  .tight-figure {
+    margin: 3rem 6rem;
+
+    h5 {
+      padding: 0;
+      text-align: center;
+    }
+  }
+
+  .pull-right {
+    float: right;
+    margin: 0 -8rem 1.5rem 3rem !important;
+    max-width: 25rem;
+    width: 100%;
+
+    h5 {
+      padding: 0;
+      text-align: center;
+    }
+  }
+
+  .timestamp, .button {
+    @extend %h3;
+  }
+
+  .button {
+    margin: 0 1rem 1rem 0;
+  }
+
+  .timestamp, .cta {
+    margin: 2.5rem 0 4rem;
+  }
+
+  figure {
+    margin: 3rem 0;
+
+    + h5 {
+      margin: -1.5rem 0 4rem;
+      padding: 0 4rem;
+      text-align: center;
+    }
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  *:first-child {
+    margin-top: 0;
+  }
+
+  *:last-child {
+    margin-bottom: 0;
+  }
+
+  .info {
+    a {
+      @extend %subtle-link;
+    }
+  }
+}
+
+@media screen and (max-width: $tablet-landscape-max) {
+  article {
+    .pull-right {
+      margin: 3rem auto !important;
+      float: none;
+    }
+  }
+}
+
+@media screen and (max-width: $phone-landscape-max) {
+  article {
+    section {
+      margin: 6rem 0;
+    }
+
+    figure + h5 {
+      padding: 0;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+}

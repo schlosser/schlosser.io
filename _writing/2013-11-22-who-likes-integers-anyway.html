@@ -1,0 +1,55 @@
+---
+title: Who Likes Integers, Anyway?
+date: 2013-11-22
+featured_image: writing/who-likes-integers-anyway.png
+hero_style: large
+---
+
+
+<p>It’s a <a href="http://danrschlosser.com/blog/post-2014-03-01">well documented phenomenon</a>: I spend too much time tweaking my personal site. I’ve spent enough time working on the current iteration that even the smallest quirks or bugs get on my nerves.</p>
+
+<p>At the top of that list was a problem with the rotating tagline sentences. It’s a cool effect, but a pain to execute. Here’s a quick summary of how the animation works:</p>
+
+<ol>
+    <li>Fade out all the words that are different between each set of subsequent sentences.</li>
+    <li>For each word that is getting replaced, expand or contract the space where it just was to be the size of the new word.</li>
+    <li>Fade in the new word, which now has a container of perfect size.</li>
+</ol>
+
+{% include resimg.html src="writing/who-likes-integers-anyway.gif" %}
+
+<p>The tricky part of this effect ends up being resizing the container to be the exact size of the upcoming word. Setting the container to have width: auto in CSS will allow it to fit the size of it’s contents, but there is no way to animate between two different sizes that result from using width: auto on different words. To perform the animation appropriately, I perform a more complicated set of operations:</p>
+
+<ol>
+    <li>Calculate the width of the old word, call that <code>oldWidth</code>.</li>
+    <li>Set the width of the container to be exactly <code>oldWidth</code>. (This results in no visual change, because it’s the same width as auto, but it changes how the width is calculated.)</li>
+    <li>Fade out the old word.</li>
+    <li>Calculate the width of the new word, call that <code>newWidth</code>.</li>
+    <li>Animate the container from oldWith to <code>newWidth</code>.</li>
+    <li>Fade in the new word.</li>
+    <li>Set the width of the container back to auto. (Again, this should result in no change, because the new word should perfectly fit inside its container)</li>
+</ol>
+
+<p>So while this system seems like it would work perfectly, I was running into a bug where despite calculating the size of the new and old word and animating properly, the containers of size <code>newWidth</code> and <code>oldWidth</code> didn’t quite fit the new and old words (sometimes too big, sometimes too small). This was really aggravating, because I used JavaScript to determine the width of the elements atnewWidth and auto, and they were the same!</p>
+
+<pre><code>$word.width('auto');                  <em>// Word looks good</em>
+<strong>var</strong> oldAutoWidth = $word.width();
+$word.width(oldAutoWidth);            <em>// Word doesn't fit in container</em>
+
+<strong>var</strong> oldWidth = $word.width()
+console.log(oldWidth == oldAutoWidth) <em>// True</em>
+</code></pre>
+
+<p>How could it be the same size yet still appear different? I took to the handy chrome inspector, looking for anything that might be different, and I found it! It turns out that the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/computed_value">computed value</a> of the element’s width after changing it’s style differed by a fraction of a pixel.</p>
+
+<p>So you might be thinking “Hey wait, how could a computer monitor display a fraction of a pixel?”. It’s true, it can’t. Although each pixel in a montior can be set to only one value at a time, web browsers work at an abstraction level away from the discrete pixels of screens. If the browser calculates that text takes up 89.224 pixels and that text is placed in a container of width 89 pixels, it will push the last character onto the next line. I tried every way to find the width of an element that I could think of, but every method returned an integer. Aggravating!</p>
+
+<p>The solution, it turns out, was to use <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window.getComputedStyle">Window.getComputedStyle()</a></code>, which until this point I didn’t even know existed:</p>
+
+<pre><code><span>$word.width('auto');</span>                  <em>// Word looks good</em>
+<strong>var</strong> oldWidth = window.getComputedStyle($word, 'width');
+$word.width(oldWidth);                <em>// Word looks good</em></code></pre>
+
+<p>This returns a string like “89.224px”, which I could then parse and modify if needed. Once I started using <code>Window.getComputedStyle()</code> in my calculations, all my animations became perfectly smooth, on every browser I tested. (That includes Chrome for Android, Chrome for iOS, Safari Mobile, and Chrome, Firefox, and Safari on desktop.) It was a pretty crazy solution, and I kind of <a href="https://github.com/danrschlosser/danrs-ch/commit/5916bc0b6e64f563608c1581224849b3be83af96#diff-9f88450194904e3d43b9a7c39f7d7d4eL199">freaked out</a> when I got it working.</p>
+
+<p>So I’m a pro at working with fractional pixels now, I guess. What’s next?</p>

@@ -1,0 +1,15 @@
+<footer>
+    <div class="content">
+        <div class="links">
+            {% for account in site.data.social %}
+            <h2 class="path">
+                <span class="component">.</span>
+                <span class="slash">/</span>
+                <span class="component">
+                    <a href="{{ account.url }}">{{ account.action }}</a>
+                </span>
+            </h2>
+            {% endfor %}
+        </div>
+    </div>
+</footer>

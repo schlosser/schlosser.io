@@ -1,0 +1,35 @@
+.progressive-image {
+  overflow: hidden;
+  position: relative;
+
+  .aspect-ratio-holder {
+    height: 0;
+    width: 100%;
+  }
+
+  img {
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transition: 0.3s ease opacity;
+    z-index: 2;
+
+    &.thumbnail {
+      filter: blur(30px);
+      opacity: 1;
+      z-index: 1;
+    }
+  }
+
+  &.loaded {
+    img {
+      opacity: 1;
+
+      &.thumbnail {
+        opacity: 0;
+      }
+    }
+  }
+}

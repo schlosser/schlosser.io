@@ -1,0 +1,68 @@
+html, body {
+  background-color: $white;
+  color: $black;
+  font-family: $sans;
+  font-size: 16px;
+  font-weight: $regular;
+  height: 100%;
+  line-height: 1.65;
+  position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  a {
+    border-bottom: 2px solid $black;
+    color: $black;
+    text-decoration: none;
+    transition: 0.3s ease all;
+
+    &:hover {
+      border-bottom: 2px solid $medium-gray;
+      color: $medium-gray;
+      text-decoration: none;
+    }
+  }
+}
+
+p a, article h2 a {
+  border: 0;
+  color: $black;
+  text-decoration: underline;
+  transition: 0.3s ease color;
+
+  &:hover {
+    border: 0;
+    color: $medium-gray;
+    text-decoration: underline;
+  }
+}
+
+%subtle-link {
+  border-bottom: 2px solid $transparent;
+  transition: 0.3s ease border-color;
+
+  &:hover {
+    border-color: $black;
+    color: $black;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+@mixin clearfix {
+  &:after {
+    clear: both;
+    content: ' ';
+    display: block;
+  }
+}

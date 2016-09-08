@@ -1,0 +1,36 @@
+---
+date: 2016-06-28
+title: My Podcasts
+category: List
+featured_image: lists/my-podcasts.png
+hero_style: none
+redirect_from:
+  - /podcasts/
+---
+<section class="text">
+    <p>I'm a huge podcast nerd. Whether I'm walking, riding a bus, or doing laundry, podcasts are my go-to form of entertainment.  Needless to say, I have a lot of favorites. Here's what I'm listening to:</p>
+</section>
+<section class="text">
+    {% for podcast in site.data.podcasts %}
+    <div class="podcast">
+        <div class="image">
+            {% include resimg.html src=podcast.img class="podcast-image" %}
+        </div>
+        <div class="copy">
+            <h3 id="{{ podcast.id }}">{{ podcast.title }}</h3>
+            <h4>
+                {% for tag in podcast.tags%}
+                    <span class="capitalize">{{ tag }}</span>{% if forloop.last %}.{% else %},{% endif %}
+                {% endfor %}
+            </h4>
+            <p>{{podcast.description}}</p>
+            <div class="button-group">
+                <a href="{{podcast.link}}" class="button">{{podcast.link | remove: "http://" | remove: "https://" | remove: "www."}}</a>
+                <a href="{{podcast.itunes}}" class="button">iTunes</a>
+            </div>
+        </div>
+    </div>
+    </ul>
+    {% endfor %}
+</section>
+

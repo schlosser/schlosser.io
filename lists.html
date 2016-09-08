@@ -1,0 +1,10 @@
+---
+layout: collection
+collection: lists
+---
+
+<div class="boxes">
+    {% for list in site.lists reversed %}
+    {% include box.html page=list %}
+    {% endfor %}
+</div>

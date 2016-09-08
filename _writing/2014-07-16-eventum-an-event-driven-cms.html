@@ -1,0 +1,70 @@
+---
+title: "Eventum: An Event-Driven CMS"
+date: 2014-07-16
+featured_image: writing/eventum-an-event-driven-cms.png
+hero_style: large
+---
+
+<p>Late April, 2014. I’m clicking through the <a href="https://www.google.com/calendar/embed?src=adicu.com_tud5etmmo5mfmuvdfb54u733i4%40group.calendar.google.com&amp;ctz=America/New_York">public Google Calendar</a> for <a href="http://adicu.com/">ADI</a>, Columbia’s tech club. I’m editing the details of one our last events for the year, and I’m pissed. I was particiating in a coordinated attack on our website’s performance, and I was doing so willingly.</p>
+
+<h2>The Problem</h2>
+
+<p>At the time, the ADI website was loading the details for upcoming workshops and tech talks using the Google Calendar API in JavaScript. Every time someone visited <a href="http://adicu.com/">adicu.com</a>, their browser requested the last month’s worth of events from Google Calendar, and then painstakingly parsed them into HTML. What’s worse is that we needed to hold separate resources, short description, and long description all in the description field of the Google Calendar event. Gross. To accomplish this, said description had to be formatted as follows:</p>
+
+<pre><code>Short Description
+<em>---</em>
+Long Description
+<em>---</em>
+slides --&gt; <em>http://link-to-slides.com/this_event</em>
+code samples --&gt; <em>http://github.com/adicu/this_event</em>
+...</code></pre>
+
+<p>It was painful. The JavaScript (which I dug up directly from our old site) says it all:</p>
+
+<pre><code><strong>var</strong> parts = event.description.split("---");
+event.description = parts[0];
+
+<strong>if</strong> (parts.length == 3) {
+    event.longDescription = parts[1];
+    <strong>var</strong> resources = parts[2];
+    resources = resources.split("--&gt;");
+    event.resources = {};
+
+    <strong>for</strong> (<strong>var</strong> x=0; x&lt;resources.length; x+=2) {
+      event.resources[resources[x].toLowerCase().trim()] = resources[x+1];
+    }
+}</code></pre>
+
+<p>This string parsing is extremely expensive when it’s being done on every event we pulled in, every time our front page loaded. I knew we could do better.</p>
+
+<p>But, with our website running in <a href="http://jekyllrb.com/">Jekyll</a> on <a href="https://pages.github.com/">GitHub Pages</a>, we couldn’t run any server code that would cache our Events, because Jekyll only serves static files. If we were to solve this problem, then we’d need to run <a href="http://adicu.com/">adicu.com</a> on a real web server.</p>
+
+<h2>The Idea</h2>
+
+<p>This is when I came up with the idea for <a href="https://github.com/danrschlosser/eventum">Eventum</a>, an event-driven content management system (CMS) that syncs with Google Apps.</p>
+
+<p>The idea behind Eventum is that on sites like ADI’s, creating events is just as important as creating blog posts. Technologies like <a href="http://jekyllrb.com/">Jekyll</a> were great for ADI as we were starting out, because we could advertise new events or share a cool hackathon project just by writing a Markdown file. (Jekyll converts a folder full of Markdown files into a static blog site. It’s really cool!) As we grew however, we wanted a more full-featured solution for our events, and we couldn’t find one.</p>
+
+<p>As I began to mock up the early versions of Eventum, I laid some basic features that our new events system would need. First: Markdown editing. Markdown is simple to learn, extremely portable, and sufficiently powerful; plus, it’s what ADI used for writing blog posts and event announcements. Second: Sync with Google Calendar. ADI members rely very heavily on our Google Calendar as the definitive state of what events we a running and when, and I couldn’t just take that away. And finally: Support for our two-calendar system. We use a private calendar for tentative events, and a public calendar for announced events. Eventum would need to manage events across both calendars in order to fit in with ADI’s workflow.</p>
+
+<h2>The Implementation</h2>
+
+<p>Fast forward to today, the first version of Eventum powers <a href="http://adicu.com/">ADI’s new website</a>(which, incidentally, has recently gotten a face-lift). It’s far from perfect, but being able to edit events through a webapp rather than in the Google Calendar description field is a definite plus.</p>
+
+<p>Eventum is built in <a href="https://www.python.org/">Python</a> and <a href="http://flask.pocoo.org/">Flask</a>, and blog posts and events use <a href="http://epiceditor.com/">EpicEditor</a>for in-browser Markdown editing. Also, Eventum supports ADI’s two-calendar system: when you publish an event, it is flipped from our tentative calendar to our public calendar.</p>
+
+{% include resimg.html src="writing/eventum-an-event-driven-cms-editors.png" %}
+<h5>Events and posts can be edited in Markdown.</h5>
+
+{% include resimg.html src="writing/eventum-an-event-driven-cms-home.png" %}
+<h5>The “Home” page shows this weeks events and the most recent blog posts on the site.</h5>
+
+
+{% include resimg.html src="writing/eventum-an-event-driven-cms-events.png" %}
+<h5>The “Events” page gives an overview of this week and next week’s events.</h5>
+
+<p>Eventum also has a permission system that allows administrators to limit what different users can do on Eventum (generate content, publish it, or manage user accounts), and an interface to manage images uploaded to the page.</p>
+
+<p>This first version of Eventum covers the basic needs that I enumerated at the start of the summer, but it’s far from finished. I’m still building out new features and <a href="https://github.com/danrschlosser/eventum/issues">resolving bugs</a>. The <a href="https://github.com/danrschlosser/eventum">Eventum codebase</a> is currently intertwined with the ADI website, and I’m hoping to separate the two soon. In doing so, it could at some point become a plug-and-play CMS.</p>
+
+<p>I’ve already had some help from ADI board members to brainstorm new features and layout a roadmap for development. Moreover, members of the newly-formed <a href="http://adicu.com/labs">ADI Labs</a> program (including myself) will be adding new features to Eventum and making it even better. Hey, maybe one day I’ll <a href="https://github.com/danrschlosser/eventum/issues/1">actually have test coverage</a>.</p>

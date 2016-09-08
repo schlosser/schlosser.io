@@ -1,0 +1,11 @@
+---
+layout: post
+---
+
+<section class="text">
+    {% if page.date %}
+    <h3 class="timestamp">Presented on {{ page.date | date: '%B %d, %Y' }} {% if page.location %}at <a href="{{ page.location.url }}">{{page.location.name}}</a>{% endif %}.</h3>
+    {% endif %}
+    {{ content }}
+    <a href="{{ page.link }}" class="button cta" target="_blank">{{ page.cta }}</a>
+</section>

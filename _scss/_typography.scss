@@ -1,0 +1,53 @@
+// Font weights
+$bold: 700;
+$regular: 400;
+
+$monospace: 'Inconsolata', monospace;
+$sans: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+h1, %h1 {
+  font-family: $monospace;
+  font-size: 1.25rem;
+  font-weight: $regular;
+  letter-spacing: 0.5px;
+  line-height: 2;
+}
+
+h2, %h2 {
+  font-family: $monospace;
+  font-size: 1.25rem;
+}
+
+h3, %h3 {
+  font-family: $monospace;
+  font-size: 1rem;
+}
+
+h4, %h4 {
+  font-family: $monospace;
+  font-size: 1.25rem;
+  margin-bottom: 4rem;
+}
+
+h5, %h5 {
+  font-family: $monospace;
+  font-size: 1rem;
+}
+
+p, .p {
+  font-family: $sans;
+  font-size: 1rem;
+  line-height: 1.8;
+  font-weight: $regular;
+  margin-bottom: 1.5rem;
+}
+
+strong {
+  font-weight: $bold;
+}
+
+@media screen and (max-width: $phone-landscape-max) {
+  p, %p {
+    font-size: 1.25rem;
+  }
+}

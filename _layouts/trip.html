@@ -1,0 +1,11 @@
+---
+layout: post
+---
+
+<section class="text">
+    {% if page.date %}
+    <h3 class="timestamp">Visiting
+        {% for city in page.cities %}{% unless forloop.first %}{% if forloop.last %}, and {% else %}, {% endif %}{% endunless %}{{city}}{% endfor %} from {{ page.start_date | date: '%B %d ' }} to {{ page.end_date | date: '%B %d, %Y' }}.</h3>
+    {% endif %}
+</section>
+{{ content }}

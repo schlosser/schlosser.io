@@ -1,0 +1,11 @@
+---
+layout: collection
+collection: teams
+---
+
+<div class="boxes">
+    {% assign teams = site.teams | reverse %}
+    {% for team in teams %}
+    {% include box.html page=team %}
+    {% endfor %}
+</div>

@@ -1,0 +1,13 @@
+<div class="box {% if include.featured %}featured{% endif %}">
+    <div class="figure-wrapper">
+        {% include resimg.html src=include.page.featured_image link=include.page.url %}
+    </div>
+    <h3>
+        <a href="{{ include.page.url }}">
+            {{ include.page.title }}
+        </a>
+    </h3>
+    {% if include.featured %}
+    <p>{{ page.excerpt | truncatewords: 30 }}</p>
+    {% endif %}
+</div>

@@ -1,0 +1,13 @@
+---
+layout: post
+---
+
+<section class="text">
+    {% if page.date %}
+    <h5 class="timestamp">Published on {{ page.date | date: '%B %d, %Y' }}.</h5>
+    {% endif %}
+    {{ content }}
+    {% if page.medium_url %}
+    <a href="{{ page.medium_url }}" class="button cta" target="_blank">Continue on Medium</a>
+    {% endif %}
+</section>

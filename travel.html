@@ -1,0 +1,11 @@
+---
+layout: collection
+collection: Travel
+---
+
+<div class="boxes">
+    {% assign travel = site.travel | reverse %}
+    {% for trip in travel %}
+    {% include box.html page=trip %}
+    {% endfor %}
+</div>

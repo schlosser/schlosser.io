@@ -1,0 +1,48 @@
+header, footer {
+  background-color: $lighter-gray;
+}
+
+footer .links {
+  display: flex;
+  justify-content: space-between;
+
+  h2 {
+    text-indent: 0;
+    padding: 0;
+  }
+}
+
+.path {
+  text-indent: -3.6rem;
+  padding-left: 3.6rem;
+
+  .slash {
+    padding: 0 0.5rem;
+  }
+
+  a {
+    @extend %subtle-link;
+  }
+}
+
+@media screen and (max-width: $tablet-portrait-max) {
+  footer .links {
+    flex-wrap: wrap;
+    padding: 0 4rem;
+    justify-content: center;
+    margin-bottom: -2rem;
+
+    h2 {
+      width: 50%;
+      text-align: center;
+      margin-bottom: 2rem;
+      white-space: nowrap;
+    }
+  }
+}
+
+@media screen and (max-width: $phone-landscape-max) {
+  .m-break {
+    @include clearfix;
+  }
+}

@@ -1,0 +1,34 @@
+---
+layout: default
+---
+{% if page.hero_style == "full_bleed" %}
+    {% if page.hero_image %}
+        {% include resimg.html src=page.hero_image link=page.link %}
+    {% else %}
+        {% include resimg.html src=page.featured_image link=page.link %}
+    {% endif %}
+{% endif %}
+<div class="content">
+    <article>
+        {% if page.hero_style == "large" %}
+        <section>
+            {% if page.hero_image %}
+                {% include resimg.html src=page.hero_image link=page.link %}
+            {% else %}
+                {% include resimg.html src=page.featured_image link=page.link %}
+            {% endif %}
+        </section>
+        {% endif %}
+        {% if page.hero_style == "normal" %}
+        <section class="text hero-image">
+            {% if page.hero_image %}
+                {% include resimg.html src=page.hero_image link=page.link %}
+            {% else %}
+                {% include resimg.html src=page.featured_image link=page.link %}
+            {% endif %}
+        </section>
+        {% endif %}
+
+        {{ content }}
+    </article>
+</div>

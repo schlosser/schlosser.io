@@ -1,0 +1,316 @@
+---
+title: I Hate Cross Browser Compatibility
+date: 2014-03-01
+featured_image: writing/i-hate-cross-browser-compatibility.png
+hero_style: large
+---
+
+
+<p>There comes a time where I get just bored enough that I’m restless and not so bored that I’m lazy. During these times, I code myself a website, usually from scratch. The last time was around finals season of last year, and it resulted in the first iteration of my personal website (which despite my best intentions was bloated and ugly). Anyway, it’s happened again, and so now I have a new website. Hope you enjoy it!</p>
+
+<p>I had a pretty simple concept for this new site and it didn’t take all that long to roll out, but along the way I ran into some pretty funky bugs, many of which almost brought me to tears.</p>
+
+{% include resimg.html src="writing/who-likes-integers-anyway.gif" %}
+
+<h2>The Rotating Tagline</h2>
+
+<p>My new website was really supposed to be simple, I swear. Just my name, how to contact me, and a blog post or three. After I drew together a mockup however, I quickly began to feel that I needed something more fun. From that urge came the idea for a rotating tagline. I could just throw a couple of sentences in to JavaScript and have it cycle through them. Simple.</p>
+
+<p>The basic pseudo-code for my JavaScript is as follows:</p>
+
+<pre><code>every 6 seconds:
+    <strong>do</strong>:
+        newSentance := someRandomSentance()
+    <strong>while</strong> numWordsShared(newSentance, currentSentance) &lt; 1
+    <strong>for</strong> each newWord, oldWord <strong>in</strong> newSentance, currentSentance:
+            <strong>if</strong> newWord != oldWord:
+                oldWord.fadeOut()
+                containerForWord.resize(newWord.width())
+                newWord.fadeIn()
+        currentSentance := newSentance</code></pre>
+
+<p>Challenges here start with <code>newWord.width()</code>. How do you find the width of arbitrary text in JavaScript? My first instinct was to write some function that takes the text size and number of characters and interpolates, but as you can imagine this was a nightmare on one browser, never mind multiple. Even if I were to have used a fixed width font (I considered it), slight differences in text rendering yield jumps in the animation, or text that is cut off. No, I’d have to try something else.</p>
+
+<p>After some creative Googling, I found and adapted a function that calculates text width by creating an invisible text element on the page with the same styling as the text in question. Take a look:</p>
+
+<pre><code><strong>function</strong> calculateWordWidth(text, classes) {
+    classes = classes || [];
+    classes.push('textDimensionCalculation');
+    <strong>var</strong> div = document.createElement('div');
+    div.setAttribute('class', classes.join(' '));
+    div.innerHTML = text;
+    document.body.appendChild(div);
+    <strong>var</strong> width = jQuery(div).outerWidth(true);
+    div.parentNode.removeChild(div);
+    <strong>return</strong> width;
+}</code></pre>
+
+<p>Fairly straightforward, but definitely non-obvious. The element is created, given all the classes passed in, and then given the testDimensionCalculation class, which makes it invisible and absolutely positioned (as to not interfere with any elements the user can see):</p>
+
+<pre><code><strong>.textDimensionCalculation</strong> {
+    position: absolute;
+    visibility: hidden;
+    height: auto;
+    width: auto;
+    display: inline-block;
+    white-space: nowrap;
+}</code></pre>
+
+<p>After the width of the <code>&lt;div&gt;</code> is calculated, it is destroyed.</p>
+
+<p>With the width of the text determined, the next step would be to implement the word replacement. The markup, it turns out, was more challenging than I would have expected. My first instinct was to wrap each word in a <code>&lt;span&gt;</code>, and manipulate them in JavaScript:</p>
+
+<pre><code>&lt;div class="sentence"&gt;
+    I &lt;span class="verb"&gt;verb&lt;/span&gt;
+    &lt;span class="obj"&gt;object&lt;/span&gt;
+    &lt;span class="preposition"&gt;preposition&lt;/span&gt;
+    &lt;span class="noun"&gt;noun&lt;/span&gt;.
+&lt;/div&gt;</code></pre>
+
+<p>Consider animating from the word “preposition” to the word “about”, however. When the width of the <code>&lt;span&gt;</code> is animated, the text starts to break up into multiple lines , and the height of the <code>&lt;span&gt;</code> increases randomly. This causes spastic jumping of different words during the animation. In order to smoothly animate words, I put each <code>&lt;span&gt;</code> in a container, and added another <code>&lt;span&gt;</code> to control the actual width of the container. Both <code>&lt;span&gt;</code> elements contain the same text, but one has an invisible class, and the other has a visible class.</p>
+
+<pre><code>&lt;div class="sentence"&gt;
+    I
+    &lt;div class="word verb"&gt;
+        &lt;span class="verb"&gt;verb&lt;/span&gt;
+        &lt;span class="verb"&gt;verb&lt;/span&gt;
+    &lt;/div&gt;
+    ...</code></pre>
+
+<pre><code>
+<strong>.word</strong> {
+    display: inline-block;
+    height: 2.5rem;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+<strong>.word span</strong> {
+    top: 0;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+<strong>.visible</strong> {
+    height: 2.5rem;
+    display: inline;
+    position: absolute;
+    bottom: 0;
+    right:0;
+    left: 0;
+}
+
+<strong>.invisible</strong> {
+    visibility: hidden;
+}</code></pre>
+
+<p>The way this works is that the container doesn’t ever have a width applied to it, rather the invisible <code>&lt;span&gt;</code> expands and shrinks. The visible <code>&lt;span&gt;</code> has absolute positioning, so it has no influence on the size of its container. Then, in order to change between to words, I fade out the visible <code>&lt;span&gt;</code>, animate theinvisible <code>&lt;span&gt;</code> to the new width, and then fade in the visible <code>&lt;span&gt;</code>.</p>
+
+<p>For alignment reasons, and because <code>&lt;div&gt;</code>s around all the words removes whitespace, I actually had to add <code>&lt;div class=”word”&gt;</code> elements containing just <code>&amp;nbsp;</code> and wrap <code>I</code> and <code>.</code> in <code>&lt;div&gt;</code> tags as well.</p>
+
+<pre><code>&lt;div class="sentence"&gt;
+    &lt;div class="word"&gt;
+        &lt;span&gt;I&lt;/span&gt;
+    &lt;/div&gt;&lt;div class="word"&gt;
+        &lt;span&gt;&amp;nbsp;&lt;/span&gt;
+    &lt;/div&gt;&lt;div class="word verb"&gt;
+        &lt;span class="visible"&gt;verb&lt;/span&gt;
+        &lt;span class="invisible"&gt;verb&lt;/span&gt;
+    &lt;/div&gt;&lt;div class="word"&gt;
+        &lt;span&gt;&amp;nbsp;&lt;/span&gt;
+    &lt;/div&gt;&lt;div class="word obj"&gt;
+        &lt;span&gt;object class="visible"&lt;/span&gt;
+        &lt;span class="invisible"&gt;object&lt;/span&gt;
+    &lt;/div&gt;&lt;div&gt;
+    ...</code></pre>
+
+<p>I had never heard of this being a problem before, but I actually ran into whitespace issues between the &lt;div&gt; elements that are <code>display: inline-block;</code>, which was solved most simply <a href="http://css-tricks.com/fighting-the-space-between-inline-block-elements/">by removing any space after the closing tag of the <code>&lt;div&gt;</code></a> (<code>&lt;/div&gt;&lt;div class=...</code>). It was a massive pain across different browsers. Some browsers would display the sentence just as I expected, others would cut off part of the words, others would have an unnatural amount of spacing, etc. The whitespace logic of HTML still deceives me, and because it’s so loosely defined, there’s no way to understand whether or not you’re being compliant.</p>
+
+{% include resimg.html src="writing/i-hate-cross-browser-compatibility-scroll.gif" %}
+
+<h2>Animated Name Abbreviation</h2>
+
+<p>When I was designing my blog, I wanted a fairly chromeless interface. I don’t need any fancy widgets, menus, other links, or pages. My website is really just the splash page and my blog, so there really isn’t anywhere else to go. I did want a link back to the splash page from the blog though, so without any navigation bar there wasn’t really any place to put it.</p>
+
+<p>Enter my ridiculous idea for my name to animate into my initials and pin to the upper left corner of the screen as you scroll down the page. I made it work for screens wider than 1024px, and lucky for me this behavior doesn’t make sense on any smaller screens (because even if it did the JavaScript couldn’t run on the mobile devices).</p>
+
+<p>In order to achieve this, I calculate the percentage left in the animation as the (positive) percent of the total distance between the title and the top of the page that the user has scrolled:</p>
+
+<pre><code><strong>var</strong> distanceToTop = $title.offset().top - $(window).scrollTop();
+...
+<strong>var</strong> percentageLeft = Math.max(distanceToTop, 0)/$title.offset().top;</code></pre>
+
+<p>So if the Title is 200px from the top of the screen, and the window has been scrolled 100px, then the animation will be 50% complete.</p>
+
+<p>Now what is being animated? I separate all the parts of my name into fragments, and animate each one appropriately. This way, I can animate the lowercase letters and the spaces between my first, middle, and last name to zero, leaving my initials untouched.</p>
+
+<pre><code>&lt;div class="name-fragment"&gt;
+  &lt;span&gt;D&lt;/span&gt;
+  &lt;/div&gt;&lt;div class="name-fragment fragment-first"&gt;
+  &lt;span&gt;an&lt;/span&gt;
+  &lt;/div&gt;&lt;div class="name-fragment fragment-nbsp"&gt;
+  &lt;span&gt;&amp;nbsp;&lt;/span&gt;
+  &lt;/div&gt;&lt;div class="name-fragment"&gt;
+  &lt;span&gt;R&lt;/span&gt;
+  &lt;/div&gt;&lt;div class="name-fragment fragment-nbsp"&gt;
+  &lt;span&gt;&amp;nbsp;&lt;/span&gt;
+  &lt;/div&gt;&lt;div class="name-fragment"&gt;
+  &lt;span&gt;S&lt;/span&gt;
+  &lt;/div&gt;&lt;div class="name-fragment fragment-last"&gt;
+  &lt;span&gt;chlosser&lt;/span&gt;
+  &lt;/div&gt;</code></pre>
+
+<p>I used the same <code>calculateWordWidth()</code> function to find the starting and ending widths of all of the name-fragment <code>&lt;div&gt;</code>s, and then I animated each of them incrementally from the starting to ending width based on percentageLeft.</p>
+
+<p>That process is pretty simple: figure out what stage of animation each piece should be in based on the distance scrolled from the top of the page, and then animate each element’s width appropriately. Where things get complicated is making this process responsive to screen size changes and compatible with multiple browsers.</p>
+
+<h2>Making it all Cross-Browser Compatible</h2>
+
+<p>I knew I wanted my name to stay at the top of the page on mobile, but that brought up the problem of what if a desktop user was part of the way down the page and then resized from full width to tablet width or vice versa. I already had my animation function <code>updateTitle()</code> bound to the window scroll event, but then I realized that I also needed to bind it to window resize:</p>
+
+<pre><code>$(window).scroll(updateTitle);
+window.addEventListener('resize', updateTitle);</code></pre>
+
+<p>Then, in <code>updateTitle()</code> I either update the animation if the screen is desktop width, or set the title to be at the top of the page on tablets and mobile.</p>
+
+<pre><code>
+<strong>function</strong> updateTitle() {
+    <strong>if</strong> ($(window).width() &gt; 1024) {
+        <em>// Animate the title's width appropriately</em>
+        ...
+    }
+    <strong>else</strong> {
+        doMobile();
+    }
+}
+
+<strong>function</strong> doMobile() {
+    <em>// I set everything to it's original width and ensure that the</em>
+    <em>// title isn't fixed to the side of the screen.</em>
+    $title.removeClass("fixed");
+    $fragmentNBSP.css({"width": nbspWidth()});
+    $title.css({"width": titleOriginalWidth()});
+    $fragmentFirst.css({"width": fragmentFirstOriginalWidth()});
+    $fragmentLast.css({"width": fragmentLastOriginalWidth()});
+    $fragmentFirstInnerText.css({"width": fragmentFirstOriginalWidth()});
+    $fragmentLastInnerText.css({"width": fragmentLastOriginalWidth()});
+}</code></pre>
+
+<p>Seems right, but I had forgotten something: orientation changes on mobile. Because when you rotate the screen neither the page scroll event or the window resize event are called, <code>updateTitle()</code> is never called despite the fact that the window size is different, and therefore all the elements are lined up improperly.</p>
+
+<p>The fix is easy, but I’m lucky I caught this, it’s not often that I rotate my device in the middle of browsing a web page.</p>
+
+<pre><code>window.addEventListener('orientationchange', updateTitle);</code></pre>
+
+<p>I didn’t know about this until it started causing me trouble, but apparently, scrolling with a scroll wheel on a mouse is actually different from the browser’s perspective than scrolling on a trackpad. As a result, when I used a traditional mouse to scroll on my site, sometimes the <code>updateTitle()</code> function would not be called, or would be called unpredictably.</p>
+
+<p>The fix should have been easy: bind <code>updateTitle()</code> to the wheel event in JavaScript and call it a day.</p>
+
+<pre><code>window.addEventListener('wheel', updateTitle);</code></pre>
+
+<p>I thought this would be good enough, I was wrong. It turns out that both thescroll and wheel events will get called when you scroll down the page; it doesn’t matter what actual device is being used to do the scrolling. As result, sometimes I would scroll down the page just fast enough and my code would <code>callupdateTitle()</code> twice, and the result would be a miscalculation of where the title belonged on the page. This is because sometimes an event would be triggered when the user was near the top, but only resolve when they had scrolled down a ways, causing the title to float somewhere in the middle of a blog post — very annoying. To solve this problem, I had to make clever use of <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window.setTimeout"><code>setTimeout()</code></a> and<a href="https://developer.mozilla.org/en-US/docs/Web/API/window.clearTimeout"><code>clearTimeout()</code></a>.</p>
+
+<p><code>setTimeout()</code> is a function that takes a function and an amount of time, and will execute that function in that amount of time. The original call returns the id of the timeout, so it can be referenced later. <code>clearTimeout()</code> takes a timeout id and will clear it, so the function call will never happen.</p>
+
+<pre><code><em>/* Should run myFunction() in 1 second */</em>
+<strong>var</strong> id = setTimeout(myFunction, 1000);
+clearTimeout(id);
+
+<strong>function</strong> myFunction() {
+    alert("This never happens.");
+}</code></pre>
+
+<p>Because I only want one call to <code>updateTitle()</code> when the user scrolls, but I want them to be able to scroll on a touch screen, trackpad, arrow keys, or mouse, I have to cancel any other call to <code>updateTitle()</code> when I create a new one. Check out the before / after, it’s pretty ugly but it works:</p>
+
+<pre><code><em>/* Before */</em>
+$(window).scroll(updateTitle);
+window.addEventListener('wheel', updateTitle);
+window.addEventListener('orientationchange', updateTitle);
+window.addEventListener('resize', updateTitle);
+
+<em>/* After */</em>
+<strong>var</strong> scrollTimerId,
+    wheelTimerId,
+    orientationchangeTimerId,
+    resizeTimerId;
+
+$(window).scroll(<strong>function</strong>() {
+    clearTimeout(wheelTimerId);
+    clearTimeout(orientationchangeTimerId);
+    clearTimeout(resizeTimerId);
+    scrollTimerId = setTimeout(updateTitle, 1);
+});
+
+window.addEventListener('wheel', <strong>function</strong>() {
+    clearTimeout(scrollTimerId);
+    clearTimeout(orientationchangeTimerId);
+    clearTimeout(resizeTimerId);
+    wheelTimerId= setTimeout(updateTitle, 1);
+});
+
+window.addEventListener('orientationchange', <strong>function</strong>() {
+    clearTimeout(scrollTimerId);
+    clearTimeout(wheelTimerId);
+    clearTimeout(resizeTimerId);
+    orientationchangeTimerId = setTimeout(updateTitle, 1);
+});
+
+window.addEventListener('resize', <strong>function</strong>() {
+    clearTimeout(scrollTimerId);
+    clearTimeout(wheelTimerId);
+    clearTimeout(orientationchangeTimerId);
+    resizeTimerId = setTimeout(updateTitle, 1);
+});</code></pre>
+
+<p>I only set the timeout to 1 millisecond, but this ensure that multiple calls to <code>updateTitle()</code> don’t stack up on each other.</p>
+
+<p>Even simple variable declarations started causing me trouble. Did you notice in my <code>doMobile()</code> code that the value I’m setting “width” to is actually the result of a function call? At first, I just had variables for the original widths of the elements:</p>
+
+<pre><code><strong>var</strong> titleOriginalWidth = $('body').width();
+<strong>var</strong> nbspWidth = calculateWordWidth("&amp;nbsp;", ["site-title"]);
+...</code></pre>
+
+<p>But this actually caused some problems.</p>
+
+<p>When I move from mobile to tablet to desktop screen sizes, I change the font size on most of the elements on the page to make them fit better. This is a problem for my animation variables however, because if the page is loaded as in desktop width and then resized to a smaller screen size, the original and final widths of the elements are with respect to the original screen size, not the new one.</p>
+
+<p>This was a massive pain, because after resizing the screen a few times, random text elements would be a few pixels to small, and my name would show up as “Da R Schlosse” (which, if pronounced as two words in a pirate accent is actually not all that bad). What makes this worse, is that if I reloaded the page, it would be fixed (because the original and final width variables would be recaclulated.) My solution was to make these variables into functions, so the values would be computed in real time with respect to the window width.</p>
+
+<pre><code><strong>var</strong> nbspWidth = <strong>function</strong>() {
+    <strong>return</strong> calculateWordWidth("&amp;nbsp;", ["site-title"]);
+},
+titleOriginalWidth = <strong>function</strong>() {
+    <strong>return</strong> $("body").width();
+},
+...</code></pre>
+
+<h2>You Won’t Believe This Bug</h2>
+
+<p>As a grand finale, I bring to you the most mind-boggling bug I experienced while making my website, and probably is the craziest bug I’ve ever had the pleasure of fixing. I’ll start with the symptoms:</p>
+
+<p>I would load the front page of my website, and everything looks good. I click the pencil icon, navigating to the blog page, and everything looks good. Then, I reload the page and my name gets cut off (the return of “Da R Schlosse”). I inspected element, and I saw that the <code>&lt;span&gt;</code>s that wrap the lowercase parts of my name were a few pixels too small. Very weird. I need to specifically define the width of these elements, so that I can animate them later, and now apparently when I refresh the page they are sized differently.</p>
+
+<p>Recall that my method for calculating the width of arbitrary text in JavaScript is the <code>calculateWordWidth()</code> function, which creates an invisible element on the page, applies classes that you pass it to the element, puts the string you want the width of into the element, finds it’s width, and deletes the element. To figure out why this wasn’t working on refresh, I removed the line of code that removes the element from the document, and used the chrome inspector to make these elements visible (they were a bunch of <code>&lt;div&gt;</code>s at the bottom of the page).</p>
+
+<p>I was expecting one of them to be improperly sized, but I found that they were all correct. I then used the JavaScript console to rerun the <code>calculateWordWidth()</code> function again, and saw it happen live. Everything worked as expected, and my name was not cut off. This was infuriating. Whatever was causing the <code>&lt;span&gt;</code>s around my name to be mis-sized was also covering its own tracks!</p>
+
+<p>So what really changes when you reload a web page? Well, many smart browsers (including all three of the desktop browsers I was experiencing this problem in) cache static content like JavaScript and CSS if they determines that nothing has changed in these files between reloads. The problem I was having was that while my JavaScript was being cached on reload (I used the “Network” tab to confirm that this resource was being 304'd), the Cabin font that I request from Google Fonts was not. The result was that my JavaScript was being executed before all the CSS files had loaded on the page, and therefore the invisible <code>&lt;div&gt;</code> I was creating had the fallback font, which has a different character width. By the time I could inspect the <code>&lt;div&gt;</code>, the font had loaded however, so it appeared to be the right size.</p>
+
+<p>So how do I fix this bug? Closer inspection of the <code><a href="http://api.jquery.com/ready/">Document.ready()</a></code> function. Almost every JavaScript document wraps all functions and commands in a function that ensures that the code inside is only run once the page has loaded:</p>
+
+<pre><code>$( document ).ready(<strong>function</strong>() {
+    <em>// Functions and commands go here</em>
+});</code></pre>
+
+<p>The problem with this is that this doesn’t wait for CSS and images to load, and so my font was not yet loaded. I discovered that there was another function similar to <code>.ready()</code> that would wait for all assets to be loaded, and I replaced <code>.ready()</code> with that:</p>
+
+<pre><code>$(window).bind("load", <strong>function</strong>() {
+  <em>// CSS and images will be loaded.</em>
+});</code></pre>
+
+<p>And it worked! It might have taken me hours and hours to finally figure it out, but I fixed it, and as result I don’t have any problems, no matter how many times I reload the page.</p>
+
+<p>You might think that I’m a little crazy for investing this much energy into what could have been a really simple website, and on some levels you might be right. Personal pages are meant to be simple, and there are a lot of tools to make a simple, attractive web page. But because I didn’t have any references for how to implement some of the visual tricks that I did, I found myself thinking about the knitty gritty of web development in new ways. I think that it’s an important learning process. Plus, where’s the fun in having a WordPress?</p>
+</div>

@@ -1,0 +1,38 @@
+.podcast {
+  display: flex;
+  margin-bottom: 6rem;
+
+  .image {
+    width: 8rem;
+
+    p {
+      margin-top: 0.5rem;
+      text-align: center;
+    }
+  }
+
+  .copy {
+    flex: 1;
+    margin-left: 4rem;
+  }
+}
+
+@media screen and (max-width: $phone-landscape-max) {
+  .podcast {
+    display: block;
+
+    .image {
+      float: left;
+      margin: 0 1.5rem 1.5rem 0;
+      width: 5rem;
+    }
+
+    h4 {
+      @include clearfix;
+    }
+
+    .copy {
+      margin-left: 0;
+    }
+  }
+}

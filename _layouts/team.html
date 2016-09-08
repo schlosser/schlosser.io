@@ -1,0 +1,13 @@
+---
+layout: post
+---
+
+<section class="text">
+    {% if page.date %}
+    <h5 class="timestamp">{{ page.role }}, {{ page.start }}{% if page.end %} - {{ page.end }}{% endif %}.</h5>
+    {% endif %}
+    {{ content }}
+    {% if page.link %}
+    <a href="{{ page.link }}" class="button cta" target="_blank">{{ page.link | remove: "http://" | remove: "https://" }}</a>
+    {% endif %}
+</section>

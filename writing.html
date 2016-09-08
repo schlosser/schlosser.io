@@ -1,0 +1,11 @@
+---
+layout: collection
+collection: Writing
+---
+
+<div class="boxes">
+    {% assign writing = site.writing | reverse %}
+    {% for post in writing %}
+    {% include box.html page=post %}
+    {% endfor %}
+</div>

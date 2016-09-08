@@ -1,0 +1,10 @@
+---
+layout: collection
+collection: talks
+---
+
+<div class="boxes">
+    {% for talk in site.talks reversed %}
+    {% include box.html page=talk %}
+    {% endfor %}
+</div>

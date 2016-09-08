@@ -1,0 +1,269 @@
+- id: 99pi
+  img: podcasts/99pi.jpg
+  title: "99% Invisible"
+  link: "http://99pi.org"
+  itunes: "https://itunes.apple.com/us/podcast/99-invisible/id394775318?mt=2"
+  description: |
+    A superb podcast about the design of everything, from architecture and urban
+    planning to flag design and the history of neon signs. Host Roman Mars brings
+    a design eye to all corners of our world. Listen to the backlog, even old
+    episodes are great!
+  tags:
+  - design
+  - narrative
+  - educational
+- id: the-vergecast
+  img: podcasts/the-vergecast.jpg
+  title: "The Vergecast"
+  link: "http://www.theverge.com/labels/the-vergecast"
+  itunes: "https://itunes.apple.com/us/podcast/the-vergecast/id430333725?mt=2"
+  description: |
+    Round table tech commentary from the folks at The Verge. Great insight on
+    the latest tech news in a casual environment. Depending on the week, you could
+    get a rant about Apple's latest product annoncements, a debate about apps vs.
+    the web, or Tesla self-driving cars.
+  tags:
+  - tech
+  - conversational
+- id: reply-all
+  img: podcasts/reply-all.jpg
+  title: "Reply All"
+  link: "http://replyall.limo"
+  itunes: "https://itunes.apple.com/us/podcast/reply-all/id941907967?mt=2"
+  description: |
+    Stories about the internet.  Reply all brings interesting stories about the
+    internet, people on the internet, and how the internet influences society.
+    Hear stories about the creator of the pop up ad, a Hasidic Jew who used the
+    internet in secret and got caught, and a whitehat hacker.
+  tags:
+  - tech
+  - narrative
+- id: iq2us
+  img: podcasts/iq2us.jpg
+  title: "Intelligence Squared U.S. Debates"
+  link: "http://www.iq2us.org"
+  itunes: "https://itunes.apple.com/us/podcast/intelligence-squared-u.s./id216713308?mt=2"
+  description: |
+    Two teams of two face off in an Oxford-style debate over motions like "Is
+    Free Speech Threatened on Campus?", "Are China and the U.S. Long-Term
+    Enemies?", and "Is Death Final?"  Whatever your viewpoint, these
+    expert debaters will make you see both sides of the motion.
+  tags:
+  - politics
+  - educational
+- id: the-moth
+  img: podcasts/the-moth.jpg
+  title: "The Moth"
+  link: "https://themoth.org"
+  itunes: "https://itunes.apple.com/us/podcast/the-moth-podcast/id275699983?mt=2"
+  description: |
+    The Moth is true stories told live around the country at open mic-style events,
+    without notes. It provides a unique window into the lives of people of all
+    kinds.  From heartwarming to deeply sad, funny or just strange, definitely
+    give the Moth a listen.
+  tags:
+  - narrative
+- id: the-memory-palace
+  img: podcasts/the-memory-palace.jpg
+  title: "The Memory Palace"
+  link: "http://thememorypalace.us"
+  itunes: "https://itunes.apple.com/us/podcast/the-memory-palace/id299436963?mt=2"
+  description: |
+    Get transported to an esoteric corner of history with this extremely
+    well-made podcast about history. With an elegant combination of
+    researched history and artistic liberty, host Nate DiMeo tells stories about
+    people who would otherwise go forgotten.
+  tags:
+  - history
+  - narrative
+  - educational
+- id: radio-diaries
+  img: podcasts/radio-diaries.jpg
+  title: "Radio Diaries"
+  link: "http://radiodiaries.prx.org"
+  itunes: "https://itunes.apple.com/us/podcast/radio-diaries/id207505466?mt=2"
+  description: |
+    Radio Diaries tells stories about people throughout history, by giving them
+    microphones and letting them speak.  Hear diaries from historical figures
+    like Nelson Mandela, and George Wallace, or interesting average people, like
+    prison guards or the ski troops of WWII.
+  tags:
+  - history
+  - narrative
+- id: the-broad-experience
+  img: podcasts/the-broad-experience.jpg
+  title: "The Broad Experience"
+  link: "http://www.thebroadexperience.com"
+  itunes: "https://itunes.apple.com/us/podcast/the-broad-experience/id524835071?mt=2"
+  description: |
+    The Broad Experience is a podcast about women, the workplace and success. It
+    takes a look at topics related to women and their careers. The host, TODO,
+    brings in guests to discuss how different aspects of the workplace in 2016
+    are challenging for women.
+  tags:
+  - gender
+  - educational
+  - interviews
+- id: tomorrow
+  img: podcasts/tomorrow.jpg
+  title: "Tomorrow with Joshua Topolsky"
+  link: "http://tomorrowpodcast.com"
+  itunes: "https://itunes.apple.com/us/podcast/tomorrow-joshua-topolsky/id983692635?mt=2"
+  description: |
+    Tomorrow is a podcast hosted by The Verge and Vox Media founder Joshua
+    Topolsky. Previously editor in chief of Bloomberg, The Verge, and Engadget,
+    Josh has great insight on technology. He brings on a guest each
+    week to discuss topics like politics, culture, and technology.
+  tags:
+  - tech
+  - conversational
+  - interviews
+- id: serial
+  img: podcasts/serial.jpg
+  title: "Serial"
+  link: "https://serialpodcast.org"
+  itunes: "https://itunes.apple.com/us/podcast/serial/id917918570?mt=2"
+  description: |
+    Serial is the award-winning podcast that tells one well-reported story per
+    season, week by week. The first season famously told the story of Adnan Syed
+    who is in jail for the murder he says that he did not commit.  The story went
+    viral, and the podcast deserves all the hype.
+  tags:
+  - narrative
+- id: startup
+  img: podcasts/startup.jpg
+  title: "Startup"
+  link: "http://gimletmedia.com/startup"
+  itunes: "https://itunes.apple.com/us/podcast/startup-podcast/id913805339?mt=2"
+  description: |
+    What is it <em>really</em> like to start a startup?  This podcast puts
+    microphones inside the lives of startup founders, to get an unfiltered view
+    of the process.  The first season features the founding of Gimlet Media,
+    the podcast network that produces Startup, Reply All, and more.
+  tags:
+  - tech
+  - startups
+  - narrative
+- id: invisibilia
+  img: podcasts/invisibilia.jpg
+  title: "Invisibilia"
+  link: "http://npr.org/invisibilia"
+  itunes: "https://itunes.apple.com/us/podcast/invisibilia/id953290300?mt=2"
+  description: |
+    Learn about the invisible forces that influence our brain and behavior. One
+    episode explores dark thoughts that everyone has, like what it would be like
+    to jump in front of a train. Another interviews a man who teaches blind
+    children to climb trees, ride bicycles, and more.
+  tags:
+  - psychology
+  - educational
+  - narrative
+- id: fivethirtyeight-elections
+  img: podcasts/fivethirtyeight-elections.jpg
+  title: "FiveThirtyEight Elections"
+  link: "http://fivethirtyeight.com/tag/elections-podcast"
+  itunes: "https://itunes.apple.com/us/podcast/fivethirtyeight-elections/id1077418457?mt=2"
+  description: |
+    This podcast discusses the 2016 election cycle with a round table of
+    FiveThirtyEight editors including Nate Silver.  Each week, they give an example
+    of good and bad uses of polling, discuss the election news, and bring a data
+    journalism angle.
+  tags:
+  - politics
+  - data
+  - conversational
+- id: death-sex-money
+  img: podcasts/death-sex-money.jpg
+  title: Death Sex, &amp; Money
+  link: "http://deathsexmoney.org"
+  itunes: "https://itunes.apple.com/us/podcast/death-sex-money/id870688022?mt=2"
+  description: |
+    A podcast about the things we think about a lot, but need to talk about
+    more. The host has a unique ability to ask extremely uncomfortable questions
+    and get real answers in her interviews. I love the mini-series "In New Orleans,"
+    which profiles five people and their lives after Katrina.
+  tags:
+  - narrative
+  - interviews
+- id: 2-dope-queens
+  img: podcasts/2-dope-queens.jpg
+  title: "2 Dope Queens"
+  link: "http://2dopequeens.org"
+  itunes: "https://itunes.apple.com/us/podcast/2-dope-queens/id1097193327?mt=2"
+  description: |
+    2 Dope Queens is a comedy podcast featuring Jessica Williams and Phoebe
+    Robinson, with a focus on race and gender. Recorded in front of a live studio
+    audience, the duo perform comedy, and also bring on three guest comedians to
+    perform standup.
+  tags:
+  - race
+  - gender
+  - comedy
+  - stand up
+- id: kinda-funny-gamescast
+  img: podcasts/kinda-funny-gamescast.jpg
+  title: "Kinda Funny Gamescast"
+  link: "https://www.kindafunny.com"
+  itunes: "https://itunes.apple.com/us/podcast/kinda-funny-gamescast/id957171516?mt=2"
+  description: |
+    A lighthearted round table conversation about topics related to video games
+    and the industry, Colin Moriarty and Greg Miller, formerly of IGN's PlayStation
+    team, have unique insight into the industry from years of experience, especially
+    when it comes to Sony.
+  tags:
+  - video games
+  - conversational
+- id: polygon-longform
+  img: podcasts/polygon-longform.jpg
+  title: "Polygon Longform"
+  link: "http://www.polygon.com/longform"
+  itunes: "https://itunes.apple.com/us/podcast/polygon-longform/id1035491321?mt=2"
+  description: |
+    The latest longform articles posted on Polygon, a video games website.
+    Episodes dive deep into the inner workings of a game studio, the making of
+    a video game, or other industry topics. As someone who always seems to miss
+    these articles online, it's a great way to keep up.
+  tags:
+  - video games
+  - narrative
+- id: cool-games-inc
+  img: podcasts/cool-games-inc.jpg
+  title: "Cool Games Inc"
+  link: "http://www.polygon.com/coolgamesinc"
+  itunes: "https://itunes.apple.com/us/podcast/coolgames-inc/id1079095743?mt=2"
+  description: |
+    The worst video game development studio that you'll fall in love with. Each
+    week, Polygon editors Griffin McElroy and Nick Robinson take game idea suggestions
+    from Twitter and imagine them into reality. The ideas are hilarious, and the
+    duo have great comedic chemistry.
+  tags:
+  - video games
+  - comedy
+  - conversational
+- id: limetown
+  img: podcasts/limetown.jpg
+  title: "Limetown"
+  link: "http://www.limetownstories.com"
+  itunes: "https://itunes.apple.com/us/podcast/limetown/id1024247322?mt=2"
+  description: |
+    Ten years ago, over three hundred men, women, and children disappeared from
+    a small down in Tennessee, never to be heard from again.  This is the premise of
+    this fictional story which follows an investigative reporter who discovers a
+    lead on the mysterious disappearance.
+
+  tags:
+  - fiction
+  - narrative
+- id: hpmor
+  img: podcasts/hpmor.jpg
+  title: "Harry Potter and the Methods of Rationality"
+  link: "http://www.hpmorpodcast.com"
+  itunes: "https://itunes.apple.com/us/podcast/podcast-harry-potter-methods/id431784580?mt=2"
+  description: |
+    What if Petunia Evans had married a Princeton professor instead of
+    Vernon Dursley? That's the premise of this crowdsourced reading of the award-winning
+    Harry Potter fan fiction by the same name. It's pretty ridiculous, but very
+    well made and great for Potter nerds like me.
+  tags:
+  - fan fiction
+  - narrative

@@ -1,0 +1,37 @@
+<section>
+    <h4 class="path">
+        <span class="slash">/</span>
+        <span class="component"><a href="{{ include.url }}">{{ include.title }}</a></span>
+    </h4>
+    <div class="boxes">
+        {% assign collection = include.collection | reverse %}
+        {% assign more_text = include.title | prepend: "More " %}
+        {% if include.feature == "first" %}
+            {% for page in collection | limit:5 %}
+                {% if forloop.index0 == 0 %}
+                <div class="feature-section">
+                    {% include box.html page=page featured=true %}
+                {% elsif forloop.index0 == 1 %}
+                    <div class="alongside-featured">
+                        {% include box.html page=page %}
+                {% elsif forloop.index0 == 2 %}
+                        {% include box.html page=page %}
+                    </div>
+                </div>
+                {% else %}
+                {% include box.html page=page %}
+                {% endif %}
+            {% endfor %}
+            {% if collection.size > 5 %}
+                {% include more.html text=more_text href=include.url %}
+            {% endif %}
+        {% else %}
+            {% for page in collection | limit:5 %}
+            {% include box.html page=page %}
+            {% endfor %}
+            {% if collection.size > 5 %}
+            {% include more.html text=more_text href=include.url %}
+            {% endif %}
+        {% endif %}
+    </div>
+</section>

@@ -1,0 +1,87 @@
+meta:
+  title: "Dan Schlosser"
+  description: "Hey there!  I'm Dan Schlosser, a San Fransisco-based developer, product manager, and team player.  Let's get in touch!"
+  facebook_image: ""  # /img/facebook.png
+  twitter_image: ""  # /img/twitter.png
+  image: ""  # /img/share.png
+  twitter_handle: "@danrschlosser"
+  google_analytics_id: "UA-40705748-1"
+
+domain: "df67f633.ngrok.io"
+root: "http://df67f633.ngrok.io"
+
+name: "Dan Schlosser"
+markdown: redcarpt
+highlighter: pygments
+permalink: "/:categories/:title/"
+
+gems:
+  - jekyll-redirect-from
+
+collections:
+  talks:
+    output: true
+    permalink: /:collection/:title/
+  writing:
+    output: true
+    permalink: /:collection/:title/
+  lists:
+    output: true
+    permalink: /:collection/:title/
+  travel:
+    output: true
+    permalink: /:collection/:title/
+  teams:
+    output: true
+    permalink: /:collection/:title/
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: default
+      hero_style: normal
+  -
+    scope:
+      path: ""
+      type: writing
+    values:
+      layout: blog_post
+  -
+    scope:
+      path: ""
+      type: lists
+    values:
+      layout: blog_post
+  -
+    scope:
+      path: ""
+      type: talks
+    values:
+      layout: talk
+      hero_style: normal
+      cta: Check it out
+  -
+    scope:
+      path: ""
+      type: travel
+    values:
+      layout: trip
+      hero_style: full_bleed
+  -
+    scope:
+      path: ""
+      type: teams
+    values:
+      layout: team
+      hero_style: normal
+
+exclude:
+  - node_modules
+  - Gulpfile.js
+  - Gemfile
+  - Gemfile.lock
+  - package.json
+  - README.md
+  - LICENSE.md

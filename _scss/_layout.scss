@@ -1,0 +1,45 @@
+$content-width: 74rem;
+$text-width: 44rem;
+
+.content {
+  @include clearfix;
+  margin: 0 auto;
+  max-width: $content-width;
+  padding: 6rem 4rem;
+  width: 100%;
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+section {
+  margin: 6rem 0;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &.text {
+    max-width: $text-width;
+    width: 100%;
+  }
+}
+
+
+@media screen and (max-width: $phone-landscape-max) {
+  h3, %h3 {
+    font-size: 1.25rem;
+  }
+  section {
+    margin: 8rem 0;
+  }
+
+  .content {
+    padding: 6rem 2rem;
+  }
+
+  .text.hero-image {
+    margin: -4rem 0;
+  }
+}

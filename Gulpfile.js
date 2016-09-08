@@ -3,164 +3,234 @@
 var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync').create();
 var cache = require('gulp-cached');
+var cp = require('child_process');
+var cssnano = require('gulp-cssnano');
+var cache = require('gulp-cache');
+var del = require('del');
+var es = require('event-stream');
+var foreach = require('gulp-foreach');
 var fs = require('fs');
 var gulp = require('gulp');
-var handlebars = require('gulp-compile-handlebars');
 var imagemin = require('gulp-imagemin');
-var inlinesource = require('gulp-inline-source');
+var imageResize = require('gulp-image-resize');
 var jscs = require('gulp-jscs');
 var jshint = require('gulp-jshint');
-var layouts = require('handlebars-layouts');
-var minifyCss = require('gulp-minify-css');
-var minifyHTML = require('gulp-minify-html');
+var path = require('path');
 var plumber = require('gulp-plumber');
 var reload = browserSync.reload;
 var rename = require('gulp-rename');
 var replace = require('gulp-replace');
+var runSequence = require('run-sequence');
 var sass = require('gulp-sass');
 var scsslint = require('gulp-scss-lint');
 var shell = require('gulp-shell');
+var sizeOf = require('image-size');
 var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
-var yaml = require('js-yaml');
 
-handlebars.Handlebars.registerHelper(layouts(handlebars.Handlebars));
-handlebars.Handlebars.registerHelper("aspectRatioAsPaddingPercent", function(aspectRatio) {
-  return (1 / aspectRatio * 100) + '%';
-});
+var jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
+var messages = {
+  jekyllBuild: '<span style="color: grey">Running: </span> $ jekyll build'
+};
+var responsiveSizes = [20, 400, 800, 1600];
 
-gulp.task('sass:lint', function() {
-  gulp.src('./src/sass/*.scss')
+/************
+ **  SCSS  **
+ ************/
+
+gulp.task('scss', ['scss:lint', 'scss:build']);
+
+gulp.task('scss:lint', function() {
+  gulp.src(['./_scss/**/*.scss', '!./_scss/lib/**/*.scss'])
     .pipe(plumber())
     .pipe(scsslint());
 });
 
-gulp.task('sass:build', function() {
-  gulp.src('./src/sass/**/style.scss')
-    .pipe(rename({suffix: '.min'}))
+gulp.task('scss:build', function() {
+  gulp.src('./_scss/style.scss')
     .pipe(plumber())
+    .pipe(rename({suffix: '.min'}))
     .pipe(sourcemaps.init())
     .pipe(sass({
+      includePaths: ['scss'],
+      onError: browserSync.notify,
       outputStyle: 'compressed',
     }))
-    .pipe(autoprefixer())
+    .pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./dist/css/'));
+    .pipe(gulp.dest('./_site/css/'))
+    .pipe(reload({stream: true}))
+    .pipe(gulp.dest('./css/'));
 });
 
-gulp.task('sass:optimized', function() {
-  gulp.src('./src/sass/**/style.scss')
-    .pipe(rename({suffix: '.min'}))
+gulp.task('scss:optimized', function() {
+  return gulp.src('./_scss/style.scss')
     .pipe(plumber())
+    .pipe(rename({suffix: '.min'}))
     .pipe(sass({
+      includePaths: ['scss'],
       outputStyle: 'compressed',
     }))
-    .pipe(autoprefixer())
-    .pipe(minifyCss({compatibility: 'ie8'}))
-    .pipe(gulp.dest('dist/css/'));
+    .pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
+    .pipe(cssnano({compatibility: 'ie8'}))
+    .pipe(gulp.dest('./_site/css/'))
+    .pipe(reload({stream: true}))
+    .pipe(gulp.dest('./css/'));
 });
 
-gulp.task('sass', ['sass:lint', 'sass:build']);
+/******************
+ **  JavaScript  **
+ ******************/
+gulp.task('js', ['js:lint', 'js:build']);
 
 gulp.task('js:build', function() {
-  gulp.src('src/js/**/*.js')
+  return gulp.src('./_js/**/*.js')
     .pipe(plumber())
+    .pipe(sourcemaps.init())
     .pipe(uglify())
-    .pipe(gulp.dest('dist/js'));
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('./_site/js/'))
+    .pipe(reload({stream: true}))
+    .pipe(gulp.dest('./js/'));
 });
 
 gulp.task('js:lint', function() {
-  gulp.src(['./src/js/**/*.js', '!./src/js/lib/**/*.js', 'Gulpfile.js'])
+  return gulp.src(['./_js/**/*.js', '!./_js/lib/**/*.js', 'Gulpfile.js'])
     .pipe(plumber())
       .pipe(jscs())
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
 
-gulp.task('js', ['js:lint', 'js:build']);
+/**********************
+ ** Optimized Images **
+ **********************/
 
-gulp.task('images', function() {
-  gulp.src('src/img/**/*')
+gulp.task('images', /* ['responsive'], */ function() {
+  return gulp.src('./_img/**/*')
     .pipe(plumber())
-    .pipe(imagemin({
-      progressive: true,
-    }))
-    .pipe(gulp.dest('./dist/img'));
+    // .pipe(cache(imagemin({
+    //   progressive: true,
+    // })))
+    .pipe(gulp.dest('./_site/img/'))
+    .pipe(reload({stream: true}))
+    .pipe(gulp.dest('./img/'));
 });
 
-gulp.task('images:optimized', function() {
-  gulp.src('src/img/**/*')
+gulp.task('images:optimized',  /* ['responsive'], */ function() {
+  return gulp.src('./_img/**/*')
     .pipe(plumber())
-    .pipe(imagemin({
+    .pipe(cache(imagemin({
+      interlaced: true,
+      pngquant: true,
       progressive: true,
       multipass: true,
-    }))
-    .pipe(gulp.dest('./dist/img'));
-  gulp.src('src/favicon.ico')
-    .pipe(plumber())
-    .pipe(gulp.dest('./dist'));
+    })))
+    .pipe(gulp.dest('./_site/img/'))
+    .pipe(reload({stream: true}))
+    .pipe(gulp.dest('./img/'));
 });
 
-gulp.task('fonts', function() {
-  gulp.src('src/font/*')
-    .pipe(plumber())
-    .pipe(gulp.dest('./dist/font'));
+/***********************
+ ** Responsive Images **
+ ***********************/
+
+gulp.task('responsive', function (cb) {
+  return runSequence('responsive:clean', ['responsive:resize', 'responsive:metadata'], cb);
 });
 
-gulp.task('templates', function() {
-  var dataFiles = ['meta', 'projects', 'podcasts', 'talks', 'photography'];
+gulp.task('responsive:resize', function() {
+  return es.merge(responsiveSizes.map(function(size) {
+    return gulp.src('./_img/res/raw/**/*')
+      .pipe(plumber())
+      .pipe(imageResize({
+        height: size,
+        width: 0,
+        crop: false,
+        upscale: false,
+        imageMagick: true
+      }))
+      .pipe(gulp.dest('./_img/res/' + size + '/'));
+  }));
+});
 
-  var templateData = {};
-  dataFiles.forEach(function(str) {
-    templateData[str] = yaml.safeLoad(fs.readFileSync('data/' + str + '.yml', 'utf-8'))[str];
-  });
-
-  var options = {
-    ignorePartials: true, //ignores the unknown footer2 partial in the handlebars template, defaults to false
-    batch: ['./src/partials/'],
-    helpers: {
-      capitals: function(str) {
-        return str.toUpperCase();
-      },
-    },
+gulp.task('responsive:metadata', function() {
+  var metadata = {
+    _NOTE: "This file is generated in gulpfile.js, in the responsive:metadata task.",
+    aspectRatios: {},
+    sizes: responsiveSizes,
   };
-
-  return gulp.src('./src/templates/**/*.hbs')
-    .pipe(plumber())
-    .pipe(handlebars(templateData, options))
-    .pipe(rename(function(path) {
-      path.extname = '.html';
+  return gulp.src('./_img/res/raw/**/*.{jpg,JPG,png,PNG,jpeg,JPEG,gif,GIF}')
+    .pipe(foreach(function(stream, file) {
+      var key = file.path.replace(/.*\/_img\/res\/raw\//, '');
+      var dimensions = sizeOf(file.path);
+      metadata.aspectRatios[key] = Number((dimensions.width / dimensions.height).toFixed(3));
+      return stream;
     }))
-    .pipe(gulp.dest('dist'));
+    .on('finish', function() {
+      fs.writeFileSync('./_data/responsiveMetadata.json', JSON.stringify(metadata, null, 2));
+    });
 });
 
-gulp.task('templates:optimized', ['templates'], function() {
-  gulp.src('./dist/**/*.html')
-    .pipe(inlinesource())
-    .pipe(replace(/\.\.\//g, ''))
-    .pipe(minifyHTML({
-      conditionals: true,
-      spare:true,
-    }))
-    .pipe(gulp.dest('./dist/'));
+gulp.task('responsive:clean', function(cb) {
+  return del(['_img/res/*', '!_img/res/raw/', '!_img/res/raw/**'], cb);
+});
+
+/************
+ ** Jekyll **
+ ************/
+
+gulp.task('jekyll', ['jekyll:build']);
+
+gulp.task('jekyll:build', function(cb) {
+  browserSync.notify(messages.jekyllBuild);
+  return cp.spawn(jekyll, ['build'], {stdio: 'inherit'}).on('close', cb);
+});
+
+gulp.task('jekyll:rebuild', ['jekyll:build'], function() {
+  reload();
+});
+
+/******************
+ ** Global Tasks **
+ ******************/
+
+gulp.task('clean', function(cb) {
+  return del(['./_site/', './css/', './js/', './img/'], cb);
+});
+
+gulp.task('deploy', ['build:optimized'], function() {
+  return gulp.src('')
+    .pipe(shell('scp -r _site/* dan:/srv/beta.schlosser.io/public_html/'))
+    .on('finish', function() {
+      process.stdout.write('Deployed to beta.schlosser.io\n');
+    });
 });
 
 gulp.task('watch', function() {
-  gulp.watch(['./src/templates/**/*.hbs', './src/partials/**/*.hbs', './data/*.yml'], ['templates'], reload);
-  gulp.watch('./src/sass/**/*.scss', ['sass'], reload);
-  gulp.watch('./src/img/**/*', ['images'], reload);
-  gulp.watch(['./src/js/**/*.js', 'Gulpfile.js'], ['js'], reload);
+  gulp.watch([
+    './**/*.html',
+    '!./_site/**/*.html',
+    './_layouts/*.html',
+    './_includes/*.html',
+    './_drafts/*.html',
+    './_posts/*',
+    './_data/*',
+    './_config.yml'], ['jekyll:rebuild']);
+  gulp.watch('./_scss/**/*.scss', ['scss']);
+  gulp.watch('./img/res/**/*', ['images']);
+  gulp.watch(['./_js/**/*.js', 'Gulpfile.js'], ['js']);
 });
 
-gulp.task('build', ['sass', 'images', 'fonts', 'js', 'templates']);
-gulp.task('build:optimized', ['sass:optimized', 'images:optimized', 'fonts', 'js', 'templates:optimized']);
+gulp.task('build', function (cb) {
+  return runSequence('clean', ['scss', 'images', 'js'], 'jekyll', cb);
+});
 
-gulp.task('deploy', ['build:optimized'], function() {
-  gulp.src('')
-    .pipe(shell('scp -r dist/* dan:/srv/schlosser.io/public_html/'))
-    .on('finish', function() {
-      process.stdout.write('Deployed to schlosser.io');
-    });
+gulp.task('build:optimized', function(cb) {
+  return runSequence('clean',
+    ['scss:optimized', 'images:optimized', /*'responsive',*/ 'js'],
+    'jekyll',
+    cb);
 });
 
 // use default task to launch Browsersync and watch JS files
@@ -168,12 +238,17 @@ gulp.task('serve', ['build'], function() {
 
   // Serve files from the root of this project
   browserSync.init(['./dist/**/*'], {
+    ghostMode: {
+      clicks: false,
+      forms: false,
+      scroll: false,
+    },
     server: {
-      baseDir: './dist',
+      baseDir: '_site',
     },
   });
 
-  // add browserSync.reload to the tasks array to make
-  // all browsers reload after tasks are complete.
   gulp.start(['watch']);
 });
+
+gulp.task('default', ['serve']);
