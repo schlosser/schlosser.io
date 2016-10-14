@@ -1,0 +1,18 @@
+---
+title: pig.js
+featured_image: writing/building-the-image-grid-from-google-photos.png
+link: https://github.com/schlosser/pig.js
+date: 2016-05-06
+---
+
+<p>Arrange images in a responsive, progressive-loading grid managed in JavaScript using CSS transforms, with one lightweight library. Here's what you get:</p>
+
+<ul>
+    <li><strong>Performance:</strong> The <code>pig.js</code> grid specializes in displaying a large number of photos. While a more traditional approaches would paginate images, or use AJAX to load and insert buckets of additional images onto the page, <code>pig.js</code> intelligently loads and unloads images as you scroll down the page, to ensure ensure speedy rendering of images, smooth scrolling, and minimal network activitiy.</li>
+    <li><strong>Responsiveness:</strong> Images are loaded in JavaScript, at different resolutions depending on screen size. Also, because images are positioned using CSS transforms, images smartly re-tile when you shrink or expand the browser window.</li>
+    <li><strong>User Experience:</strong> Images are previewed with a small placeholder image that is scaled and blured. When the image loads, it gives the effect that the image was brought into focus (it's super cool!).</li>
+</ul>
+
+<p>A lot of this is stolen straight from Google Photos (by way of observation and some creative use of the Chrome Inspector) and Medium (by way of some <a href="https://jmperezperez.com/medium-image-progressive-loading-placeholder/">dope blog posts</a>).</p>
+
+<p>If you want to see <code>pig.js</code> in action, check out the site that motivated it in the first place: a catalog of everything I ate in 2015: <a href="https://feeding.schlosser.io/">feeding.schlosser.io</a>. That site is also on <a href="https://github.com/schlosser/feeding.schlosser.io">GitHub</a>.</p>

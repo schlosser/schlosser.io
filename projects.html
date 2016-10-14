@@ -1,0 +1,11 @@
+---
+layout: collection
+collection: projects
+---
+
+<div class="boxes">
+    {% assign projects = site.projects | reverse %}
+    {% for project in projects %}
+    {% include box.html page=project %}
+    {% endfor %}
+</div>

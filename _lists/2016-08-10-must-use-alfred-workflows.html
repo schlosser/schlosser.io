@@ -1,0 +1,28 @@
+---
+title: Must-use Alfred Workflows
+date: 2016-08-10
+category: List
+featured_image: lists/alfred.jpg
+---
+<section class="text">
+    <p>For productivity on a Mac, there isn't a tool I rely on more than <a href="https://www.alfredapp.com/">Alfred</a>, the Spotlight replacement that does <a href="https://www.alfredapp.com/blog/tips-and-tricks/beginners-guide-to-alfred-searching-your-mac-and-the-web/">so</a> <a href="https://www.alfredapp.com/blog/tips-and-tricks/4-tips-to-make-the-most-of-clipboard-history/">much</a> <a href="https://www.alfredapp.com/blog/tips-and-tricks/9-alfred-features-you-might-not-know-exist-yet/">more</a>. I use Alfred to search, launch applications, find files, do math, and put my computer to sleep.</p>
+    <p>If you pay Alfred's one-time "PowerPack," you also get the ability to add custom extensions to Alfred, called workflows. I downloaded and programmed different workflows, curating a list of shortcuts and powerful tools that I use constantly. Take a look at my favorites, or if you trust me, <a href="https://static.schlosser.io/workflows/all.zip">download them all</a>. Enjoy!</p>
+</section>
+<section class="text">
+    {% for workflow in site.data.workflows %}
+    <div class="visual-list">
+        <div class="image">
+            {% include resimg.html src=workflow.img %}
+        </div>
+        <div class="copy">
+            <h3 id="{{ workflow.id }}">{{ workflow.title }}</h3>
+            <p>{{workflow.description}}</p>
+            <div class="button-group">
+                <a href="{{workflow.link}}" class="button">Download</a>
+            </div>
+        </div>
+    </div>
+    </ul>
+    {% endfor %}
+</section>
+
