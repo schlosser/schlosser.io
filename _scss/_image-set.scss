@@ -2,29 +2,27 @@
   margin: 3rem -0.75rem 0;
 
   .large, .small {
-    display: flex;
     align-items: flex-start;
-    width: 100%;
+    display: flex;
     font-size: 0;
     margin-bottom: 1.5rem;
+    width: 100%;
 
     figure {
-      width: 50%;
       margin: 0 0.75rem;
+      width: 50%;
     }
   }
 
   + h5 {
-    text-align: center;
     padding: 0 2rem;
+    text-align: center;
   }
 }
 
 @media screen and (max-width: $phone-landscape-max) {
-  .image-set {
-    + h5 {
-      padding: 0;
-      text-align: left;
-    }
+  .image-set + h5 {
+    padding: 0;
+    text-align: left;
   }
 }

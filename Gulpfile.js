@@ -6,6 +6,7 @@ var cache = require('gulp-cached');
 var cp = require('child_process');
 var cssnano = require('gulp-cssnano');
 var cache = require('gulp-cache');
+var changed = require('gulp-changed');
 var del = require('del');
 var es = require('event-stream');
 var foreach = require('gulp-foreach');
@@ -17,6 +18,7 @@ var jscs = require('gulp-jscs');
 var jshint = require('gulp-jshint');
 var path = require('path');
 var plumber = require('gulp-plumber');
+var print = require('gulp-print');
 var reload = browserSync.reload;
 var rename = require('gulp-rename');
 var replace = require('gulp-replace');
@@ -106,18 +108,17 @@ gulp.task('js:lint', function() {
  ** Optimized Images **
  **********************/
 
-gulp.task('images', /* ['responsive'], */ function() {
+gulp.task('images', ['responsive'], function() {
+  var dest = './img/';
   return gulp.src('./_img/**/*')
     .pipe(plumber())
-    // .pipe(cache(imagemin({
-    //   progressive: true,
-    // })))
+    .pipe(changed(dest))
     .pipe(gulp.dest('./_site/img/'))
     .pipe(reload({stream: true}))
-    .pipe(gulp.dest('./img/'));
+    .pipe(gulp.dest(dest));
 });
 
-gulp.task('images:optimized',  /* ['responsive'], */ function() {
+gulp.task('images:optimized',  ['responsive'], function() {
   return gulp.src('./_img/**/*')
     .pipe(plumber())
     .pipe(cache(imagemin({
@@ -141,8 +142,13 @@ gulp.task('responsive', function (cb) {
 
 gulp.task('responsive:resize', function() {
   return es.merge(responsiveSizes.map(function(size) {
+    var dest = './_img/res/' + size + '/';
     return gulp.src('./_img/res/raw/**/*')
       .pipe(plumber())
+      .pipe(changed(dest))
+      .pipe(print(function(filepath) {
+        return "Resizing: " + filepath;
+      }))
       .pipe(imageResize({
         height: size,
         width: 0,
@@ -150,7 +156,7 @@ gulp.task('responsive:resize', function() {
         upscale: false,
         imageMagick: true
       }))
-      .pipe(gulp.dest('./_img/res/' + size + '/'));
+      .pipe(gulp.dest(dest));
   }));
 });
 
