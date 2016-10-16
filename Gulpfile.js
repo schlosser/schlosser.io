@@ -16,6 +16,8 @@ var imagemin = require('gulp-imagemin');
 var imageResize = require('gulp-image-resize');
 var jscs = require('gulp-jscs');
 var jshint = require('gulp-jshint');
+var os = require('os');
+var parallel = require('concurrent-transform');
 var path = require('path');
 var plumber = require('gulp-plumber');
 var print = require('gulp-print');
@@ -108,7 +110,7 @@ gulp.task('js:lint', function() {
  ** Optimized Images **
  **********************/
 
-gulp.task('images', ['responsive'], function() {
+gulp.task('images', /*['responsive'],*/ function() {
   var dest = './img/';
   return gulp.src('./_img/**/*')
     .pipe(plumber())
@@ -118,7 +120,7 @@ gulp.task('images', ['responsive'], function() {
     .pipe(gulp.dest(dest));
 });
 
-gulp.task('images:optimized',  ['responsive'], function() {
+gulp.task('images:optimized',  /*['responsive'],*/ function() {
   return gulp.src('./_img/**/*')
     .pipe(plumber())
     .pipe(cache(imagemin({
@@ -137,30 +139,53 @@ gulp.task('images:optimized',  ['responsive'], function() {
  ***********************/
 
 gulp.task('responsive', function (cb) {
-  return runSequence('responsive:clean', ['responsive:resize', 'responsive:metadata'], cb);
+  return runSequence('responsive:clean', ['responsive:resize', 'responsive:metadata'], 'images', cb);
 });
 
 gulp.task('responsive:resize', function() {
+  var srcSuffix, destSuffix;
+
+  // Note: process.argv = ['node', 'path/to/gulpfile.js', 'responsive', '--dir', 'subPathIfProvided']
+  var idx = process.argv.indexOf('--dir');
+  if (idx > -1) {
+    // Only process subdirectory
+    var srcPath = path.join('./_img/res/raw/', process.argv[idx + 1]);
+    if (fs.lstatSync(srcPath).isDirectory()) {
+      srcSuffix = path.join(process.argv[idx + 1], '/**/*');
+      destSuffix = process.argv[idx + 1];
+    } else {
+      srcSuffix = process.argv[idx + 1];
+      destSuffix = process.argv[idx + 1];
+    }
+  } else {
+    srcSuffix = '**/*';
+    destSuffix = '';
+  }
+
   return es.merge(responsiveSizes.map(function(size) {
-    var dest = './_img/res/' + size + '/';
-    return gulp.src('./_img/res/raw/**/*')
+    var dest = './_img/res/' + size + '/' + destSuffix;
+    return gulp.src('./_img/res/raw/' + srcSuffix)
       .pipe(plumber())
       .pipe(changed(dest))
+      .pipe(parallel(
+        imageResize({
+          height: size,
+          width: 0,
+          crop: false,
+          upscale: false,
+          imageMagick: true
+        }),
+        os.cpus().length
+      ))
       .pipe(print(function(filepath) {
-        return "Resizing: " + filepath;
-      }))
-      .pipe(imageResize({
-        height: size,
-        width: 0,
-        crop: false,
-        upscale: false,
-        imageMagick: true
+        return "Created: " + filepath.replace('/raw/', '/' + size + '/');
       }))
       .pipe(gulp.dest(dest));
   }));
 });
 
 gulp.task('responsive:metadata', function() {
+  // We always process all images.
   var metadata = {
     _NOTE: "This file is generated in gulpfile.js, in the responsive:metadata task.",
     aspectRatios: {},
@@ -179,7 +204,15 @@ gulp.task('responsive:metadata', function() {
 });
 
 gulp.task('responsive:clean', function(cb) {
-  return del(['_img/res/*', '!_img/res/raw/', '!_img/res/raw/**'], cb);
+  // Note: process.argv = ['node', 'path/to/gulpfile.js', 'responsive', '--dir', 'subPathIfProvided']
+  var idx = process.argv.indexOf('--dir');
+  var folders = (idx > -1) ? (
+    responsiveSizes.map(function(size) {
+      return '_img/res/' + size + '/' + process.argv[idx + 1];
+    })
+  ) : (['_img/res/*', '!_img/res/raw/', '!_img/res/raw/**']);
+
+  return del(folders, cb);
 });
 
 /************
@@ -207,9 +240,9 @@ gulp.task('clean', function(cb) {
 
 gulp.task('deploy', ['build:optimized'], function() {
   return gulp.src('')
-    .pipe(shell('scp -r _site/* dan:/srv/beta.schlosser.io/public_html/'))
+    .pipe(shell('rsync -avuzh _site/* dan:/srv/schlosser.io/public_html/'))
     .on('finish', function() {
-      process.stdout.write('Deployed to beta.schlosser.io\n');
+      process.stdout.write('Deployed to schlosser.io\n');
     });
 });
 
@@ -234,7 +267,7 @@ gulp.task('build', function (cb) {
 
 gulp.task('build:optimized', function(cb) {
   return runSequence('clean',
-    ['scss:optimized', 'images:optimized', /*'responsive',*/ 'js'],
+    ['scss:optimized', 'images', 'js'],
     'jekyll',
     cb);
 });

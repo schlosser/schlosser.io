@@ -8,6 +8,7 @@
   "devDependencies": {
     "browser-sync": "^2.11.2",
     "child_process": "^1.0.2",
+    "concurrent-transform": "^1.0.0",
     "del": "^2.2.2",
     "event-stream": "^3.3.4",
     "gulp": "^3.9.1",

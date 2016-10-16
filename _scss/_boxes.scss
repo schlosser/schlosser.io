@@ -27,11 +27,11 @@ $box-spacing: 4rem;
     }
 
     .more {
-      width: 100%;
-      padding-bottom: 50%;
       display: block;
       flex: 0;
+      padding-bottom: 50%;
       position: relative;
+      width: 100%;
 
       a {
         @extend %subtle-link;
@@ -40,7 +40,6 @@ $box-spacing: 4rem;
         border: 0;
         bottom: 0;
         color: $black;
-        display: block;
         display: flex;
         font-size: 4rem;
         justify-content: center;
@@ -52,9 +51,10 @@ $box-spacing: 4rem;
         transition: 0.3s ease background-color;
         width: 100%;
 
-        &:hover {
-          background: $light-gray;
-        }
+      }
+
+      a:hover {
+        background: $light-gray;
       }
     }
 
@@ -69,8 +69,8 @@ $box-spacing: 4rem;
   }
 
   .feature-section {
-    width: 100%;
     display: flex;
+    width: 100%;
 
     .featured {
       width: 66.666666%;

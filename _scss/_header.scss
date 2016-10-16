@@ -7,14 +7,14 @@ footer .links {
   justify-content: space-between;
 
   h2 {
-    text-indent: 0;
     padding: 0;
+    text-indent: 0;
   }
 }
 
 .path {
-  text-indent: -3.6rem;
   padding-left: 3.6rem;
+  text-indent: -3.6rem;
 
   .slash {
     padding: 0 0.5rem;
@@ -28,15 +28,15 @@ footer .links {
 @media screen and (max-width: $tablet-portrait-max) {
   footer .links {
     flex-wrap: wrap;
-    padding: 0 4rem;
     justify-content: center;
     margin-bottom: -2rem;
+    padding: 0 4rem;
 
     h2 {
-      width: 50%;
-      text-align: center;
       margin-bottom: 2rem;
+      text-align: center;
       white-space: nowrap;
+      width: 50%;
     }
   }
 }

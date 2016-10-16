@@ -15,7 +15,7 @@
     transition: 0.3s ease transform;
   }
 
-  &::hover {
+  &:hover {
     border: 0;
     border-color: $black;
     color: $black;

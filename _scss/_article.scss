@@ -1,8 +1,8 @@
 article {
   h2 {
     font-family: $sans;
-    margin: 6rem 0 1.5rem;
     font-size: 2.25rem;
+    margin: 6rem 0 1.5rem;
 
     + h3 {
       font-family: $monospace;
@@ -27,7 +27,6 @@ article {
 
   blockquote {
     background-color: $lighter-gray;
-    margin: 0 auto;
     margin: 3rem;
     padding: 3rem;
   }
@@ -134,8 +133,8 @@ article {
 @media screen and (max-width: $tablet-landscape-max) {
   article {
     .pull-right {
-      margin: 3rem auto !important;
       float: none;
+      margin: 3rem auto !important;
     }
   }
 }
