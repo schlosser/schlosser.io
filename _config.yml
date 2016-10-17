@@ -1,14 +1,13 @@
 meta:
   title: "Dan Schlosser"
   description: "Hey there!  I'm Dan Schlosser, a San Fransisco-based developer, product manager, and team player.  Let's get in touch!"
-  facebook_image: ""  # /img/facebook.png
-  twitter_image: ""  # /img/twitter.png
-  image: ""  # /img/share.png
+  facebook_image: "/img/cover.png"
+  twitter_image: "/img/cover.png"
+  image: "/img/cover.png"
   twitter_handle: "@danrschlosser"
   google_analytics_id: "UA-40705748-1"
-
-domain: "df67f633.ngrok.io"
-root: "http://df67f633.ngrok.io"
+  domain: "schlosser.io"
+  root: "http://schlosser.io"
 
 name: "Dan Schlosser"
 markdown: redcarpt
