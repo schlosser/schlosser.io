@@ -42,7 +42,6 @@
    * Choose the size of image to load based on the window width.
    */
   ProgressiveImage.prototype.getSize = function() {
-    console.log(this.lastWindowWidth);
     if (this.lastWindowWidth < 768) {
       return 'small';
     } else if (this.lastWindowWidth < 1440) {

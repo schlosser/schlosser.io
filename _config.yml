@@ -62,6 +62,7 @@ defaults:
       layout: talk
       hero_style: normal
       cta: Check it out
+      related_posts: talks
   -
     scope:
       path: ""
@@ -76,6 +77,7 @@ defaults:
     values:
       layout: team
       hero_style: normal
+      related_posts: teams
 
 exclude:
   - node_modules

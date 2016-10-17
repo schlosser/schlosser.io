@@ -32,3 +32,11 @@ layout: default
         {{ content }}
     </article>
 </div>
+{% if page.related_posts %}
+<div class="content">
+    {% assign col = site[page.related_posts] %}
+    {% assign url = "/" | append: page.related_posts | append: "/" %}
+    {% assign title = page.related_posts | capitalize %}
+    {% include collection.html title=title url=url collection=col exclude=page %}
+</div>
+{% endif %}

@@ -5,6 +5,22 @@
     </h4>
     <div class="boxes">
         {% assign collection = include.collection | reverse %}
+
+        {% if include.exclude %}
+            {% comment %} Create Empty Array: {% endcomment%}
+            {% assign tmp = "" | split:"|"  %}
+
+            {% comment %} Set tmp to be collection except for the excluded page: {% endcomment%}
+            {% for p in collection %}
+                {% unless p == include.exclude %}
+                {% assign tmp = tmp | push: p %}
+                {% endunless %}
+            {% endfor %}
+
+            {% comment %} Reassign to collection: {% endcomment %}
+            {% assign collection = tmp %}
+        {% endif %}
+
         {% assign more_text = include.title | prepend: "More " %}
         {% if include.feature == "first" %}
             {% for page in collection | limit:5 %}
