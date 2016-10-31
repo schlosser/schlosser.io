@@ -111,7 +111,10 @@
 
     // Load Raw Image (large!)
     setTimeout(function() {
-      this.loadRaw();
+      if (this.lastWindowWidth < 1440) {
+        // There is a larger image to load.
+        this.loadRaw();
+      }
     }.bind(this), 300);
 
     this.onScroll = function() {
@@ -144,7 +147,8 @@
   ProgressiveImage.prototype.loadRaw = function() {
     // Create a new image element, and insert it into the DOM.
     var rawImage = new Image();
-    rawImage.src = this.figure.dataset['raw'];
+    // not actually raw, because damn, that's expensive.
+    rawImage.src = this.figure.dataset.large;
     rawImage.className = 'raw';
     rawImage.onload = function() {
       this.figure.className += ' loaded-raw';
