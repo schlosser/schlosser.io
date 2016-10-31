@@ -1,10 +1,37 @@
+body {
+  .scrim {
+    position: fixed;
+    z-index: 500;
+    pointer-events: none;
+    background-color: $white;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: 0.3s ease opacity;
+  }
+
+  &.viewer-open .scrim {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+
 .progressive-image {
   overflow: hidden;
   position: relative;
+  transition: 0.3s ease transform;
+  transform-origin: 0 0;
 
   .aspect-ratio-holder {
     height: 0;
     width: 100%;
+  }
+
+  &.with-viewer {
+    cursor: zoom-in;
   }
 
   img {
@@ -28,6 +55,16 @@
       opacity: 1;
 
       &.thumbnail {
+        opacity: 0;
+      }
+    }
+  }
+
+  &.loaded-full {
+    img {
+      opacity: 1;
+
+      &.thumbnail, &.full {
         opacity: 0;
       }
     }

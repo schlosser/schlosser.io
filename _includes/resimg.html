@@ -4,7 +4,8 @@
 <figure class="progressive-image {{ include.class }}"
         data-small="/img/res/400/{{ include.src }}"
         data-medium="/img/res/800/{{ include.src }}"
-        data-large="/img/res/1600/{{ include.src }}">
+        data-large="/img/res/1600/{{ include.src }}"
+        data-raw="/img/res/raw/{{ include.src }}">
     <div class="aspect-ratio-holder"
         style="padding-bottom: {{1.0 | divided_by: site.data.responsiveMetadata.aspectRatios[include.src] | times: 100 }}%"></div>
     <img class="thumbnail"
