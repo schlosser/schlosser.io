@@ -1,12 +1,15 @@
 -
-  action: tweet
+  action: Tweet
   url: https://www.twitter.com/danrschlosser
 -
-  action: code
+  action: Code
   url: https://github.com/schlosser
 -
-  action: write
+  action: Write
   url: https://medium.com/@danrschlosser
 -
-  action: poke
+  action: Poke
   url: https://www.facebook.com/danrschlosser
+-
+  action: Send
+  url: mailto:dan@schlosser.io

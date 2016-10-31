@@ -2,13 +2,20 @@ header, footer {
   background-color: $lighter-gray;
 }
 
-footer .links {
-  display: flex;
-  justify-content: space-between;
+footer {
+  .links {
+    display: flex;
+    justify-content: space-between;
+  }
 
   h2 {
     padding: 0;
     text-indent: 0;
+  }
+
+  .pages {
+    display: none;
+    justify-content: space-between;
   }
 }
 
@@ -26,17 +33,21 @@ footer .links {
 }
 
 @media screen and (max-width: $tablet-portrait-max) {
-  footer .links {
-    flex-wrap: wrap;
+  footer .content {
+    display: flex;
     justify-content: center;
-    margin-bottom: -2rem;
-    padding: 0 4rem;
+
+    .links, .pages {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 1rem 0 2rem;
+    }
 
     h2 {
       margin-bottom: 2rem;
-      text-align: center;
       white-space: nowrap;
-      width: 50%;
+      width: 100%;
     }
   }
 }
