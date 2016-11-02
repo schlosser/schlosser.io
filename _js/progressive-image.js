@@ -65,7 +65,7 @@
     // Begin transition
     document.body.className = document.body.className.replace('viewer-open', '').replace(/^\s+|\s+$/g, '');
     this.figure.style.transform = '';
-  }
+  };
 
   ProgressiveImage.prototype.openViewer = function() {
     if (document.body.className.indexOf('viewer-open') >= 0) {
