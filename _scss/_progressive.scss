@@ -1,15 +1,15 @@
 body {
   .scrim {
-    position: fixed;
-    z-index: 500;
-    pointer-events: none;
     background-color: $white;
+    bottom: 0;
     left: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
     right: 0;
     top: 0;
-    bottom: 0;
-    opacity: 0;
     transition: 0.3s ease opacity;
+    z-index: 500;
   }
 
   &.viewer-open .scrim {
@@ -22,8 +22,8 @@ body {
 .progressive-image {
   overflow: hidden;
   position: relative;
-  transition: 0.3s ease transform;
   transform-origin: 0 0;
+  transition: 0.3s ease transform;
 
   .aspect-ratio-holder {
     height: 0;
@@ -32,6 +32,10 @@ body {
 
   &.with-viewer {
     cursor: zoom-in;
+
+    &.viewer-open {
+      cursor: zoom-out;
+    }
   }
 
   img {

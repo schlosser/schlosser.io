@@ -223,7 +223,7 @@ gulp.task('jekyll', ['jekyll:build']);
 
 gulp.task('jekyll:build', function(cb) {
   browserSync.notify(messages.jekyllBuild);
-  return cp.spawn(jekyll, ['build'], {stdio: 'inherit'}).on('close', cb);
+  return cp.spawn(jekyll, ['build', '--incremental', '--quiet'], {stdio: 'inherit'}).on('close', cb);
 });
 
 gulp.task('jekyll:rebuild', ['jekyll:build'], function() {

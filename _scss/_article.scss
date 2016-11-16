@@ -77,18 +77,6 @@ article {
     }
   }
 
-  .pull-right {
-    float: right;
-    margin: 0 -8rem 1.5rem 3rem !important;
-    max-width: 25rem;
-    width: 100%;
-
-    h5 {
-      padding: 0;
-      text-align: center;
-    }
-  }
-
   .timestamp, .button {
     @extend %h3;
   }
@@ -130,27 +118,23 @@ article {
   }
 }
 
-@media screen and (max-width: $tablet-landscape-max) {
-  article {
-    .pull-right {
-      float: none;
-      margin: 3rem auto !important;
-    }
-  }
-}
-
 @media screen and (max-width: $phone-landscape-max) {
   article {
+    .tight-figure {
+      margin: 3rem 0;
+    }
+
     section {
       margin: 6rem 0;
     }
 
     figure + h5 {
       padding: 0;
+      text-align: left;
     }
 
     h2 {
-      font-size: 1.5rem;
+      font-size: 2rem;
     }
   }
 }

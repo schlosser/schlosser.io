@@ -58,6 +58,7 @@
     this.figure.addEventListener(this.transitionEndEvent, function() {
       if (document.body.className.indexOf('viewer-open') == -1) {
         this.viewerOpen = false;
+        this.figure.className = this.figure.className.replace('viewer-open', '').replace(/^\s+|\s+$/g, '');
         this.figure.style.zIndex = '';
       }
     }.bind(this));
@@ -106,6 +107,7 @@
 
     // Apply DOM transformations
     document.body.className += ' viewer-open';
+    this.figure.className += ' viewer-open';
     this.figure.style.zIndex = '800';
     this.figure.style.transform = 'translate3d(' + translateX + 'px,' + translateY + 'px,0) scale(' + scale + ')';
 
@@ -123,6 +125,13 @@
         this.closeViewer();
       }
     }.bind(this);
+
+    this.onResize = function() {
+      this.closeViewer();
+    }.bind(this);
+
+    window.addEventListener('resize', this.onResize);
+    window.addEventListener('orientationchange', this.onResize);
     window.addEventListener('scroll', this.onScroll);
   };
 
