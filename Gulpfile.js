@@ -157,9 +157,9 @@ gulp.task('build:optimized', ['sass:optimized', 'images:optimized', 'fonts', 'js
 
 gulp.task('deploy', ['build:optimized'], function() {
   gulp.src('')
-    .pipe(shell('scp -r dist/* dan:/srv/schlosser.io/public_html/'))
+    .pipe(shell('scp -r dist/* dan:/srv/2015.schlosser.io/public_html/'))
     .on('finish', function() {
-      process.stdout.write('Deployed to schlosser.io');
+      process.stdout.write('Deployed to 2015.schlosser.io');
     });
 });
 
