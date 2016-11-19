@@ -1,0 +1,342 @@
+
+- title: Minimill
+  id: minimill-co
+  img: websites/minimill.co.png
+  link: https://minimill.co
+  year: 2016
+  description: |
+    This is the website for <a href="/teams/minimill">Minimill</a>, a design
+    agency that I started with <a href="http://jhil.co">Jeff Hilnbrand</a>. We
+    spent a long time designing and engineering the site to be smooth, simple,
+    and beautiful. I used my own
+    <a href="https://github.com/minimill/pangea.js/">pangea.js</a>, alongside
+    custom JavaScript to achieve this effect.
+
+- title: Nathan Savoy
+  id: nathansavoy-com
+  img: websites/nathansavoy.com.png
+  link: http://nathansavoy.com
+  year: 2016
+  description: |
+    I made this website for Nathan Savoy, a writer, performer, and entrepreneur
+    living in Massachusetts. We collaborated on several other projects as well,
+    which are also included on his portfolio page. I think the pure CSS
+    parallax effect fits the site really well.
+
+- title: Love is Not a Peer Review
+  id: love-is-not-a-peer-review
+  img: websites/love-is-not-a-peer-review.png
+  link: http://nathansavoy.com/love-is-not-a-peer-review/
+  year: 2016
+  description: |
+    I collaborated with <a href="http://nathansavoy.com/">Nathan Savoy</a> to
+    bring his poem to web. What I enjoyed most about this project was that my
+    reading of the poem (which drove my design) was very different than his.
+    That difference in interpretation adds a lot to the page, I feel.
+
+- title: Celestial Navigation by a Tropicana Sun
+  id: celestial-navigation
+  img: websites/celestial-navigation.png
+  link: http://nathansavoy.com/celestial-navigation-by-a-tropicana-sun/
+  year: 2016
+  description: |
+    This is another site I made in collaboration with
+    <a href="http://nathansavoy.com/">Nathan Savoy</a>. In my interpretation
+    of the poem, I worked extensively on flexing my typographic muscles.
+    (They're under-used by most accounts, but it was a good learning
+    experience.)
+
+- title: My Personal Website (2016)
+  id: schlosser-io
+  img: websites/schlosser.io.png
+  link: https://schlosser.io
+  year: 2016
+  description: |
+    This is the website you're using right now! My eternal pet project, and a
+    guinea pig for a new version of my
+    <a href="/projects/minimill-project-template/">project template</a> that
+    uses Jekyll and a progressive / responsive image loader.  The build system
+    performs significant image pre-processing to make the site run smoothly.
+
+- title: Redspread Marketing Site
+  id: redspread-com
+  img: websites/redspread.com.png
+  link: https://redspread.com
+  year: 2016
+  description: |
+    Redspread came to <a href="/teams/minimill/">Minimill</a> looking for a more
+    mature landing page for their Docker configuration as a service startup. We
+    published a <a href="https://minimill.co/redspread/">case study</a> on our
+    work with Redspread, which includes more details on our process.
+
+- title: Redspread Blog
+  id: blog-redspread-com
+  img: websites/blog.redspread.com.png
+  link: https://blog.redspread.com
+  year: 2016
+  description: |
+    In addition to working on their marketing site and webapp, Redspread also
+    asked Minimill to develop a skin for their blog, which was self-hosted
+    using <a href="https://ghost.org/">Ghost</a>, an open-source CMS. I love
+    how the header is achieved with just a subtle background-color change.
+
+- title: Chris McCarthy Music
+  id: chrismccarthymusic-com
+  img: websites/chrismccarthymusic.com.png
+  link: http://chrismccarthymusic.com
+  year: 2016
+  description: |
+    I made this personal website / portfolio page for Chris McCarthy, a pianist,
+    composer, and teacher living in New York City. I reused a simple CMS I wrote
+    for an earlier project to allow him to edit pages as needed.
+
+- title: Conor Bloomer
+  id: conorbloomer-com
+  img: websites/conorbloomer.com.png
+  link: http://conorbloomer.com
+  year: 2016
+  description: |
+    I made this minimalist portfolio page for Conor Bloomer, a recent graduate
+    from Vanderbilt University with a degree in Studio Arts, and focused studies
+    in finance and medicine.
+
+- title: Feeding Dan in 2015
+  id: feeding-schlosser-io
+  img: websites/feeding.schlosser.io.png
+  link: https://feeding.schlosser.io
+  year: 2016
+  description: |
+    In 2015, I took a picture of everything I ate. And I do mean everything! To
+    commemerate the year, I made a website with every food picture I took that
+    year, using a <a href="/projects/pig-js/">custom-built image grid inspired
+    by Google Photos.</a> I also wrote
+    <a href="/writing/building-the-image-grid-from-google-photos/">an
+    article</a> describing how it works.
+
+- title: CUBE
+  id: cube
+  img: websites/cube.png
+  link: https://cube.schlosser.io
+  year: 2016
+  description: |
+    I made this fun, interactive splash page for Professor R.A. Farrokhnia, the
+    executive director of CUBE, a new graduate program being developed at
+    Columbia Engineering. My favorite part of this site is the call to action,
+    which is intended to be <em>hidden</em> from users!  I'm sure you'll be
+    able to find it...
+
+- title: R.A. Farrokhnia
+  id: farrokhnia-com
+  img: websites/farrokhnia.com.png
+  link: https://www.farrokhnia.com/
+  year: 2016
+  description: |
+    I also helped Professor Farrokhnia with a new version of his personal
+    website. While the design is not mine, I added
+    <a href="https://github.com/minimill/pangea.js">pangea.js</a>, an animation
+    framework I authored, to add animations between each pair of pages.
+
+- title: "Connecting the Dots: Chronic Absenteeism in NYC Public Schools"
+  id: connecting-the-dots
+  img: websites/connecting-the-dots.png
+  link: https://absent.schlosser.io
+  year: 2016
+  description: |
+    This site was part of a final project for a course I took at Columbia
+    entitled Storytelling and Streaming Data. I was part of a group of five that
+    researched chronic absenteeism in New York City Public Schools. The parallax
+    header and graphics are pure HTML & CSS.
+
+- title: When Will the 1 Come
+  id: when-will-the-1-come
+  img: websites/when-will-the-1-come.png
+  link: https://when-will-the-1-come.schlosser.io
+  year: 2016
+  description: |
+    I made this websites as assignment in a course at Columbia called
+    Storytelling and Streaming Data. This simple app uses the NYC MTA streaming
+    schedule data to display how many minutes you have to wait to get the 1
+    train at 116 and Broadway (Columbia's local stop).
+
+- title: Wiki Battle
+  id: wiki-battle
+  img: websites/wiki-battle.png
+  link: https://battle.schlosser.io
+  year: 2016
+  description: |
+    Made as a project for my Storytelling and Streaming Data class at Columbia,
+    this project pits two languages against each other to compete over which one
+    has more edit acitvity on Wikipedia at the moment.  The score is determined
+    as the change in edits per second.
+
+- title: Aidan O'Connell
+  id: aidanoconnell-co
+  img: websites/aidanoconnell.co.png
+  link: http://aidanoconnell.co
+  year: 2016
+  description: |
+    This is a simple landing page I made for Aidan O'Connell, a bassist,
+    composer, and producer living in New York. The site is simple, but I like
+    how the opening animation brings attention to the profile image.
+
+- title: Fin
+  id: fin-com
+  img: websites/fin.com.png
+  link: https://www.fin.com
+  year: 2015
+  description: |
+    The Fin team came to <a href="/teams/minimill">Minimill</a>, and asked us
+    to help design their website and webapp. The result was a minimalist,
+    dark-theme website that emphasized the conversational nature of their
+    futuristic, science-fiction-esque conversational assistant.
+
+- title: Isaac Levien
+  id: isaaclevien-com
+  img: websites/isaaclevien.com.png
+  link: http://isaaclevien.com
+  year: 2015
+  description: |
+    I made this personal website / portfolio page for Isaac Levien, a bassist,
+    composer, and educator living in Boston.  To build his website, I wrote a
+    simple CMS, letting him update the site with his latest performances and
+    recordings.
+
+- title: DFA Design Roadmap
+  id: roadmap-bcdfa-com
+  img: websites/roadmap.bcdfa.com.png
+  link: http://roadmap.bcdfa.com
+  year: 2015
+  description: |
+    This was my first project using React. It serves as a resource for team
+    members of the <a href="/teams/dfa/">Barnard-Columbia Design for America</a>,
+    a chapter of a national organization that organizes students to give back
+    to their communities using human centered design.
+
+- title: Spire
+  id: spire-minimill-co
+  img: websites/spire.minimill.co.png
+  link: https://spire.minimill.co
+  year: 2015
+  description: |
+    Spire is a low-friction mood board I made with
+    <a href="http://jhil.co">Jeff Hilnbrand</a>. The idea was to make it as
+    easy as possible to organize a few images, colors, and some text as
+    inspiration for a project or art piece.
+
+- title: Substituteteacher.js
+  id: substituteteacher-js
+  img: websites/substituteteacher.js.png
+  link: http://schlosser.github.io/substituteteacher.js
+  year: 2015
+  description: |
+    <a href="/projects/substituteteacher-js/">Substituteteacher.js</a> is a
+    JavaScript library I wrote for exchanging multiple sentences as a single
+    animated tagline for a website. I built this simple site to show it off and
+    explain how to get started using it.
+
+- title: World After Capital
+  id: worldaftercapital-org
+  img: websites/worldaftercapital.org.png
+  link: http://worldaftercapital.org
+  year: 2015
+  description: |
+    <a href="http://continuations.com/">Albert Wenger</a> came to
+    <a href="/teams/minimill/">Minimill</a> and asked us to make a website and
+    brand for his new e-book: World After Capital. We delivered a simple site
+    that makes great use
+    <a href="https://github.com/minimill/pangea.js/">pangea.js</a>, an animation
+    framework I wrote from scratch for this project. Check out our
+    <a href="https://minimill.co/unscan/">case study</a> for more.
+
+- title: Upchannel
+  id: upchannel-com
+  img: websites/upchannel.com.png
+  link: http://upchannel.com
+  year: 2015
+  description: |
+    Upchannel came to <a href="/teams/minimill/">Minimill</a> with a challenging
+    request: making a website and brand for a pretty un-sexy and confusing
+    industry: software services for mobile app OEMs. After several iterations,
+    we landed on a pretty great design. Check out our
+    <a href="https://minimill.co/upchannel/">case study</a> for more.
+
+- title: Unscan
+  id: unscan-com
+  img: websites/unscan.com.png
+  link: http://unscan.com
+  year: 2015
+  description: |
+    Unscan was our first client at <a href="/teams/minimill/">Minimill</a>. A
+    startup intent on disrupting the banking industry, Unscan wanted a website
+    that would give their customers confidence in their product.  Check out our
+    <a href="https://minimill.co/unscan/">case study</a> for more.
+
+- title: Techncia
+  id: gotechnica-org
+  img: websites/gotechnica.org.png
+  link: http://gotechnica.org
+  year: 2015
+  description: |
+    This is the website for Techinca, an all-women hackathon at University of
+    Maryland. Built in a time cruch (only a few days!), the site was my first
+    experiences using <a href="https://zeplin.io/">Zeplin</a> and
+    <a href="http://gulpjs.com/">Gulp</a>, two tools that I now rely on to be
+    productive.
+
+- title: My Personal Website (2015)
+  id: 2015-schlosser-io
+  img: websites/2015.schlosser.io.png
+  link: https://2015.schlosser.io
+  year: 2015
+  description: |
+    This was my third incarnation of a personal website. It placed a focus on
+    communicating my resume, projects, and writing all in one feed.  It was also
+    the first personal website that I made that made use of my
+    <a href="/writing/respect-yourself-use-gulp/">project template</a>.
+
+- title: Campus Data
+  id: campusdata-org
+  img: websites/campusdata.org.png
+  link: http://campusdata.org
+  year: 2015
+  description: |
+    I remade the website for <a href="/teams/campus-data/">Campus Data</a> in
+    Jekyll, using <a href="http://materializecss.com/">Materialize</a>, a CSS
+    framework for Material Design. Campus Data is an organization that promotes
+    open data at universities. My additions to the site include the
+    <a href="http://campusdata.org/rankings/">Campus Data Rankings</a> table.
+
+- title: ADI Website
+  id: adicu-com
+  img: websites/adicu.com.png
+  link: https://adicu.com
+  year: 2014
+  description: |
+    I built this website for ADI, the Application Development Initative, the
+    tech club at Columbia that I was a member of for my four years there. I made
+    the ADI website using <a href="/projects/eventum/">Eventum</a> for a CMS.
+    The site design and ADI logo are by
+    <a href="http://jhil.co">Jeff Hilnbrand</a>.
+
+- title: DevFest (2015)
+  id: 2015-devfe-st
+  img: websites/2015.devfe.st.png
+  link: http://2015.devfe.st
+  year: 2014
+  description: |
+    I designed and built this website for <a href="http://devfe.st">DevFest</a>,
+    a hackathon run by <a href="https://adicu.com">ADI</a>, the tech club at
+    Columbia, which I was a member of for my four years there. This site was
+    really fun to make, as it was one of my first sites to make great use of
+    jQuery scroll handling.
+
+- title: People Nav
+  id: people-nav
+  img: websites/people-nav.png
+  link: https://static.schlosser.io/people-nav
+  year: 2014
+  description: |
+    I made this website while playing around with different effects in jQuery.
+    I liked the idea of having a collecion of discs that moved around in
+    parallax with the content, but in a related way, and that they would stack
+    in a way that felt logical.

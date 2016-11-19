@@ -62,11 +62,19 @@ body {
         opacity: 0;
       }
     }
+
+    .raw {
+      opacity: 0;
+    }
   }
 
-  &.loaded-full {
+  &.loaded-raw {
     img {
-      opacity: 1;
+      transition: none;
+
+      &.raw {
+        opacity: 1;
+      }
 
       &.thumbnail, &.full {
         opacity: 0;

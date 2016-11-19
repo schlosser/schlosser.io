@@ -1,4 +1,4 @@
-(function(global) {
+(function (global) {
   'use strict';
 
   /**
@@ -42,40 +42,44 @@
    * @returns {object} the progressive image object
    */
   function ProgressiveImage(figure) {
+    this.viewerOpen = false;
     this.figure = figure;
     this.lastWindowWidth = window.innerWidth;
-    this.viewerOpen = false;
     this.transitionEndEvent = _whichTransitionEndEvent();
     this.load();
     if (this.figure.className.indexOf('viewer') >= 0) {
       this.figure.addEventListener('click', this.openViewer.bind(this));
     }
+
     return this;
   }
 
-  ProgressiveImage.prototype.closeViewer = function() {
+  ProgressiveImage.prototype.closeViewer = function () {
     window.removeEventListener('scroll', this.onScroll);
-    this.figure.addEventListener(this.transitionEndEvent, function() {
+    this.figure.addEventListener(this.transitionEndEvent, function () {
       if (document.body.className.indexOf('viewer-open') == -1) {
         this.viewerOpen = false;
-        this.figure.className = this.figure.className.replace('viewer-open', '').replace(/^\s+|\s+$/g, '');
+        this.figure.className = this.figure.className
+          .replace('viewer-open', '')
+          .replace(/^\s+|\s+$/g, '');
         this.figure.style.zIndex = '';
       }
     }.bind(this));
 
     // Begin transition
-    document.body.className = document.body.className.replace('viewer-open', '').replace(/^\s+|\s+$/g, '');
+    document.body.className = document.body.className
+      .replace('viewer-open', '')
+      .replace(/^\s+|\s+$/g, '');
     this.figure.style.transform = '';
   };
 
-  ProgressiveImage.prototype.openViewer = function() {
+  ProgressiveImage.prototype.openViewer = function () {
     if (document.body.className.indexOf('viewer-open') >= 0) {
       this.closeViewer();
       return;
     }
 
     this.viewerOpen = true;
-
 
     // Initial Values
     var figureStyle = window.getComputedStyle(this.figure);
@@ -88,7 +92,9 @@
     // Computed Values
     var figureAspectRatio = initialWidth / initialHeight;
     var windowAspectRatio = windowWidth / windowHeight;
-    var scale, translateX, translateY;
+    var scale;
+    var translateX;
+    var translateY;
 
     if (windowAspectRatio >= figureAspectRatio) {
       // Image will fill up vertical space
@@ -109,24 +115,25 @@
     document.body.className += ' viewer-open';
     this.figure.className += ' viewer-open';
     this.figure.style.zIndex = '800';
-    this.figure.style.transform = 'translate3d(' + translateX + 'px,' + translateY + 'px,0) scale(' + scale + ')';
+    this.figure.style.transform = 'translate3d(' + translateX + 'px,' +
+      translateY + 'px,0) scale(' + scale + ')';
 
     // Load Raw Image (large!)
-    setTimeout(function() {
-      if (this.lastWindowWidth < 1440) {
+    setTimeout(function () {
+      if (this.lastWindowWidth < 1440 && this.figure.className.indexOf('loaded-raw') <= 0) {
         // There is a larger image to load.
         this.loadRaw();
       }
     }.bind(this), 300);
 
-    this.onScroll = function() {
+    this.onScroll = function () {
       var offset = this.figure.getBoundingClientRect().top;
       if (Math.abs(offset) > 50) {
         this.closeViewer();
       }
     }.bind(this);
 
-    this.onResize = function() {
+    this.onResize = function () {
       this.closeViewer();
     }.bind(this);
 
@@ -138,12 +145,12 @@
   /**
    * Load the full image element into the DOM.
    */
-  ProgressiveImage.prototype.load = function() {
+  ProgressiveImage.prototype.load = function () {
     // Create a new image element, and insert it into the DOM.
     var fullImage = new Image();
     fullImage.src = this.figure.dataset[this.getSize()];
     fullImage.className = 'full';
-    fullImage.onload = function() {
+    fullImage.onload = function () {
       this.figure.className += ' loaded';
     }.bind(this);
 
@@ -153,13 +160,14 @@
   /**
    * Load the raw image element into the DOM.
    */
-  ProgressiveImage.prototype.loadRaw = function() {
+  ProgressiveImage.prototype.loadRaw = function () {
     // Create a new image element, and insert it into the DOM.
     var rawImage = new Image();
+
     // not actually raw, because damn, that's expensive.
     rawImage.src = this.figure.dataset.large;
     rawImage.className = 'raw';
-    rawImage.onload = function() {
+    rawImage.onload = function () {
       this.figure.className += ' loaded-raw';
     }.bind(this);
 
@@ -169,7 +177,7 @@
   /**
    * Choose the size of image to load based on the window width.
    */
-  ProgressiveImage.prototype.getSize = function() {
+  ProgressiveImage.prototype.getSize = function () {
     if (this.lastWindowWidth < 768) {
       return 'small';
     } else if (this.lastWindowWidth < 1440) {

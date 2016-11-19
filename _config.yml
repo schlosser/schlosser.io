@@ -24,6 +24,9 @@ collections:
   writing:
     output: true
     permalink: /:collection/:title/
+  projects:
+    output: true
+    permalink: /:collection/:title/
   lists:
     output: true
     permalink: /:collection/:title/
@@ -45,6 +48,12 @@ defaults:
     scope:
       path: ""
       type: writing
+    values:
+      layout: blog_post
+  -
+    scope:
+      path: ""
+      type: projects
     values:
       layout: blog_post
   -

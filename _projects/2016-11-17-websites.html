@@ -1,0 +1,26 @@
+---
+title: Websites
+date: 2016-11-17
+category: Project
+featured_image: projects/websites.png
+hero_style: none
+redirect_from:
+  - /websites/
+---
+
+<p>I love making websites. There's no way around it, it's tons of fun and can be really relaxing.  Between school, side projects, collaborations with friends, and work, I've had the opportunity to build a lot of websites. This is a running list of some of my favorites.  Enjoy!</p>
+</section>
+<section class="text">
+    {% for website in site.data.websites %}
+    <div class="visual-list large">
+        <div class="image screenshot">
+            {% include resimg.html src=website.img class="with-viewer" %}
+        </div>
+        <div class="copy">
+            <h3 id="{{ website.id }}">{{ website.title }}</h3>
+            <h4>{{ website.year }} | <a href="{{website.link}}" target="_blank">{{website.link | remove: "http://" | remove: "https://" | remove: "www."}}</a></h4>
+            <p>{{website.description}}</p>
+        </div>
+    </div>
+    {% endfor %}
+
