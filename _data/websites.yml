@@ -107,7 +107,7 @@
   year: 2016
   description: |
     In 2015, I took a picture of everything I ate. And I do mean everything! To
-    commemerate the year, I made a website with every food picture I took that
+    commemorate the year, I made a website with every food picture I took that
     year, using a <a href="/projects/pig-js/">custom-built image grid inspired
     by Google Photos.</a> I also wrote
     <a href="/writing/building-the-image-grid-from-google-photos/">an
@@ -166,7 +166,7 @@
   description: |
     Made as a project for my Storytelling and Streaming Data class at Columbia,
     this project pits two languages against each other to compete over which one
-    has more edit acitvity on Wikipedia at the moment.  The score is determined
+    has more edit activity on Wikipedia at the moment.  The score is determined
     as the change in edits per second.
 
 - title: Aidan O'Connell
@@ -278,7 +278,7 @@
   year: 2015
   description: |
     This is the website for Techinca, an all-women hackathon at University of
-    Maryland. Built in a time cruch (only a few days!), the site was my first
+    Maryland. Built in a time crunch (only a few days!), the site was my first
     experiences using <a href="https://zeplin.io/">Zeplin</a> and
     <a href="http://gulpjs.com/">Gulp</a>, two tools that I now rely on to be
     productive.
@@ -312,7 +312,7 @@
   link: https://adicu.com
   year: 2014
   description: |
-    I built this website for ADI, the Application Development Initative, the
+    I built this website for ADI, the Application Development Initiative, the
     tech club at Columbia that I was a member of for my four years there. I made
     the ADI website using <a href="/projects/eventum/">Eventum</a> for a CMS.
     The site design and ADI logo are by
@@ -337,6 +337,6 @@
   year: 2014
   description: |
     I made this website while playing around with different effects in jQuery.
-    I liked the idea of having a collecion of discs that moved around in
+    I liked the idea of having a collection of discs that moved around in
     parallax with the content, but in a related way, and that they would stack
     in a way that felt logical.

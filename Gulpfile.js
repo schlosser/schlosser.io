@@ -158,7 +158,8 @@ gulp.task('responsive:resize', function () {
       destSuffix = process.argv[idx + 1];
     } else {
       srcSuffix = process.argv[idx + 1];
-      destSuffix = process.argv[idx + 1];
+      destSuffix = process.argv[idx + 1].substring(0,
+        process.argv[idx + 1].lastIndexOf('/'));
     }
   } else {
     srcSuffix = '**/*';
