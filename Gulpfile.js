@@ -197,7 +197,7 @@ gulp.task('responsive:metadata', function () {
   };
   return gulp.src('./_img/res/raw/**/*.{jpg,JPG,png,PNG,jpeg,JPEG,gif,GIF}')
     .pipe(foreach(function (stream, file) {
-      var key = file.path.replace(/\\/g,'/').replace(/.*\/_img\/res\/raw\//, '');
+      var key = file.path.replace(/\\/g, '/').replace(/.*\/_img\/res\/raw\//, '');
       var dimensions = sizeOf(file.path);
       metadata.aspectRatios[key] = Number((dimensions.width / dimensions.height).toFixed(3));
       return stream;
