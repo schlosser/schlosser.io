@@ -120,7 +120,7 @@
 
     // Load Raw Image (large!)
     setTimeout(function () {
-      if (this.lastWindowWidth < 1440 && this.figure.className.indexOf('loaded-raw') <= 0) {
+      if (this.figure.className.indexOf('loaded-raw') <= 0) {
         // There is a larger image to load.
         this.loadRaw();
       }
@@ -165,7 +165,7 @@
     var rawImage = new Image();
 
     // not actually raw, because damn, that's expensive.
-    rawImage.src = this.figure.dataset.large;
+    rawImage.src = this.figure.dataset.raw;
     rawImage.className = 'raw';
     rawImage.onload = function () {
       this.figure.className += ' loaded-raw';
