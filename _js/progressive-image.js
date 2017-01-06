@@ -33,7 +33,8 @@
    *   <figure class="progressive-image"
    *       data-small="..."
    *       data-medium="..."
-   *       data-large="...">
+   *       data-large="..."
+   *       data-raw="...">
    *     <div class="aspect-ratio-holder" style="padding-bottom: ..."></div>
    *     <img class="thumbnail" src="..." alt="...">
    *   </figure>
@@ -46,8 +47,12 @@
     this.figure = figure;
     this.lastWindowWidth = window.innerWidth;
     this.transitionEndEvent = _whichTransitionEndEvent();
+    this.forceSmall = (this.figure.className.indexOf('force-small') >= 0);
+    this.forceMedium = (this.figure.className.indexOf('force-medium') >= 0);
+    this.forceLarge = (this.figure.className.indexOf('force-large') >= 0);
     this.load();
-    if (this.figure.className.indexOf('viewer') >= 0) {
+
+    if (this.figure.className.indexOf('with-viewer') >= 0) {
       this.figure.addEventListener('click', this.openViewer.bind(this));
     }
 
@@ -178,13 +183,30 @@
    * Choose the size of image to load based on the window width.
    */
   ProgressiveImage.prototype.getSize = function () {
-    if (this.lastWindowWidth < 768) {
+    if (this.forceSmall) {
       return 'small';
-    } else if (this.lastWindowWidth < 1440) {
+    } else if (this.forceMedium) {
       return 'medium';
-    } else {
+    } else if (this.forceLarge) {
       return 'large';
     }
+
+    var sizes = ['small', 'medium', 'large'];
+    var sizeIndex;
+    if (this.lastWindowWidth < 768) {
+      sizeIndex = 0; // small
+    } else if (this.lastWindowWidth < 1440) {
+      sizeIndex = 1; // medium
+    } else {
+      sizeIndex = 2; // large;
+    }
+
+    // Retina devices should have larger pixel densities.
+    if (window.devicePixelRatio > 1 && sizeIndex < 2) {
+      sizeIndex += 1;
+    }
+
+    return sizes[sizeIndex];
   };
 
   // Export ProgressiveImage into the global scope.

@@ -11,5 +11,9 @@
   action: Poke
   url: https://www.facebook.com/danrschlosser
 -
+  action: Network
+  class: tablet-only
+  url: https://www.linkedin.com/in/danrschlosser/
+-
   action: Send
   url: mailto:dan@schlosser.io

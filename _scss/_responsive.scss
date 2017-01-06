@@ -22,8 +22,14 @@
   }
 }
 
+@media screen and (min-width: $tablet-landscape-min) {
+  .tablet-only {
+    display: none;
+  }
+}
+
 @media screen and (min-width: $tablet-portrait-min) {
-  .m-only {
+  .mobile-only {
     display: none;
   }
 }

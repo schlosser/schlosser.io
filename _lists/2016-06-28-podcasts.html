@@ -14,7 +14,7 @@ redirect_from:
     {% for podcast in site.data.podcasts %}
     <div class="podcast">
         <div class="image">
-            {% include resimg.html src=podcast.img class="podcast-image" %}
+            {% include resimg.html src=podcast.img class="podcast-image force-small" %}
         </div>
         <div class="copy">
             <h3 id="{{ podcast.id }}">{{ podcast.title }}</h3>

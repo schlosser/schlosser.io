@@ -12,7 +12,7 @@ featured_image: lists/alfred.jpg
     {% for workflow in site.data.workflows %}
     <div class="visual-list">
         <div class="image">
-            {% include resimg.html src=workflow.img %}
+            {% include resimg.html src=workflow.img class="force-small" %}
         </div>
         <div class="copy">
             <h3 id="{{ workflow.id }}">{{ workflow.title }}</h3>

@@ -14,7 +14,7 @@ redirect_from:
     {% for website in site.data.websites %}
     <div class="visual-list large">
         <div class="image screenshot">
-            {% include resimg.html src=website.img class="with-viewer" %}
+            {% include resimg.html src=website.img class="with-viewer force-medium" %}
         </div>
         <div class="copy">
             <h3 id="{{ website.id }}">{{ website.title }}</h3>
