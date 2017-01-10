@@ -32,13 +32,13 @@ hero_style: large
 
 <p>So while this system seems like it would work perfectly, I was running into a bug where despite calculating the size of the new and old word and animating properly, the containers of size <code>newWidth</code> and <code>oldWidth</code> didn’t quite fit the new and old words (sometimes too big, sometimes too small). This was really aggravating, because I used JavaScript to determine the width of the elements atnewWidth and auto, and they were the same!</p>
 
-<pre><code>$word.width('auto');                  <em>// Word looks good</em>
-<strong>var</strong> oldAutoWidth = $word.width();
-$word.width(oldAutoWidth);            <em>// Word doesn't fit in container</em>
-
-<strong>var</strong> oldWidth = $word.width()
-console.log(oldWidth == oldAutoWidth) <em>// True</em>
-</code></pre>
+{% highlight js%}
+$word.width('auto');                  // Word looks good
+var oldAutoWidth = $word.width();
+$word.width(oldAutoWidth);            // Word doesn't fit in container
+var oldWidth = $word.width()
+console.log(oldWidth == oldAutoWidth) // True
+{% endhighlight %}
 
 <p>How could it be the same size yet still appear different? I took to the handy chrome inspector, looking for anything that might be different, and I found it! It turns out that the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/computed_value">computed value</a> of the element’s width after changing it’s style differed by a fraction of a pixel.</p>
 
@@ -46,9 +46,11 @@ console.log(oldWidth == oldAutoWidth) <em>// True</em>
 
 <p>The solution, it turns out, was to use <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window.getComputedStyle">Window.getComputedStyle()</a></code>, which until this point I didn’t even know existed:</p>
 
-<pre><code><span>$word.width('auto');</span>                  <em>// Word looks good</em>
-<strong>var</strong> oldWidth = window.getComputedStyle($word, 'width');
-$word.width(oldWidth);                <em>// Word looks good</em></code></pre>
+{% highlight js %}
+$word.width('auto');                  // Word looks good
+var oldWidth = window.getComputedStyle($word, 'width');
+$word.width(oldWidth);                // Word looks good
+{% endhighlight %}
 
 <p>This returns a string like “89.224px”, which I could then parse and modify if needed. Once I started using <code>Window.getComputedStyle()</code> in my calculations, all my animations became perfectly smooth, on every browser I tested. (That includes Chrome for Android, Chrome for iOS, Safari Mobile, and Chrome, Firefox, and Safari on desktop.) It was a pretty crazy solution, and I kind of <a href="https://github.com/danrschlosser/danrs-ch/commit/5916bc0b6e64f563608c1581224849b3be83af96#diff-9f88450194904e3d43b9a7c39f7d7d4eL199">freaked out</a> when I got it working.</p>
 

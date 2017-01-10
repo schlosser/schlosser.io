@@ -11,29 +11,33 @@ hero_style: large
 
 <p>At the time, the ADI website was loading the details for upcoming workshops and tech talks using the Google Calendar API in JavaScript. Every time someone visited <a href="http://adicu.com/">adicu.com</a>, their browser requested the last month’s worth of events from Google Calendar, and then painstakingly parsed them into HTML. What’s worse is that we needed to hold separate resources, short description, and long description all in the description field of the Google Calendar event. Gross. To accomplish this, said description had to be formatted as follows:</p>
 
-<pre><code>Short Description
+{% highlight python %}
+Short Description
 <em>---</em>
 Long Description
 <em>---</em>
 slides --&gt; <em>http://link-to-slides.com/this_event</em>
 code samples --&gt; <em>http://github.com/adicu/this_event</em>
-...</code></pre>
+...
+{% endhighlight %}
 
 <p>It was painful. The JavaScript (which I dug up directly from our old site) says it all:</p>
 
-<pre><code><strong>var</strong> parts = event.description.split("---");
+{% highlight js %}
+var parts = event.description.split("---");
 event.description = parts[0];
 
-<strong>if</strong> (parts.length == 3) {
+if (parts.length == 3) {
     event.longDescription = parts[1];
-    <strong>var</strong> resources = parts[2];
-    resources = resources.split("--&gt;");
+    var resources = parts[2];
+    resources = resources.split("-->");
     event.resources = {};
 
-    <strong>for</strong> (<strong>var</strong> x=0; x&lt;resources.length; x+=2) {
+    for (var x = 0; x < resources.length; x += 2) {
       event.resources[resources[x].toLowerCase().trim()] = resources[x+1];
     }
-}</code></pre>
+}
+{% endhighlight %}
 
 <p>This string parsing is extremely expensive when it’s being done on every event we pulled in, every time our front page loaded. I knew we could do better.</p>
 
