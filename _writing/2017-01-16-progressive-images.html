@@ -8,8 +8,68 @@ featured_image: writing/building-the-image-grid-from-google-photos.png
 
 <p>Every year or so, I rewrite my personal website from scratch. The design is a signal of how I'm feeling or what I'm thinking about; the implementation is based on new and ever-changing constraints.  My latest redesign, launched this past fall, focused on a newly present desire to host photography.  I had photos from my recent travel, but no where to put them.</p>
 
-<p>As I often do when working on a new design, I engineer things obsessively. In this version, I was commited to implement best practices when it came to loading images.  That meant responsive (loading the right size image on different size devices), progressive (displaying a meaningful placeholder while the image loads), and easy to manage (not requiring lots of manual work to add new images or change existing ones). Achieving all three was really fun, and required building up some new tools to make working with images easy. Here's how I did it.</p>
+<p>As I often do when working on a new design, I engineer things obsessively. In this version, I was committed to implement best practices when it came to loading images.  That meant responsive (loading the right size image on different size devices), progressive (displaying a meaningful placeholder while the image loads), and easy to manage (not requiring lots of manual work to add new images or change existing ones). Achieving all three was really fun, and required building up some new tools to make working with images easy. Here's how I did it.</p>
 
 <h2>Responsive Images</h2>
 
 <p>Making images responsive is the most important feature of a website that loads quickly, is respectful of users' data plans, and looks great on all devices. With my travel photos, it was really important to me that visitors on large-screened devices got full, high resolution images. But, on phones and tablets, loading large images is expensive and can take a long time.</p>
+
+<p>The solution is to generate multiple different sizes of image, and load the appropriate image based on the screen size. To achieve this, I need a snippet of HTML to represent where the image will be, and some JavaScript to load the correct image. The basic HTML looks like this:</p>
+
+{% highlight html %}
+<figure class="progressive-image"
+        data-small="/img/res/400/path/to/src"
+        data-medium="/img/res/800/path/to/src"
+        data-large="/img/res/1600/path/to/src"
+        data-raw="/img/res/raw/path/to/src">
+</figure>
+{% endhighlight %}
+
+<p>I provide four different sizes: small (400p), medium (800p), large (1600p), and the raw (often 3000p or more). Then, in Javascript, I wrote a <code>ProgressiveImage</code> class that, when initialized with a <code>&lt;figure&gt;&lt;/figure&gt;</code>, loads the appropriately sized image.  The constructor is simple:</p>
+
+{% highlight js %}
+function ProgressiveImage(figure) {
+  this.figure = figure;
+  this.lastWindowWidth = window.innerWidth;
+  this.load();
+
+  return this;
+}
+
+/**
+ * Load the full image element into the DOM.
+ */
+ProgressiveImage.prototype.load = function () {
+  // Create a new image element, and insert it into the DOM.
+  var fullImage = new Image();
+  fullImage.src = this.figure.dataset[this.getSize()];
+  fullImage.className = 'full';
+  fullImage.onload = function () {
+    this.figure.className += ' loaded';
+  }.bind(this);
+
+  this.figure.appendChild(fullImage);
+};
+
+/**
+ * Choose the size of image to load based on the window width.
+ */
+ProgressiveImage.prototype.getSize = function () {
+  var sizes = ['small', 'medium', 'large'];
+  var sizeIndex;
+  if (this.lastWindowWidth < 768) {
+    sizeIndex = 0; // small
+  } else if (this.lastWindowWidth < 1440) {
+    sizeIndex = 1; // medium
+  } else {
+    sizeIndex = 2; // large;
+  }
+
+  // Retina devices should have larger pixel densities.
+  if (window.devicePixelRatio > 1 && sizeIndex < 2) {
+    sizeIndex += 1;
+  }
+
+  return sizes[sizeIndex];
+};
+{% endhighlight %}
