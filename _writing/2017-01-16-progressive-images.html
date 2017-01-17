@@ -1,0 +1,15 @@
+---
+title: Responsive, Progressive Images Made Easy
+date: 2017-01-16
+hero_image: writing/building-the-image-grid-from-google-photos-hero.png
+hero_style: large
+featured_image: writing/building-the-image-grid-from-google-photos.png
+---
+
+<p>Every year or so, I rewrite my personal website from scratch. The design is a signal of how I'm feeling or what I'm thinking about; the implementation is based on new and ever-changing constraints.  My latest redesign, launched this past fall, focused on a newly present desire to host photography.  I had photos from my recent travel, but no where to put them.</p>
+
+<p>As I often do when working on a new design, I engineer things obsessively. In this version, I was commited to implement best practices when it came to loading images.  That meant responsive (loading the right size image on different size devices), progressive (displaying a meaningful placeholder while the image loads), and easy to manage (not requiring lots of manual work to add new images or change existing ones). Achieving all three was really fun, and required building up some new tools to make working with images easy. Here's how I did it.</p>
+
+<h2>Responsive Images</h2>
+
+<p>Making images responsive is the most important feature of a website that loads quickly, is respectful of users' data plans, and looks great on all devices. With my travel photos, it was really important to me that visitors on large-screened devices got full, high resolution images. But, on phones and tablets, loading large images is expensive and can take a long time.</p>
