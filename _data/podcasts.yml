@@ -51,6 +51,19 @@
   tags:
   - politics
   - educational
+- id: mbmbam
+  img: podcasts/mbmbam.jpg
+  title: "My Bother, My Brother and Me"
+  link: "https://mbmbam.com"
+  itunes: "https://itunes.apple.com/us/podcast/my-brother-my-brother-and-me/id367330921?mt=2"
+  description: |
+    My Brother, My Brother an Me is a comedy advice show where Justin, Travis
+    and Griffin McElroy answer all the questions you never thought to ask.  The
+    brothers read and answer submitted questions, submitted Yahoo! Answers
+    questions that need resolution, and read the occasional fast-food press
+    release. It's hilarious, and reliably puts me in good spirits.
+  tags:
+  - conversational, comedy
 - id: the-moth
   img: podcasts/the-moth.jpg
   title: "The Moth"
@@ -240,6 +253,17 @@
   - video games
   - comedy
   - conversational
+- id: the-adventure-zone
+  img: podcasts/the-adventure-zone.jpg
+  title: "The Adventure Zone"
+  link: "https://theadventure.zone"
+  itunes: "https://itunes.apple.com/us/podcast/the-adventure-zone/id947899573?mt=2"
+  description: |
+    The Adventure zone is a Dungeons and Dragons podcast, where the
+    <a href="http://mcelroyshows.com/">McElroy Brothers</a> play dungeons and
+    dragons with their dad. You may not be a fan of Dungeons and Dragons when
+    you start listening, but their clever banter and characters keep this show
+    super fun. There's a great backlog, too!
 - id: limetown
   img: podcasts/limetown.jpg
   title: "Limetown"
@@ -250,7 +274,6 @@
     a small down in Tennessee, never to be heard from again.  This is the premise of
     this fictional story which follows an investigative reporter who discovers a
     lead on the mysterious disappearance.
-
   tags:
   - fiction
   - narrative
