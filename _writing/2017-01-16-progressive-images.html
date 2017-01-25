@@ -54,13 +54,11 @@ ProgressiveImage.prototype.load = function () {
 
   this.figure.appendChild(fullImage);
 };
-
 {% endhighlight %}
 
 <p>This creates a new image tag, inserts it into the figure, and adds the class <code>loaded</code> to the figure when it has been fully loaded. The only interesting question here is how to determine what the source URL should be, which I've factored out into a separate <code>getSize()</code> function:</p>
 
 {% highlight js %}
-
 /**
  * Choose the size of image to load based on the window width.
  */
@@ -89,3 +87,9 @@ ProgressiveImage.prototype.getSize = function () {
 <p>Note that this logic just chooses between one of three sizes, and doesn't account for the size of the image on the screen. (Small images in grids will get the same result as huge full-bleed images.) In my <a href="#TODO">final implementation</a>, I allow for overrides to force a particular size, a solution that works great for small images in grids.</p>
 
 <p>With those three functions, and a bit of markup, I added responsive images to my site.  Next up, a few tweaks to my responsive setup will give users a meaningful placeholder while the full image loads.</p>
+
+<h2>Progressive Images</h2>
+<p>Adding an intelligent placeholder for your image while its loading provides a better user experience for users on slow connections, and can also deliver performance improvements across the board.</p>
+
+<p>We've all been there: loading a long article with lots of text and images, and when you're half way done reading the article, images above start popping into place, having finally loaded and been inserted into the DOM. Without any placeholder taking their place, loading images into the page too late can cause the page to jump.  This jump is a result of the browser recomputing layouts after elements are inserted into the DOM. With a smart placeholder for your image, you'll avoid your page jumping around as the page loads, and you'll see better page performance having avoid unenessary layouts.</p>
+
