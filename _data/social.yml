@@ -1,19 +1,19 @@
 -
-  action: Tweet
+  title: Twitter
   url: https://www.twitter.com/danrschlosser
 -
-  action: Code
+  title: GitHub
   url: https://github.com/schlosser
 -
-  action: Write
+  title: Medium
   url: https://medium.com/@danrschlosser
 -
-  action: Poke
+  title: Facebook
   url: https://www.facebook.com/danrschlosser
 -
-  action: Network
+  title: LinkedIn
   class: tablet-only
   url: https://www.linkedin.com/in/danrschlosser/
 -
-  action: Send
+  title: Email
   url: mailto:dan@schlosser.io

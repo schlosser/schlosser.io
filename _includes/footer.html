@@ -41,10 +41,9 @@
         <div class="links">
             {% for account in site.data.social %}
             <h2 class="path {{ account.class }}">
-                <span class="component">.</span>
                 <span class="slash">/</span>
                 <span class="component">
-                    <a href="{{ account.url }}">{{ account.action }}</a>
+                    <a href="{{ account.url }}">{{ account.title }}</a>
                 </span>
             </h2>
             {% endfor %}
