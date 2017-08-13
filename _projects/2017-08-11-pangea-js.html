@@ -1,0 +1,126 @@
+---
+title: pangea.js
+featured_image: projects/pangea.png
+link: https://github.com/minimill/pangea.js
+hero_style: none
+cta: View pangea.js on GitHub
+date: 2017-08-11
+---
+
+<p>It started with a website. It usually does with me, but in this particular case it started with a client's website. I was working on behalf of <a href="/teams/minimill">Minimill</a>, building a site for Albert Wenger's latest book, <a href="https://worldaftercapital.org/">World After Capital</a>. It was a simple static site: a handful of HTML pages with some shared CSS. </p>
+
+<p>I had finished the basic implementation, but I felt something was missing. It needed motion. The design used a small set of components across each of the pages. A blue (and sometimes white) background, a striking yellow book cover, and a consistent navigation in the upper right.</p>
+
+</section>
+<div class="image-set">
+    <div class="large">
+        {% include resimg.html src="projects/pangea-home.png" class="with-viewer" %}
+        {% include resimg.html src="projects/pangea-author.png" class="with-viewer" %}
+    </div>
+    <div class="large">
+        {% include resimg.html src="projects/pangea-talks.png" class="with-viewer" %}
+        {% include resimg.html src="projects/pangea-faq.png" class="with-viewer" %}
+    </div>
+</div>
+<h5>The home, author, talks, and FAQ pages of <a href="http://worldaftercapital.org">worldaftercapital.org</a>.</h5>
+<section class="text">
+
+<p>I wanted to create animations between each page, each component morphing into different forms as you switch between them. However, this presented a problem. Typically, in order to animate between pages on the web, you need a <em>single page app</em>, where all of the content and structure of the site is loaded at once and each page transition just hides and shows different parts of the page. My problem was, I already had a multi-page static website, and I didn't want to rewrite the entire website to add these page transitions. As a result, I was going to have to account for a browser refresh between each page.</p>
+
+<p>To solve this problem a JavaScript library that choreographs entrance and exit animations between multiple website pages, hides the browser refresh, and removes the need for a single page app. </p>
+
+<h3>How it works</h3>
+
+<p>To use <code>pangea.js</code>, the web design must first take every pair of pages, and imagine a common visual state between them, and write the CSS. Instatiate the library on the page, and it does the rest. When you click a link, the following happens:</p>
+
+<ol>
+    <li>The library inspects the link's <code>href</code> property, to figure out where you're trying to go. </li>
+    <li>If the destination is a known page with a shared state, add a class to the body, triggering CSS that animates the page to the shared visual state.</li>
+    <li>Once in the shared state, the page refresh is triggered by modifying <code>window.location</code>.</li>
+    <li>On every new page, trigger entrance animations from the shared visual state to the new page.</li>
+</ol>
+
+<p>The effect is pretty amazing:</p>
+
+{% include youtube.html id="vaO1mrSlRWg" paddingbottom="62.5%" %}
+
+<p>The final effect is pretty amazing: one fluid animation between pages and a hidden page refresh. (You can find the refresh by watching Chrome's URL label in the lower left corner.) By animating to and from a simple shared state and leveraging the browser's asset caching, the browser's page change often takes less than 100ms, the <a href="https://www.nngroup.com/articles/response-times-3-important-limits/">lower limit for human-perceptable delay</a>.</p>
+
+<h3>Using the library</h3>
+
+<p>The first step for using <code>pangea.js</code> is writing markup. In order for the library to know when a page animation is complete, simply mark an element on the page with an ID. Here, I use <code>last-to-animate</code>.</p>
+
+{% highlight html %}
+<!-- 1. Include the pangea.js library -->
+<script src="pangea.min.js"></script>
+
+<!-- 2. Tag an element as being the last to animate, using any ID you see fit -->
+<h1>Test webpage</h1>
+<p><a href="/about">More about me</a></p>
+<p id="last-to-animate">This element is last to animate</p>
+{% endhighlight %}
+
+<p>Next, is the CSS, where most of the work is done. For each page, add styles that react to various classes being added to the <code>&lt;body&gt;</code>. In order to achieve smooth animations, this will require one entrance animation per page from the shared state, and one exit animation to the shared state for each page the source page links to.</p>
+
+{% highlight css %}
+/*
+ * Example default styles.
+ */
+body {
+    backgrond-color: white;
+    /* We use CSS transitions to create the animations. */
+    transition: 0.3s ease background;
+}
+
+h1, p {
+    opacity: 1;
+    transition: 0.3s ease opacity;
+}
+
+/*
+ * Example animation styles.
+ *
+ * Here, we fade out text and fade the background to black when the
+ * Pangea library gives the body the animating-to-about-page class.
+ */
+body.animating-to-about-page {
+    background-color: black;
+}
+
+body.animating-to-about-page h1,
+body.animating-to-about-page p {
+    opacity: 0;
+}
+{% endhighlight %}
+
+<p>Finally, instantiate the <code>pangea.js</code> library. On each page, register each destination page that should be tracked, the body class to trigger the animation, and the last element to animate.</p>
+
+{% highlight js %}
+/*
+ * When we click links to the /about page, the library gives the body the
+ * animating-to-about-page class.  When the element with ID last-to-animate
+ * is done transitioning, we will navigate to the /about page.
+ */
+var pangea = new Pangea()
+    .register(/\/about/, 'last-to-animate', 'animating-to-about-page')
+    .enable();
+{% endhighlight %}
+
+<p>As you may notice, the syntax is somewhat verbose; this is an intentional trade-off. Because there is no shared communication between pages on this type of flat HTML site, each pair of pages must be manual registered and styled. This results in a tiny package size of just 1.4KB minified and gzipped.</p>
+
+{% include resimg.html src="projects/pangea.png" %}
+<h5>The <code>pangea.js</code> logo, courtesy of <a href="http://jhil.co">Jeff Hilnbrand</a>.</h5>
+
+<h3>Scaling</h3>
+
+<p>One of the tricky thing about using <code>pangea.js</code> is achieving the sub-100ms subsequent page load times. It was easy on <a href="https://worldaftercapital.org">worldaftercapital.org</a> because the site was relatively lightweight. I was worried that it wouldn't scale to heavier static sites. So, when we decided to redesign <a href="https://minimill.co">Minimill's portfolio site</a>, we made <code>pangea.js</code> transitions a centerpiece:</p>
+
+{% include youtube.html id="TajUUbg_Q94" paddingbottom="59%" %}
+
+<p>Minimill's site is much heavier than World After Capital's. However, the browser does a lot of heavy lifting, and creates a seamless animation between each page. In the case of the project sub-pages, they even share an image (the open laptop) which sees no flicker.</p>
+
+<p>We could have built Minimill's site as a single page application, but then we pay the cost of loading a large JavaScript bundle at the initial page load. This means major slowdown, especially on mobile and on poor connections. With <code>pangea.js</code>, we essentially disable the entire library on mobile, and the site behaves as you'd expect. No animations, just regular links between HTML.</p>
+
+<p>After using <code>pangea.js</code> on several websites, I've realized that it isn't always the right tool. There are better solutions for in-page animations and for page transitions in single page apps, but for flat, static websites that place a priority on performance and mobile experience, I think it's an amazing option.</p>
+
+<p>Like all of Minimill's tooling, <code>pangea.js</code> is open source. Please check out the documented source, and submit an issue or pull request if you think it could work even better! Thanks in advance.</p>

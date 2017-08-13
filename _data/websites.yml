@@ -1,3 +1,83 @@
+- title: Nathan Savoy
+  id: nathansavoy-com
+  img: websites/nathansavoy.com.png
+  link: http://nathansavoy.com
+  year: 2017
+  description: |
+    For this redesign of Nathan's personal website, he wanted to bring a bigger
+    focus to his work. After working through some options, we ended up
+    featuring several pieces of his poetry, photoessays for his collaborative
+    work, and some video. The striking diagonal design was super fun to play
+    with for me, and brought some interesting challenges for responsive design!
+
+- title: Chris McCarthy
+  id: chrismccarthy
+  img: websites/chrismccarthymusic.com.png
+  link: https://chrismccarthymusic.com
+  year: 2017
+  description: |
+    I remade Chris McCarthy's website to promote the release of his first
+    album: <em>Sonder</em>. The first version of this site uses a custom-built
+    router I wrote specifically for the site -- it's an ultra-simple wrapper
+    over the History API, that let us keep the BandCamp embed playing as you
+    click around the site.
+
+- title: The Games that Made Us
+  id: gamesthatmadeus
+  img: websites/gamesthatmadeus.com.png
+  link: http://gamesthatmadeus.com
+  year: 2017
+  description: |
+    Another silly one-off site for The Games that Made Us, the podcast I
+    started with my friend Nathan where we talk about the video games we played
+    as kids. I came up with the lead joke while making the site, and we liked
+    it so much it became our defacto tagline.
+
+- title: Jacob Paulson
+  id: jacobpaulson
+  img: websites/jacobpaulson.com.png
+  link: http://jacobpaulson.com
+  year: 2017
+  description: |
+    I built this portfolio site for my friend Jacob Paulson, who does fantastic
+    restoration, woodworking, and other crafting.  He sent me a series of
+    photos of his projects, and I knew they had to take center-stage. On top of
+    being a great craftsman, he's also a great photographer, which made my life
+    easy.
+
+- title: Interact
+  id: interact
+  img: websites/joininteract.com.png
+  link: http://joininteract.com
+  year: 2017
+  description: |
+    I built the site for Interact, a community of technologists that meet
+    annually for a fellowship retreat. The opening animation was especially fun
+    to make: I was sent an after effects file, and converted it to CSS, a
+    process that was far more successful than I would have imagined.
+
+- title: Pozo
+  id: pozo
+  img: websites/pozodelosgigantes.com.png
+  link: http://pozodelosgigantes.com
+  year: 2017
+  description: |
+    I designed and wrote this site on short notice&mdash;about half an hour or
+    so&mdash;for my friend Conor Bloomer, for his thesis project, which he
+    called "Pozo de los Gigantes."
+
+- title: Shortener.io
+  id: shortener-io
+  img: websites/shortener.io.png
+  link: https://shortener.io
+  year: 2017
+  description: |
+    This was my first stab at building a React app since it was first announced
+    a few years back. It's a simple web UI for a Firebase backend, but it was a
+    fun challenge to figure out the best practices from the React community. I
+    also spent a bit of time getting it to work with my preferred Gulp build
+    system, but was able to get everything working. The design, on the other
+    hand, is still a work in progress.
 
 - title: David Adewumi
   id: davidadewumimusic-com
@@ -24,8 +104,8 @@
     custom JavaScript to achieve this effect.
 
 - title: Nathan Savoy
-  id: nathansavoy-com
-  img: websites/nathansavoy.com.png
+  id: 2016-nathansavoy-com
+  img: websites/2016.nathansavoy.com.png
   link: http://nathansavoy.com
   year: 2016
   description: |
@@ -92,8 +172,8 @@
     how the header is achieved with just a subtle background-color change.
 
 - title: Chris McCarthy Music
-  id: chrismccarthymusic-com
-  img: websites/chrismccarthymusic.com.png
+  id: 2016-chrismccarthymusic-com
+  img: websites/2016.chrismccarthymusic.com.png
   link: http://chrismccarthymusic.com
   year: 2016
   description: |
@@ -161,7 +241,7 @@
 - title: When Will the 1 Come
   id: when-will-the-1-come
   img: websites/when-will-the-1-come.png
-  link: https://when-will-the-1-come.schlosser.io
+  link: https://whenwillthe1come.schlosser.io
   year: 2016
   description: |
     I made this websites as assignment in a course at Columbia called

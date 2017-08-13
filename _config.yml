@@ -54,7 +54,9 @@ defaults:
       path: ""
       type: projects
     values:
-      layout: blog_post
+      layout: project
+      cta: Check it out
+      related_posts: projects
   -
     scope:
       path: ""
