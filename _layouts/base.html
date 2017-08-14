@@ -9,14 +9,14 @@
     <meta name="robots" content="NOODP, index, follow" />
     <meta itemprop="name" content="{% if page.title %}{{ page.title}}{% else %}{{ site.meta.title }}{% endif %}">
     <meta itemprop="description" content="{{ desc }}">
-    <meta itemprop="image" content="{% if page.featured_image %}{{ page.featured_image }}{% else %}{{ site.meta.image }}{% endif %}">
+    <meta itemprop="image" content="{% if page.featured_image %}{{ site.meta.root }}/img/res/800/{{ page.featured_image }}{% else %}{{ site.meta.image }}{% endif %}">
     <!-- Twitter Card data -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="{{ site.meta.twitter_handle }}">
     <meta name="twitter:title" content="{% if page.title %}{{ page.title}}{% else %}{{ site.meta.title }}{% endif %}">
     <meta name="twitter:description" content="{{ desc }}">
     <meta name="twitter:creator" content="{{ site.meta.twitter_handle }}">
-    <meta name="twitter:image:src" content="{% if page.featured_image %}{{ page.featured_image }}{% else %}{{ site.meta.twitter_image }}{% endif %}">
+    <meta name="twitter:image:src" content="{% if page.featured_image %}{{ site.meta.root }}/img/res/800/{{ page.featured_image }}{% else %}{{ site.meta.twitter_image }}{% endif %}">
     <meta name="twitter:domain" content="{{ site.meta.domain }}">
     <!-- Open Graph data (Facebook) -->
     <meta property="og:title" content="{% if page.title %}{{ page.title}}{% else %}{{ site.meta.title }}{% endif %}" />

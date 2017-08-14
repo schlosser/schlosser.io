@@ -31,10 +31,33 @@ article {
     padding: 3rem;
   }
 
+  figure.highlight {
+    position: relative;
+    &::after, &::before {
+      bottom: 0;
+      content: ' ';
+      position: absolute;
+      top: 0;
+      width: 2rem;
+    }
+
+    &::before {
+      left: 0;
+      background: linear-gradient(to left, rgba($lighter-gray, 0), $lighter-gray);
+    }
+
+    &::after {
+      right: 0;
+      background: linear-gradient(to right, rgba($lighter-gray, 0), $lighter-gray);
+    }
+  }
+
   pre {
     background-color: $lighter-gray;
     margin: 1.5rem 0;
     padding: 2rem;
+    overflow: scroll;
+    width: 100%;
 
     code {
       line-height: 1.5;
