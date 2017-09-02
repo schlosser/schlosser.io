@@ -244,7 +244,11 @@ gulp.task('clean', function (cb) {
   return del(['./_site/', './css/', './js/', './img/'], cb);
 });
 
-gulp.task('deploy', ['build:optimized'], function () {
+gulp.task('deploy', function(cb) {
+  return runSequence('build:optimized', 'deploy:upload', cb);
+});
+
+gulp.task('deploy:upload', function () {
   return gulp.src('')
     .pipe(shell('rsync -avuzh _site/* dan:/srv/schlosser.io/public_html/'))
     .on('finish', function () {
