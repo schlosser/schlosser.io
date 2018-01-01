@@ -12,9 +12,10 @@ body {
     z-index: 500;
   }
 
-  &.viewer-open .scrim {
+  &[class*="viewer-"] .scrim {
     opacity: 1;
     pointer-events: auto;
+    cursor: zoom-out;
   }
 }
 
@@ -33,7 +34,7 @@ body {
   &.with-viewer {
     cursor: zoom-in;
 
-    &.viewer-open {
+    &.is-open {
       cursor: zoom-out;
     }
   }

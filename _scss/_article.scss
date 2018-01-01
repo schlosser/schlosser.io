@@ -31,8 +31,9 @@ article {
     padding: 3rem;
   }
 
-  figure.highlight {
+  .highlight {
     position: relative;
+
     &::after, &::before {
       bottom: 0;
       content: ' ';
@@ -42,21 +43,21 @@ article {
     }
 
     &::before {
-      left: 0;
       background: linear-gradient(to left, rgba($lighter-gray, 0), $lighter-gray);
+      left: 0;
     }
 
     &::after {
-      right: 0;
       background: linear-gradient(to right, rgba($lighter-gray, 0), $lighter-gray);
+      right: 0;
     }
   }
 
   pre {
     background-color: $lighter-gray;
     margin: 1.5rem 0;
-    padding: 2rem;
     overflow: scroll;
+    padding: 2rem;
     width: 100%;
 
     code {
@@ -149,20 +150,20 @@ article {
   }
 
   .video {
+    height: 0;
+    padding-bottom: 56.25%;
     position: relative;
     width: 100%;
-    padding-bottom: 56.25%;
-    height: 0;
 
     &.disable-cursor {
       pointer-events: none;
     }
 
     iframe {
-      position: absolute;
-      left: 0;
-      top: 0;
       height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
       width: 100%;
     }
   }

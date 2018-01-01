@@ -43,13 +43,20 @@
    * @returns {object} the progressive image object
    */
   function ProgressiveImage(figure) {
+    this.id = "viewer-" + Math.round(Math.random()*Math.pow(10,6)).toString();
     this.viewerOpen = false;
     this.figure = figure;
+    this.scrim = document.getElementsByClassName('scrim')[0];
     this.lastWindowWidth = window.innerWidth;
     this.transitionEndEvent = _whichTransitionEndEvent();
     this.forceSmall = (this.figure.className.indexOf('force-small') >= 0);
     this.forceMedium = (this.figure.className.indexOf('force-medium') >= 0);
     this.forceLarge = (this.figure.className.indexOf('force-large') >= 0);
+    window.addEventListener('keyup', function(e) {
+      if (e.keyCode === 27 /* ESC */) {
+        this.closeViewer();
+      }
+    }.bind(this));
     this.load();
 
     if (this.figure.className.indexOf('with-viewer') >= 0) {
@@ -61,11 +68,15 @@
 
   ProgressiveImage.prototype.closeViewer = function () {
     window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('resize', this.onShouldCloseViewer);
+    window.removeEventListener('orientationchange', this.onShouldCloseViewer);
+    this.scrim.removeEventListener('click', this.onShouldCloseViewer);
+
     this.figure.addEventListener(this.transitionEndEvent, function () {
-      if (document.body.className.indexOf('viewer-open') == -1) {
+      if (document.body.className.indexOf(this.id) == -1) {
         this.viewerOpen = false;
         this.figure.className = this.figure.className
-          .replace('viewer-open', '')
+          .replace('is-open', '')
           .replace(/^\s+|\s+$/g, '');
         this.figure.style.zIndex = '';
       }
@@ -73,13 +84,13 @@
 
     // Begin transition
     document.body.className = document.body.className
-      .replace('viewer-open', '')
+      .replace(this.id, '')
       .replace(/^\s+|\s+$/g, '');
     this.figure.style.transform = '';
   };
 
   ProgressiveImage.prototype.openViewer = function () {
-    if (document.body.className.indexOf('viewer-open') >= 0) {
+    if (document.body.className.indexOf(this.id) >= 0) {
       this.closeViewer();
       return;
     }
@@ -117,8 +128,8 @@
     }
 
     // Apply DOM transformations
-    document.body.className += ' viewer-open';
-    this.figure.className += ' viewer-open';
+    document.body.className += ' ' + this.id;
+    this.figure.className += ' is-open';
     this.figure.style.zIndex = '800';
     this.figure.style.transform = 'translate3d(' + translateX + 'px,' +
       translateY + 'px,0) scale(' + scale + ')';
@@ -138,12 +149,14 @@
       }
     }.bind(this);
 
-    this.onResize = function () {
+    this.onShouldCloseViewer = function (e) {
       this.closeViewer();
+      e.stopPropagation()
     }.bind(this);
 
-    window.addEventListener('resize', this.onResize);
-    window.addEventListener('orientationchange', this.onResize);
+    this.scrim.addEventListener('click', this.onShouldCloseViewer);
+    window.addEventListener('resize', this.onShouldCloseViewer);
+    window.addEventListener('orientationchange', this.onShouldCloseViewer);
     window.addEventListener('scroll', this.onScroll);
   };
 
