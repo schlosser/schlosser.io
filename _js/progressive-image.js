@@ -151,7 +151,7 @@
 
     this.onShouldCloseViewer = function (e) {
       this.closeViewer();
-      e.stopPropagation()
+      e.stopPropagation();
     }.bind(this);
 
     this.scrim.addEventListener('click', this.onShouldCloseViewer);

@@ -13,9 +13,9 @@ body {
   }
 
   &[class*="viewer-"] .scrim {
+    cursor: zoom-out;
     opacity: 1;
     pointer-events: auto;
-    cursor: zoom-out;
   }
 }
 

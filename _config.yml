@@ -13,7 +13,7 @@ name: "Dan Schlosser"
 markdown: redcarpt
 permalink: "/:categories/:title/"
 
-gems:
+plugins:
   - jekyll-redirect-from
 
 collections:
