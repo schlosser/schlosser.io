@@ -1,19 +1,17 @@
-$box-spacing: 4rem;
+$box-spacing: 3rem;
 
 .boxes {
   align-items: stretch;
   display: flex;
   flex-wrap: wrap;
-  margin: 0 (-$box-spacing / 2) (-$box-spacing);
+  margin: 0 (-$box-spacing / 2) (-$box-spacing * 2);
 
   .box {
-    display: flex;
-    flex-direction: column;
     justify-content: flex-start;
-    margin-bottom: ($box-spacing * 1.5);
+    margin-bottom: $box-spacing;
     padding: 0 ($box-spacing / 2);
     position: relative;
-    width: 33.333333%;
+    width: 25%;
 
     .figure-wrapper {
       display: flex;
@@ -71,21 +69,26 @@ $box-spacing: 4rem;
   .feature-section {
     display: flex;
     width: 100%;
+  }
 
-    .featured {
-      width: 66.666666%;
+  .featured {
+    width: 50%;
 
-      h3 {
-        font-size: 1.25rem;
-      }
+    h3 {
+      font-family: $sans;
+      font-size: 2.25rem;
+      line-height: 1.2;
+      margin: 3rem 0 1.5rem;
     }
+  }
 
-    .alongside-featured {
-      width: 33.333333%;
+  .alongside-featured {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
 
-      > .box {
-        width: 100%;
-      }
+    > .box {
+      width: 50%;
     }
   }
 }
@@ -93,15 +96,75 @@ $box-spacing: 4rem;
 @media screen and (max-width: $tablet-landscape-max) {
   .boxes {
     .box {
-      width: 50%;
+      width: 33.333333%;
+    }
+
+    .feature-section {
+      display: block;
+    }
+
+    .featured {
+      align-items: flex-start;
+      display: flex;
+      width: 100%;
+
+      .figure-wrapper {
+        flex-shrink: 0;
+        padding-right: ($box-spacing / 2);
+        width: 50%;
+
+        & + div {
+          padding-left: ($box-spacing / 2);
+        }
+      }
+
+      h3 {
+        margin-top: 0;
+      }
+    }
+
+    .alongside-featured {
+      width: 100%;
+
+      .box {
+        width: 33%;
+      }
     }
   }
 }
 
-@media screen and (max-width: $phone-landscape-max) {
+@media screen and (max-width: $tablet-portrait-max) {
   .boxes {
     .box {
+      width: 50%;
+    }
+
+    .featured {
+      display: block;
       width: 100%;
+
+      .figure-wrapper {
+        flex-shrink: 0;
+        padding-right: 0;
+        width: 100%;
+
+        & + div {
+          padding-top: 1.5rem;
+          padding-left: 0;
+        }
+      }
+
+      h3 {
+        margin-top: 0;
+      }
+    }
+
+    .alongside-featured {
+      width: 100%;
+
+      .box {
+        width: 50%;
+      }
     }
   }
 }

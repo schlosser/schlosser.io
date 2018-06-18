@@ -23,29 +23,29 @@
 
         {% assign more_text = include.title | prepend: "More " %}
         {% if include.feature == "first" %}
-            {% for page in collection | limit:5 %}
-                {% if forloop.index0 == 0 %}
-                <div class="feature-section">
-                    {% include box.html page=page featured=true %}
-                {% elsif forloop.index0 == 1 %}
-                    <div class="alongside-featured">
-                        {% include box.html page=page %}
-                {% elsif forloop.index0 == 2 %}
-                        {% include box.html page=page %}
-                    </div>
+            <div class="feature-section">
+            {% for page in collection | limit:6 %}
+            {% if forloop.index0 == 0 %}
+                {% include box.html page=page featured=true %}
+            {% elsif forloop.index0 == 1 %}
+                <div class="alongside-featured">
+                    {% include box.html page=page %}
+            {% elsif forloop.index0 == 5 %}
+                    {% include box.html page=page %}
+                    {% if collection.size > 6 %}
+                        {% include more.html text=more_text href=include.url %}
+                    {% endif %}
                 </div>
-                {% else %}
-                {% include box.html page=page %}
-                {% endif %}
-            {% endfor %}
-            {% if collection.size > 5 %}
-                {% include more.html text=more_text href=include.url %}
+            {% else %}
+                    {% include box.html page=page %}
             {% endif %}
+            {% endfor %}
+            </div>
         {% else %}
-            {% for page in collection | limit:5 %}
+            {% for page in collection | limit:7 %}
             {% include box.html page=page %}
             {% endfor %}
-            {% if collection.size > 5 %}
+            {% if collection.size > 3 %}
             {% include more.html text=more_text href=include.url %}
             {% endif %}
         {% endif %}

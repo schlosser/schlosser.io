@@ -17,7 +17,7 @@ section {
   margin: 6rem 0;
 
   &.collection {
-    margin: 6rem 0 12rem;
+    padding: 4.5rem 0;
   }
 
   &:first-child {
@@ -27,7 +27,15 @@ section {
   &.text {
     max-width: $text-width;
     width: 100%;
+
+    & + .collection {
+      padding-top: 1.5rem;
+    }
   }
+}
+
+nav {
+  margin: -3rem 0 -1.5rem;
 }
 
 
