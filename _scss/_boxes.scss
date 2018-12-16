@@ -113,7 +113,7 @@ $box-spacing: 3rem;
         padding-right: ($box-spacing / 2);
         width: 50%;
 
-        & + div {
+        + div {
           padding-left: ($box-spacing / 2);
         }
       }
@@ -148,7 +148,7 @@ $box-spacing: 3rem;
         padding-right: 0;
         width: 100%;
 
-        & + div {
+        + div {
           padding-left: 0;
           padding-top: 1.5rem;
         }

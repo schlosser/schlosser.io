@@ -28,7 +28,7 @@ section {
     max-width: $text-width;
     width: 100%;
 
-    & + .collection {
+    + .collection {
       padding-top: 1.5rem;
     }
   }
