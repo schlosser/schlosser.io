@@ -176,14 +176,14 @@ gulp.task('responsive:resize', function(done) {
   done();
 });
 
-gulp.task('responsive:metadata', function(done) {
+gulp.task('responsive:metadata', function() {
   // We always process all images.
   var metadata = {
     _NOTE: "This file is generated in gulpfile.js, in the responsive:metadata task.",
     aspectRatios: {},
     sizes: responsiveSizes,
   };
-  gulp.src('./_img/res/raw/**/*.{jpg,JPG,png,PNG,jpeg,JPEG,gif,GIF}')
+  return gulp.src('./_img/res/raw/**/*.{jpg,JPG,png,PNG,jpeg,JPEG,gif,GIF}')
     .pipe(foreach(function(stream, file) {
       var key = file.path.replace(/.*\/_img\/res\/raw\//, '');
       var dimensions = sizeOf(file.path);
@@ -192,7 +192,6 @@ gulp.task('responsive:metadata', function(done) {
     }))
     .on('finish', function() {
       fs.writeFileSync('./_data/responsiveMetadata.json', JSON.stringify(metadata, null, 2));
-      done();
     });
 });
 
