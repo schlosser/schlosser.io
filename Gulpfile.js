@@ -253,7 +253,7 @@ gulp.task('build', gulp.series('clean', gulp.parallel('scss', 'images', 'js'), '
 gulp.task('build:optimized', gulp.series('clean', gulp.parallel('scss:optimized', 'images', 'js'), 'jekyll'));
 
 gulp.task('deploy:rsync', function(done) {
-  cp.exec('rsync -avuzh _site/* dan:/srv/schlosser.io/public_html/', function() {
+  cp.exec('chmod -R 775 _site && rsync -avuzh _site/* dan:/srv/schlosser.io/public_html/', function() {
     process.stdout.write('Deployed to schlosser.io\n');
     done();
   })
