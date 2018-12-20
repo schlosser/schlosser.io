@@ -1,3 +1,16 @@
+- title: Isaac Levien
+  id: isaaclevien-com
+  img: websites/isaaclevien.com.png
+  link: http://isaaclevien.com
+  year: 2018
+  description: |
+    When I redesigned Isaac's personal website, we wanted to make sweeping
+    changes. A modern design and color pallete, beautiful portrait photography,
+    and an updated information architecture: projects, performances, and
+    pedagogy. This was my first website where I feel that I was able to make
+    portrait orientation images really work well with the layout, on desktop
+    and mobile.
+
 - title: Nathan Savoy
   id: nathansavoy-com
   img: websites/nathansavoy.com.png
@@ -282,8 +295,8 @@
     futuristic, science-fiction-esque conversational assistant.
 
 - title: Isaac Levien
-  id: isaaclevien-com
-  img: websites/isaaclevien.com.png
+  id: isaaclevien-com-2015
+  img: websites/isaaclevien.com-2015.png
   link: http://isaaclevien.com
   year: 2015
   description: |
