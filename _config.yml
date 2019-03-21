@@ -13,8 +13,21 @@ name: "Dan Schlosser"
 markdown: redcarpt
 permalink: "/:categories/:title/"
 
+  # Build info
+incremental: true
 plugins:
   - jekyll-redirect-from
+exclude:
+  - node_modules
+  - Gulpfile.js
+  - Gemfile
+  - Gemfile.lock
+  - package.json
+  - package-lock.json
+  - redirects.json
+  - README.md
+  - LICENSE.md
+
 
 collections:
   talks:
@@ -88,14 +101,3 @@ defaults:
       layout: team
       hero_style: normal
       related_posts: teams
-
-exclude:
-  - node_modules
-  - Gulpfile.js
-  - Gemfile
-  - Gemfile.lock
-  - package.json
-  - package-lock.json
-  - redirects.json
-  - README.md
-  - LICENSE.md

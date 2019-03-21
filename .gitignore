@@ -16,3 +16,6 @@ _data/responsiveMetadata.json
 /js
 /css
 /img
+
+# macOS
+.DS_Store

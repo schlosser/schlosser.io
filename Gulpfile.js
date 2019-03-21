@@ -162,8 +162,6 @@ gulp.task('responsive:resize', function(done) {
       .pipe(parallel(
         gm(function(gmfile) {
           return gmfile.resize(null, size); // set height, variable width;
-        }, {
-          imageMagick: true
         }),
         os.cpus().length
       ))
@@ -185,9 +183,15 @@ gulp.task('responsive:metadata', function() {
   };
   return gulp.src('./_img/res/raw/**/*.{jpg,JPG,png,PNG,jpeg,JPEG,gif,GIF}')
     .pipe(foreach(function(stream, file) {
-      var key = file.path.replace(/.*\/_img\/res\/raw\//, '');
-      var dimensions = sizeOf(file.path);
-      metadata.aspectRatios[key] = Number((dimensions.width / dimensions.height).toFixed(3));
+      fs.readFile(file.path, function(err, buf) {
+        if (err) {
+          process.stdout.write(err);
+          return;
+        }
+        var key = file.path.replace(/.*\/_img\/res\/raw\//, '');
+        var dimensions = sizeOf(buf);
+        metadata.aspectRatios[key] = Number((dimensions.width / dimensions.height).toFixed(3));
+      });
       return stream;
     }))
     .on('finish', function() {
