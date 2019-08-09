@@ -1,0 +1,71 @@
+---
+title: Onward
+date: 2019-06-05
+featured_image: projects/onward-logo.png
+hero_style: none
+link: https://onward.to/
+redirect_from:
+  - /onward/
+---
+
+<p>Earlier this year, my friend <a href="https://jhil.co">Jeff Hilnbrand</a> and I decided to finally build the side project we had been scheming on for over a year. The result was <a href="https://onward.to">Onward</a>, a travel blogging platform intended for amateurs and pros alike.</p>
+
+<p>This project was also one of the larger React and Redux projects I've worked on. I also made the choice early on to use Firebase for my web services (metadata database, object storage, hosting). While I love the Firebase APIs on their own, wiring them together with React and Redux was a little messy. Neverless, once I got it all setup, my development velocity was awesome. I love the way the MVP turned out:</p>
+
+</section>
+<div class="image-set">
+    <div class="large">
+        {% include resimg.html src="projects/onward-home.png" class="with-viewer" %}
+        {% include resimg.html src="projects/onward-grid.png" class="with-viewer" %}
+    </div>
+    <div class="large">
+        {% include resimg.html src="projects/onward-hero.png" class="with-viewer" %}
+        {% include resimg.html src="projects/onward-inline.png" class="with-viewer" %}
+    </div>
+</div>
+<h5>The Medium-inspired editor encourages users to write image-rich posts.</h5>
+
+<section class="text">
+
+<p>I went a bit overboard on the interactions of the editor. To me, the feel of a great editor goes a long way to making me want to use it. Notice how the author chip, date, and save and publish buttons react to content being added for the first time, and the hero image being added.</p>
+
+{% include resimg.html src="projects/onward-editor.gif" %}
+<h5>Dropping a hero image into a post is downright fun.</h5>
+
+<p>Jeff and I were both excited about different ways to present cities in users' posts. I really like the interaction we landed on. Hovering over the map gives you a pannable / zoomable Google Map.</p>
+
+{% include resimg.html src="projects/onward-city.gif" %}
+<h5>Don't you just NEED to go to Tokyo?</h5>
+
+<p>When Jeff came up with the concept, I wasn't confident that I'd be able to replicated it without some tricky <code>&lt;canvas&gt;</code> games. It turns out, CSS <code>clip-path</code> was exactly what I was looking for.</p>
+
+{% highlight jsx %}
+<div class="City-map">
+  <div class="City-map-inner">
+    <GoogleMap />
+  </div>
+</div>
+{% endhighlight %}
+
+{% highlight css %}
+.City-map {
+  height: 9rem; width: 9rem;
+}
+
+.City-map-inner {
+  border-radius: 8px;
+  clip-path: circle(4.5rem at 7.5rem 7.5rem);
+  overflow: hidden;
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  transition: 0.7s ease all;
+}
+
+.City-map:hover .City-map-inner {
+  clip-path: circle(50rem at 7.5rem 7.5rem);
+}
+{% endhighlight %}
+
+<p>Pretty tricky! The catch is that it <a href="https://caniuse.com/#search=clip-path">doesn't have support in IE</a>, but who cares about that, anyway?</p>
+
+<p>This project was in the works for a long time, and I'm super excited to have a first version available. Check it out at <a href="https://onward.to/" target="_blank">onward.to</a>. There's still a lot of ironing out to do, so if you'd like to contribute or suggest an improvement, please do on GitHub. Thanks in advance!</p>

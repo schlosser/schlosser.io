@@ -161,7 +161,11 @@ gulp.task('responsive:resize', function(done) {
       .pipe(changed(dest))
       .pipe(parallel(
         gm(function(gmfile) {
-          return gmfile.resize(null, size); // set height, variable width;
+          if (gmfile.source.toLowerCase().endsWith("gif")) {
+            return gmfile; // Don't resize GIFs because...GraphicsMagick. :(
+          } else {
+            return gmfile.resize(null, size); // set height, variable width;
+          }
         }),
         os.cpus().length
       ))
