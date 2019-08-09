@@ -37,14 +37,18 @@ redirect_from:
 {% include resimg.html src="projects/onward-city.gif" %}
 <h5>Don't you just NEED to go to Tokyo?</h5>
 
-<p>When Jeff came up with the concept, I wasn't confident that I'd be able to replicated it without some tricky <code>&lt;canvas&gt;</code> games. It turns out, CSS <code>clip-path</code> was exactly what I was looking for.</p>
+<p>When Jeff came up with the concept, I wasn't confident that I'd be able to replicated it without some janky <code>&lt;canvas&gt;</code> games. It turns out, CSS <code>clip-path</code> was exactly what I was looking for.</p>
 
 {% highlight jsx %}
-<div class="City-map">
-  <div class="City-map-inner">
-    <GoogleMap />
-  </div>
-</div>
+render() {
+  return (
+    <div class="City-map">
+      <div class="City-map-inner">
+        <GoogleMap location={location} zoom={zoom}></GoogleMap>
+      </div>
+    </div>
+  );
+}
 {% endhighlight %}
 
 {% highlight css %}
