@@ -215,7 +215,13 @@ gulp.task('responsive:clean', function(done) {
   return del(folders, done);
 });
 
-gulp.task('responsive', gulp.series('responsive:clean', gulp.parallel('responsive:resize', 'responsive:metadata'), 'images'));
+gulp.task('responsive',
+  gulp.series(
+    'responsive:clean',
+    gulp.parallel('responsive:resize', 'responsive:metadata')
+    // 'images'
+  )
+);
 
 /************
  ** Jekyll **
@@ -252,11 +258,11 @@ gulp.task('watch', function() {
     './_data/*',
     './_config.yml'], gulp.series('jekyll:rebuild'));
   gulp.watch('./_scss/**/*.scss', gulp.series('scss'));
-  gulp.watch('./img/res/**/*', gulp.series('images'));
+  // gulp.watch('./img/res/**/*', gulp.series('images'));
   gulp.watch(['./_js/**/*.js', 'Gulpfile.js'], gulp.series('js'));
 });
 
-gulp.task('build', gulp.series('clean', gulp.parallel('scss', 'images', 'js'), 'jekyll'));
+gulp.task('build', gulp.series('clean', gulp.parallel('scss', /*'images',*/ 'js'), 'jekyll'));
 
 gulp.task('build:optimized', gulp.series('clean', gulp.parallel('scss:optimized', 'images', 'js'), 'jekyll'));
 
@@ -284,6 +290,9 @@ gulp.task('serve', gulp.series('build', function(done) {
     },
     server: {
       baseDir: '_site',
+      routes: {
+        "/img": "_img",
+      }
     },
   });
 
