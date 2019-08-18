@@ -5,7 +5,7 @@ figure + .image-set {
 .image-set {
   margin: 3rem -0.75rem 0;
 
-  .large, .small {
+  .large, .small, .xl {
     align-items: flex-start;
     display: flex;
     font-size: 0;
@@ -16,6 +16,18 @@ figure + .image-set {
       margin: 0 0.75rem;
       width: 50%;
     }
+  }
+
+  .large figure {
+    width: 50%;
+  }
+
+  .small figure {
+    width: 33.333%;
+  }
+
+  .xl figure {
+    width: 100%;
   }
 
   + h5 {
