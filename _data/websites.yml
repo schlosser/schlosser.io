@@ -1,3 +1,73 @@
+- title: The Next 50
+  id: thenext50-us
+  img: websites/thenext50.us.png
+  link: https://thenext50.us
+  year: 2019
+  description: |
+    I made this website for The Next 50, an organization working to get more
+    young people involved in politics. This site is pretty simple, and uses an
+    animation to introduce itself.
+
+- title: My Borther's Favorite View
+  id: my-brothers-favorite-view
+  img: websites/my-brothers-favorite-view.png
+  link: https://poetry.nathansavoy.com/my-brothers-favorite-view
+  year: 2019
+  description: |
+    This ultra-simple treatment of Nathan's poem calls back to an image I have
+    of this poem enscribed by hand onto a wall in pencil. Back in January, I
+    went to Nashville with Nathan to help our friend Conor install an exhibition
+    related to this piece in a gallery at Vanderbilt.
+
+- title: Ashlands
+  id: ashlands
+  img: websites/ashlands.png
+  link: https://poetry.nathansavoy.com/ashlands
+  year: 2019
+  description: |
+    With this poetry collaboration, I wanted to capture the sonic elements of
+    the writing. To do this, I used a series of animations to introduce each
+    word. At the core of the animation is a massive list of animation variables.
+    I used SCSS to transform this data into valid CSS animations. No JavaScript
+    runs on this page.
+
+- title: Mangrove Roots & Otter-play
+  id: mangrove-roots-otter-play
+  img: websites/mangrove-roots-otter-play.png
+  link: https://poetry.nathansavoy.com/mangrove-roots-otter-play
+  year: 2019
+  description: |
+    The first of three poems I recently brought to the web as a part of my
+    <a href="https://poetry.nathansavoy.com/">poetry collaboration with Nathan
+    Savoy</a>, this implementation pushes parallax to the max! We really liked
+    the effect of the gradients mashing together. To make it work, I needed
+    eight different copies of the poem in HTML, <code>overflow: hidden</code> on
+    a bunch of containers, and some lightweight JavaScript to control where
+    each is positioned.
+
+- title: David Adewumi
+  id: davidadewumimusic-com
+  img: websites/davidadewumimusic.com.png
+  link: http://davidadewumimusic.com
+  year: 2019
+  description: |
+    In an update to my <a href="#old-davidadewumimusic-com">design from several
+    years previous</a>, we added new photography, a listserv sign-up, and a
+    couple new pages to David's site. I'm <em>in love</em> with the
+    phogoraphers he works with. It makes it so easy for me!
+
+- title: Onward
+  id: onward-to
+  img: websites/onward.to.png
+  link: https://onward.to
+  year: 2019
+  description: |
+    Earlier this year, my friend <a href="https://jhil.co">Jeff Hilnbrand</a>
+    and I decided to finally build the side project we had been scheming on for
+    over a year. The result was <a href="https://onward.to">Onward</a>, a
+    travel blogging platform intended for amateurs and pros alike. Check out
+    more in my <a href="/projects/onward">full write-up</a>.
+
 - title: Isaac Levien
   id: isaaclevien-com
   img: websites/isaaclevien.com.png
@@ -14,7 +84,7 @@
 - title: Nathan Savoy
   id: nathansavoy-com
   img: websites/nathansavoy.com.png
-  link: http://nathansavoy.com
+  link: https://projects.nathansavoy.com
   year: 2017
   description: |
     For this redesign of Nathan's personal website, he wanted to bring a bigger
@@ -92,9 +162,9 @@
     system, but was able to get everything working. The design, on the other
     hand, is still a work in progress.
 
-- title: David Adewumi
-  id: davidadewumimusic-com
-  img: websites/davidadewumimusic.com.png
+- title: David Adewumi (Older site)
+  id: old-davidadewumimusic-com
+  img: websites/old-davidadewumimusic.com.png
   link: http://davidadewumimusic.com
   year: 2016
   description: |

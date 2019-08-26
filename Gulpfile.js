@@ -141,13 +141,14 @@ gulp.task('responsive:resize', function(done) {
   var idx = process.argv.indexOf('--dir');
   if (idx > -1) {
     // Only process subdirectory
-    var srcPath = path.join('./_img/res/raw/', process.argv[idx + 1]);
-    if (fs.lstatSync(srcPath).isDirectory()) {
-      srcSuffix = path.join(process.argv[idx + 1], '/**/*');
-      destSuffix = process.argv[idx + 1];
+    var rawSrc = process.argv[idx + 1];
+    var srcPath = path.join('./_img/res/raw/', rawSrc);
+    if (fs.lstatSync(path.resolve(srcPath)).isDirectory()) {
+      srcSuffix = path.join(rawSrc, '/**/*');
+      destSuffix = rawSrc;
     } else {
-      srcSuffix = process.argv[idx + 1];
-      destSuffix = process.argv[idx + 1];
+      srcSuffix = rawSrc;
+      destSuffix = rawSrc.substring(0, rawSrc.lastIndexOf("/"));
     }
   } else {
     srcSuffix = '**/*';
