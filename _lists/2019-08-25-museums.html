@@ -1,0 +1,41 @@
+---
+date: "2019-08-24"
+title: Museums
+category: List
+featured_image: lists/museums.jpg
+hero_style: none
+redirect_from:
+  - /museums/
+---
+<section class="text">
+    <p>I'm a huge museum nerd. Whether I'm walking, riding a bus, or doing laundry, podcasts are my go-to form of entertainment.  Needless to say, I have a lot of favorites. Here's what I'm listening to:</p>
+</section>
+<section class="text">
+    {% for museum in site.data.museums %}
+    <div class="visual-list large">
+        <div class="image">
+            {% if museum.trip and museum.id and museum.img %}
+            <a target="_blank" href="/travel/{{museum.trip}}#{{museum.id}}">
+                {% include resimg.html src=museum.img class="museum-image force-small" %}
+            </a>
+            {% else if musem.img %}
+            {% include resimg.html src=museum.img class="museum-image force-small" %}
+            {% endif %}
+        </div>
+        <div class="copy">
+            <h3 id="{{ museum.id }}">{{ museum.title }}</h3>
+            <h4>{{museum.location}} (<a target="_blank" href="https://google.com/maps?q={{ museum.title}}, {{museum.location}}">Map</a>)</h4>
+            <p>{{museum.description}}</p>
+            <div class="button-group">
+                {% if museum.trip %}
+                <a target="_blank" href="/travel/{{museum.trip}}#{{museum.id}}" class="button">Photos</a>
+                {% endif %}
+                {% if museum.website%}
+                <a target="_blank" href="{{museum.website}}" class="button">Website</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+

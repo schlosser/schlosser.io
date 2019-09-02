@@ -1,0 +1,321 @@
+- id: mona
+  img: travel/australia-19/tasmania/mona-hallway-white.jpg
+  title: "Museum of Old and New Art (MONA)"
+  location: Hobart, Tasmania
+  website: "https://mona.net.au"
+  trip: australia-winter-2019
+  description: |
+    I quickly fell in love with MONA for its architecture. Built mostly
+    underground into the side of a hill, the building is at once unremarkable
+    from the outside and stunning on the inside. Even more impressive was the
+    exhibition and curation. My favorite pieces were several by James Turell,
+    an American MacArthur Genius Grant-winning artist that works mostly with
+    light and space.
+
+- id: louvre
+  img: travel/france/paris-louvre.jpg
+  title: "The Louvre"
+  location: Paris, France
+  website: "https://www.louvre.fr"
+  trip: france-spain-summer-2016
+  description: |
+    I mean, it's the freaking Louvre. I have spent entire days wandering the
+    halls of the Louvre and still left feeling like I had only seen a fraction
+    of the museum. While there are many other reasons to travel to Paris, the
+    Louvre alone is reason enough. I especially love the west wing, where five
+    massive rooms are filled entirely with sculpture.
+
+- id: dt-suzuki
+  img: travel/japan-18/kanazawa/kanazawa-suzuki-contemplative-space.jpg
+  title: "D. T. Suzuki Museum"
+  location: Kanazawa, Japan
+  website: "https://www.kanazawa-museum.jp/daisetz"
+  trip: japan-fall-2018
+  description: |
+    The D. T. Suzuki museum is more experience than museum. While there is a
+    small exhibition space that offers a historical look into this Japanese Zen
+    philosopher, what pulls me back to Kanazawa to return here is the large
+    outdoor contemplative space. Several times larger than the exhibition space
+    indoors, this outdoor pool and walking area is intended for contemplation
+    of Suzuki's writing and work.
+
+- id: tel-aviv-museum-of-art
+  img: travel/israel/tel-aviv/museum-day.jpg
+  title: "Tel Aviv Museum of Art"
+  location: Tel Aviv, Israel
+  website: "http://www.tamuseum.org.il"
+  trip: israel-jerusalem-summer-2019
+  description: |
+    Visiting Tel Aviv, I did not expect to be as impressed with the Tel Aviv
+    Museum of Art as I was. Not only does the museum feature a striking exterior
+    and a mind-bending interior design, it also featured compelling contemporary
+    and modern art. The collection, while smaller, was impressive to me and
+    made for a fantastic visit.
+
+- id: musee-dorsay
+  img: travel/france/paris-clock.jpg
+  title: "Musée d'Orsay"
+  location: Paris, France
+  website: "https://www.louvre.fr"
+  trip: france-spain-summer-2016
+  description: |
+    Just meters from the Louvre Museum, the Musée d'Orsay is a far less
+    overwhelming yet still quite impressive collection of impressionist
+    painting, sculpture, and more. Plus, the view of the Seine from the top
+    floor is excellent.
+
+- id: met
+  img: museums/met.jpg
+  title: "The Metropolitan Museum of Art"
+  location: New York, NY
+  trip: null
+  website: "https://www.metmuseum.org"
+  description: |
+    The only museum in my mind that can try to rival the Louvre is the Met.
+    Having spent time living in the Upper East and Upper West Sides of New York
+    City, getting to casually pop into the Met on an afternoon or evening is a
+    privilege. Newcomers will flock to the Greek and Roman collection or to
+    the preserved and recreated Egyptian tomb, but even after several visits
+    I'm still finding new corners of the American Wing or enjoying temporary
+    exhibitions.
+
+- id: 21-century-contemporary-art
+  img: museums/21century-art.jpg
+  title: "21st Century Museum of Contemporary Art"
+  location: Kanazawa, Japan
+  website: "https://www.kanazawa21.jp"
+  trip: japan-fall-2018
+  description: |
+    While the D. T. Suzuki Museum wins "best in Kanazawa, Japan" for me, I
+    remain quite impressed with the collection of contemporary art in the 21st
+    century museum. I still think about one exhibit that still has me theorizing
+    how it was created. While that exhibit did not allow photography, this
+    underwater pool exhibit did. See how they did it?
+
+- id: dia-beacon
+  img: museums/dia-beacon.jpg
+  title: "Dia:Beacon"
+  location: Beacon, NY
+  website: "https://www.diaart.org"
+  trip: null
+  description: |
+    New York City has no shortage of fantastic museums to explore within its
+    limits. But just a few miles north of the Bronx sits Beacon, New York, home
+    of Dia:Beacon, an art museum on the banks of the Hudson River that houses a
+    massive permanent collection of massive artworks, as well as a few special
+    exhibitions. The museum occupies a Former Nabisco box-printing factory,
+    which means awesome high ceilings, beautiful lighting, and even a creepy
+    basement.
+
+- id: moma-ps1
+  img: museums/moma-ps1.jpg
+  title: "MoMA PS1"
+  location: New York, NY
+  trip: null
+  website: "https://www.momaps1.org"
+  description: |
+    While most New York tourists and locals alike have been to the Museum of
+    Modern Art on 53rd Street, far fewer have made it across the East River
+    to MoMA PS1, a branch of the museum situated in a former Long Island City
+    elementary school. While I've thoroughly enjoyed the rotating set of
+    exhibitions (the permanent collection is quite small), their summer Warm Up
+    concert series is a big draw.
+
+- id: moma
+  img: museums/moma.jpg
+  title: "MoMA"
+  location: New York, NY
+  trip: null
+  website: "https://www.moma.org"
+  description: |
+    The New York MoMA was the first modern art museum I visited as a conscious
+    adult. While I firmly believe the MoMA is a must-visit for tourists and
+    first-timers, I've been occasionally less lucky with some temporary
+    exhibitions, but most of the time MoMA nails it. With exhibitions like
+    their Charles White retrospective and the curious handcrafted cityscapes of
+    Bodys Isek Kingelez, MoMA has a lot to offer.
+
+- id: tate-modern
+  img: travel/uk/london-night-view.jpg
+  title: "The Tate Modern"
+  location: London, United Kingdom
+  website: "https://www.tate.org.uk"
+  trip: ireland-uk-summer-2016
+  description: |
+    When I think of the Tate Modern, it's hard not to jump straight to the
+    fantastic view of London that you can get from the observation deck. But
+    aside from the stunning view, the Tate Modern has also impressed me with
+    striking installations and exhibits. I'm looking forward to returning to
+    London with enough time to give this museum a proper visit; in the past
+    I've only had the opportunity to visit one or two floors.
+
+- id: whitney
+  img: museums/whitney.jpg
+  title: "Whitney Museum of American Art"
+  location: New York, NY
+  trip: null
+  website: "https://www.moma.org"
+  description: |
+    New York's newest major art museum is also one of my favorites. I first
+    heard about the Whitney when the New York Times did
+    <a href="https://www.nytimes.com/interactive/2015/04/19/arts/artsspecial/new-whitney-museum.html">its
+    interactive profile</a> on the building shortly before it opened. And when
+    I first visited the museum, situated at the southern terminal of the High
+    Line, I was impressed. Not with the art per se, as much as the building,
+    the placement in the far West Village, and the experience of walking
+    between its many balconies. Since then, I've enjoyed a few of the Whitney's
+    exhibitions across of a few visits. It's not the place I'd spend an entire
+    afternoon in, but it's definitely fun to visit, especially with first-timers
+    or friends.
+
+- id: storm-king
+  img: museums/storm-king.jpg
+  title: "Storm King Art Center"
+  location: New Windsor, NY
+  website: "https://www.stormking.org"
+  trip: null
+  description: |
+    This outdoor sculpture complex definitely stands out on this list as one of
+    the stranger museums. Located just a twenty-minute drive away from
+    Dia:Beacon, this outdoor space is designed to be walked, biked, and
+    explored in any order you so choose. Storm King is home to many massive
+    sculptures that wouldn't fit in any other museum or space, and for that
+    reason alone it's worth a visit. Especially on a day with good weather,
+    Storm King is an outdoor afternoon worth experiencing.
+
+- id: acropolis
+  img: travel/greece/athens-museum.jpg
+  title: "Acropolis Museum"
+  location: Athens, Greece
+  website: "https://www.theacropolismuseum.gr/en"
+  trip: greece-spring-2016
+  description: |
+    It's hard to weigh the experience of visiting the Acropolis Museum alone.
+    When visiting Athens, there isn't a single tourist that doesn't make it to
+    the Parthenon, the ancient ruin on a hill located in the center of the city.
+    However, many don't talk about the museum at the foot of that hill
+    dedicated to the history and art of the Parthenon and Acropolis.
+    Contemporary architecture and ancient artifacts are a great combination, and
+    a coffee on the balcony is a great way to top it off. The main attraction,
+    however, is the Parthenon gallery on the third floor, where you can see a
+    full recreation of the Parthenon's frieze (sculpted walls) that combines
+    real artifacts with replicas.
+
+- id: art-gallery-nsw
+  img: museums/art-gallery-nsw.jpg
+  title: "Art Gallery of New South Wales"
+  location: Sydney, Australia
+  website: "https://www.artgallery.nsw.gov.au"
+  trip: australia-winter-2019
+  description: |
+    Located in downtown Sydney, the Art Gallery of New South Wales has a great
+    set of free exhibitions as well as some paid ones. The highlight for me was
+    definitely the large collection of Australian artists, although I also
+    enjoyed CHINESE BIBLE, an exhibition about revolution and art in China.
+
+- id: vatican-museum
+  img: travel/italy/rome-vatican-hallway.jpg
+  title: "The Vatican Museum"
+  location: Athens, Greece
+  website: "http://www.museivaticani.va"
+  trip: italy-croatia-summer-2016
+  description: |
+    If you visit the Vatican, you'll most likely end up spending time in the
+    Vatican museum, a large collection of European, Asian, and African art
+    collected (stolen?) by the church over the years. The collection is
+    damn impressive, although the presentation is quite overwhelming. Visitors
+    pack the hallways, making the museum feel more like one long line than
+    something to be taken at your own pace.
+
+- id: frick
+  img: museums/frick.jpg
+  title: "The Frick Collection"
+  location: New York, NY
+  trip: null
+  website: "https://www.frick.org/"
+  description: |
+    For me, the Frick is very hit or miss. I absolutely love the building and
+    grounds, especially during member events when it's less crowded. I also
+    really enjoy the curators and staff; every tour I've gone on has been very
+    personalized and engaging. Much of the Frick collection is made up of
+    fantastic pieces that you can't find elsewhere, but there are also those
+    that don't do much for me. I tend to camp out on the museum listserv and
+    watch out for interesting events or talks.
+
+- id: cooper-hewitt
+  img: museums/cooper-hewitt.jpg
+  title: "Cooper Hewitt, Smithsonian Design Museum"
+  location: New York, NY
+  trip: null
+  website: "https://www.cooperhewitt.org/"
+  description: |
+    While I love so much about the Cooper Hewitt, I sometimes feel like there's
+    a bit of a generational divide when I visit. When I think of design, I think
+    of the kinds of problem solving that has made its way into everything in our
+    lives: architecture, technology, kitchen appliances, door handles, clothes,
+    tools, and more. In many ways, it's the 99% Invisible definition of design.
+    While Cooper Hewitt understands this definition on paper, I often get the
+    sense that the curators still hold the 1960s / 1970s sense of the
+    definition. I often find fantastic textile design pieces or interesting
+    architectural models, but I rarely find the connection to my everyday life.
+    I'm not asking for more touchscreens or video projectors (Cooper Hewitt has
+    those), just a more modern approach. That said, for what it is, Cooper
+    Hewitt really hits with some fantastic exhibitions that are hard to
+    find elsewhere.
+
+- id: tokyo-national-museum
+  img: travel/japan/tokyo-museum.jpg
+  title: "The Tokyo National Museum"
+  location: Tokyo, Japan
+  website: "https://www.tnm.jp"
+  trip: japan-summer-2015
+  description: |
+    The Tokyo National Museum is definitely impressive. It has an excellent
+    collection of Japanese historical pieces, from screen paintings to samurai
+    armor and weapons. On my first visit, I hung onto every detail. Status,
+    pottery, and numerous artifacts fill two stories of this sizable building.
+    I especially enjoy the architecture of the Gallery of Horyuji Treasures,
+    which stands in front of an ultra-reflective pool. Repeat visits have been
+    less exciting, as the collection does not change frequently, but it's
+    absolutely worth a visit for first-timers in Tokyo.
+
+- id: australia-museum
+  img: museums/australia-museum.jpg
+  title: "The Australian Museum"
+  location: Sydney, Australia
+  website: "https://australianmuseum.net.au"
+  trip: australia-winter-2019
+  description: |
+    My first impression of the Australian Museum was not entirely positive. It
+    has a bit of natural history blended with earth science, and felt like it
+    was primarily targeted at kids. While I wasn't thrilled by the permanent
+    collection, I thoroughly enjoyed an exhibition of Australian photography
+    contest winners.
+
+- id: bm
+  img: museums/bm.jpg
+  title: "The British Museum"
+  location: London, United Kingdom
+  website: "https://www.britishmuseum.org"
+  trip: null
+  description: |
+    The British Museum may be one of the most impressive museums in the world,
+    but I haven't had quite enough time to explore and enjoy it. On my first
+    and only visit, I saw the Rosetta Stone, the Egyptian wing, and a visiting
+    exhibition about prescription drug use, but overall did not leave impressed.
+    I think a redo is in order.
+
+- id: sf-moma
+  img: museums/sf-moma.jpg
+  title: "SF MoMA"
+  location: San Francisco, CA
+  website: "https://www.sfmoma.org"
+  trip: null
+  description: |
+    If you're in San Francisco, the SF MoMA is certainly worth visiting. In my
+    opinion, it's the best art museum in the city. That said, no piece in the
+    collection makes the museum unmissable. I enjoyed my first afternoon there,
+    and have been less inspired on return visits. The outdoor terraces are a
+    welcome counterbalance to the gallery spaces, and the more memorable parts
+    of the museum.
+
