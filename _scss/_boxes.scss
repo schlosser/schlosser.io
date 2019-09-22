@@ -16,8 +16,12 @@ $box-spacing: 3rem;
     .figure-wrapper {
       display: flex;
       flex-direction: column;
-      // flex: 1;
       justify-content: center;
+      transition: 0.3s ease all;
+
+      &:hover {
+        opacity: 0.8;
+      }
 
       figure {
         flex: 1;

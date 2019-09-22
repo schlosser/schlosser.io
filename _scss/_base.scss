@@ -11,15 +11,14 @@ html, body {
 
 h1, h2, h3, h4, h5, h6 {
   a {
-    border-bottom: 2px solid $black;
     color: $black;
-    text-decoration: none;
+    text-decoration-line: underline;
+    text-decoration-color: $black;
     transition: 0.3s ease all;
 
     &:hover {
-      border-bottom: 2px solid $medium-gray;
       color: $medium-gray;
-      text-decoration: none;
+      text-decoration-color: $medium-gray;
     }
   }
 }
@@ -38,11 +37,12 @@ p a, article h2 a {
 }
 
 %subtle-link {
-  border-bottom: 2px solid $transparent;
-  transition: 0.3s ease border-color;
+  text-decoration-line: underline;
+  text-decoration-color: $transparent;
+  transition: 0.3s ease text-decoration-color;
 
   &:hover {
-    border-color: $black;
+    text-decoration-color: $black;
     color: $black;
   }
 }
