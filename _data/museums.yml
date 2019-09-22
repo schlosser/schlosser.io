@@ -39,6 +39,20 @@
     indoors, this outdoor pool and walking area is intended for contemplation
     of Suzuki's writing and work.
 
+- id: mori-art-museum
+  img: travel/japan-19/tokyo/mori-boat-solo.jpg
+  title: "Mori Art Museum"
+  location: Tokyo, Japan
+  website: "https://www.mori.art.museum/en/"
+  trip: japan-summer-2019
+  description: |
+    I've been to the Mori Art Museum twice, and was seriously impressed both
+    times. The first was an exhibit on Japanese architecture, and the second
+    was an exhibition called "The Soul Trembles" which very much lived up to
+    its name. Located at the top of Mori Tower in Roppongi, the musueum has no
+    permanent collection, just several gallery spaces. While I can't predict
+    what will be on display in the future, I very much like the curators' taste.
+
 - id: tel-aviv-museum-of-art
   img: travel/israel/tel-aviv/museum-day.jpg
   title: "Tel Aviv Museum of Art"
@@ -120,6 +134,19 @@
     elementary school. While I've thoroughly enjoyed the rotating set of
     exhibitions (the permanent collection is quite small), their summer Warm Up
     concert series is a big draw.
+
+- id: 21-21-design-sight
+  img: travel/japan-19/tokyo/2121-butterflies-2.jpg
+  title: "21_21 Design Sight"
+  location: Tokyo, Japan
+  trip: japan-summer-2019
+  website: "http://www.2121designsight.jp/en/"
+  description: |
+    Located near Tokyo Midtown in Roppongi, 21_21 Design Sight is a gallery
+    space with rotating exhibitions. Built largely underground in a public park,
+    the experience of descending into the gallery space is absolutely
+    fantastic. Both times I visited, the exhibits (largely contemporary artists)
+    impressed me with the creativity and attention to detail.
 
 - id: moma
   img: museums/moma.jpg
