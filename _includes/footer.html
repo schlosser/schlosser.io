@@ -1,52 +1,54 @@
 <footer>
     <div class="content">
-        <div class="pages">
-            <h2 class="path">
-                <span class="slash">/</span>
-                <span class="component">
-                    <a href="/writing/">Writing</a>
-                </span>
-            </h2>
-            <h2 class="path">
-                <span class="slash">/</span>
-                <span class="component">
-                    <a href="/talks/">Talks</a>
-                </span>
-            </h2>
-            <h2 class="path">
-                <span class="slash">/</span>
-                <span class="component">
-                    <a href="/travel/">Travel</a>
-                </span>
-            </h2>
-            <h2 class="path">
-                <span class="slash">/</span>
-                <span class="component">
-                    <a href="/lists/">Lists</a>
-                </span>
-            </h2>
-            <h2 class="path">
-                <span class="slash">/</span>
-                <span class="component">
-                    <a href="/projects/">Projects</a>
-                </span>
-            </h2>
-            <h2 class="path">
-                <span class="slash">/</span>
-                <span class="component">
-                    <a href="/teams/">Teams</a>
-                </span>
-            </h2>
-        </div>
-        <div class="links">
-            {% for account in site.data.social %}
-            <h2 class="path {{ account.class }}">
-                <span class="slash">/</span>
-                <span class="component">
-                    <a href="{{ account.url }}">{{ account.title }}</a>
-                </span>
-            </h2>
-            {% endfor %}
+        <div class="footer-wrapper">
+            <div class="pages">
+                <h2 class="path">
+                    <span class="slash">/</span>
+                    <span class="component">
+                        <a href="/projects/">Projects</a>
+                    </span>
+                </h2>
+                <h2 class="path">
+                    <span class="slash">/</span>
+                    <span class="component">
+                        <a href="/travel/">Travel</a>
+                    </span>
+                </h2>
+                <h2 class="path">
+                    <span class="slash">/</span>
+                    <span class="component">
+                        <a href="/writing/">Writing</a>
+                    </span>
+                </h2>
+                <h2 class="path">
+                    <span class="slash">/</span>
+                    <span class="component">
+                        <a href="/lists/">Lists</a>
+                    </span>
+                </h2>
+                <h2 class="path">
+                    <span class="slash">/</span>
+                    <span class="component">
+                        <a href="/talks/">Talks</a>
+                    </span>
+                </h2>
+                <h2 class="path">
+                    <span class="slash">/</span>
+                    <span class="component">
+                        <a href="/teams/">Teams</a>
+                    </span>
+                </h2>
+            </div>
+            <div class="links">
+                {% for account in site.data.social %}
+                <h2 class="path {{ account.class }}">
+                    <span class="slash">/</span>
+                    <span class="component">
+                        <a href="{{ account.url }}">{{ account.title }}</a>
+                    </span>
+                </h2>
+                {% endfor %}
+            </div>
         </div>
     </div>
 </footer>

@@ -93,6 +93,7 @@ defaults:
     values:
       layout: trip
       hero_style: full_bleed
+      related_posts: travel
   -
     scope:
       path: ""

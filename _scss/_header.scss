@@ -2,20 +2,27 @@ header, footer {
   background-color: $lighter-gray;
 }
 
-footer {
-  .links {
+footer .footer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 -1.5rem;
+
+  .links, .pages {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 0;
+    width: 50%;
   }
 
   h2 {
     padding: 0;
     text-indent: 0;
-  }
-
-  .pages {
-    display: none;
-    justify-content: space-between;
+    padding: 0 1.5rem;
+    margin: 0 0 2rem;
+    white-space: nowrap;
+    width: 50%;
   }
 }
 
@@ -32,27 +39,13 @@ footer {
   }
 }
 
-@media screen and (max-width: $tablet-portrait-max) {
-  footer .content {
-    display: flex;
-    justify-content: center;
-
-    .links, .pages {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 0 1rem 0 2rem;
-    }
-
+@media screen and (max-width: $phone-landscape-max) {
+  footer .footer-wrapper {
     h2 {
-      margin-bottom: 2rem;
-      white-space: nowrap;
       width: 100%;
     }
   }
-}
 
-@media screen and (max-width: $phone-landscape-max) {
   .m-break {
     @include clearfix;
   }
