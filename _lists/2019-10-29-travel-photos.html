@@ -1,0 +1,56 @@
+---
+date: "2019-10-29"
+title: Travel Photos
+category: List
+featured_image: lists/travel-photos.png
+hero_style: none
+redirect_from:
+  - /photos/
+---
+    <p>I've been lucky to travel to places across the world. I commemorate these trips with lots of photos, and curate them into <a href="/travel/">photo essays</a> that I publish on my website. After taking and posting hundreds of photos, I thought it would be fun to build an "I'm feeling lucky" kind of thing for my travel photos. So here you go! Click the shuffle button to get new images, and click an image to read the associated photo essay.</p>
+
+    <div class="button cta" id="shuffle-button">Shuffle!</div>
+</section>
+<section>
+    <div class="image-set">
+        <div class="small">
+            <figure class="figure-placeholder"></figure>
+            <figure class="figure-placeholder"></figure>
+            <figure class="figure-placeholder"></figure>
+            <figure class="figure-placeholder"></figure>
+        </div>
+        <div class="small">
+            <figure class="figure-placeholder"></figure>
+            <figure class="figure-placeholder"></figure>
+            <figure class="figure-placeholder"></figure>
+            <figure class="figure-placeholder"></figure>
+        </div>
+        <div class="small">
+            <figure class="figure-placeholder"></figure>
+            <figure class="figure-placeholder"></figure>
+            <figure class="figure-placeholder"></figure>
+            <figure class="figure-placeholder"></figure>
+        </div>
+        <div class="small">
+            <figure class="figure-placeholder"></figure>
+            <figure class="figure-placeholder"></figure>
+            <figure class="figure-placeholder"></figure>
+            <figure class="figure-placeholder"></figure>
+        </div>
+    </div>
+</section>
+
+<script>
+TRAVEL_PHOTOS = {{ site.data.travelPhotos | jsonify }};
+TRAVEL_PAGES = {
+{%- for trip in site.travel -%}
+    {%- for imageRoot in trip.image_roots -%}
+        "{{ imageRoot }}": "{{ trip.url }}"
+        {%- unless forloop.last %},{% endunless -%}
+    {%- endfor -%}
+    {%- unless forloop.last %},{% endunless -%}
+{%- endfor -%}
+}
+</script>
+<script src="/js/random-image.js"></script>
+
