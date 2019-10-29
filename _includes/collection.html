@@ -45,7 +45,7 @@
             {% for page in collection | limit:7 %}
             {% include box.html page=page %}
             {% endfor %}
-            {% if collection.size > 3 %}
+            {% if collection.size > 7 %}
             {% include more.html text=more_text href=include.url %}
             {% endif %}
         {% endif %}
