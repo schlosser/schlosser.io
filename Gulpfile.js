@@ -186,6 +186,7 @@ gulp.task('responsive:metadata', function() {
     aspectRatios: {},
     sizes: responsiveSizes,
   };
+  var travelPhotos = {};
   return gulp.src('./_img/res/raw/**/*.{jpg,JPG,png,PNG,jpeg,JPEG,gif,GIF}')
     .pipe(foreach(function(stream, file) {
       fs.readFile(file.path, function(err, buf) {
@@ -196,11 +197,21 @@ gulp.task('responsive:metadata', function() {
         var key = file.path.replace(/.*\/_img\/res\/raw\//, '');
         var dimensions = sizeOf(buf);
         metadata.aspectRatios[key] = Number((dimensions.width / dimensions.height).toFixed(3));
+        if (key.startsWith('travel/')) {
+          var parts = key.split('.')[0].split("/");
+          var pageKey = parts[1]
+          var hash = parts.slice(2).join("-");
+          travelPhotos[key] = {
+            hash: hash,
+            pageKey: pageKey,
+          };
+        }
       });
       return stream;
     }))
     .on('finish', function() {
       fs.writeFileSync('./_data/responsiveMetadata.json', JSON.stringify(metadata, null, 2));
+      fs.writeFileSync('./_data/travelPhotos.json', JSON.stringify(travelPhotos, null, 2));
     });
 });
 

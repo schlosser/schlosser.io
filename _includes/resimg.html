@@ -5,7 +5,11 @@
         data-small="/img/res/400/{{ include.src }}"
         data-medium="/img/res/800/{{ include.src }}"
         data-large="/img/res/1600/{{ include.src }}"
-        data-raw="/img/res/raw/{{ include.src }}">
+        data-raw="/img/res/raw/{{ include.src }}"
+        {% if site.data.travelPhotos[include.src] %}
+        id={{site.data.travelPhotos[include.src].hash}}
+        {% endif %}
+        >
     <div class="aspect-ratio-holder"
         style="padding-bottom: {{1.0 | divided_by: site.data.responsiveMetadata.aspectRatios[include.src] | times: 100 }}%"></div>
     <img class="thumbnail"
