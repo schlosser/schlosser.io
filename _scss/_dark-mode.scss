@@ -1,0 +1,34 @@
+.dark-mode {
+  background-color: $black;
+  color: $white;
+
+  .scrim {
+    background-color: $black;
+  }
+
+  p, h1, h2, h3, h4, h5, h6, .path, .component {
+    color: $white;
+  }
+
+  .button {
+    color: $black;
+  }
+
+  .path a {
+    text-decoration-color: $transparent;
+  }
+
+  a {
+    color: $white;
+    text-decoration-color: $white;
+
+    &:hover {
+      color: $medium-gray !important;
+      text-decoration-color: $medium-gray !important;
+    }
+  }
+
+  header, footer {
+    background-color: $true-black;
+  }
+}
