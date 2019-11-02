@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
   var html = document.getElementsByTagName('html')[0];
 
   function enableDarkMode() {
+    // Avoids double dark mode... ;)
+    body.className = body.className.replace(' dark-mode', '');
     body.className += ' dark-mode';
     html.style.backgroundColor = '#000000';
     localStorage.setItem("mode", "dark");
