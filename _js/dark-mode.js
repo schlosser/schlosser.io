@@ -59,6 +59,5 @@ document.addEventListener('DOMContentLoaded', function() {
         wordState = 0;
         break;
     }
-  })
-
+  });
 });

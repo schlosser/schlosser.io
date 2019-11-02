@@ -6,8 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     [].forEach.call(figures, function(fig) {
       var randomPhotoKey = photoKeys[Math.floor(Math.random() * photoKeys.length)];
       var randomPhoto = TRAVEL_PHOTOS[randomPhotoKey];
-      console.log(randomPhoto)
-      var page = TRAVEL_PAGES[randomPhoto.pageKey]
+      var page = TRAVEL_PAGES[randomPhoto.pageKey];
       fig.innerHTML = (
         '<a href="' + page + '#' + randomPhoto.hash + '">' +
           '<i style="background-image:url(\'/img/res/400/' + randomPhotoKey + '\')"></i>' +

@@ -199,7 +199,7 @@ gulp.task('responsive:metadata', function() {
         metadata.aspectRatios[key] = Number((dimensions.width / dimensions.height).toFixed(3));
         if (key.startsWith('travel/')) {
           var parts = key.split('.')[0].split("/");
-          var pageKey = parts[1]
+          var pageKey = parts[1];
           var hash = parts.slice(2).join("-");
           travelPhotos[key] = {
             hash: hash,
