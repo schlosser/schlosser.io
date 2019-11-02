@@ -7,11 +7,19 @@ footer .footer-wrapper {
   justify-content: space-between;
   margin: 0 -1.5rem;
 
+  .about-wrapper {
+    width: 50%;
+  }
+
+  .links-wrapper {
+    display: flex;
+    width: 50%;
+  }
+
   .links, .pages {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
     padding: 0;
     width: 50%;
   }
@@ -20,9 +28,7 @@ footer .footer-wrapper {
     padding: 0;
     text-indent: 0;
     padding: 0 1.5rem;
-    margin: 0 0 2rem;
-    white-space: nowrap;
-    width: 50%;
+    margin: 0 0 1rem;
   }
 }
 
@@ -39,9 +45,31 @@ footer .footer-wrapper {
   }
 }
 
-@media screen and (max-width: $phone-landscape-max) {
+@media screen and (max-width: $tablet-landscape-max) {
+ footer .footer-wrapper {
+  .about-wrapper {
+    width: 33%;
+  }
+
+  .links-wrapper {
+    width: 66%;
+  }
+ }
+}
+@media screen and (max-width: $tablet-portrait-max) {
   footer .footer-wrapper {
-    h2 {
+    flex-wrap: wrap;
+
+    .links, .pages {
+      padding-left: 1.4rem;  /* Visual alignment with  "~ / Dan Schlosser" */
+    }
+
+    .about-wrapper {
+      width: 100%;
+      margin-bottom: 3rem;
+    }
+
+    .links-wrapper {
       width: 100%;
     }
   }

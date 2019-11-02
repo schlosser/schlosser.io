@@ -24,7 +24,6 @@ exclude:
   - Gemfile.lock
   - package.json
   - package-lock.json
-  - redirects.json
   - README.md
   - LICENSE.md
 

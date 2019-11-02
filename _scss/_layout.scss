@@ -18,6 +18,10 @@ section {
 
   &.collection {
     padding: 4.5rem 0;
+
+    &:first-child {
+      padding-top: 0;
+    }
   }
 
   &:first-child {
