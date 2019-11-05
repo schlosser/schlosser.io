@@ -1,0 +1,67 @@
+---
+title: A Dead-Simple CMS with Google Sheets and Firebase
+featured_image: projects/google-sheets-firebase-cms.png
+link: https://gist.github.com/schlosser/7417a3362eaafe43dbad1c42d8d21d84
+hero_style: none
+cta: View Gist
+date: 2019-08-01
+---
+
+<p>When building a marketing website, I almost always get away with building completely static content. But sometimes, a mostly static site needs just a few pieces of dynamic data. In these cases, a full React app might be overkill, as would implementing and hosting a proper webapp. This was the case for me when building The Next 50's website, <a href="https://thenext50.us">thenext50.us</a>. It's a marketing website, with an events page that updates every week or so. In my first version, which was completely static, I found myself needing to manually update a JSON file and redeploy my statically generated site; clearly a pain. I wanted my non-technical friends to be able to easily new events and update the website without my help.</p>
+
+<p>Google Sheets as a backend was a natural first choice. It's where our event data lived in the first place, it's easy to use for a non-developer, and it's free. The problem was, Google Sheets doesn't have a REST API designed for this use case; it's not a CMS. There are apps that get close, like <a href="https://www.glideapps.com/">Glide</a>, but have limits on what you can build. All I wanted was simple REST API to call from an otherwise static site to load The Next 50's events. We could have hosted the data in a proper SAAS like <a href="https://www.contentful.com/">Contentful</a>, but that would have changed the workflow and introduced a new tool to event planners. I wanted something free at small scale, and had a great API.</p>
+
+<h3>The Idea</h3>
+<p>What if Google Sheets could publish to Firebase, and Firebase could serve as a read-only database and API? As former G Suite PM and former Firebase PM, I should say, it's a little unorthodox. Google Sheets is not designed to be a production database, and Firebase isn't meant to be just a middleman for data. But hell with all that, could it work?</p>
+
+<p>Of course. It turns out, with a little Googling, I wasn't the first person to try this. I considered <a href="https://medium.com/firebase-developers/sheets-to-firebase-33132e31935b">Edwin Lee's approach</a> to syncing Firebase and Google Sheets, but decided against it, because it syncs automatically on every change, which means that as a user fills out a new row in the sheet, the website could get incomplete data. Borrowing from <a href="https://gist.github.com/mhawksey/1442370">Martin Hawksey's sheet to JSON code</a> and adding some tweaks to make things more user friendly, I built a <a href="https://gist.github.com/schlosser/7417a3362eaafe43dbad1c42d8d21d84">prototype</a>. My script associates each tab of the spreadsheet with a top-level node in the Realtime Database, and each column with a key. I created a new dropdown in the sheets UI called "Publish Website" that gives users an option to publish all sheets, or just one.</p>
+
+{% highlight js %}
+function onOpen() {
+  var ui = SpreadsheetApp.getUi();
+  ui.createMenu('Publish Website')
+      .addItem('Publish this sheet', 'publishSheet')
+      .addItem('Publish all sheets', 'publishAllSheets')
+      .addToUi();
+}
+{% endhighlight %}
+
+<p>My primary goal was to ensure that the spreadsheet was easy to use for nontechnical people, so I made sure that there weren't any significant naming requirements for column or tab names. To achieve this, I added a bunch of data cleaning logic, including additional cleaning functions for specific fields. This means that users of the sheet input whatever phone number format they want, but the database has a consistent model.</p>
+
+{% highlight js %}
+var dataCleaners = {
+  "email": function(email) {
+    return email.toLowerCase();
+  },
+  "phoneNumber": function(phoneNumber) {
+    // Strip everything except numbers and the + sign.
+    return phoneNumber.toString().replace(/[^+\d]*/g, "");
+  },
+}
+{% endhighlight %}
+
+<p>The last step was to write some basic JavaScript to load and render the Firebase data on my static site. Because I didn't need real time updating or any complex rendering, I implemented this as very basic JavaScript:</p>
+
+{% highlight js %}
+function _renderEvent(event) {
+  return (
+    '<li class="event">' +
+      // ...
+    '</li>'
+  );
+}
+
+function loadEvents() {
+  var database = firebase.database();
+
+  firebase.database().ref('/eventsDatabase/').orderByChild('date').once('value').then(function(snapshot) {
+    var events = [];
+    snapshot.forEach(function(j) { events.push(j.val()) });
+    var upcomingEvents = events.filter(function(e) { return e.isUpcoming});
+    var upcomingHTML = upcomingEvents.map(_renderEvent).join('');
+    document.getElementById('upcoming-events').innerHTML = upcomingHTML;
+  });
+}
+{% endhighlight %}
+
+<p>And with that, I was done! You can see this in action on <a href="https://thenext50.us/events/">The Next 50's events page</a>, or check out the code below.</p>
