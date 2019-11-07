@@ -18,8 +18,8 @@ body {
 h1, h2, h3, h4, h5, h6 {
   a {
     color: $black;
-    text-decoration-line: underline;
     text-decoration-color: $black;
+    text-decoration-line: underline;
     transition: 0.3s ease all;
 
     &:hover {
@@ -43,13 +43,13 @@ p a, article h2 a {
 }
 
 %subtle-link {
-  text-decoration-line: underline;
   text-decoration-color: $transparent;
+  text-decoration-line: underline;
   transition: 0.3s ease text-decoration-color;
 
   &:hover {
-    text-decoration-color: $black;
     color: $black;
+    text-decoration-color: $black;
   }
 }
 

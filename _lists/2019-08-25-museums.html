@@ -15,7 +15,7 @@ redirect_from:
     <div class="visual-list large">
         <div class="image">
             {% if museum.trip and museum.id and museum.img %}
-            <a target="_blank" href="/travel/{{museum.trip}}#{{museum.id}}">
+            <a target="_blank" href="/travel/{{ museum.trip }}#{{museum.id}}">
                 {% include resimg.html src=museum.img class="museum-image force-small" %}
             </a>
             {% else if musem.img %}
@@ -24,14 +24,14 @@ redirect_from:
         </div>
         <div class="copy">
             <h3 id="{{ museum.id }}">{{ museum.title }}</h3>
-            <h4>{{museum.location}} (<a target="_blank" href="https://google.com/maps?q={{ museum.title}}, {{museum.location}}">Map</a>)</h4>
-            <p>{{museum.description}}</p>
+            <h4>{{ museum.location }} | <a target="_blank" href="https://google.com/maps?q={{ museum.title}}, {{ museum.location }}">Map</a></h4>
+            <p>{{ museum.description }}</p>
             <div class="button-group">
                 {% if museum.trip %}
-                <a target="_blank" href="/travel/{{museum.trip}}#{{museum.id}}" class="button">Photos</a>
+                <a target="_blank" href="/travel/{{ museum.trip }}#{{ museum.id }}" class="button">Photos</a>
                 {% endif %}
                 {% if museum.website%}
-                <a target="_blank" href="{{museum.website}}" class="button">Website</a>
+                <a target="_blank" href="{{ museum.website }}" class="button">Website</a>
                 {% endif %}
             </div>
         </div>
