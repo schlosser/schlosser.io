@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
   var body = document.getElementsByTagName('body')[0];
   var html = document.getElementsByTagName('html')[0];
+  var wordState = 0;
+  var showingImageLinks = false;
 
   function enableDarkMode() {
     // Avoids double dark mode... ;)
@@ -16,14 +18,24 @@ document.addEventListener('DOMContentLoaded', function() {
     localStorage.removeItem("mode");
   }
 
+  function toggleImageLinks() {
+    body.className = body.className.replace(' show-image-links', '');
+    showingImageLinks = !showingImageLinks;
+
+    if (showingImageLinks) {
+      body.className += ' show-image-links';
+    }
+  }
+
   if (localStorage.getItem("mode") === "dark") {
     enableDarkMode();
   }
 
-  var wordState = 0;
-
   document.addEventListener('keyup', function(e) {
     switch(e.which) {
+      case 16: // "shift"
+        toggleImageLinks();
+        break;
       case 68: // "d"
         wordState = 1;
         break;

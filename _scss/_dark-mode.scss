@@ -18,6 +18,43 @@
     text-decoration-color: $transparent;
   }
 
+  .progressive-image .self-link {
+    i {
+      background-color: $black;
+
+      svg path {
+        fill: $white;
+      }
+    }
+
+    label {
+      background-color: $black;
+      color: $white;
+    }
+  }
+
+  article {
+    pre {
+      background-color: $true-black;
+      color: $white;
+    }
+
+    code {
+      background-color: $true-black;
+      color: $white;
+    }
+
+    .highlight {
+      &::before {
+        background: linear-gradient(to left, rgba($true-black, 0), $true-black);
+      }
+
+      &::after {
+        background: linear-gradient(to right, rgba($true-black, 0), $true-black);
+      }
+    }
+  }
+
   a {
     color: $white;
     text-decoration-color: $white;

@@ -14,6 +14,14 @@
         style="padding-bottom: {{1.0 | divided_by: site.data.responsiveMetadata.aspectRatios[include.src] | times: 100 }}%"></div>
     <img class="thumbnail"
         src="/img/res/20/{{ include.src }}"alt="">
+    {% unless include.link %}
+        {% if site.data.travelPhotos[include.src] %}
+            <a class="self-link" href="#{{site.data.travelPhotos[include.src].hash}}">
+                <i>{% include svg/link.html %}</i>
+                <label>Copy link to clipboard</label>
+            </a>
+        {% endif %}
+    {% endunless %}
 </figure>
 {% if include.link %}
 </a>

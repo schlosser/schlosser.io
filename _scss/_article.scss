@@ -15,8 +15,8 @@ article {
 
   h3 {
     font-family: $sans;
-    font-weight: $bold;
     font-size: 1.5rem;
+    font-weight: $bold;
     margin-bottom: 1rem;
   }
 
@@ -55,14 +55,17 @@ article {
 
   pre {
     background-color: $lighter-gray;
+    color: $black;
     margin: 1.5rem 0;
     overflow: scroll;
     padding: 2rem;
     width: 100%;
 
     code {
+      background-color: $lighter-gray;
       line-height: 1.5;
       padding: 0;
+      color: $black;
     }
   }
 

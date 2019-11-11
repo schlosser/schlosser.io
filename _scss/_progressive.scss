@@ -17,6 +17,12 @@ body {
     opacity: 1;
     pointer-events: auto;
   }
+
+  &.show-image-links {
+    .progressive-image .self-link {
+      display: flex;
+    }
+  }
 }
 
 
@@ -36,6 +42,60 @@ body {
 
     &.is-open {
       cursor: zoom-out;
+
+      .self-link {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+  }
+
+  .self-link {
+    @extend %h5;
+    align-items: center;
+    bottom: 1rem;
+    display: none;
+    left: 1rem;
+    position: absolute;
+    transition: 0.3s ease opacity;
+    z-index: 100;
+
+    i {
+      align-items: center;
+      background-color: $white;
+      box-sizing: content-box;
+      padding: 0.675rem;
+      border-radius: 50%;
+      display: flex;
+    }
+
+    label {
+      position: absolute;
+      white-space: nowrap;
+      color: $black;
+      padding: 0 0.5rem;
+      font-size: 0.875rem;
+      left: 100%;
+      margin-left: 0.5rem;
+      background-color: $white;
+      opacity: 0;
+      transform: translate3d(0, 1rem, 0);
+      transition: 0.3s ease all;
+    }
+
+    &:hover {
+      label {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    svg {
+      width: 0.75rem;
+
+      path {
+        fill: $black;
+      }
     }
   }
 

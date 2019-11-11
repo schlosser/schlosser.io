@@ -26,6 +26,32 @@
   }
 
   /**
+   * Copy text to clipboard, while retaining the existing document selection.
+   * Copied from https://hackernoon.com/copying-text-to-clipboard-with-javascript-df4d4988697f
+   *
+   * @param {string} str - the text to copy to the user's clipboard.
+   */
+  function _copyToClipboard(str) {
+    var el = document.createElement('textarea');
+    el.value = str;
+    el.setAttribute('readonly', '');
+    el.style.position = 'absolute';
+    el.style.left = '-9999px';
+    document.body.appendChild(el);
+    var selected =
+      document.getSelection().rangeCount > 0
+        ? document.getSelection().getRangeAt(0)
+        : false;
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    if (selected) {
+      document.getSelection().removeAllRanges();
+      document.getSelection().addRange(selected);
+    }
+  };
+
+  /**
    * This class manages a single image. It keeps track of the image's height,
    * width, and position in the grid. An instance of this class is associated
    * with a single image figure, which looks like this:
@@ -47,6 +73,8 @@
     this.viewerOpen = false;
     this.figure = figure;
     this.scrim = document.getElementsByClassName('scrim')[0];
+    this.selfLink = figure.getElementsByClassName('self-link')[0];
+    this.selfLinkText = this.selfLink && this.selfLink.getElementsByTagName('label')[0];
     this.lastWindowWidth = window.innerWidth;
     this.transitionEndEvent = _whichTransitionEndEvent();
     this.forceSmall = (this.figure.className.indexOf('force-small') >= 0);
@@ -63,7 +91,23 @@
       this.figure.addEventListener('click', this.openViewer.bind(this));
     }
 
+    if (this.selfLink) {
+      this.selfLink.addEventListener('click',
+        this.copyLinkToClipboard.bind(this));
+    }
+
     return this;
+  }
+
+  ProgressiveImage.prototype.copyLinkToClipboard = function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    _copyToClipboard(this.selfLink.href);
+    var oldText = this.selfLinkText.textContent
+    this.selfLinkText.textContent = "Copied!";
+    setTimeout(function() {
+      this.selfLinkText.textContent = oldText;
+    }.bind(this), 10 * 1000);
   }
 
   ProgressiveImage.prototype.closeViewer = function () {
