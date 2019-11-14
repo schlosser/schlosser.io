@@ -15,11 +15,10 @@ redirect_from:
     <div class="visual-list large">
         <div class="image">
             {% if museum.trip and museum.id and museum.img %}
-            <a target="_blank" href="/travel/{{ museum.trip }}#{{museum.id}}">
+                {% capture url %}/travel/{{ museum.trip }}#{{ museum.id }}{% endcapture %}
+                {% include resimg.html src=museum.img class="museum-image force-small" link=url%}
+            {% else if museum.img %}
                 {% include resimg.html src=museum.img class="museum-image force-small" %}
-            </a>
-            {% else if musem.img %}
-            {% include resimg.html src=museum.img class="museum-image force-small" %}
             {% endif %}
         </div>
         <div class="copy">

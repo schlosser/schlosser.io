@@ -39,6 +39,22 @@
     indoors, this outdoor pool and walking area is intended for contemplation
     of Suzuki's writing and work.
 
+- id: louisiana-museum
+  img: travel/denmark/humlebaek/louisiana-lake-gallery-from-outside.jpg
+  title: "Louisiana Museum"
+  location: Humlebaek, Denmark
+  website: "https://louisiana.dk"
+  trip: copenhagen-fall-2019
+  description: |
+    While a bit out of the way for visitors to Copenhagen, the Louisiana Museum
+    is a must-visit. Architects Jørgen Bo and Wilhlem Wohlert transformed a
+    suburban villa into a circular exhibition route that meanders between
+    galleries and nature, above and below ground, from the forest to a lake, and
+    to the sea. In my visit, I thoroughly enjoyed the permanent collection in
+    the sculpture garden, and the rotation of modern and contemporary art in the
+    three galleries. I speant nearly a full day at the Louisiana and I'd
+    recommend anyone visiting Copenhagen to do the same.
+
 - id: mori-art-museum
   img: travel/japan-19/tokyo/mori-boat-solo.jpg
   title: "Mori Art Museum"
@@ -52,6 +68,35 @@
     its name. Located at the top of Mori Tower in Roppongi, the musueum has no
     permanent collection, just several gallery spaces. While I can't predict
     what will be on display in the future, I very much like the curators' taste.
+
+- id: dia-beacon
+  img: museums/dia-beacon.jpg
+  title: "Dia:Beacon"
+  location: Beacon, NY
+  website: "https://www.diaart.org"
+  trip: null
+  description: |
+    New York City has no shortage of fantastic museums to explore within its
+    limits. But just a few miles north of the Bronx sits Beacon, New York, home
+    of Dia:Beacon, an art museum on the banks of the Hudson River that houses a
+    massive permanent collection of massive artworks, as well as a few special
+    exhibitions. The museum occupies a Former Nabisco box-printing factory,
+    which means awesome high ceilings, beautiful lighting, and even a creepy
+    basement.
+
+- id: glyptotek
+  img: travel/denmark/copenhagen/glyptotek-entry.jpg
+  title: "Ny Carlsberg Glyptotek"
+  location: Copenhagen, Denmark
+  website: "https://www.glyptoteket.com/"
+  trip: copenhagen-fall-2019
+  description: |
+    Composed largely of the private collection of one wealthy Danish art
+    collector, Glyptotek has it all. The atrium is like that of the Frick
+    Collection in New York, but sevearl times larger. The collection of Danish,
+    Roman, and Greek sculpture may not rival that of the Louvre, but the
+    presentation of the sculpture might. Located in downtown Copenhagen,
+    Glytotek is easily accessible and a must-visit for travelers to Denmark.
 
 - id: tel-aviv-museum-of-art
   img: travel/israel/tel-aviv/museum-day.jpg
@@ -106,21 +151,6 @@
     how it was created. While that exhibit did not allow photography, this
     underwater pool exhibit did. See how they did it?
 
-- id: dia-beacon
-  img: museums/dia-beacon.jpg
-  title: "Dia:Beacon"
-  location: Beacon, NY
-  website: "https://www.diaart.org"
-  trip: null
-  description: |
-    New York City has no shortage of fantastic museums to explore within its
-    limits. But just a few miles north of the Bronx sits Beacon, New York, home
-    of Dia:Beacon, an art museum on the banks of the Hudson River that houses a
-    massive permanent collection of massive artworks, as well as a few special
-    exhibitions. The museum occupies a Former Nabisco box-printing factory,
-    which means awesome high ceilings, beautiful lighting, and even a creepy
-    basement.
-
 - id: moma-ps1
   img: museums/moma-ps1.jpg
   title: "MoMA PS1"
@@ -162,6 +192,21 @@
     their Charles White retrospective and the curious handcrafted cityscapes of
     Bodys Isek Kingelez, MoMA has a lot to offer.
 
+- id: thorvaldsens
+  img: travel/denmark/copenhagen/thorvaldsens-jason.jpg
+  title: "Thorvaldsens Museum"
+  location: Copenhagen, Denmark
+  website: "https://www.thorvaldsensmuseum.dk/en"
+  trip: copenhagen-fall-2019
+  description: |
+    The Thorvaldsens Museum presents the life's work of Bertel Thorvaldsens, a
+    Danish sculptor who rose to fame in Rome around the turn of the 19th
+    century. The museum thoughtfully curates his work by leading visitors
+    through a passageway of small rooms, each of which contain a single large
+    sculpture, and some supporting works. I highly recommend the free audio
+    guide, which aids in the critical analysis and understanding of
+    Thorvaldsen's work.
+
 - id: tate-modern
   img: travel/uk/london-night-view.jpg
   title: "The Tate Modern"
@@ -194,6 +239,20 @@
     exhibitions across of a few visits. It's not the place I'd spend an entire
     afternoon in, but it's definitely fun to visit, especially with first-timers
     or friends.
+
+- id: danish-design
+  img: travel/denmark/copenhagen/design-museum-chair-hallway.jpg
+  title: "The Danish Museum of Art & Design"
+  location: Copenhagen, Denmark
+  trip: copenhagen-fall-2019
+  website: "https://designmuseum.dk/"
+  description: |
+    With a stunning permanent collection of Danish design pieces and an expertly
+    curated rotation of exhibitions, I was thoroughly impressed with the Design
+    Museum. I got to see an exhibit on Bauhaus on my visit, and enjoyed a
+    delicious salmon smørrebrød in the cafe. The best part of the Design Museum,
+    though, is the collection of chairs, presented in a memorable albeit
+    intimidating hallway of display cases.
 
 - id: storm-king
   img: museums/storm-king.jpg
@@ -228,6 +287,19 @@
     full recreation of the Parthenon's frieze (sculpted walls) that combines
     real artifacts with replicas.
 
+- id: smk
+  img: travel/denmark/copenhagen/statens-museum-from-bridge.jpg
+  title: "Statens Museum for Kunst"
+  location: Copenhagen, Denmark
+  trip: copenhagen-fall-2019
+  website: "https://www.smk.dk/"
+  description: |
+    Statens Museum for Kunst houses an impressive collection of French, Danish,
+    and other European paintings from the 17th to 19th centuries. While the
+    museum also displays modern and contemporary art in it's new expanision, I
+    found the older work more compelling. The exception to that rule was the
+    beautiful atrium space that connects the new and old buildings.
+
 - id: art-gallery-nsw
   img: museums/art-gallery-nsw.jpg
   title: "Art Gallery of New South Wales"
@@ -253,6 +325,19 @@
     damn impressive, although the presentation is quite overwhelming. Visitors
     pack the hallways, making the museum feel more like one long line than
     something to be taken at your own pace.
+
+- id: arken-museum
+  img: travel/denmark/ishøj/arken-museum.jpg
+  title: "ARKEN Museum for Moderne Kunst"
+  location: Ishøj, Denmark
+  trip: copenhagen-fall-2019
+  website: "https://www.arken.dk/"
+  description: |
+    Located 45 minutes west of Copenhagen, ARKEN is a solid half-day trip
+    from Copenhagen. I found several pieces that I enjoyed in ARKEN's
+    collection, including Ai Weiwei's <em>Circle of Animals</em>. While the
+    relatively small size of the museum may not make it work everyone's visit,
+    I enjoyed walking around the grounds in addition to viewing the collection.
 
 - id: frick
   img: museums/frick.jpg

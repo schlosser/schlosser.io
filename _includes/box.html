@@ -13,7 +13,7 @@
             </a>
         </h3>
         {% if include.featured %}
-        <p>{{ page.excerpt | truncatewords: 50 | remove: '<section class="text">' | remove: '</section>' }}</p>
+        <p>{{ page.excerpt | strip_html | truncatewords: 50 }}</p>
         <a class="button" href="{{ include.page.url }}">Continue Reading</a>
         {% endif %}
     </div>

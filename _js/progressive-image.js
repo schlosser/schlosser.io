@@ -39,9 +39,9 @@
     el.style.left = '-9999px';
     document.body.appendChild(el);
     var selected =
-      document.getSelection().rangeCount > 0
-        ? document.getSelection().getRangeAt(0)
-        : false;
+      document.getSelection().rangeCount > 0 ?
+        document.getSelection().getRangeAt(0) :
+        false;
     el.select();
     document.execCommand('copy');
     document.body.removeChild(el);
@@ -49,7 +49,7 @@
       document.getSelection().removeAllRanges();
       document.getSelection().addRange(selected);
     }
-  };
+  }
 
   /**
    * This class manages a single image. It keeps track of the image's height,
@@ -103,12 +103,12 @@
     e.stopPropagation();
     e.preventDefault();
     _copyToClipboard(this.selfLink.href);
-    var oldText = this.selfLinkText.textContent
+    var oldText = this.selfLinkText.textContent;
     this.selfLinkText.textContent = "Copied!";
     setTimeout(function() {
       this.selfLinkText.textContent = oldText;
     }.bind(this), 10 * 1000);
-  }
+  };
 
   ProgressiveImage.prototype.closeViewer = function () {
     window.removeEventListener('scroll', this.onScroll);

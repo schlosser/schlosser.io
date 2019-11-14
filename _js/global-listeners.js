@@ -1,30 +1,35 @@
+function _addClass(e, c) {
+ e.className = e.className.replace(c, '').replace('  ', ' ').trim() + ' ' + c;
+}
+
+function _removeClass(e, c) {
+ e.className = e.className.replace(c, '').replace('  ', ' ').trim();
+}
+
+
 document.addEventListener('DOMContentLoaded', function() {
   var body = document.getElementsByTagName('body')[0];
   var html = document.getElementsByTagName('html')[0];
   var wordState = 0;
-  var showingImageLinks = false;
 
   function enableDarkMode() {
-    // Avoids double dark mode... ;)
-    body.className = body.className.replace(' dark-mode', '');
-    body.className += ' dark-mode';
+    _addClass(body, 'dark-mode');
     html.style.backgroundColor = '#000000';
     localStorage.setItem("mode", "dark");
   }
 
   function disableDarkMode() {
-    body.className = body.className.replace(' dark-mode', '');
+    _removeClass(body, 'dark-mode');
     html.style.backgroundColor = '';
     localStorage.removeItem("mode");
   }
 
-  function toggleImageLinks() {
-    body.className = body.className.replace(' show-image-links', '');
-    showingImageLinks = !showingImageLinks;
+  function enableImageLinks() {
+    _addClass(body, 'show-image-links');
+  }
 
-    if (showingImageLinks) {
-      body.className += ' show-image-links';
-    }
+  function disableImageLinks() {
+    _removeClass(body, 'show-image-links');
   }
 
   if (localStorage.getItem("mode") === "dark") {
@@ -34,7 +39,9 @@ document.addEventListener('DOMContentLoaded', function() {
   document.addEventListener('keyup', function(e) {
     switch(e.which) {
       case 16: // "shift"
-        toggleImageLinks();
+      case 18: // "alt"
+      case 91: // "cmd"
+        disableImageLinks();
         break;
       case 68: // "d"
         wordState = 1;
@@ -71,6 +78,19 @@ document.addEventListener('DOMContentLoaded', function() {
         break;
       default:
         wordState = 0;
+        break;
+    }
+  });
+
+  document.addEventListener('keydown', function(e) {
+    switch (e.which) {
+      case 16: // "shift"
+      case 18: // "alt"
+      case 91: // "cmd"
+        enableImageLinks();
+        console.log("hi");
+        break;
+      default:
         break;
     }
   });
