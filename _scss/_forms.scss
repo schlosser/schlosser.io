@@ -97,3 +97,47 @@ form {
     }
   }
 }
+
+@media screen and (max-width: $tablet-portrait-max) {
+  form {
+    margin-left: -4rem;
+    margin-right: -4rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+
+    .form-control {
+      align-items: flex-start;
+      flex-direction: column;
+      
+      label {
+        margin-bottom: 0.25rem;
+      }
+
+      input {
+        &[type=text], &[type=email], &[type=number] {
+          height: 2.5rem;
+        }
+
+        &[type=radio] + label {
+          height: 2.5rem;
+          line-height: 1.5rem;
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $phone-landscape-max) {
+  article form {
+    margin-left: -2rem;
+    margin-right: -2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    h4 {
+      font-size: 1.25rem;
+    }
+  }
+}

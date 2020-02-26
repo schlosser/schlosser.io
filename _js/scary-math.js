@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function renderLeg(legIndex) {
     return (
       '<li class="leg">' +
-          '<h4><strong>Leg ' + (legIndex + 1) + '</strong></h4>' +
+          '<h4>Leg ' + (legIndex + 1) + '</h4>' +
           '<div class="form-control">' +
               '<label>Transit type</label>' +
               '<ul class="radio-options">' +
@@ -91,11 +91,11 @@ document.addEventListener('DOMContentLoaded', function() {
               '</ul>' +
           '</div>' +
           '<div class="form-control">' +
-              '<label for="calc-estimate-leg' + legIndex + '">Estimate from the app for this leg (minutes)</label>' +
+              '<label for="calc-estimate-leg' + legIndex + '">Estimate from the app for this leg (min)</label>' +
               '<input type="number" min="1" max="100" value="20" id="calc-estimate-leg' + legIndex + '">' +
           '</div>' +
           '<div class="form-control">' +
-              '<label for="calc-periodicity-leg' + legIndex + '">Time between each local train (minutes)</label>' +
+              '<label for="calc-periodicity-leg' + legIndex + '">Time between each local train (min)</label>' +
               '<input type="number" min="1" max="60" value="7" id="calc-periodicity-leg' + legIndex + '">' +
           '</div>' +
           '<div class="form-control">' +
@@ -103,16 +103,16 @@ document.addEventListener('DOMContentLoaded', function() {
               '<input type="number" min="1" max="60" value="4" id="calc-skippable-local-stops-leg' + legIndex + '">' +
           '</div>' +
           '<div class="form-control">' +
-              '<label for="calc-eta-express-leg' + legIndex + '">ETA of the express train (minutes)</label>' +
+              '<label for="calc-eta-express-leg' + legIndex + '">ETA of the express train (min)</label>' +
               '<input type="number" min="1" max="60" value="6" id="calc-eta-express-leg' + legIndex + '">' +
           '</div>' +
           '<div class="form-control">' +
-              '<label for="calc-eta-local-leg' + legIndex + '">ETA of the local train (minutes)</label>' +
+              '<label for="calc-eta-local-leg' + legIndex + '">ETA of the local train (min)</label>' +
               '<input type="number" min="1" max="60" value="3" id="calc-eta-local-leg' + legIndex + '">' +
           '</div>' +
-          '<div class="form-control">' +
+          '<div class="form-control output-container">' +
               '<label><strong>Total for Leg ' + (legIndex + 1) + '</strong></label>' +
-              '<p class="output-container-leg' + legIndex + '"><strong><span id="output-minutes-leg' + legIndex + '">0</span> minutes</strong></p>' +
+              '<p><strong><span id="output-minutes-leg' + legIndex + '">0</span> minutes</strong></p>' +
           '</div>' +
       '</li>'
     );
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
       legSubtotalOutputs[i].innerHTML = legTotals[i].toFixed(1);
     }
 
-    var sum = legTotals.reduce(function(total, num) { return total + num }, 0)
+    var sum = legTotals.reduce(function(total, num) { return total + num; }, 0);
     var adjustedTotal = sum - ow + 5 * (inputValues.perLeg.length - 1);
     totalOutput.innerHTML = adjustedTotal.toFixed(1);
   }
