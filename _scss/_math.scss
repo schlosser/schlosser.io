@@ -186,13 +186,9 @@ form {
   }
 }
 
-
 @media screen and (max-width: $tablet-portrait-max) {
-  .scary-math {
-    margin-left: -4rem;
-    margin-right: -4rem;
-    padding-left: 4rem;
-    padding-right: 4rem;
+  .scary-math .scary-math-redacted {
+    left: 4rem;
   }
 }
 
@@ -220,21 +216,16 @@ form {
       font-size: 1.25rem;
       
       &:after {
-        content: ':'
+        content: ':';
       }
-    }
-
-    p {
-      // font-size: 1rem;
     }
   }
 
   .scary-math {
-    margin-left: -2rem;
-    margin-right: -2rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
-
+    .scary-math-redacted {
+      left: 2rem;
+    }
+    
     .mjx-mtext .mjx-char {
       font-size: 1.25rem;
     }

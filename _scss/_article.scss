@@ -193,10 +193,36 @@ article {
   }
 }
 
+@media screen and (max-width: $tablet-portrait-max) {
+  article {
+    blockquote, form {
+      margin-left: -4rem;
+      margin-right: -4rem;
+      padding-left: 4rem;
+      padding-right: 4rem;
+    }
+  }
+}
+
 @media screen and (max-width: $phone-landscape-max) {
   article {
+    blockquote, form {
+      margin-left: -2rem;
+      margin-right: -2rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
     .tight-figure {
       margin: 3rem 0;
+    }
+
+    ol, ul {
+      padding-left: 2rem;
+
+      li {
+        padding-left: 0.5rem;
+      }
     }
 
     section {

@@ -47,7 +47,7 @@ strong {
 }
 
 @media screen and (max-width: $phone-landscape-max) {
-  p, %p {
+  p, %p, li, %li {
     font-size: 1.25rem;
   }
 }

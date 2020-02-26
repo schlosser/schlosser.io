@@ -46,7 +46,7 @@
       color: $white;
     }
 
-    .highlight {
+    .highlight, .scary-math {
       &::before {
         background: linear-gradient(to left, rgba($true-black, 0), $true-black);
       }
@@ -55,6 +55,11 @@
         background: linear-gradient(to right, rgba($true-black, 0), $true-black);
       }
     }
+  }
+
+  .scary-math-toggle, .hide-all.button {
+    color: $black;
+    background-color: $light-gray;
   }
 
   a {
@@ -67,7 +72,32 @@
     }
   }
 
+  form {
+    input {
+      &[type=text], &[type=email], &[type=number] {
+        background-color: $light-gray;
+        color: $black;
+      }
+
+      &[type=radio] {
+        + label {
+          background-color: $medium-gray;
+          color: $white;
+        }
+
+        &:checked + label {
+          background-color: $light-gray;
+          color: $black;          
+        }
+      }
+    }
+  }
+
   header, footer {
+    background-color: $true-black;
+  }
+
+  form, blockquote {
     background-color: $true-black;
   }
 }

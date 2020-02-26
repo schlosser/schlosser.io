@@ -56,12 +56,6 @@ form {
         border-bottom-color: $medium-gray;
         color: $white;
       }
-
-      // &:focus {
-      //   + label, &:checked + label {
-      //     border-bottom-color: $black;
-      //   }
-      // }
     }
   }
 
@@ -133,7 +127,6 @@ form {
       align-items: flex-start;
       flex-direction: column;
 
-
       label {
         font-size: 1.25rem;
         margin-bottom: 0.25rem;
@@ -143,6 +136,7 @@ form {
         &[type=text], &[type=email], &[type=number] {
           height: 3rem;
           font-size: 1.25rem;
+          min-width: 66%;
         }
 
         &[type=radio] + label {
