@@ -27,11 +27,11 @@ article {
 
   blockquote {
     background-color: $lighter-gray;
-    margin: 3rem;
+    margin: 3rem 0;
     padding: 3rem;
   }
 
-  .highlight {
+  .highlight, .scary-math {
     position: relative;
 
     &::after, &::before {
@@ -40,6 +40,7 @@ article {
       position: absolute;
       top: 0;
       width: 2rem;
+      z-index: 100;
     }
 
     &::before {
@@ -61,11 +62,15 @@ article {
     padding: 2rem;
     width: 100%;
 
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
     code {
       background-color: $lighter-gray;
+      color: $black;
       line-height: 1.5;
       padding: 0;
-      color: $black;
     }
   }
 
@@ -95,8 +100,13 @@ article {
     list-style: disc;
   }
 
-  .tight-figure {
-    margin: 3rem 6rem;
+  .twitter-tweet-wrapper {
+    margin: 3rem 0;
+
+    .twitter-tweet {
+      display: inline-block;
+      margin: 0 auto;
+    }
 
     h5 {
       padding: 0;
@@ -169,6 +179,16 @@ article {
       position: absolute;
       top: 0;
       width: 100%;
+    }
+  }
+
+  table {
+    thead {
+      font-weight: $bold;
+    }
+
+    td {
+      padding-right: 3rem;
     }
   }
 }

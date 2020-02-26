@@ -88,7 +88,6 @@ document.addEventListener('DOMContentLoaded', function() {
       case 18: // "alt"
       case 91: // "cmd"
         enableImageLinks();
-        console.log("hi");
         break;
       default:
         break;

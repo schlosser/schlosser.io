@@ -1,3 +1,5 @@
+// scss-lint:disable ImportantRule
+
 .dark-mode {
   background-color: $black;
   color: $white;
@@ -18,13 +20,13 @@
     text-decoration-color: $transparent;
   }
 
-  .progressive-image .self-link {
+  .self-link {
     i {
       background-color: $black;
+    }
 
-      svg path {
-        fill: $white;
-      }
+    svg path {
+      fill: $white;
     }
 
     label {
