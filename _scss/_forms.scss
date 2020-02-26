@@ -104,28 +104,6 @@ form {
     margin-right: -4rem;
     padding-left: 4rem;
     padding-right: 4rem;
-
-    .form-control {
-      align-items: flex-start;
-      flex-direction: column;
-      
-      label {
-        margin-bottom: 0.25rem;
-      }
-
-      input {
-        &[type=text], &[type=email], &[type=number] {
-          height: 2.5rem;
-        }
-
-        &[type=radio] + label {
-          height: 2.5rem;
-          line-height: 1.5rem;
-          padding-left: 1rem;
-          padding-right: 1rem;
-        }
-      }
-    }
   }
 }
 
@@ -138,6 +116,42 @@ form {
 
     h4 {
       font-size: 1.25rem;
+    }
+      
+    .radio-options {
+      flex-wrap: wrap;
+      width: 100%;
+      margin: 0 -0.25rem;
+
+      .radio-option {
+        width: 33%;
+        padding: 0.25rem;
+      }
+    }
+
+    .form-control {
+      align-items: flex-start;
+      flex-direction: column;
+
+
+      label {
+        font-size: 1.25rem;
+        margin-bottom: 0.25rem;
+      }
+
+      input {
+        &[type=text], &[type=email], &[type=number] {
+          height: 3rem;
+          font-size: 1.25rem;
+        }
+
+        &[type=radio] + label {
+          height: 3rem;
+          line-height: 2rem;
+          padding-left: 0.75rem;
+          padding-right: 0.75rem;
+        }
+      }
     }
   }
 }

@@ -49,73 +49,76 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 
   function renderLeg(legIndex) {
-    return (
-      '<li class="leg">' +
-          '<h4>Leg ' + (legIndex + 1) + '</h4>' +
-          '<div class="form-control">' +
-              '<label>Transit type</label>' +
-              '<ul class="radio-options">' +
-                  '<li class="radio-option">' +
-                      '<input type="radio" checked name="calc-mode-leg' + legIndex + '" id="calc-mode-leg' + legIndex + '-t1" value="mode-t1">' +
-                      '<label for="calc-mode-leg' + legIndex + '-t1">Tier 1</label>' +
-                  '</li>' +
-                  '<li class="radio-option">' +
-                      '<input type="radio" name="calc-mode-leg' + legIndex + '" id="calc-mode-leg' + legIndex + '-t2" value="mode-t2">' +
-                      '<label for="calc-mode-leg' + legIndex + '-t2">Tier 2</label>' +
-                  '</li>' +
-                  '<li class="radio-option">' +
-                      '<input type="radio" name="calc-mode-leg' + legIndex + '" id="calc-mode-leg' + legIndex + '-t3" value="mode-t3">' +
-                      '<label for="calc-mode-leg' + legIndex + '-t3">Tier 3</label>' +
-                  '</li>' +
-                  '<li class="radio-option">' +
-                      '<input type="radio" name="calc-mode-leg' + legIndex + '" id="calc-mode-leg' + legIndex + '-bus" value="mode-bus">' +
-                      '<label for="calc-mode-leg' + legIndex + '-bus">Bus</label>' +
-                  '</li>' +
-                  '<li class="radio-option">' +
-                      '<input type="radio" name="calc-mode-leg' + legIndex + '" id="calc-mode-leg' + legIndex + '-sbs" value="mode-sbs">' +
-                      '<label for="calc-mode-leg' + legIndex + '-sbs">SBS</label>' +
-                  '</li>' +
-              '</ul>' +
-          '</div>' +
-          '<div class="form-control">' +
-              '<label>Is destination station an express stop?</label>' +
-              '<ul class="radio-options">' +
-                  '<li class="radio-option">' +
-                      '<input type="radio" checked name="calc-destination-express-leg' + legIndex + '" id="calc-destination-express-leg' + legIndex + '-yes" value="1">' +
-                      '<label for="calc-destination-express-leg' + legIndex + '-yes">Yes</label>' +
-                  '</li>' +
-                  '<li class="radio-option">' +
-                      '<input type="radio" name="calc-destination-express-leg' + legIndex + '" id="calc-destination-express-leg' + legIndex + '-no" value="0">' +
-                      '<label for="calc-destination-express-leg' + legIndex + '-no">No</label>' +
-                  '</li>' +
-              '</ul>' +
-          '</div>' +
-          '<div class="form-control">' +
-              '<label for="calc-estimate-leg' + legIndex + '">Estimate from the app for this leg (min)</label>' +
-              '<input type="number" min="1" max="100" value="20" id="calc-estimate-leg' + legIndex + '">' +
-          '</div>' +
-          '<div class="form-control">' +
-              '<label for="calc-periodicity-leg' + legIndex + '">Time between each local train (min)</label>' +
-              '<input type="number" min="1" max="60" value="7" id="calc-periodicity-leg' + legIndex + '">' +
-          '</div>' +
-          '<div class="form-control">' +
-              '<label for="calc-skippable-local-stops-leg' + legIndex + '">Number of skippable local-only stops</label>' +
-              '<input type="number" min="1" max="60" value="4" id="calc-skippable-local-stops-leg' + legIndex + '">' +
-          '</div>' +
-          '<div class="form-control">' +
-              '<label for="calc-eta-express-leg' + legIndex + '">ETA of the express train (min)</label>' +
-              '<input type="number" min="1" max="60" value="6" id="calc-eta-express-leg' + legIndex + '">' +
-          '</div>' +
-          '<div class="form-control">' +
-              '<label for="calc-eta-local-leg' + legIndex + '">ETA of the local train (min)</label>' +
-              '<input type="number" min="1" max="60" value="3" id="calc-eta-local-leg' + legIndex + '">' +
-          '</div>' +
-          '<div class="form-control output-container">' +
-              '<label><strong>Total for Leg ' + (legIndex + 1) + '</strong></label>' +
-              '<p><strong><span id="output-minutes-leg' + legIndex + '">0</span> minutes</strong></p>' +
-          '</div>' +
-      '</li>'
+    var content = (
+      '<h4>Leg ' + (legIndex + 1) + '</h4>' +
+      '<div class="form-control">' +
+          '<label>Transit type</label>' +
+          '<ul class="radio-options">' +
+              '<li class="radio-option">' +
+                  '<input type="radio" checked name="calc-mode-leg' + legIndex + '" id="calc-mode-leg' + legIndex + '-t1" value="mode-t1">' +
+                  '<label for="calc-mode-leg' + legIndex + '-t1">Tier 1</label>' +
+              '</li>' +
+              '<li class="radio-option">' +
+                  '<input type="radio" name="calc-mode-leg' + legIndex + '" id="calc-mode-leg' + legIndex + '-t2" value="mode-t2">' +
+                  '<label for="calc-mode-leg' + legIndex + '-t2">Tier 2</label>' +
+              '</li>' +
+              '<li class="radio-option">' +
+                  '<input type="radio" name="calc-mode-leg' + legIndex + '" id="calc-mode-leg' + legIndex + '-t3" value="mode-t3">' +
+                  '<label for="calc-mode-leg' + legIndex + '-t3">Tier 3</label>' +
+              '</li>' +
+              '<li class="radio-option">' +
+                  '<input type="radio" name="calc-mode-leg' + legIndex + '" id="calc-mode-leg' + legIndex + '-bus" value="mode-bus">' +
+                  '<label for="calc-mode-leg' + legIndex + '-bus">Bus</label>' +
+              '</li>' +
+              '<li class="radio-option">' +
+                  '<input type="radio" name="calc-mode-leg' + legIndex + '" id="calc-mode-leg' + legIndex + '-sbs" value="mode-sbs">' +
+                  '<label for="calc-mode-leg' + legIndex + '-sbs">SBS</label>' +
+              '</li>' +
+          '</ul>' +
+      '</div>' +
+      '<div class="form-control">' +
+          '<label>Is destination station an express stop?</label>' +
+          '<ul class="radio-options">' +
+              '<li class="radio-option">' +
+                  '<input type="radio" checked name="calc-destination-express-leg' + legIndex + '" id="calc-destination-express-leg' + legIndex + '-yes" value="1">' +
+                  '<label for="calc-destination-express-leg' + legIndex + '-yes">Yes</label>' +
+              '</li>' +
+              '<li class="radio-option">' +
+                  '<input type="radio" name="calc-destination-express-leg' + legIndex + '" id="calc-destination-express-leg' + legIndex + '-no" value="0">' +
+                  '<label for="calc-destination-express-leg' + legIndex + '-no">No</label>' +
+              '</li>' +
+          '</ul>' +
+      '</div>' +
+      '<div class="form-control">' +
+          '<label for="calc-estimate-leg' + legIndex + '">Estimate from the app for this leg (min)</label>' +
+          '<input type="number" min="1" max="100" value="20" id="calc-estimate-leg' + legIndex + '">' +
+      '</div>' +
+      '<div class="form-control">' +
+          '<label for="calc-periodicity-leg' + legIndex + '">Time between each local train (min)</label>' +
+          '<input type="number" min="1" max="60" value="7" id="calc-periodicity-leg' + legIndex + '">' +
+      '</div>' +
+      '<div class="form-control">' +
+          '<label for="calc-skippable-local-stops-leg' + legIndex + '">Number of skippable local-only stops</label>' +
+          '<input type="number" min="1" max="60" value="4" id="calc-skippable-local-stops-leg' + legIndex + '">' +
+      '</div>' +
+      '<div class="form-control">' +
+          '<label for="calc-eta-express-leg' + legIndex + '">ETA of the express train (min)</label>' +
+          '<input type="number" min="1" max="60" value="6" id="calc-eta-express-leg' + legIndex + '">' +
+      '</div>' +
+      '<div class="form-control">' +
+          '<label for="calc-eta-local-leg' + legIndex + '">ETA of the local train (min)</label>' +
+          '<input type="number" min="1" max="60" value="3" id="calc-eta-local-leg' + legIndex + '">' +
+      '</div>' +
+      '<div class="form-control output-container">' +
+          '<label><strong>Total for Leg ' + (legIndex + 1) + '</strong></label>' +
+          '<p><strong><span id="output-minutes-leg' + legIndex + '">0</span> minutes</strong></p>' +
+      '</div>'
     );
+
+    var li = document.createElement('li');
+    li.className = "leg";
+    li.innerHTML = content;
+    return li;
   }
 
   function calculateAndUpdate() {
@@ -151,6 +154,22 @@ document.addEventListener('DOMContentLoaded', function() {
     totalOutput.innerHTML = adjustedTotal.toFixed(1);
   }
 
+  function onUpdateField(valuesObj, fieldId) {
+    return function(e) {
+      valuesObj[fieldId] = e.target.value;
+      calculateAndUpdate();
+    };
+  }
+
+  function onUpdateRadio(valuesObj, groupName) {
+    return function(e) {
+      if (e.target.checked) {
+        valuesObj[groupName] = e.target.value;
+        calculateAndUpdate();
+      }
+    };
+  }
+
   function attachRadioListeners(fieldIds, valuesObj, legIndex) {
     fieldIds.forEach(function(baseGroupName) {
       var groupName = baseGroupName + ((legIndex === undefined) ? '' : '-leg' + legIndex);
@@ -159,12 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
       for (var i = 0; i < radioInputs.length; i++) {
         var radio = radioInputs[i];
 
-        radio.addEventListener('change', function(e) {
-          if (e.target.checked) {
-            valuesObj[groupName] = e.target.value;
-            calculateAndUpdate();
-          }
-        });
+        radio.addEventListener('change', onUpdateRadio(valuesObj, groupName));
 
         if (radio.checked) {
           valuesObj[groupName] = radio.value;
@@ -178,10 +192,7 @@ document.addEventListener('DOMContentLoaded', function() {
       var fieldId = baseFieldId + ((legIndex === undefined) ? '' : '-leg' + legIndex);
       var field = document.getElementById(fieldId);
 
-      field.addEventListener('change', function(e) {
-        valuesObj[fieldId] = e.target.value;
-        calculateAndUpdate();
-      });
+      field.addEventListener('change', onUpdateField(valuesObj, fieldId));
 
       valuesObj[fieldId] = field.value;
     });
@@ -198,7 +209,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function addLeg() {
     var legIndex = legsContainer.children.length;
     inputValues.perLeg.push({});
-    legsContainer.innerHTML += renderLeg(legIndex);
+    legsContainer.appendChild(renderLeg(legIndex));
     var legSubtotalOutput = document.getElementById('output-minutes-leg' + legIndex);
     legSubtotalOutputs.push(legSubtotalOutput);
     attachFieldListeners(inputStructure.perLeg.fields, inputValues.perLeg[legIndex], legIndex);
