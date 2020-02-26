@@ -58,8 +58,8 @@
   }
 
   .scary-math-toggle, .hide-all.button {
-    color: $black;
     background-color: $light-gray;
+    color: $black;
   }
 
   a {
@@ -72,23 +72,21 @@
     }
   }
 
-  form {
-    input {
-      &[type=text], &[type=email], &[type=number] {
-        background-color: $light-gray;
-        color: $black;
+  form input {
+    &[type=text], &[type=email], &[type=number] {
+      background-color: $light-gray;
+      color: $black;
+    }
+
+    &[type=radio] {
+      + label {
+        background-color: $medium-gray;
+        color: $white;
       }
 
-      &[type=radio] {
-        + label {
-          background-color: $medium-gray;
-          color: $white;
-        }
-
-        &:checked + label {
-          background-color: $light-gray;
-          color: $black;          
-        }
+      &:checked + label {
+        background-color: $light-gray;
+        color: $black;
       }
     }
   }

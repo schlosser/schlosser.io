@@ -56,11 +56,11 @@
 }
 
 .subway-icon {
-  height: 1.5rem;
-  width: 1.5rem;
-  vertical-align: middle;
   display: inline;
+  height: 1.5rem;
   transform: translateY(-2px);
+  vertical-align: middle;
+  width: 1.5rem;
 }
 
 .scary-math {
@@ -157,8 +157,8 @@
 
 form {
   .num-leg-buttons {
-    margin-bottom: 2rem;
     border-bottom: 2px solid $light-gray;
+    margin-bottom: 2rem;
 
     .hidden {
       display: none;
@@ -166,22 +166,22 @@ form {
   }
 
   .legs {
-    padding: 0;
     margin: 0;
+    padding: 0;
   }
 
   .leg {
+    border-top: 2px solid $light-gray;
     list-style: none;
     padding: 2rem 0 1rem;
-    border-top: 2px solid $light-gray;
 
     &:first-child {
       margin-top: 2rem;
     }
 
     &:last-child {
-      margin-bottom: 1rem;
       border-bottom: 2px solid $light-gray;
+      margin-bottom: 1rem;
     }
   }
 }
@@ -206,16 +206,16 @@ form {
     flex-direction: row;
 
     label {
-      flex-shrink: 0;
-      flex-grow: 0;
       flex: 0;
-      white-space: nowrap;
-      margin-right: 0.25rem;
-      margin-bottom: 0;
-      line-height: 1.8;
+      flex-grow: 0;
+      flex-shrink: 0;
       font-size: 1.25rem;
-      
-      &:after {
+      line-height: 1.8;
+      margin-bottom: 0;
+      margin-right: 0.25rem;
+      white-space: nowrap;
+
+      &::after {
         content: ':';
       }
     }
@@ -225,7 +225,7 @@ form {
     .scary-math-redacted {
       left: 2rem;
     }
-    
+
     .mjx-mtext .mjx-char {
       font-size: 1.25rem;
     }

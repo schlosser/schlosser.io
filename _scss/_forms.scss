@@ -111,15 +111,15 @@ form {
     h4 {
       font-size: 1.25rem;
     }
-      
+
     .radio-options {
       flex-wrap: wrap;
-      width: 100%;
       margin: 0 -0.25rem;
+      width: 100%;
 
       .radio-option {
-        width: 33%;
         padding: 0.25rem;
+        width: 33%;
       }
     }
 
@@ -134,8 +134,8 @@ form {
 
       input {
         &[type=text], &[type=email], &[type=number] {
-          height: 3rem;
           font-size: 1.25rem;
+          height: 3rem;
           min-width: 66%;
         }
 
