@@ -1,3 +1,49 @@
+- title: The Next 50 Donor Advising Tool
+  id: thenext50-advising
+  img: websites/thenext50-advising.png
+  link: https://thenext50.us/advising
+  year: 2020
+  description: |
+    Many people want to give to causes and candidates on the left, but don't
+    know where to spend their money. That's the problem we set out to solve with
+    The Next 50's donor advising tool. Built in React using
+    <a href="/projects/google-sheets-firebase-cms/">Google Sheets and Firebase</a>
+    as a CMS, the tool lets users pick their donation preferences and receive
+    a personalized set of recommended organizations and candidates.
+
+- title: Interact
+  id: joininteract-2020
+  img: websites/joininteract-2020.png
+  link: https://joininteract.com
+  year: 2020
+  description: |
+    When I rebuilt the Interact website in early 2020, we focused on brining
+    more clarity around the purpose of the organization, its history, and how
+    the Interact fellowship works. This called for a more concrete,
+    appraochable design.
+
+- title: Conor Bloomer
+  id: conorbloomer-2020
+  img: websites/conorbloomer-2020.png
+  link: http://conorbloomer.com
+  year: 2020
+  description: |
+    I rebuilt Conor's website to focus on a minimalist artist portfolio, his
+    collaborators, and side interests. The site logo is his design! I really
+    liked getting out of grayscale background colors.
+
+- title: The Next 50
+  id: thenext50-us
+  img: websites/thenext50.us.png
+  link: https://thenext50.us
+  year: 2019
+  description: |
+    I made this website for The Next 50, an organization working to get more
+    young people involved in politics. This site is pretty simple, and uses an
+    animation to introduce itself. I'm really pleased with how well the design
+    scaled from the home page to other pages, and how the bold footer contrasts
+    with the rest of the site.
+
 - title: The Next 50
   id: thenext50-us
   img: websites/thenext50.us.png

@@ -33,6 +33,7 @@ $box-spacing: 3rem;
       flex: 0;
       padding-bottom: 50%;
       position: relative;
+      user-select: none;
       width: 100%;
 
       a {

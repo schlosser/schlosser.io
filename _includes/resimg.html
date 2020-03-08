@@ -1,5 +1,5 @@
 {% if include.link %}
-<a href="{{ include.link }}" {% if include.target %}target="{{ include.target }}{% endif %}">
+<a href="{{ include.link }}" class="progressive-link" {% if include.target %}target="{{ include.target }}{% endif %}">
 {% endif %}
 <figure class="progressive-image {{ include.class }}"
         data-small="/img/res/400/{{ include.src }}"

@@ -25,6 +25,10 @@ body {
   }
 }
 
+.progressive-image, .progressive-link {
+  user-select: none;
+}
+
 .progressive-image {
   overflow: hidden;
   position: relative;

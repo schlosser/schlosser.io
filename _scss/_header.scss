@@ -34,9 +34,19 @@ footer .footer-wrapper {
 .path {
   padding-left: 3.6rem;
   text-indent: -3.6rem;
+  user-select: none;
+
+  .component {
+    user-select: auto;
+  }
+
+  .tilde {
+    user-select: none;
+  }
 
   .slash {
     padding: 0 0.5rem;
+    user-select: none;
   }
 
   a {

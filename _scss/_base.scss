@@ -61,6 +61,11 @@ img {
   box-sizing: border-box;
 }
 
+::selection {
+  background-color: $light-gray;
+  color: $black;
+}
+
 .capitalize {
   text-transform: capitalize;
 }

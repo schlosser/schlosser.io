@@ -91,6 +91,11 @@
     }
   }
 
+  ::selection {
+    background-color: $light-gray;
+    color: $white;
+  }
+
   header, footer {
     background-color: $true-black;
   }
