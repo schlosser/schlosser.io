@@ -1,0 +1,139 @@
+---
+title: The Next 50 Donor Advising Tool
+date: 2020-03-03
+featured_image: projects/advising-cover.png
+link: https://thenext50.us/advising
+hero_style: none
+---
+
+<p>Over the past few months, I've been working on the first version of a <a href="https://thenext50.us/advising">donor advising tool for the masses</a>, working with the team at <a href="https://thenext50.us">The Next 50</a>. The idea is simple: most people want to donate to progressive causes and candidates, but don't know where to best spend their money. We set out to solve this problem by creating a database of causes and candidates with all of the metadata needed to make personalized recommendations and building a webapp that lets users navigate the list by answering a few multiple-choice questions.</p>
+
+{% include resimg.html src="projects/advising-issues.png" class="with-viewer" %}
+
+<p>In the first version, we ask visitors just four questions:</p>
+
+<ol>
+    <li>Are there any issues that are especially important to you?</li>
+    <li>Are there any constituencies that are especially important to you?</li>
+    <li>Are any of the following states or territories important to you?</li>
+    <li>Where would you most like to contribute?</li>
+</ol>
+
+<p>With this information in hand, we rank and suggest six candidates and organizations that best match the user's donation preferences. For each suggestion, we share background context on who they are and what they work towards, endorsements they've received, and what criteria we used to suggest the match.</p>
+
+{% include resimg.html src="projects/advising-results.png" class="with-viewer" %}
+
+<p>There were some tricky UX issues to tackle in the project. For example, multi-selecting states of interest from a dropdown is tedious. To make the 80% case easier, we added quick-select suggestions for 2020 swing states and southern border states.</p>
+
+</section>
+<div class="image-set">
+    <div class="large">
+        {% include resimg.html src="projects/advising-states-empty.png" class="with-viewer" %}
+        {% include resimg.html src="projects/advising-states-filled.png" class="with-viewer" %}
+    </div>
+</div>
+<h5>Selecting from a dropdown is boring. Quick-selecting 13 options at once is fun!</h5>
+<section class="text">
+
+<p>This project was a great opportunity to push the limits of the <a href="/projects/google-sheets-firebase-cms/">Google Sheets &amp; Firebase</a> backend that we were using on the rest of our website. The app frontend is built with React and Redux.</p>
+
+<p>The basic dataflow involved using <code>firebaseConnect</code> from <a href="https://react-redux-firebase.com/">react-redux-firebase</a> to pull the full list of candidates and organizations into the React props. Then, after scoring the candidates and organizations (based on the user's questions), they're merged, sorted, and rendered.</p>
+
+{% highlight jsx %}
+const enhance = compose(
+  firebaseConnect((props) => [
+    { path: 'organizations' },
+    { path: 'candidates' },
+  ]),
+  connect(({ firebase }) => ({
+    rawOrganizations: firebase.data['organizations'],
+    rawCandidates: firebase.data['candidates'],
+  }))
+);
+
+class SuggestionList extends Component {
+  scoreSuggestions(suggestions) { /* ... */ }
+  suggestionsSort(a, b) { /* ... */ }
+  /* ... */
+  render() {
+    const { rawCandidates, rawOrganizations } = this.props;
+    const scoredCandidates = this.scoreSuggestions(rawCandidates);
+    const scoredOrganizations = this.scoreSuggestions(rawOrganizations);
+    const mixedList = [].concat(scoredCandidates, scoredOrganizations);
+    const sortedList = mixedList.sort(this.suggestionsSort).slice(0, 6);
+    return (
+      /* ... */
+      {sortedList.map(({score, suggestion}) => {
+        if (suggestion instanceof Candidate) {
+          return (<CandidateCard candidate={suggestion}/>);
+        } else {
+          return (<OrganizationCard organization={suggestion} />);
+        }
+      })}
+      /* ... */
+    );
+  }
+}
+
+export default enhance(SuggestionList);
+{% endhighlight %}
+
+<p>One of the early features we felt strongly about was the ability to share recommendations to Facebook or Twitter. To make this work, we needed unique URLs for each user's combination of responses. To achieve this I wrote two functions: <code>responsesToQueryString</code> and <code>queryStringToResponses</code>, and then hooked them up to <code>componentWillMount</code> and <code>componentWillUpdate</code> so that the query parameters always match the user's question responses.</p>
+
+{% highlight js %}
+import {
+  responsesToQueryString,
+  queryStringToResponses
+} from '../utils/QueryStringUtils';
+
+class Advising extends Component {
+  componentWillMount() {
+    const { history, location, setInitialResponses } = this.props;
+    const responses = queryStringToResponses(location.search)
+    setInitialResponses(responses);
+  }
+
+  componentDidUpdate(prevProps) {
+    const { history, location, responses } = this.props;
+    const query = responsesToQueryString(responses)
+    if (query !== location.search.replace(/^\?/,"")) {
+      history.replace(`/advising?${ query }`);
+    }
+  }
+  /* ... */
+}
+{% endhighlight %}
+
+<p>You can see the results in the URL bar below. Clicking the Facebook / Twitter share buttons will share the current URL.</p>
+
+{% include resimg.html src="projects/advising-results.png" class="with-viewer" %}
+
+<p>As we were doing QA testing before rollout, I pulled up the site on an iPhone X, and noticed a tricky issue. The bottom bar that lets users skip to the recommendations looked fine initally, but looked broken if a user scrolled the page and collapsed the browser navigation. This is because on iOS, the renderable canvas of the browser extends underneath the <a href="https://9to5mac.com/2017/11/10/opinion-home-indicator-essential-iphone-x-interface/">thin black home indicator</a>. Without being able to detect the presence of the browser navigation on these devices, I'd have to pick a padding value that looked good with the navigation collapsed and expanded. Bummer!</p>
+
+<div class="image-set inline tight">
+    <div class="large">
+        {% include resimg.html src="projects/advising-m-pinned-recs.png" class="with-viewer" %}
+        {% include resimg.html src="projects/advising-m-pinned-recs-spacing-bad.png" class="with-viewer" %}
+    </div>
+</div>
+
+<p>But, in a moment of optimism, I thought, might there be a mechanism in the web platform to automatically adjust for cases like this? In fact, there was! It turns out, there is a CSS function <code>env</code> that can be used to select the size of the non-rectangular area in a screen. Amazing! What I needed here was <code>env(safe-area-inset-bottom)</code>. I applied this code with a fallback:</p>
+
+{% highlight css %}
+.bottom-bar {
+    /* ... */
+    padding: 0.25rem 1.5rem 0.75rem;
+    padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
+}
+{% endhighlight %}
+
+<p>And the results were fantastic! Chrome (or Safari) on iOS adjust the value of this variable depending on the navigation state, making this essentially a one-line fix. What a relief!</p>
+
+<div class="image-set inline tight">
+    <div class="large">
+        {% include resimg.html src="projects/advising-m-pinned-recs.png" class="with-viewer" %}
+        {% include resimg.html src="projects/advising-m-pinned-recs-spacing-good.png" class="with-viewer" %}
+    </div>
+</div>
+
+<p>I'm really happy with how the tool turned out. With just a few questions, you can get meaningful personalized recommendatios for where would be best to allocate donations to progressive candidate and causes. Give it a try, and if you make a donation, let me know by <a href="https://twitter.com/danrschlosser">tweet</a> or <a href="mailto:dan@schlosser.io">email</a>!</p>
