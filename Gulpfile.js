@@ -1,25 +1,26 @@
 'use strict';
 
-var autoprefixer = require('gulp-autoprefixer');
+var autoprefixer = require('autoprefixer');
 var browserSync = require('browser-sync').create();
-var cache = require('gulp-cached');
 var cp = require('child_process');
-var cssnano = require('gulp-cssnano');
+var cssnano = require('cssnano');
 var cache = require('gulp-cache');
 var changed = require('gulp-changed');
 var del = require('del');
 var es = require('event-stream');
+var eslint = require('gulp-eslint');
 var foreach = require('gulp-foreach');
 var fs = require('fs');
 var gm = require('gulp-gm');
 var gulp = require('gulp');
 var imagemin = require('gulp-imagemin');
-var eslint = require('gulp-eslint');
+var inlinesource = require('gulp-inline-source');
 var jshint = require('gulp-jshint');
 var os = require('os');
 var parallel = require('concurrent-transform');
 var path = require('path');
 var plumber = require('gulp-plumber');
+var postcss = require('gulp-postcss');
 var print = require('gulp-print');
 var reload = browserSync.reload;
 var rename = require('gulp-rename');
@@ -46,6 +47,10 @@ gulp.task('scss:lint', function() {
 });
 
 gulp.task('scss:build', function() {
+  var plugins = [
+    autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }),
+    cssnano({compatibility: 'ie8'}),
+  ];
   return gulp.src('./_scss/style.scss')
     .pipe(plumber())
     .pipe(rename({suffix: '.min'}))
@@ -55,7 +60,7 @@ gulp.task('scss:build', function() {
       onError: browserSync.notify,
       outputStyle: 'compressed',
     }))
-    .pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
+    .pipe(postcss(plugins))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./_site/css/'))
     .pipe(reload({stream: true}))
@@ -65,6 +70,10 @@ gulp.task('scss:build', function() {
 gulp.task('scss', gulp.series('scss:lint', 'scss:build'));
 
 gulp.task('scss:optimized', function() {
+  var plugins = [
+    autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }),
+    cssnano({compatibility: 'ie8'}),
+  ];
   return gulp.src('./_scss/style.scss')
     .pipe(plumber())
     .pipe(rename({suffix: '.min'}))
@@ -72,8 +81,7 @@ gulp.task('scss:optimized', function() {
       includePaths: ['scss'],
       outputStyle: 'compressed',
     }))
-    .pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
-    .pipe(cssnano({compatibility: 'ie8'}))
+    .pipe(postcss(plugins))
     .pipe(gulp.dest('./_site/css/'))
     .pipe(reload({stream: true}))
     .pipe(gulp.dest('./css/'));
@@ -270,11 +278,10 @@ gulp.task('watch', function() {
     './_data/*',
     './_config.yml'], gulp.series('jekyll:rebuild'));
   gulp.watch('./_scss/**/*.scss', gulp.series('scss'));
-  // gulp.watch('./img/res/**/*', gulp.series('images'));
   gulp.watch(['./_js/**/*.js', 'Gulpfile.js'], gulp.series('js'));
 });
 
-gulp.task('build', gulp.series('clean', gulp.parallel('scss', /*'images',*/ 'js'), 'jekyll'));
+gulp.task('build', gulp.series('clean', gulp.parallel('scss', 'js'), 'jekyll'));
 
 gulp.task('build:optimized', gulp.series('clean', gulp.parallel('scss:optimized', 'images', 'js'), 'jekyll'));
 
