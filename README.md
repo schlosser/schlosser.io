@@ -22,10 +22,10 @@ gulp serve
 
 ## Setup
 
-Install [npm][npm-install]. Then, install gulp:
+Install [yarn][yarn-install]. Then, install gulp:
 
 ```bash
-npm install -g gulp  # May require `sudo`
+yarn global add gulp  # May require `sudo`
 ```
 
 Finally, install [ImageMagick][imagemagick]. You have done so successfully if you can run 
@@ -41,7 +41,7 @@ without any errors.
 ### Developing
 
 ```bash
-npm install            # One time
+yarn                   # One time
 bundle install         # One time
 gulp serve
 ```
@@ -144,13 +144,13 @@ For use by Dan only.  Deploys to `https://schlosser.io/`, but won't do so withou
 [gulp]: http://gulpjs.com/
 [handlebars]: http://handlebarsjs.com/
 [htmlmin]: https://github.com/kangax/html-minifier
+[imagemagick]: http://www.imagemagick.org/script/index.php
 [imagemin]: https://github.com/imagemin/imagemin
+[jekyll]: https://jekyllrb.com/
 [jscs]: http://jscs.info/
 [jshint]: http://jshint.com/
 [linting]: https://en.wikipedia.org/wiki/Lint_%28software%29
-[npm-install]: https://nodejs.org/en/download/
-[uglifyjs]: https://github.com/mishoo/UglifyJS
-[scss]: http://sass-lang.com/
 [scss-lint]: https://github.com/brigade/scss-lint
-[jekyll]: https://jekyllrb.com/
-[imagemagick]: http://www.imagemagick.org/script/index.php
+[scss]: http://sass-lang.com/
+[uglifyjs]: https://github.com/mishoo/UglifyJS
+[yarn-install]: https://classic.yarnpkg.com/en/docs/install/

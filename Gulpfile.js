@@ -14,7 +14,6 @@ var fs = require('fs');
 var gm = require('gulp-gm');
 var gulp = require('gulp');
 var imagemin = require('gulp-imagemin');
-var inlinesource = require('gulp-inline-source');
 var jshint = require('gulp-jshint');
 var os = require('os');
 var parallel = require('concurrent-transform');
