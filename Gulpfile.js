@@ -9,7 +9,7 @@ var changed = require('gulp-changed');
 var del = require('del');
 var es = require('event-stream');
 var eslint = require('gulp-eslint');
-var foreach = require('gulp-foreach');
+var flatmap = require('gulp-flatmap');
 var fs = require('fs');
 var gm = require('gulp-gm');
 var gulp = require('gulp');
@@ -196,7 +196,7 @@ gulp.task('responsive:metadata', function() {
   };
   var travelPhotos = {};
   return gulp.src('./_img/res/raw/**/*.{jpg,JPG,png,PNG,jpeg,JPEG,gif,GIF}')
-    .pipe(foreach(function(stream, file) {
+    .pipe(flatmap(function(stream, file) {
       fs.readFile(file.path, function(err, buf) {
         if (err) {
           process.stdout.write(err);
