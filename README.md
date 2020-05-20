@@ -7,7 +7,7 @@
 
 - Install the project in just three commands (see "Developing" below).
 - Use [Jekyll][jekyll] for content management and templating.
-- Use [ImageMagick][imagemagick] to resize images for responsive / retina loading.
+- Use [GraphicsMagick][graphicsmagick] to resize images for responsive / retina loading.
 - Use [SCSS][scss] to keep our CSS organized into logical components.
 - Use [Autoprefixer][autoprefixer] to automatically insert browser prefixes where necessary to handle cross browser compatibility.
 - Use [Browsersync][browsersync] to automatically launch a development version of our website, reload the page whenever we change the HTML, and inject changes to CSS, JavaScript, and images with needing to reload.
@@ -28,13 +28,17 @@ Install [yarn][yarn-install]. Then, install gulp:
 yarn global add gulp  # May require `sudo`
 ```
 
-Finally, install [ImageMagick][imagemagick]. You have done so successfully if you can run 
+Then, install [GraphicsMagick][graphicsmagick]. I do this via brew:
 
 ```bash
-convert -help
+brew install graphicsmagick
 ```
 
-without any errors.
+You have done so successfully if you can run `gm -help` without any errors.  Finally, generate the responsive images. (This can take a while!)
+
+```bash
+gulp responsive
+```
 
 ## Usage
 
@@ -144,7 +148,7 @@ For use by Dan only.  Deploys to `https://schlosser.io/`, but won't do so withou
 [gulp]: http://gulpjs.com/
 [handlebars]: http://handlebarsjs.com/
 [htmlmin]: https://github.com/kangax/html-minifier
-[imagemagick]: http://www.imagemagick.org/script/index.php
+[graphicsmagick]: http://www.graphicsmagick.org/index.html
 [imagemin]: https://github.com/imagemin/imagemin
 [jekyll]: https://jekyllrb.com/
 [jscs]: http://jscs.info/
