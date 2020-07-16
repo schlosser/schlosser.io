@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xml:lang="{{ site.lang }}">
+  <channel>
+    <title>{{ site.meta.title }}</title>
+    <link>{{ site.meta.url }}</link>
+    <copyright>All rights reserved.</copyright>
+    <description>{{ site.meta.description }}</description>
+    <atom:link href="{{ site.meta.url }}{{ page.url | absolute_url }}" rel="self" type="application/rss+xml" />
+      {% assign posts = site.documents | sort: 'date' | reverse %}{%
+      for post in posts limit:50 %}{%
+        assign collection_prefix = "" %}{%
+        if post.collection != "posts" %}{%
+          assign collection = site.collections | where:"label", post.collection | first %}{%
+          capture collection_prefix %}{{ collection.title_singular }} - {% endcapture %}{%
+          endif
+        %}<item>
+          <title>{{ collection_prefix }}{{ post.title | xml_escape }}</title>
+          <description>{{ post.excerpt | xml_escape }}</description>
+          <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+          <link>{{ site.meta.url }}{{ post.url | absolute_url }}</link>
+          <guid isPermaLink="true">{{ site.meta.url }}{{ post.url | absolute_url }}</guid>
+        </item>
+      {% endfor
+  %}</channel>
+</rss>

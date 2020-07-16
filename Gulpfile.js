@@ -269,7 +269,9 @@ gulp.task('clean', function() {
 gulp.task('watch', function() {
   gulp.watch([
     './**/*.html',
+    './**/*.xml',
     '!./_site/**/*.html',
+    '!./_site/**/*.xml',
     './_layouts/*.html',
     './_includes/*.html',
     './_drafts/*.html',

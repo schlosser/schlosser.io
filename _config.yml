@@ -28,24 +28,29 @@ exclude:
   - LICENSE.md
   - yarn.lock
 
-
 collections:
   talks:
+    title_singular: Talk
     output: true
     permalink: /:collection/:title/
   writing:
+    title_singular: Writing
     output: true
     permalink: /:collection/:title/
   projects:
+    title_singular: Project
     output: true
     permalink: /:collection/:title/
   lists:
+    title_singular: List
     output: true
     permalink: /:collection/:title/
   travel:
+    title_singular: Travel
     output: true
     permalink: /:collection/:title/
   teams:
+    title_singular: Team
     output: true
     permalink: /:collection/:title/
 
