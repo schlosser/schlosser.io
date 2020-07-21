@@ -1,3 +1,15 @@
+- title: Interact Agtech Circle
+  id: agtech-circle
+  img: websites/circles.joininteract.com.png
+  link: https://circles.joininteract.com/agtech
+  year: 2020
+  description: |
+    In the summer of 2020, I joined the Interact Agtech Circle, a group of
+    people researching the intersection of agriculture and technology. Funded
+    by a grant from <a href="https://joininteract.com/">Interact</a>, the
+    Agtech circle ran for four months. The site used a recolored abstract
+    pattern from Creative Market to great effect.
+
 - title: Covid Act Now
   id: covidactnow
   img: websites/covidactnow.org.png
