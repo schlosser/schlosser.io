@@ -1,5 +1,5 @@
 (function (global) {
-  'use strict';
+  "use strict";
 
   /**
    * Find the CSS transition end event that we should listen for.
@@ -8,13 +8,13 @@
    */
   function _whichTransitionEndEvent() {
     var t;
-    var el = document.createElement('fakeelement');
+    var el = document.createElement("fakeelement");
     var transitions = {
-      WebkitTransition: 'webkitTransitionEnd',
-      MozTransition: 'transitionend',
-      MSTransition: 'msTransitionEnd',
-      OTransition: 'otransitionend',
-      transition: 'transitionend',
+      WebkitTransition: "webkitTransitionEnd",
+      MozTransition: "transitionend",
+      MSTransition: "msTransitionEnd",
+      OTransition: "otransitionend",
+      transition: "transitionend",
     };
     for (t in transitions) {
       if (transitions.hasOwnProperty(t)) {
@@ -32,18 +32,18 @@
    * @param {string} str - the text to copy to the user's clipboard.
    */
   function _copyToClipboard(str) {
-    var el = document.createElement('textarea');
+    var el = document.createElement("textarea");
     el.value = str;
-    el.setAttribute('readonly', '');
-    el.style.position = 'absolute';
-    el.style.left = '-9999px';
+    el.setAttribute("readonly", "");
+    el.style.position = "absolute";
+    el.style.left = "-9999px";
     document.body.appendChild(el);
     var selected =
-      document.getSelection().rangeCount > 0 ?
-        document.getSelection().getRangeAt(0) :
-        false;
+      document.getSelection().rangeCount > 0
+        ? document.getSelection().getRangeAt(0)
+        : false;
     el.select();
-    document.execCommand('copy');
+    document.execCommand("copy");
     document.body.removeChild(el);
     if (selected) {
       document.getSelection().removeAllRanges();
@@ -69,68 +69,81 @@
    * @returns {object} the progressive image object
    */
   function ProgressiveImage(figure) {
-    this.id = "viewer-" + Math.round(Math.random()*Math.pow(10,6)).toString();
+    this.id =
+      "viewer-" + Math.round(Math.random() * Math.pow(10, 6)).toString();
     this.viewerOpen = false;
     this.figure = figure;
-    this.scrim = document.getElementsByClassName('scrim')[0];
-    this.selfLink = figure.getElementsByClassName('self-link')[0];
-    this.selfLinkText = this.selfLink && this.selfLink.getElementsByTagName('label')[0];
+    this.scrim = document.getElementsByClassName("scrim")[0];
+    this.selfLink = figure.getElementsByClassName("self-link")[0];
+    this.selfLinkText =
+      this.selfLink && this.selfLink.getElementsByTagName("label")[0];
     this.lastWindowWidth = window.innerWidth;
     this.transitionEndEvent = _whichTransitionEndEvent();
-    this.forceSmall = (this.figure.className.indexOf('force-small') >= 0);
-    this.forceMedium = (this.figure.className.indexOf('force-medium') >= 0);
-    this.forceLarge = (this.figure.className.indexOf('force-large') >= 0);
-    window.addEventListener('keyup', function(e) {
-      if (e.keyCode === 27 /* ESC */) {
-        this.closeViewer();
-      }
-    }.bind(this));
+    this.forceSmall = this.figure.className.indexOf("force-small") >= 0;
+    this.forceMedium = this.figure.className.indexOf("force-medium") >= 0;
+    this.forceLarge = this.figure.className.indexOf("force-large") >= 0;
+    window.addEventListener(
+      "keyup",
+      function (e) {
+        if (e.keyCode === 27 /* ESC */) {
+          this.closeViewer();
+        }
+      }.bind(this)
+    );
     this.load();
 
-    if (this.figure.className.indexOf('with-viewer') >= 0) {
-      this.figure.addEventListener('click', this.openViewer.bind(this));
+    if (this.figure.className.indexOf("with-viewer") >= 0) {
+      this.figure.addEventListener("click", this.openViewer.bind(this));
     }
 
     if (this.selfLink) {
-      this.selfLink.addEventListener('click',
-        this.copyLinkToClipboard.bind(this));
+      this.selfLink.addEventListener(
+        "click",
+        this.copyLinkToClipboard.bind(this)
+      );
     }
 
     return this;
   }
 
-  ProgressiveImage.prototype.copyLinkToClipboard = function(e) {
+  ProgressiveImage.prototype.copyLinkToClipboard = function (e) {
     e.stopPropagation();
     e.preventDefault();
     _copyToClipboard(this.selfLink.href);
     var oldText = this.selfLinkText.textContent;
     this.selfLinkText.textContent = "Copied!";
-    setTimeout(function() {
-      this.selfLinkText.textContent = oldText;
-    }.bind(this), 10 * 1000);
+    setTimeout(
+      function () {
+        this.selfLinkText.textContent = oldText;
+      }.bind(this),
+      10 * 1000
+    );
   };
 
   ProgressiveImage.prototype.closeViewer = function () {
-    window.removeEventListener('scroll', this.onScroll);
-    window.removeEventListener('resize', this.onShouldCloseViewer);
-    window.removeEventListener('orientationchange', this.onShouldCloseViewer);
-    this.scrim.removeEventListener('click', this.onShouldCloseViewer);
+    window.removeEventListener("scroll", this.onScroll);
+    window.removeEventListener("resize", this.onShouldCloseViewer);
+    window.removeEventListener("orientationchange", this.onShouldCloseViewer);
+    this.scrim.removeEventListener("click", this.onShouldCloseViewer);
 
-    this.figure.addEventListener(this.transitionEndEvent, function () {
-      if (document.body.className.indexOf(this.id) == -1) {
-        this.viewerOpen = false;
-        this.figure.className = this.figure.className
-          .replace('is-open', '')
-          .replace(/^\s+|\s+$/g, '');
-        this.figure.style.zIndex = '';
-      }
-    }.bind(this));
+    this.figure.addEventListener(
+      this.transitionEndEvent,
+      function () {
+        if (document.body.className.indexOf(this.id) == -1) {
+          this.viewerOpen = false;
+          this.figure.className = this.figure.className
+            .replace("is-open", "")
+            .replace(/^\s+|\s+$/g, "");
+          this.figure.style.zIndex = "";
+        }
+      }.bind(this)
+    );
 
     // Begin transition
     document.body.className = document.body.className
-      .replace(this.id, '')
-      .replace(/^\s+|\s+$/g, '');
-    this.figure.style.transform = '';
+      .replace(this.id, "")
+      .replace(/^\s+|\s+$/g, "");
+    this.figure.style.transform = "";
   };
 
   ProgressiveImage.prototype.openViewer = function () {
@@ -162,7 +175,6 @@
       var finalWidth = initialWidth * scale;
       translateX = (windowWidth - finalWidth) / 2 - figureBoundingRect.left;
       translateY = figureBoundingRect.top * -1;
-
     } else {
       // Image will fill up horizontal space
       scale = windowWidth / initialWidth;
@@ -172,19 +184,28 @@
     }
 
     // Apply DOM transformations
-    document.body.className += ' ' + this.id;
-    this.figure.className += ' is-open';
-    this.figure.style.zIndex = '800';
-    this.figure.style.transform = 'translate3d(' + translateX + 'px,' +
-      translateY + 'px,0) scale(' + scale + ')';
+    document.body.className += " " + this.id;
+    this.figure.className += " is-open";
+    this.figure.style.zIndex = "800";
+    this.figure.style.transform =
+      "translate3d(" +
+      translateX +
+      "px," +
+      translateY +
+      "px,0) scale(" +
+      scale +
+      ")";
 
     // Load Raw Image (large!)
-    setTimeout(function () {
-      if (this.figure.className.indexOf('loaded-raw') <= 0) {
-        // There is a larger image to load.
-        this.loadRaw();
-      }
-    }.bind(this), 300);
+    setTimeout(
+      function () {
+        if (this.figure.className.indexOf("loaded-raw") <= 0) {
+          // There is a larger image to load.
+          this.loadRaw();
+        }
+      }.bind(this),
+      300
+    );
 
     this.onScroll = function () {
       var offset = this.figure.getBoundingClientRect().top;
@@ -198,10 +219,10 @@
       e.stopPropagation();
     }.bind(this);
 
-    this.scrim.addEventListener('click', this.onShouldCloseViewer);
-    window.addEventListener('resize', this.onShouldCloseViewer);
-    window.addEventListener('orientationchange', this.onShouldCloseViewer);
-    window.addEventListener('scroll', this.onScroll);
+    this.scrim.addEventListener("click", this.onShouldCloseViewer);
+    window.addEventListener("resize", this.onShouldCloseViewer);
+    window.addEventListener("orientationchange", this.onShouldCloseViewer);
+    window.addEventListener("scroll", this.onScroll);
   };
 
   /**
@@ -211,9 +232,10 @@
     // Create a new image element, and insert it into the DOM.
     var fullImage = new Image();
     fullImage.src = this.figure.dataset[this.getSize()];
-    fullImage.className = 'full';
+    fullImage.alt = this.figure.dataset.alt;
+    fullImage.className = "full";
     fullImage.onload = function () {
-      this.figure.className += ' loaded';
+      this.figure.className += " loaded";
     }.bind(this);
 
     this.figure.appendChild(fullImage);
@@ -228,9 +250,10 @@
 
     // not actually raw, because damn, that's expensive.
     rawImage.src = this.figure.dataset.raw;
-    rawImage.className = 'raw';
+    rawImage.alt = this.figure.dataset.alt;
+    rawImage.className = "raw";
     rawImage.onload = function () {
-      this.figure.className += ' loaded-raw';
+      this.figure.className += " loaded-raw";
     }.bind(this);
 
     this.figure.appendChild(rawImage);
@@ -241,14 +264,14 @@
    */
   ProgressiveImage.prototype.getSize = function () {
     if (this.forceSmall) {
-      return 'small';
+      return "small";
     } else if (this.forceMedium) {
-      return 'medium';
+      return "medium";
     } else if (this.forceLarge) {
-      return 'large';
+      return "large";
     }
 
-    var sizes = ['small', 'medium', 'large'];
+    var sizes = ["small", "medium", "large"];
     var sizeIndex;
     if (this.lastWindowWidth < 768) {
       sizeIndex = 0; // small
@@ -267,12 +290,11 @@
   };
 
   // Export ProgressiveImage into the global scope.
-  if (typeof define === 'function' && define.amd) {
+  if (typeof define === "function" && define.amd) {
     define(ProgressiveImage);
-  } else if (typeof module !== 'undefined' && module.exports) {
+  } else if (typeof module !== "undefined" && module.exports) {
     module.exports = ProgressiveImage;
   } else {
     global.ProgressiveImage = ProgressiveImage;
   }
-
-}(this));
+})(this);

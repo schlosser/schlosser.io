@@ -32,8 +32,10 @@ footer .footer-wrapper {
 }
 
 .path {
+  @extend %h2;
   padding-left: 3.6rem;
   text-indent: -3.6rem;
+  margin-bottom: 4rem;
   user-select: none;
 
   .component {

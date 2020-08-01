@@ -3,9 +3,9 @@ layout: default
 ---
 {% if page.hero_style == "full_bleed" %}
     {% if page.hero_image %}
-        {% include resimg.html src=page.hero_image link=page.link %}
+        {% include resimg.html src=page.hero_image alt=page.title link=page.link %}
     {% else %}
-        {% include resimg.html src=page.featured_image link=page.link %}
+        {% include resimg.html src=page.featured_image alt=page.title link=page.link %}
     {% endif %}
 {% endif %}
 <div class="content">
@@ -13,18 +13,18 @@ layout: default
         {% if page.hero_style == "large" %}
         <section>
             {% if page.hero_image %}
-                {% include resimg.html src=page.hero_image link=page.link %}
+                {% include resimg.html src=page.hero_image alt=page.title link=page.link %}
             {% else %}
-                {% include resimg.html src=page.featured_image link=page.link %}
+                {% include resimg.html src=page.featured_image alt=page.title link=page.link %}
             {% endif %}
         </section>
         {% endif %}
         {% if page.hero_style == "normal" %}
         <section class="text hero-image">
             {% if page.hero_image %}
-                {% include resimg.html src=page.hero_image link=page.link %}
+                {% include resimg.html src=page.hero_image alt=page.title link=page.link %}
             {% else %}
-                {% include resimg.html src=page.featured_image link=page.link %}
+                {% include resimg.html src=page.featured_image alt=page.title link=page.link %}
             {% endif %}
         </section>
         {% endif %}

@@ -1,9 +1,9 @@
 <div class="box {% if include.featured %}featured{% endif %}">
     <div class="figure-wrapper">
         {% if include.featured %}
-            {% include resimg.html src=include.page.hero_image link=include.page.url %}
+            {% include resimg.html src=include.page.hero_image alt=include.page.title link=include.page.url %}
         {% else %}
-            {% include resimg.html src=include.page.featured_image link=include.page.url class="force-small" %}
+            {% include resimg.html src=include.page.featured_image alt=include.page.title link=include.page.url class="force-small" %}
         {% endif %}
     </div>
     <div>

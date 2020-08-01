@@ -1,3 +1,4 @@
+{% assign urlAsAlt = include.src | split:"/" | last | split:"." | first | replace:"-"," " | capitalize %}
 {% if include.link %}
 <a href="{{ include.link }}" class="progressive-link" {% if include.target %}target="{{ include.target }}{% endif %}">
 {% endif %}
@@ -6,6 +7,7 @@
         data-medium="/img/res/800/{{ include.src }}"
         data-large="/img/res/1600/{{ include.src }}"
         data-raw="/img/res/raw/{{ include.src }}"
+        data-alt="{% if include.alt %}{{ include.alt }}{% else %}{{ urlAsAlt }}{% endif %}"
         {% if site.data.travelPhotos[include.src] %}
         id={{site.data.travelPhotos[include.src].hash}}
         {% endif %}
@@ -13,6 +15,7 @@
     <div class="aspect-ratio-holder"
         style="padding-bottom: {{1.0 | divided_by: site.data.responsiveMetadata.aspectRatios[include.src] | times: 100 }}%"></div>
     <img class="thumbnail"
+        alt="{% if include.alt %}{{ include.alt }}{% else %}{{ urlAsAlt }}{% endif %}"
         src="/img/res/20/{{ include.src }}"alt="">
     {% unless include.link %}
         {% if site.data.travelPhotos[include.src] %}
