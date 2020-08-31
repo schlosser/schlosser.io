@@ -532,14 +532,14 @@
 - title: Campus Data
   id: campusdata-org
   img: websites/campusdata.org.png
-  link: http://campusdata.org
+  link: https://campusdata.github.io
   year: 2015
   description: |
     I remade the website for <a href="/teams/campus-data/">Campus Data</a> in
     Jekyll, using <a href="http://materializecss.com/">Materialize</a>, a CSS
     framework for Material Design. Campus Data is an organization that promotes
     open data at universities. My additions to the site include the
-    <a href="http://campusdata.org/rankings/">Campus Data Rankings</a> table.
+    <a href="https://campusdata.github.io/rankings/">Campus Data Rankings</a> table.
 
 - title: ADI Website
   id: adicu-com
