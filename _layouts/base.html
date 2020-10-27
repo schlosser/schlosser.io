@@ -19,20 +19,20 @@ layout: compress
     <meta name="robots" content="NOODP, index, follow" />
     <meta itemprop="name" content="{% if page.title %}{{ page.title}}{% else %}{{ site.meta.title }}{% endif %}">
     <meta itemprop="description" content="{{ desc }}">
-    <meta itemprop="image" content="{% if page.featured_image %}{{ site.meta.root }}/img/res/800/{{ page.featured_image }}{% else %}{{ site.meta.image }}{% endif %}">
+    <meta itemprop="image" content="{% if page.featured_image %}{{ site.meta.root }}/img/res/800/{{ page.featured_image }}{% else %}{{ site.meta.root }}{{ site.meta.image }}{% endif %}">
     <!-- Twitter Card data -->
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="{{ site.meta.twitter_handle }}">
     <meta name="twitter:title" content="{% if page.title %}{{ page.title}}{% else %}{{ site.meta.title }}{% endif %}">
     <meta name="twitter:description" content="{{ desc }}">
     <meta name="twitter:creator" content="{{ site.meta.twitter_handle }}">
-    <meta name="twitter:image:src" content="{% if page.featured_image %}{{ site.meta.root }}/img/res/800/{{ page.featured_image }}{% else %}{{ site.meta.twitter_image }}{% endif %}">
+    <meta name="twitter:image:src" content="{% if page.featured_image %}{{ site.meta.root }}/img/res/800/{{ page.featured_image }}{% else %}{{ site.meta.root }}{{ site.meta.twitter_image }}{% endif %}">
     <meta name="twitter:domain" content="{{ site.meta.domain }}">
     <!-- Open Graph data (Facebook) -->
     <meta property="og:title" content="{% if page.title %}{{ page.title}}{% else %}{{ site.meta.title }}{% endif %}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ site.meta.root }}{{ page.url }}" />
-    <meta property="og:image" content="{% if page.featured_image %}{{ site.meta.root }}/img/res/800/{{ page.featured_image }}{% else %}{{ site.meta.facebook_image }}{% endif %}" />
+    <meta property="og:image" content="{% if page.featured_image %}{{ site.meta.root }}/img/res/800/{{ page.featured_image }}{% else %}{{ site.meta.root }}{{ site.meta.facebook_image }}{% endif %}" />
     <meta property="og:description" content="{{ desc }}" />
     <!-- Apple Icons -->
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/img/favicon/apple-touch-icon-57x57.png" />

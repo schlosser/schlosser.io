@@ -1,9 +1,9 @@
 meta:
   title: "Dan Schlosser"
   description: "Working on something new. Previously, product manager at The New York Times, Google, and Covid Act Now, tech lead at The Next 50, founder and web developer at Minimill, and CS at Columbia. Email me at dan@schlosser.io or tweet @danrschlosser."
-  facebook_image: "/img/cover.png"
-  twitter_image: "/img/cover.png"
-  image: "/img/cover.png"
+  facebook_image: "/img/res/1600/cover.png"
+  twitter_image: "/img/res/1600/cover.png"
+  image: "/img/res/1600/cover.png"
   twitter_handle: "@danrschlosser"
   google_analytics_id: "UA-40705748-1"
   domain: "schlosser.io"
