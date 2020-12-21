@@ -14,9 +14,9 @@ $text-width: 44rem;
 }
 
 section {
-  margin: 6rem 0;
-  content-visibility: auto;
   contain-intrinsic-size: 1000px; // Total estimate
+  content-visibility: auto;
+  margin: 6rem 0;
 
   &.collection {
     padding: 4.5rem 0;

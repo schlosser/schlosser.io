@@ -131,6 +131,7 @@
       function () {
         if (document.body.className.indexOf(this.id) == -1) {
           this.viewerOpen = false;
+          this.figure.closest("section").style.contentVisibility = "auto";
           this.figure.className = this.figure.className
             .replace("is-open", "")
             .replace(/^\s+|\s+$/g, "");
@@ -181,6 +182,12 @@
       var finalHeight = initialHeight * scale;
       translateY = (windowHeight - finalHeight) / 2 - figureBoundingRect.top;
       translateX = figureBoundingRect.left * -1;
+    }
+
+    try {
+      this.figure.closest("section").style.contentVisibility = "visible";
+    } catch (error) {
+      console.error(error);
     }
 
     // Apply DOM transformations
