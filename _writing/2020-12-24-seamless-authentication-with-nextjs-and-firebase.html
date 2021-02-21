@@ -1,0 +1,255 @@
+---
+title: Seamless Authentication with Next.js and Firebase Auth
+date: 2020-12-24
+hero_image: writing/bulletproof-authentication-with-nextjs-and-firebase.png
+hero_style: normal
+featured_image: writing/bulletproof-authentication-with-nextjs-and-firebase.png
+---
+
+<p>When I started working on <a href="/teams/ambrook">Ambrook</a>, adopting <a href="https://nextjs.org/">Next.js</a> was a clear choice. I liked that it flexibly combines statically generated (SSG) pages (like blog posts, marketing sites), with server-side rendered (SSR) pages (like our app and account pages), and merges it all together with a smart client-side navigation scheme.</p>
+
+<p><a href="https://firebase.google.com/docs/auth">Firebase Authentication</a> has been my go-to authentication choice for years. It handles all of the complexities of managing multiple authentication methods (password, Facebook, Google, phone number, magic link) into a single account system.</p>
+
+<p>In using both, I hoped to create a best-in-class user experience. Here's what I wanted:</p>
+
+<ul>
+  <li>Server-side rendered private pages that load the user's data without lots of spinners.</li>
+  <li>Statically generated public pages, that show the same content for all users.</li>
+  <li>Anonymous authentication that lets users start to input their information and use our app before being asked to make an account.</li>
+  <li>Server-side redirects for users that load a private page without being logged in.</li>
+  <li>Client-side redirects for users that click an onsite link to a private page without being logged in.</li>
+</ul>
+
+<p>Furthermore, I had some developer experience requirements:</p>
+
+<ul>
+  <li>Make it easy to introduce new pages and API routes that are auth-guarded.</li>
+  <li>Reduce the likelihood that private pages are accidentally exposed.</li>
+</ul>
+
+<p>While the basic integration was straightforward, the combination of these two tools created a fair number of cases to consider. Next.js lets users access pages by client side navigation and server side navigation. Firebase Authentication issues ID tokens that only last for an hour, after which they need to be refreshed using the client-side SDKs.</p>
+
+<h3>Authentication and SSR</h3>
+
+<p>Authenticating pages accessed via client side navigation is easy – the Firebase SDK will log users in automatically if they have an account, and private pages can check the <code>currentUser</code>. But for the initial HTTP request, we'll need to use a cookie to store the user's <a href="https://firebase.google.com/docs/auth/admin/verify-id-tokens">ID token</a> to be verified on the server. Here's how it works:</p>
+
+<ol>
+  <li>
+    <p>We sign in the user using the Javascript SDK:</p>
+{% highlight tsx %}
+const { user } = await auth().signInWithCredential(cred);
+{% endhighlight %}
+  </li>
+  <li>
+    <p>On the client, we generate an ID token and write it to the user's cookies.</p>
+{% highlight tsx %}
+import cookie from 'js-cookie';
+
+export const persistUserCredential = (user: firebase.User) => {
+  const token = await user.getIdToken();
+  cookie.set('token', token, {
+    expires: 1,
+    path: '/',
+  });
+}
+{% endhighlight %}
+  </li>
+  <li>
+    <p>When the user next requests an SSR-powered page, the cookies are passed along in the request headers. We can then verify the ID token to validate a user's identity.</p>
+{% highlight tsx %}
+// Some code is missing here, I'll go into more detail later.
+const token = getCookie('token', ctx.req.headers);
+const { uid, email } = await verifyIdToken(token);
+{% endhighlight %}
+  </li>
+</ol>
+
+<h3>Anonymous Authentication</h3>
+
+<p>We want users to be able to start using our app without making an account, and connect their anonymous profile to a full account later if they wish. To do this, we're using Firebase's <a href="https://firebase.google.com/docs/auth/web/anonymous-auth">Anonymous Authentication</a>. To integrate this into Next.js, we modify our custom <code>_app.tsx</code>. Here's how it works: </p>
+<ol>
+  <li>Every time a page renders on the client, our <code>_app.tsx</code>'s render function will run. We use the <code>useEffect</code> hook to run our setup code on the first render only.</li>
+  <li>We set up a listener to changes in the Firebase Authentication state using <code>firebase.auth.onAuthStateChanged</code>, which takes a callback that contains the current user. It runs first with <code>null</code>, and then once Firebase has loaded the logged in user from the local session.</li>
+  <li>We either persist the user's credentials to the cookie, if they're logged in, or log them in anonymously if they are not.</li>
+</ol>
+
+{% highlight tsx %}
+// pages/_app.tsx
+import { AppProps } from 'next/app';
+import React, { FC, useEffect } from 'react';
+import firebase from 'firebase/app';
+import persistUserCredential from 'utils/auth/persistUserCredential';
+
+const MyApp: FC<AppProps> = ({ Component, pageProps }: AppProps): JSX.Element => {
+
+  // ...
+
+  useEffect(() => {
+    return firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // If the user just signed in, we call the code to create the cookie.
+        persistUserCredential(user);
+      } else {
+        firebase.auth()
+          .signInAnonymously()
+          .catch(function (error) {
+            // Handle Errors here.
+          });
+      }
+    });
+  }, []);
+
+  // ...
+
+  return (<Component {...pageProps} />);
+};
+
+export default MyApp;
+{% endhighlight %}
+
+<p>Next, we'll set up the code that verifies token on the server.</p>
+
+<h3>Handling redirects</h3>
+
+<p>It's important that users get redirected to the login page if they're logged out but trying to access a private resource, no matter if they navigate on the client or directly to a private URL. I use the <code>redirect</code> feature <a href="https://nextjs.org/blog/next-10#redirect-and-notfound-support-for-getstaticprops--getserversideprops">introduced in Next.js 10</a>, which allows <code>GetServerSideProps</code> to return a redirect object that will be executed on the client or server, depending on the user's context.</p>
+
+<aside>
+  <p>Initially, I was able to make all of this work using Next.js's <code>GetInitialProps</code>, which runs when a page is first loaded, on the client on client-side navigation, and on the server on server-side navigation. This method is deprecated in favor of <code>GetServerSideProps</code> however, and not recommended. Read more about <a href="https://nextjs.org/docs/basic-features/data-fetching">data fetching in Next.js</a> and <a href="https://nextjs.org/docs/api-reference/data-fetching/getInitialProps"><code>getInitialProps</code></a>.</p>
+</aside>
+
+<p>I wrote a wrapper function, <code>withPrivateServerSideProps</code> that wraps a page's <code>GetServerSideProps</code> function:</p>
+
+{% highlight ts %}
+// withPrivateServerSideProps.ts
+import { GetServerSideProps } from 'next';
+import isAuthenticated from 'utils/auth/isAuthenticated';
+
+/**
+ * This function wraps a page's GetServerSideProps function. It passes the
+ * `redirect` object if the user needs to authenticate, and calls the wrapped
+ * function otherwise.
+ */
+export default function withPrivateServerSideProps<P>(
+  getServerSidePropsFunc?: GetServerSideProps,
+): GetServerSideProps {
+  const withPrivateSSP: GetServerSideProps = async (ctx) => {
+    const _isAuthenticated = await isAuthenticated(ctx);
+
+    // If not authenticated, we return a redirect object that instructs
+    // Next.js to redirect to our login page.
+    if (!_isAuthenticated) {
+      return {
+        redirect: {
+          destination: `/login?redirectTo=${ctx.resolvedUrl}`,
+          permanent: false,
+        },
+      };
+    }
+
+    if (getServerSidePropsFunc) {
+      return await getServerSidePropsFunc(ctx);
+    }
+    return { props: {} };
+  };
+
+  return withPrivateSSP;
+}
+{% endhighlight %}
+
+<p>This code uses a helper function, <code>isAuthenticated</code>, to determine if the user is authenticated. It uses the Firebase Admin SDK's <code>verifyIdToken</code> function to validate the token and look up the user's basic details.</p>
+
+{% highlight ts %}
+// utils/auth/isAuthenticated.ts
+import { GetServerSidePropsContext } from 'next';
+import { getCookie } from 'utils/auth/cookies';
+
+export default async function isAuthenticated(
+  ctx: GetServerSidePropsContext
+): Promise<boolean> {
+  const token = getCookie('token', ctx.req.headers);
+
+  if (token) {
+    const { uid, email } = await verifyIdToken(token);
+    // An anonymous user may have a UID, but authenticated users must have an
+    // account (an email address).
+    return !!email;
+  }
+
+  return false;
+}
+{% endhighlight %}
+
+<p>Here, the <code>getCookie</code> function is parsing the <code>cookie</code> header, and either returning the <code>token</code> key or <code>undefined</code>.</p>
+
+<p>This makes for a very simple integration into a private page, like <code>/account</code>:</p>
+
+{% highlight tsx %}
+// pages/account.tsx
+import withPrivateServerSideProps from 'hocs/withPrivateServerSideProps';
+import React from 'react';
+import { getAccountDetails } from 'lib/account'
+import Account, { AccountProps } from 'screens/Account/Account';
+
+const AccountPage = (props: AccountProps): JSX.Element => {
+  return (
+    <Account {...props} />
+  );
+};
+
+export const getServerSideProps = withPrivateServerSideProps(
+  async (ctx) => {
+    try {
+      const accountDetails = await getAccountDetails();
+      return { props: accountDetails };
+    } catch (error) {
+      return { props: {} };
+    }
+  },
+);
+
+export default AccountPage;
+{% endhighlight %}
+
+<h3>Handling expired tokens</h3>
+
+<p>Firebase's ID tokens expire after about an hour, so it's likely that users that request a page will need to refresh their token in order to be authenticated. If this is the case, we redirect to the <code>/login</code> page, just like if they were logged out. However, in this case, we detect the presence of an existing token and attempt to refresh it. Here, we use <code>firebase.auth().onIdTokenChanged</code>, which detects not just changes in the user's logged in status, but also when their ID token is refreshed automatically by Firebase. On the login page, we detect this state, persist their new ID token to the cookie, and redirect them to where they where going.</p>
+
+{% highlight tsx %}
+// pages/login.tsx
+import firebase from 'firebase/app';
+import { useRouter } from 'next/router';
+import persistUserCredential from 'utils/auth/persistUserCredential';
+import { useEffect } from 'react'
+
+const LoginPage = ({
+  redirectUrl
+}: {redirectUrl: string}): JSX.Element => {
+  const router = useRouter();
+
+  // ...
+
+  useEffect(() => {
+    return firebase.auth().onIdTokenChanged((user) => {
+      if (user && !user.isAnonymous) {
+        persistUserCredential(user).then(() => {
+          router.push(redirectUrl);
+        });
+      }
+    });
+  }, [redirectUrl, router]);
+
+  return (
+    /* login page content */
+  )
+};
+
+export default LoginPage;
+{% endhighlight %}
+
+<h3>Lots of cases to handle!</h3>
+
+<p>Between client-side and server side navigation, private and public pages, and the user's authentication state (logged out, logged in, expired token), there are a lot of cases to handle. But by carefully managing and correctly passing around the ID token, we can allow Next.js to authenticate a user from their ID token in whatever context we find them.</p>
+
+<p>There were a couple of features we added that I didn't include here, but they all follow from the structure outlined above. Asynchronous API requests using <code>fetch()</code> do not pass cookies by default, so I had to write a wrapper that includes the ID token in requests to my API routes. Also, we ended up building out "account-enhanced" pages that load basic content for logged out users and more content for logged in users. These pages follow the more traditional SPA model: Load the page and show a spinner, request the authentication state asynchronously, and then load the logged-in content (or not). We also use Redux in our app, but I removed that code from the samples above for clarity.</p>
+
+<p>Hopefully this guide is helpful for your next project! If you have any questions, feel free to reach out to me <a href="https://twitter.com/danrschlosser">on Twitter</a>.</p>

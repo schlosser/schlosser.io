@@ -1,6 +1,6 @@
 meta:
   title: "Dan Schlosser"
-  description: "Working on something new. Previously, product manager at The New York Times, Google, and Covid Act Now, tech lead at The Next 50, founder and web developer at Minimill, and CS at Columbia. Email me at dan@schlosser.io or tweet @danrschlosser."
+  description: "Co-founder of Ambrook. Previously, product manager at The New York Times, Google, and Covid Act Now, tech lead at The Next 50, founder and web developer at Minimill, and CS at Columbia. Email me at dan@schlosser.io or tweet @danrschlosser."
   facebook_image: "/img/res/1600/cover.png"
   twitter_image: "/img/res/1600/cover.png"
   image: "/img/res/1600/cover.png"
@@ -10,8 +10,9 @@ meta:
   root: "https://schlosser.io"
 
 name: "Dan Schlosser"
-markdown: redcarpt
+markdown: kramdown
 permalink: "/:categories/:title/"
+highlighter: rouge
 
 # Build info
 incremental: true
@@ -55,20 +56,17 @@ collections:
     permalink: /:collection/:title/
 
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
     values:
       layout: default
       hero_style: normal
-  -
-    scope:
+  - scope:
       path: ""
       type: writing
     values:
       layout: blog_post
-  -
-    scope:
+  - scope:
       path: ""
       type: projects
     values:
@@ -76,14 +74,12 @@ defaults:
       cta: Check it out
       link: ""
       related_posts: projects
-  -
-    scope:
+  - scope:
       path: ""
       type: lists
     values:
       layout: blog_post
-  -
-    scope:
+  - scope:
       path: ""
       type: talks
     values:
@@ -91,16 +87,14 @@ defaults:
       hero_style: normal
       cta: Check it out
       related_posts: talks
-  -
-    scope:
+  - scope:
       path: ""
       type: travel
     values:
       layout: trip
       hero_style: full_bleed
       related_posts: travel
-  -
-    scope:
+  - scope:
       path: ""
       type: teams
     values:

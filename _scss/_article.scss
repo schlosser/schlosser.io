@@ -25,6 +25,13 @@ article {
     margin: 1rem 0;
   }
 
+  aside {
+    border-left: 0.5rem solid $lighter-gray;
+    padding-left: 1.5rem;
+    margin: 1.5rem 0;
+    font-style:italic;
+  }
+
   blockquote {
     background-color: $lighter-gray;
     margin: 3rem 0;
@@ -69,7 +76,7 @@ article {
     code {
       background-color: $lighter-gray;
       color: $black;
-      line-height: 1.5;
+      line-height: 1.15;
       padding: 0;
     }
   }
@@ -89,6 +96,10 @@ article {
       list-style-position: outside;
       margin-bottom: 1rem;
       padding-left: 1rem;
+
+      figure, figure:last-child {
+        margin: 3rem 0;
+      }
     }
   }
 
