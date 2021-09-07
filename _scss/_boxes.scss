@@ -1,15 +1,18 @@
+@use 'sass:math';
+
 $box-spacing: 3rem;
+$half-spacing: math.div($box-spacing, 2);
 
 .boxes {
   align-items: stretch;
   display: flex;
   flex-wrap: wrap;
-  margin: 0 (-$box-spacing / 2) (-$box-spacing * 2);
+  margin: 0 -$half-spacing;
 
   .box {
     justify-content: flex-start;
     margin-bottom: $box-spacing;
-    padding: 0 ($box-spacing / 2);
+    padding: 0 $half-spacing;
     position: relative;
     width: 25%;
 
@@ -53,7 +56,6 @@ $box-spacing: 3rem;
         top: 0;
         transition: 0.3s ease background-color;
         width: 100%;
-
       }
 
       a:hover {
@@ -116,11 +118,11 @@ $box-spacing: 3rem;
 
       .figure-wrapper {
         flex-shrink: 0;
-        padding-right: ($box-spacing / 2);
+        padding-right: $half-spacing;
         width: 50%;
 
         + div {
-          padding-left: ($box-spacing / 2);
+          padding-left: $half-spacing;
         }
       }
 

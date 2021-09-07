@@ -24,7 +24,7 @@ var print = require("gulp-print").default;
 var reload = browserSync.reload;
 var rename = require("gulp-rename");
 var replace = require("gulp-replace");
-var sass = require("gulp-sass");
+var sass = require("gulp-sass")(require("sass"));
 var scsslint = require("gulp-scss-lint");
 var sizeOf = require("image-size");
 var sourcemaps = require("gulp-sourcemaps");
@@ -170,7 +170,7 @@ gulp.task("responsive:resize", function (done) {
     var rawSrc = process.argv[idx + 1];
     var srcPath = path.join("./_img/res/raw/", rawSrc);
     if (fs.lstatSync(path.resolve(srcPath)).isDirectory()) {
-      srcSuffix = path.join(rawSrc, "/**/*");
+      srcSuffix = path.join(rawSrc, "/**/*.{jpg,png,gif,jpeg}");
       destSuffix = rawSrc;
     } else {
       srcSuffix = rawSrc;
