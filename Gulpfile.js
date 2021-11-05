@@ -212,7 +212,7 @@ gulp.task("responsive:resize", function (done) {
   done();
 });
 
-gulp.task("responsive:metadata", function () {
+gulp.task("responsive:metadata", function (done) {
   // We always process all images.
   var metadata = {
     _NOTE:
@@ -257,6 +257,7 @@ gulp.task("responsive:metadata", function () {
         "./_data/travelPhotos.json",
         JSON.stringify(travelPhotos, null, 2)
       );
+      done();
     });
 });
 

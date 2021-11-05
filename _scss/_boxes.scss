@@ -7,7 +7,9 @@ $half-spacing: math.div($box-spacing, 2);
   align-items: stretch;
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -$half-spacing;
+  margin-left: -$half-spacing;
+  margin-right: -$half-spacing;
+  margin-bottom: -$half-spacing;
 
   .box {
     justify-content: flex-start;

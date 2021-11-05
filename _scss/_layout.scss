@@ -19,7 +19,7 @@ section {
   margin: 6rem 0;
 
   &.collection {
-    padding: 4.5rem 0;
+    padding: 1.5rem 0 4.5rem;
 
     &:first-child {
       padding-top: 0;
@@ -33,10 +33,6 @@ section {
   &.text {
     max-width: $text-width;
     width: 100%;
-
-    + .collection {
-      padding-top: 1.5rem;
-    }
   }
 
   &.map {
@@ -53,9 +49,9 @@ nav {
   margin: -3rem 0 -1.5rem;
 }
 
-
 @media screen and (max-width: $phone-landscape-max) {
-  h3, %h3 {
+  h3,
+  %h3 {
     font-size: 1.25rem;
   }
 
@@ -70,7 +66,6 @@ nav {
   .content {
     padding: 6rem 2rem;
   }
-
 
   .text.hero-image {
     margin: -4rem 0;
