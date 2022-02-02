@@ -9,9 +9,9 @@
     a design eye to all corners of our world. Listen to the backlog, even old
     episodes are great!
   tags:
-  - design
-  - narrative
-  - educational
+    - design
+    - narrative
+    - educational
 - id: the-vergecast
   img: podcasts/the-vergecast.jpg
   title: "The Vergecast"
@@ -23,8 +23,8 @@
     get a rant about Apple's latest product annoncements, a debate about apps vs.
     the web, or Tesla self-driving cars.
   tags:
-  - tech
-  - conversational
+    - tech
+    - conversational
 - id: reply-all
   img: podcasts/reply-all.jpg
   title: "Reply All"
@@ -36,8 +36,8 @@
     Hear stories about the creator of the pop up ad, a Hasidic Jew who used the
     internet in secret and got caught, and a whitehat hacker.
   tags:
-  - tech
-  - narrative
+    - tech
+    - narrative
 - id: iq2us
   img: podcasts/iq2us.jpg
   title: "Intelligence Squared U.S. Debates"
@@ -49,8 +49,8 @@
     Enemies?", and "Is Death Final?"  Whatever your viewpoint, these
     expert debaters will make you see both sides of the motion.
   tags:
-  - politics
-  - educational
+    - politics
+    - educational
 - id: mbmbam
   img: podcasts/mbmbam.jpg
   title: "My Bother, My Brother and Me"
@@ -63,7 +63,7 @@
     questions that need resolution, and read the occasional fast-food press
     release. It's hilarious, and reliably puts me in good spirits.
   tags:
-  - conversational, comedy
+    - conversational, comedy
 - id: the-moth
   img: podcasts/the-moth.jpg
   title: "The Moth"
@@ -75,7 +75,7 @@
     kinds.  From heartwarming to deeply sad, funny or just strange, definitely
     give the Moth a listen.
   tags:
-  - narrative
+    - narrative
 - id: the-memory-palace
   img: podcasts/the-memory-palace.jpg
   title: "The Memory Palace"
@@ -87,9 +87,9 @@
     researched history and artistic liberty, host Nate DiMeo tells stories about
     people who would otherwise go forgotten.
   tags:
-  - history
-  - narrative
-  - educational
+    - history
+    - narrative
+    - educational
 - id: radio-diaries
   img: podcasts/radio-diaries.jpg
   title: "Radio Diaries"
@@ -101,8 +101,8 @@
     like Nelson Mandela, and George Wallace, or interesting average people, like
     prison guards or the ski troops of WWII.
   tags:
-  - history
-  - narrative
+    - history
+    - narrative
 - id: the-broad-experience
   img: podcasts/the-broad-experience.jpg
   title: "The Broad Experience"
@@ -114,9 +114,9 @@
     brings in guests to discuss how different aspects of the workplace in 2016
     are challenging for women.
   tags:
-  - gender
-  - educational
-  - interviews
+    - gender
+    - educational
+    - interviews
 - id: tomorrow
   img: podcasts/tomorrow.jpg
   title: "Tomorrow with Joshua Topolsky"
@@ -128,9 +128,9 @@
     Josh has great insight on technology. He brings on a guest each
     week to discuss topics like politics, culture, and technology.
   tags:
-  - tech
-  - conversational
-  - interviews
+    - tech
+    - conversational
+    - interviews
 - id: serial
   img: podcasts/serial.jpg
   title: "Serial"
@@ -142,7 +142,7 @@
     who is in jail for the murder he says that he did not commit.  The story went
     viral, and the podcast deserves all the hype.
   tags:
-  - narrative
+    - narrative
 - id: startup
   img: podcasts/startup.jpg
   title: "Startup"
@@ -154,9 +154,9 @@
     of the process.  The first season features the founding of Gimlet Media,
     the podcast network that produces Startup, Reply All, and more.
   tags:
-  - tech
-  - startups
-  - narrative
+    - tech
+    - startups
+    - narrative
 - id: invisibilia
   img: podcasts/invisibilia.jpg
   title: "Invisibilia"
@@ -168,9 +168,9 @@
     to jump in front of a train. Another interviews a man who teaches blind
     children to climb trees, ride bicycles, and more.
   tags:
-  - psychology
-  - educational
-  - narrative
+    - psychology
+    - educational
+    - narrative
 - id: fivethirtyeight-elections
   img: podcasts/fivethirtyeight-elections.jpg
   title: "FiveThirtyEight Elections"
@@ -182,9 +182,9 @@
     of good and bad uses of polling, discuss the election news, and bring a data
     journalism angle.
   tags:
-  - politics
-  - data
-  - conversational
+    - politics
+    - data
+    - conversational
 - id: death-sex-money
   img: podcasts/death-sex-money.jpg
   title: Death Sex, &amp; Money
@@ -196,8 +196,8 @@
     and get real answers in her interviews. I love the mini-series "In New Orleans,"
     which profiles five people and their lives after Katrina.
   tags:
-  - narrative
-  - interviews
+    - narrative
+    - interviews
 - id: 2-dope-queens
   img: podcasts/2-dope-queens.jpg
   title: "2 Dope Queens"
@@ -209,10 +209,10 @@
     audience, the duo perform comedy, and also bring on three guest comedians to
     perform standup.
   tags:
-  - race
-  - gender
-  - comedy
-  - stand up
+    - race
+    - gender
+    - comedy
+    - stand up
 - id: kinda-funny-gamescast
   img: podcasts/kinda-funny-gamescast.jpg
   title: "Kinda Funny Gamescast"
@@ -224,8 +224,8 @@
     team, have unique insight into the industry from years of experience, especially
     when it comes to Sony.
   tags:
-  - video games
-  - conversational
+    - video games
+    - conversational
 - id: polygon-longform
   img: podcasts/polygon-longform.jpg
   title: "Polygon Longform"
@@ -237,8 +237,8 @@
     a video game, or other industry topics. As someone who always seems to miss
     these articles online, it's a great way to keep up.
   tags:
-  - video games
-  - narrative
+    - video games
+    - narrative
 - id: cool-games-inc
   img: podcasts/cool-games-inc.jpg
   title: "Cool Games Inc"
@@ -250,17 +250,17 @@
     from Twitter and imagine them into reality. The ideas are hilarious, and the
     duo have great comedic chemistry.
   tags:
-  - video games
-  - comedy
-  - conversational
+    - video games
+    - comedy
+    - conversational
 - id: the-adventure-zone
   img: podcasts/the-adventure-zone.jpg
   title: "The Adventure Zone"
-  link: "https://theadventure.zone"
+  link: "https://themcelroy.family/TheAdventureZone"
   itunes: "https://itunes.apple.com/us/podcast/the-adventure-zone/id947899573?mt=2"
   description: |
     The Adventure zone is a Dungeons and Dragons podcast, where the
-    <a href="http://mcelroyshows.com/">McElroy Brothers</a> play dungeons and
+    <a href="https://themcelroy.family/">McElroy Brothers</a> play dungeons and
     dragons with their dad. You may not be a fan of Dungeons and Dragons when
     you start listening, but their clever banter and characters keep this show
     super fun. There's a great backlog, too!
@@ -275,8 +275,8 @@
     this fictional story which follows an investigative reporter who discovers a
     lead on the mysterious disappearance.
   tags:
-  - fiction
-  - narrative
+    - fiction
+    - narrative
 - id: hpmor
   img: podcasts/hpmor.jpg
   title: "Harry Potter and the Methods of Rationality"
@@ -288,5 +288,5 @@
     Harry Potter fan fiction by the same name. It's pretty ridiculous, but very
     well made and great for Potter nerds like me.
   tags:
-  - fan fiction
-  - narrative
+    - fan fiction
+    - narrative
