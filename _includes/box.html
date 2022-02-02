@@ -9,7 +9,7 @@
     <div>
         <h3>
             <a href="{{ include.page.url }}">
-                {{ include.page.title }}
+                {% include no_orphans.html text=include.page.title %}
             </a>
         </h3>
         {% if include.featured %}

@@ -1,41 +1,67 @@
-header, footer {
-  background-color: $lighter-gray;
+header {
+  padding: 8rem 0 4rem;
 }
 
 footer .footer-wrapper {
+  padding: 6rem 0;
   display: flex;
   justify-content: space-between;
-  margin: 0 -1.5rem;
+  margin: -3rem -1.5rem 0;
+  color: $lightest-text-gray;
 
   .about-wrapper {
     width: 50%;
+    padding: 0 1.5rem;
   }
 
   .links-wrapper {
     display: flex;
+    flex-direction: column;
     width: 50%;
   }
 
-  .links, .pages {
+  .links,
+  .pages {
     align-items: flex-start;
     display: flex;
-    flex-direction: column;
-    padding: 0;
-    width: 50%;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    flex-direction: row;
+    padding: 0 1.5rem;
+  }
+
+  h3 {
+    @extend %p;
+    margin-bottom: 0.5rem;
   }
 
   h2 {
-    margin: 0 0 1rem;
-    padding: 0 1.5rem;
-    text-indent: 0;
+    line-height: 2rem;
+  }
+
+  a {
+    color: $lightest-text-gray;
+    transition: 0.3s ease color;
+  }
+}
+
+footer {
+  position: relative;
+  z-index: 100;
+
+  &:hover .footer-wrapper {
+    a {
+      color: $black;
+
+      &:hover {
+        color: $medium-gray;
+      }
+    }
   }
 }
 
 .path {
-  @extend %h2;
-  margin-bottom: 4rem;
-  padding-left: 3.6rem;
-  text-indent: -3.6rem;
+  margin-bottom: 2rem;
   user-select: none;
 
   .component {
@@ -53,10 +79,15 @@ footer .footer-wrapper {
 
   a {
     @extend %subtle-link;
+    text-decoration: none;
   }
 }
 
 @media screen and (max-width: $tablet-landscape-max) {
+  .path {
+    margin-bottom: 1rem;
+  }
+
   footer .footer-wrapper {
     .about-wrapper {
       width: 33%;
@@ -71,9 +102,12 @@ footer .footer-wrapper {
 @media screen and (max-width: $tablet-portrait-max) {
   footer .footer-wrapper {
     flex-wrap: wrap;
+    margin: -2rem -1rem 0;
 
-    .links, .pages {
-      padding-left: 1.4rem;  // Visual alignment with  "~ / Dan Schlosser"
+    .links,
+    .pages {
+      flex-wrap: wrap;
+      justify-content: flex-start;
     }
 
     .about-wrapper {

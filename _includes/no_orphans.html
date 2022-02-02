@@ -1,0 +1,6 @@
+{% assign words = include.text | strip | split:' ' %}
+{% if words.size > 1 %}
+    {{words | reverse | slice: 1, words.size - 1 | reverse | join ' ' }}&nbsp;{{words | last}}
+{% else %}
+    {{words | join ' '}}
+{% endif %}

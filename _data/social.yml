@@ -1,18 +1,10 @@
--
-  title: Twitter
+- title: Twitter
   url: https://www.twitter.com/danrschlosser
--
-  title: GitHub
+- title: GitHub
   url: https://github.com/schlosser
--
-  title: Medium
+- title: Medium
   url: https://medium.com/@danrschlosser
--
-  title: Facebook
-  url: https://www.facebook.com/danrschlosser
--
-  title: LinkedIn
+- title: LinkedIn
   url: https://www.linkedin.com/in/danrschlosser/
--
-  title: Email
+- title: Email
   url: mailto:dan@schlosser.io

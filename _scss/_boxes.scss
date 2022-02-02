@@ -1,4 +1,4 @@
-@use 'sass:math';
+@use "sass:math";
 
 $box-spacing: 3rem;
 $half-spacing: math.div($box-spacing, 2);
@@ -33,45 +33,8 @@ $half-spacing: math.div($box-spacing, 2);
       }
     }
 
-    .more {
-      display: block;
-      flex: 0;
-      padding-bottom: 50%;
-      position: relative;
-      user-select: none;
-      width: 100%;
-
-      a {
-        @extend %subtle-link;
-        align-items: center;
-        background-color: $lighter-gray;
-        border: 0;
-        bottom: 0;
-        color: $black;
-        display: flex;
-        font-size: 4rem;
-        justify-content: center;
-        left: 0;
-        position: absolute;
-        right: 0;
-        text-decoration: none;
-        top: 0;
-        transition: 0.3s ease background-color;
-        width: 100%;
-      }
-
-      a:hover {
-        background: $light-gray;
-      }
-    }
-
     h3 {
-      margin-top: 1.5rem;
-      // height: 3rem;
-
-      a {
-        @extend %subtle-link;
-      }
+      margin-top: 1rem;
     }
   }
 
@@ -86,9 +49,9 @@ $half-spacing: math.div($box-spacing, 2);
     h3 {
       font-family: $sans;
       font-size: 2rem;
-      font-weight: $bold;
+      font-weight: $extra-bold;
       line-height: 1.2;
-      margin: 3rem 0 1.5rem;
+      margin: 2rem 0 1.5rem;
     }
   }
 
@@ -96,6 +59,7 @@ $half-spacing: math.div($box-spacing, 2);
     display: flex;
     flex-wrap: wrap;
     width: 50%;
+    align-self: flex-start;
 
     > .box {
       width: 50%;
@@ -105,6 +69,10 @@ $half-spacing: math.div($box-spacing, 2);
 
 @media screen and (max-width: $tablet-landscape-max) {
   .boxes {
+    &.mini .box:nth-child(4) {
+      display: none;
+    }
+
     .box {
       width: 33.333333%;
     }
@@ -145,8 +113,18 @@ $half-spacing: math.div($box-spacing, 2);
 
 @media screen and (max-width: $tablet-portrait-max) {
   .boxes {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    margin-bottom: -1rem;
+
+    &.mini .box:nth-child(4) {
+      display: block;
+    }
+
     .box {
       width: 50%;
+      padding: 0 1rem;
+      margin-bottom: 2rem;
     }
 
     .featured {
@@ -171,6 +149,7 @@ $half-spacing: math.div($box-spacing, 2);
 
     .alongside-featured {
       width: 100%;
+      margin-top: 4rem;
 
       .box {
         width: 50%;

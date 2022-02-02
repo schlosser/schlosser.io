@@ -1,7 +1,7 @@
 ---
 layout: base
 ---
-{% include header.html %}
+{% unless page.is_home %}{% include header.html %}{% endunless %}
 {{ content }}
 <script type="text/javascript" src="/js/progressive-image.js"></script>
 <script type="text/javascript">

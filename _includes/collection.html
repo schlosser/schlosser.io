@@ -1,9 +1,15 @@
 <section class="collection">
-    <h2 class="path">
-        <span class="slash">/</span>
-        <span class="component"><a href="{{ include.url }}">{{ include.title }}</a></span>
-    </h2>
-    <div class="boxes">
+    <div class="collection-header">
+        <h2>
+            <span class="component"><a href="{{ include.url }}">{% if include.isBottomOfStory%}More {% endif %}{{ include.title }}</a></span>
+        </h2>
+        {% unless include.isBottomOfStory %}
+        <a href="{{include.url}}" class="text-button">
+            More <span class="hide-mobile">{{ include.title }}</span>
+        </a>
+        {% endunless %}
+    </div>
+    <div class="boxes {% if include.mini%}mini{% endif %}">
         {% assign collection = include.collection | reverse %}
 
         {% if include.exclude %}
@@ -21,20 +27,19 @@
             {% assign collection = tmp %}
         {% endif %}
 
-        {% assign more_text = include.title | prepend: "More " %}
         {% if include.feature == "first" %}
             <div class="feature-section">
-            {% for page in collection | limit:6 %}
+            {% for page in collection | limit:7 %}
             {% if forloop.index0 == 0 %}
                 {% include box.html page=page featured=true %}
             {% elsif forloop.index0 == 1 %}
                 <div class="alongside-featured">
                     {% include box.html page=page %}
-            {% elsif forloop.index0 == 5 %}
+            {% elsif forloop.index0 == 6 %}
                     {% include box.html page=page %}
-                    {% if collection.size > 6 %}
+                    <!-- {% if collection.size > 6 %}
                         {% include more.html text=more_text href=include.url %}
-                    {% endif %}
+                    {% endif %} -->
                 </div>
             {% else %}
                     {% include box.html page=page %}
@@ -42,11 +47,20 @@
             {% endfor %}
             </div>
         {% else %}
-            {% for page in collection | limit:7 %}
-            {% include box.html page=page %}
-            {% endfor %}
-            {% if collection.size > 7 %}
-            {% include more.html text=more_text href=include.url %}
+            {% if include.mini %}
+                {% for page in collection | limit:4 %}
+                {% include box.html page=page %}
+                {% endfor %}
+                <!-- {% if collection.size > 3 %}
+                {% include more.html text=more_text href=include.url %}
+                {% endif %} -->
+            {% else %}
+                {% for page in collection | limit:8 %}
+                {% include box.html page=page %}
+                {% endfor %}
+                <!-- {% if collection.size > 7 %}
+                {% include more.html text=more_text href=include.url %}
+                {% endif %} -->
             {% endif %}
         {% endif %}
     </div>

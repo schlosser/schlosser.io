@@ -6,10 +6,11 @@ regenerate: true # always re-build
 ---
 
 <div class="content">
-  <section class="text">
-    <h2>
-      Co-founder, <a href="/teams/ambrook">Ambrook</a>. Previously, product
-      manager at <a href="/teams/nytimes">The New York Times</a>,
+  <section class="text home-header">
+    <h1>Dan<br/>Schlosser</h1>
+    <p>
+      Co-founder, <a href="/teams/ambrook">Ambrook</a> &mdash; <a href="https://ambrook.com/careers">we're hiring</a>!
+      Previously, product manager at <a href="/teams/nytimes">The New York Times</a>,
       <a href="/teams/google-drive/">Google</a>, and
       <a href="/teams/covidactnow/">Covid Act Now</a>, tech lead at
       <a href="/teams/thenext50/">The Next 50</a>, founder and web developer at
@@ -17,14 +18,14 @@ regenerate: true # always re-build
       <a href="https://www.columbia.edu/">Columbia</a>. Email me at
       <a href="mailto:dan@schloser.io">dan@schlosser.io</a> or tweet
       <a href="https://twitter.com/danrschlosser">@danrschlosser</a>.
-    </h2>
+    </p>
   </section>
-  {% include collection.html title="Projects" url="/projects/"
-  collection=site.projects %} {% include collection.html title="Travel"
-  url="/travel/" collection=site.travel feature="first" %} {% include
-  collection.html title="Writing" url="/writing/" collection=site.writing
-  feature="first" %} {% include collection.html title="Lists" url="/lists/"
-  collection=site.lists %} {% include collection.html title="Talks"
-  url="/talks/" collection=site.talks %} {% include collection.html
-  title="Teams" url="/teams/" collection=site.teams %}
+  {% include collection.html mini="1" title="Teams" url="/teams/" collection=site.teams %}
+  {% include collection.html title="Travel" url="/travel/" collection=site.travel feature="first" %}
+  {% include collection.html title="Writing" url="/writing/" collection=site.writing feature="first" %}
+  {% include collection.html mini="1" title="Projects" url="/projects/" collection=site.projects %}
+  {% include collection.html mini="1" title="Lists" url="/lists/" collection=site.lists %}
+  {% include collection.html mini="1" title="Talks" url="/talks/" collection=site.talks %}
 </div>
+
+

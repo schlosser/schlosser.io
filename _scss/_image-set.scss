@@ -3,7 +3,7 @@ figure + .image-set {
 }
 
 .image-set {
-  margin: 3rem -0.75rem 0;
+  margin: 3rem -0.5rem 0;
 
   &.inline {
     margin-bottom: 3rem;
@@ -15,7 +15,9 @@ figure + .image-set {
     max-width: 30rem;
   }
 
-  .large, .small, .xl {
+  .large,
+  .small,
+  .xl {
     align-items: flex-start;
     display: flex;
     font-size: 0;
@@ -70,8 +72,23 @@ figure + .image-set {
 }
 
 @media screen and (max-width: $phone-landscape-max) {
-  .image-set + h5 {
-    padding: 0;
-    text-align: left;
+  .image-set {
+    margin-top: 3rem;
+
+    .large,
+    .small,
+    .xl {
+      margin-bottom: 1rem;
+
+      figure {
+        margin: 0 0.5rem;
+      }
+    }
+
+    & + h5 {
+      margin-bottom: 3rem;
+      padding: 0;
+      text-align: left;
+    }
   }
 }

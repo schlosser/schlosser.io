@@ -9,7 +9,7 @@ layout: default
     {% endif %}
 {% endif %}
 <div class="content">
-    <article>
+    <article class="{% if page.hero_style == "full_bleed" %}with-full-width-image{% elsif page.hero_style == "large" %}with-large-image{% endif %}">
         {% if page.hero_style == "large" %}
         <section>
             {% if page.hero_image %}
@@ -32,11 +32,16 @@ layout: default
         {{ content }}
     </article>
 </div>
+<div class="content">
+    <section>
+        <hr />
+    </section>
+</div>
 {% if page.related_posts %}
 <div class="content">
     {% assign col = site[page.related_posts] %}
     {% assign url = "/" | append: page.related_posts | append: "/" %}
     {% assign title = page.related_posts | capitalize %}
-    {% include collection.html title=title url=url collection=col exclude=page %}
+    {% include collection.html isBottomOfStory=1 title=title url=url collection=col exclude=page %}
 </div>
 {% endif %}

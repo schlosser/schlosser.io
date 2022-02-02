@@ -1,9 +1,9 @@
 meta:
   title: "Dan Schlosser"
-  description: "Co-founder of Ambrook. Previously, product manager at The New York Times, Google, and Covid Act Now, tech lead at The Next 50, founder and web developer at Minimill, and CS at Columbia. Email me at dan@schlosser.io or tweet @danrschlosser."
-  facebook_image: "/img/res/1600/cover.png"
-  twitter_image: "/img/res/1600/cover.png"
-  image: "/img/res/1600/cover.png"
+  description: "Co-founder, Ambrook — we're hiring! Previously, product manager at The New York Times, Google, and Covid Act Now, tech lead at The Next 50, founder and web developer at Minimill, and CS at Columbia. Email me at dan@schlosser.io or tweet @danrschlosser."
+  facebook_image: "/img/res/1600/cover-corner.png"
+  twitter_image: "/img/res/1600/cover-corner.png"
+  image: "/img/res/1600/cover-corner.png"
   twitter_handle: "@danrschlosser"
   google_analytics_id: "UA-40705748-1"
   domain: "schlosser.io"
@@ -18,6 +18,8 @@ highlighter: rouge
 incremental: true
 plugins:
   - jekyll-redirect-from
+include:
+  - font
 exclude:
   - node_modules
   - Gulpfile.js
@@ -66,6 +68,7 @@ defaults:
       type: writing
     values:
       layout: blog_post
+      related_posts: writing
   - scope:
       path: ""
       type: projects
@@ -79,6 +82,7 @@ defaults:
       type: lists
     values:
       layout: blog_post
+      related_posts: lists
   - scope:
       path: ""
       type: talks

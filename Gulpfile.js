@@ -123,6 +123,10 @@ gulp.task("js:lint", function () {
 
 gulp.task("js", gulp.series("js:lint", "js:build"));
 
+gulp.task("font", function () {
+  return gulp.src("./_font/**/*").pipe(plumber()).pipe(gulp.dest("./font/"));
+});
+
 /**********************
  ** Optimized Images **
  **********************/
@@ -327,17 +331,21 @@ gulp.task("watch", function () {
     ],
     gulp.series("jekyll:rebuild")
   );
+  gulp.watch("./_font/*", gulp.series("font"));
   gulp.watch("./_scss/**/*.scss", gulp.series("scss"));
   gulp.watch(["./_js/**/*.js", "Gulpfile.js"], gulp.series("js"));
 });
 
-gulp.task("build", gulp.series("clean", gulp.parallel("scss", "js"), "jekyll"));
+gulp.task(
+  "build",
+  gulp.series("clean", gulp.parallel("scss", "js", "font"), "jekyll")
+);
 
 gulp.task(
   "build:optimized",
   gulp.series(
     "clean",
-    gulp.parallel("scss:optimized", "images", "js"),
+    gulp.parallel("scss:optimized", "images", "js", "font"),
     "jekyll"
   )
 );

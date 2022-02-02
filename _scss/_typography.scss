@@ -1,42 +1,81 @@
 // Font weights
-$bold: 700;
+$extra-bold: 900;
+$bold: 600;
 $regular: 400;
 
-$monospace: 'Inconsolata', monospace;
-$sans: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-
-h1, %h1 {
-  font-family: $monospace;
-  font-size: 1.25rem;
+@font-face {
+  font-family: "MD System";
   font-weight: $regular;
-  letter-spacing: 0.5px;
-  line-height: 2;
+  src: url("/font/MDSystem-Regular.otf") format("opentype");
 }
 
-h2, %h2 {
-  font-family: $monospace;
-  font-size: 1.25rem;
+@font-face {
+  font-family: "MD System";
+  font-weight: $regular;
+  font-style: italic;
+  src: url("/font/MDSystem-Italic.otf") format("opentype");
 }
 
-h3, %h3 {
-  font-family: $monospace;
-  font-size: 1rem;
+@font-face {
+  font-family: "MD System";
+  font-weight: $bold;
+  src: url("/font/MDSystem-Dark.otf") format("opentype");
+}
+@font-face {
+  font-family: "MD System";
+  font-weight: $extra-bold;
+  src: url("/font/MDSystem-Heavy.otf") format("opentype");
 }
 
-h4, %h4 {
-  font-family: $monospace;
-  font-size: 1.25rem;
+$monospace: "Incosolata", monospace;
+$sans: "MD System", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+h1,
+%h1 {
+  widows: 2;
+  font-family: $sans;
+  font-size: 4.5rem;
+  line-height: 5rem;
+  font-weight: $extra-bold;
+}
+
+h2,
+%h2 {
+  font-family: $sans;
+  font-size: 1.75rem;
+  font-weight: $extra-bold;
+}
+
+h3,
+%h3 {
+  font-family: $sans;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: $bold;
+}
+
+h4,
+%h4 {
+  font-family: $sans;
+  font-weight: $bold;
+  font-size: 1.125rem;
   margin-bottom: 4rem;
 }
 
-h5, %h5 {
-  font-family: $monospace;
-  font-size: 1rem;
+h5,
+%h5 {
+  font-family: $sans;
+  font-weight: $regular;
+  font-size: 0.9375rem;
+  line-height: 1rem;
 }
 
-p {
+p,
+%p,
+ul li,
+ol li {
   font-family: $sans;
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: $regular;
   line-height: 1.8;
   margin-bottom: 1.5rem;
@@ -47,7 +86,20 @@ strong {
 }
 
 @media screen and (max-width: $phone-landscape-max) {
-  p, %p, li, %li {
-    font-size: 1.25rem;
+  h1,
+  %h1 {
+    font-size: 3rem;
+    line-height: 3.5rem;
+  }
+
+  h5,
+  %h5 {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .home-header h1 {
+    font-size: 4.5rem;
+    line-height: 5rem;
   }
 }

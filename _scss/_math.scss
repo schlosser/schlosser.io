@@ -67,6 +67,8 @@
   overflow: hidden;
   padding-bottom: 1.5rem;
   padding-top: 1.5rem;
+  margin-left: -1rem;
+  margin-right: -1rem;
   position: relative;
 
   .math-content {
@@ -74,8 +76,9 @@
   }
 
   .inner {
-    &::before, &::after {
-      content: ' ';
+    &::before,
+    &::after {
+      content: " ";
       display: block;
       height: 1.5rem;
     }
@@ -85,12 +88,14 @@
     font-family: $sans;
     font-size: 1rem;
 
-    &.MJXc-TeX-main-B { // scss-lint:disable SelectorFormat
+    &.MJXc-TeX-main-B {
+      // scss-lint:disable SelectorFormat
       font-weight: bold;
     }
   }
 
-  .MJXc-display { // scss-lint:disable SelectorFormat
+  .MJXc-display {
+    // scss-lint:disable SelectorFormat
     margin: 0 -2rem;
     overflow-x: scroll;
     overflow-y: visible;
@@ -217,7 +222,7 @@ form {
       white-space: nowrap;
 
       &::after {
-        content: ':';
+        content: ":";
       }
     }
   }

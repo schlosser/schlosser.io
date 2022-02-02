@@ -1,11 +1,18 @@
+@use "sass:math";
+
 $content-width: 74rem;
-$text-width: 44rem;
+$text-width: 48rem;
+$v-lg-rem: 6;
+
+$v-md-padding: #{(math.div($v-lg-rem, 2))}rem;
+$v-lg-padding: #{$v-lg-rem * 1.5}rem;
+$v-xl-padding: #{$v-lg-rem * 2}rem;
 
 .content {
   @include clearfix;
   margin: 0 auto;
   max-width: $content-width;
-  padding: 6rem 4rem;
+  padding: 0 4rem;
   width: 100%;
 
   > *:last-child {
@@ -16,58 +23,58 @@ $text-width: 44rem;
 section {
   contain-intrinsic-size: 1000px; // Total estimate
   content-visibility: auto;
-  margin: 6rem 0;
+  padding: $v-md-padding 0;
 
-  &.collection {
-    padding: 1.5rem 0 4.5rem;
-
-    &:first-child {
-      padding-top: 0;
+  &.home-header {
+    padding-top: $v-xl-padding;
+    h1 {
+      margin-bottom: 2rem;
     }
-  }
 
-  &:first-child {
-    margin-top: 0;
+    p {
+      margin-bottom: 0;
+    }
+
+    > * {
+      max-width: $content-width;
+    }
   }
 
   &.text {
     max-width: $text-width;
     width: 100%;
   }
-
-  &.map {
-    margin: 0 -4rem -4rem;
-    position: relative;
-
-    img {
-      display: block;
-    }
-  }
 }
 
-nav {
-  margin: -3rem 0 -1.5rem;
+.collection-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+article:not(.with-full-width-image) .text:first-child {
+  margin-top: -6rem;
+}
+
+article:not(.with-full-width-image) .hero-image + .text {
+  margin-top: -3rem;
 }
 
 @media screen and (max-width: $phone-landscape-max) {
-  h3,
-  %h3 {
-    font-size: 1.25rem;
-  }
-
   section {
-    margin: 8rem 0;
+    padding: 3rem 0;
 
-    &.map {
-      margin: 0 -2rem -2rem;
+    &.home-header {
+      padding-top: $v-lg-padding;
     }
   }
 
   .content {
-    padding: 6rem 2rem;
+    padding: 0 1rem;
   }
 
   .text.hero-image {
-    margin: -4rem 0;
+    margin: -4rem 0 0;
   }
 }

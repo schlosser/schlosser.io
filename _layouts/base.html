@@ -59,10 +59,13 @@ layout: compress
     <meta name="msapplication-square310x310logo" content="/img/favicon/mstile-310x310.png" />
     {% endif %}
     <meta name="theme-color" content="{{ site.meta.theme_color }}">
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Roboto:400,400italic,700|Inconsolata:400,400italic,700&display=swap">
-    <link rel="preload" as="style" href="/css/style.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400italic,700|Inconsolata:400,400italic,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/css/style.min.css">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Inconsolata:400&display=swap">
+    <link rel="preload" as="style" href="/css/{{ 'style.min.css' | bust_css_cache }}">
+     <link rel="preload" href="/font/MDSystem-Regular.otf" as="font" crossorigin>
+     <link rel="preload" href="/font/MDSystem-Dark.otf" as="font" crossorigin>
+     <link rel="preload" href="/font/MDSystem-Heavy.otf" as="font" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata:400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/{{ 'style.min.css' | bust_css_cache }}">
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
