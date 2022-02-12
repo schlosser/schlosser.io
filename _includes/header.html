@@ -12,11 +12,13 @@
             <span class="slash">/</span>
             <br class="mobile-only">
         </p>
+        {% unless page.hero_style == 'full_bleed' %}
         {% if page.title %}
         <h1>{% include no_orphans.html text=page.title %}</h1>
         {% elsif page.collection %}
         <h1>{% include no_orphans.html text=page.collection %}</h1>
         {% endif %}
+        {% endunless %}
         {% endif %}
     </div>
 </header>

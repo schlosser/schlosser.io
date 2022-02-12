@@ -64,11 +64,11 @@
 }
 
 .scary-math {
+  margin-left: -1rem;
+  margin-right: -1rem;
   overflow: hidden;
   padding-bottom: 1.5rem;
   padding-top: 1.5rem;
-  margin-left: -1rem;
-  margin-right: -1rem;
   position: relative;
 
   .math-content {
@@ -88,14 +88,14 @@
     font-family: $sans;
     font-size: 1rem;
 
+    // scss-lint:disable SelectorFormat
     &.MJXc-TeX-main-B {
-      // scss-lint:disable SelectorFormat
       font-weight: bold;
     }
   }
 
+  // scss-lint:disable SelectorFormat
   .MJXc-display {
-    // scss-lint:disable SelectorFormat
     margin: 0 -2rem;
     overflow-x: scroll;
     overflow-y: visible;

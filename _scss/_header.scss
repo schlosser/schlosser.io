@@ -2,52 +2,64 @@ header {
   padding: 8rem 0 4rem;
 }
 
-footer .footer-wrapper {
-  padding: 6rem 0;
-  display: flex;
-  justify-content: space-between;
-  margin: -3rem -1.5rem 0;
-  color: $lightest-text-gray;
+.with-hero-style-full_bleed header {
+  padding: 4rem 0;
+  position: absolute;
+  top: 0;
+  z-index: 100;
 
-  .about-wrapper {
-    width: 50%;
-    padding: 0 1.5rem;
-  }
-
-  .links-wrapper {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-  }
-
-  .links,
-  .pages {
-    align-items: flex-start;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    flex-direction: row;
-    padding: 0 1.5rem;
-  }
-
-  h3 {
-    @extend %p;
-    margin-bottom: 0.5rem;
-  }
-
-  h2 {
-    line-height: 2rem;
-  }
-
-  a {
-    color: $lightest-text-gray;
-    transition: 0.3s ease color;
+  * {
+    // scss-lint:disable ImportantRule
+    color: $white !important;
   }
 }
 
 footer {
   position: relative;
   z-index: 100;
+
+  .footer-wrapper {
+    color: $lightest-text-gray;
+    display: flex;
+    justify-content: space-between;
+    margin: -3rem -1.5rem 0;
+    padding: 6rem 0;
+
+    .about-wrapper {
+      padding: 0 1.5rem;
+      width: 50%;
+    }
+
+    .links-wrapper {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+    }
+
+    .links,
+    .pages {
+      align-items: flex-start;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      padding: 0 1.5rem;
+    }
+
+    h3 {
+      @extend %p;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      line-height: 2rem;
+    }
+
+    a {
+      color: $lightest-text-gray;
+      transition: 0.3s ease color;
+    }
+  }
 
   &:hover .footer-wrapper {
     a {
@@ -122,5 +134,11 @@ footer {
 
   .m-break {
     @include clearfix;
+  }
+}
+
+@media screen and (max-width: $phone-landscape-max) {
+  .with-hero-style-full_bleed header {
+    padding: 1rem 0;
   }
 }

@@ -6,8 +6,8 @@ article {
   }
 
   &.with-large-image {
-    padding-top: 0;
     margin-top: -3rem;
+    padding-top: 0;
   }
 
   h2 {
@@ -36,8 +36,8 @@ article {
 
   aside {
     border-left: 0.5rem solid $lighter-gray;
-    padding-left: 1.5rem;
     margin: 1.5rem 0;
+    padding-left: 1.5rem;
   }
 
   blockquote {
@@ -234,10 +234,7 @@ article {
   article {
     blockquote,
     form {
-      margin-left: -4rem;
-      margin-right: -4rem;
-      padding-left: 4rem;
-      padding-right: 4rem;
+      padding: 4rem;
     }
   }
 }
@@ -246,10 +243,7 @@ article {
   article {
     blockquote,
     form {
-      margin-left: -2rem;
-      margin-right: -2rem;
-      padding-left: 2rem;
-      padding-right: 2rem;
+      padding: 2rem;
     }
 
     .tight-figure {
@@ -267,7 +261,8 @@ article {
 
     figure {
       margin: 3rem 0;
-      & + h5 {
+
+      + h5 {
         margin: -2rem 0 3rem;
         padding: 0;
         text-align: left;

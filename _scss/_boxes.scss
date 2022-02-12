@@ -1,6 +1,7 @@
 @use "sass:math";
 
 $box-spacing: 3rem;
+// scss-lint:disable Syntax
 $half-spacing: math.div($box-spacing, 2);
 
 .boxes {

@@ -1,13 +1,17 @@
 linters:
   HexNotation:
-    style: 'uppercase'
+    style: "lowercase"
   HexLength:
-    style: 'long'
+    style: "long"
   SingleLinePerSelector:
     enabled: false
   LeadingZero:
-    style: 'include_zero'
+    style: "include_zero"
   NestingDepth:
     max_depth: 4
   SelectorDepth:
     max_depth: 4
+  StringQuotes:
+    style: "single"
+  SelectorFormat:
+    enabled: false

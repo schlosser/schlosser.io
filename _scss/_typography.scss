@@ -11,8 +11,8 @@ $regular: 400;
 
 @font-face {
   font-family: "MD System";
-  font-weight: $regular;
   font-style: italic;
+  font-weight: $regular;
   src: url("/font/MDSystem-Italic.otf") format("opentype");
 }
 
@@ -32,11 +32,11 @@ $sans: "MD System", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 h1,
 %h1 {
-  widows: 2;
   font-family: $sans;
   font-size: 4.5rem;
-  line-height: 5rem;
   font-weight: $extra-bold;
+  line-height: 5rem;
+  widows: 2;
 }
 
 h2,
@@ -50,23 +50,23 @@ h3,
 %h3 {
   font-family: $sans;
   font-size: 1.125rem;
-  line-height: 1.75rem;
   font-weight: $bold;
+  line-height: 1.75rem;
 }
 
 h4,
 %h4 {
   font-family: $sans;
-  font-weight: $bold;
   font-size: 1.125rem;
+  font-weight: $bold;
   margin-bottom: 4rem;
 }
 
 h5,
 %h5 {
   font-family: $sans;
-  font-weight: $regular;
   font-size: 0.9375rem;
+  font-weight: $regular;
   line-height: 1rem;
 }
 

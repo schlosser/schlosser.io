@@ -3,7 +3,7 @@
 $content-width: 74rem;
 $text-width: 48rem;
 $v-lg-rem: 6;
-
+// scss-lint:disable Syntax
 $v-md-padding: #{(math.div($v-lg-rem, 2))}rem;
 $v-lg-padding: #{$v-lg-rem * 1.5}rem;
 $v-xl-padding: #{$v-lg-rem * 2}rem;
@@ -53,12 +53,70 @@ section {
   margin-bottom: 3rem;
 }
 
+.full-bleed-hero {
+  position: relative;
+
+  .full-bleed-scrim {
+    z-index: 99;
+    position: absolute;
+    background: linear-gradient(
+      -53deg,
+      rgba(0, 0, 0, 0.35) 0%,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(0, 0, 0, 0.35) 100%
+    );
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+  }
+
+  h1 {
+    bottom: 4rem;
+    color: white;
+    position: absolute;
+    right: 4rem;
+    left: 8rem;
+    text-align: right;
+    z-index: 100;
+    font-size: 8rem;
+    line-height: 10rem;
+
+    span {
+      display: block;
+      float: right;
+    }
+  }
+}
+
 article:not(.with-full-width-image) .text:first-child {
   margin-top: -6rem;
 }
 
 article:not(.with-full-width-image) .hero-image + .text {
   margin-top: -3rem;
+}
+
+@media screen and (max-width: $desktop-max) {
+  .full-bleed-hero h1 {
+    font-size: 6rem;
+    line-height: 7.5rem;
+  }
+}
+
+@media screen and (max-width: $tablet-landscape-max) {
+  .full-bleed-hero h1 {
+    font-size: 5rem;
+    line-height: 6rem;
+    left: 4rem;
+  }
+}
+
+@media screen and (max-width: $tablet-portrait-max) {
+  .full-bleed-hero h1 {
+    font-size: 4rem;
+    line-height: 5rem;
+  }
 }
 
 @media screen and (max-width: $phone-landscape-max) {
@@ -76,5 +134,13 @@ article:not(.with-full-width-image) .hero-image + .text {
 
   .text.hero-image {
     margin: -4rem 0 0;
+  }
+
+  .full-bleed-hero h1 {
+    font-size: 3.5rem;
+    line-height: 4.5rem;
+    right: 1rem;
+    bottom: 1rem;
+    left: 1rem;
   }
 }

@@ -2,11 +2,15 @@
 layout: default
 ---
 {% if page.hero_style == "full_bleed" %}
-    {% if page.hero_image %}
-        {% include resimg.html src=page.hero_image alt=page.title link=page.link %}
-    {% else %}
-        {% include resimg.html src=page.featured_image alt=page.title link=page.link %}
-    {% endif %}
+    <div class="full-bleed-hero">
+        <div class="full-bleed-scrim"></div>
+        {% if page.hero_image %}
+            {% include resimg.html src=page.hero_image alt=page.title link=page.link %}
+        {% else %}
+            {% include resimg.html src=page.featured_image alt=page.title link=page.link %}
+        {% endif %}
+        <h1><span>{{page.title}}</span></h1>
+    </div>
 {% endif %}
 <div class="content">
     <article class="{% if page.hero_style == "full_bleed" %}with-full-width-image{% elsif page.hero_style == "large" %}with-large-image{% endif %}">
@@ -45,3 +49,12 @@ layout: default
     {% include collection.html isBottomOfStory=1 title=title url=url collection=col exclude=page %}
 </div>
 {% endif %}
+<script src="/js/lib/text-balancer.standalone.js"></script>
+<script>
+    textBalancer.initialize('h1 span');
+    var md = new FontFaceObserver('MD System');
+    md.load().then(function() {
+        console.log('fonts have loaded yay');
+        textBalancer.balanceText();
+    });
+</script>

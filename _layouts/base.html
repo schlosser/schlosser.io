@@ -75,11 +75,7 @@ layout: compress
         ga('send', 'pageview');
     </script>
 </head>
-{% if page.body_class %}
-<body class="{{ page.body_class }}">
-{% else %}
-<body>
-{% endif %}
+<body class="{{ page.body_class }}{% if page.hero_style %} with-hero-style-{{page.hero_style}}{% endif %}">
     <div class="scrim"></div>
     {{ content }}
     <script src="/js/global-listeners.js"></script>
