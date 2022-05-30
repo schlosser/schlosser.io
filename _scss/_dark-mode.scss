@@ -96,8 +96,19 @@
     color: $white;
   }
 
-  header, footer {
-    background-color: $true-black;
+  header a:hover {
+    color: $white !important;
+    text-decoration-color: $white !important;
+  }
+
+  footer {
+    background-color: $black;
+
+    &:hover .footer-wrapper {
+      a {
+        color: $white;
+      }
+    }
   }
 
   form, blockquote {

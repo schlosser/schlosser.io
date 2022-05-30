@@ -1,8 +1,12 @@
 {
-  "cSpell.words": [
-    "ambrook"
-  ],
+  "cSpell.words": ["ambrook"],
   "[html]": {
-    "editor.formatOnSave": false
-  }
+    "editor.formatOnSave": false,
+    "editor.tabSize": 4
+  },
+  "[liquid]": {
+    "editor.formatOnSave": false,
+    "editor.tabSize": 4
+  },
+  "editor.formatOnSave": true
 }

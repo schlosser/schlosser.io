@@ -5,7 +5,7 @@ layout: post
 <section class="text">
     {% if page.date %}
     <h3 class="timestamp">Visiting
-        {% for city in page.cities %}{% unless forloop.first %}{% if forloop.last %}{% unless page.cities.length == 2 %},{%endunless%} and {% else %}, {% endif %}{% endunless %}{{city}}{% endfor %} from {{ page.start_date | date: '%B %d ' }} to {{ page.end_date | date: '%B %d, %Y' }}.</h3>
+        {% for city in page.cities %}{% unless forloop.first %}{% if forloop.last %}{% unless page.cities.length == 2 %},{%endunless%} and {% else %}, {% endif %}{% endunless %}{{city}}{% endfor %} {% if page.time_period %}{{page.time_period}}{% else %}from {{ page.start_date | date: '%B %d ' }} to {{ page.end_date | date: '%B %d, %Y' }}{% endif %}.</h3>
     {% endif %}
 </section>
 {{ content }}

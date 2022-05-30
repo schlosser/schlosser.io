@@ -67,7 +67,7 @@ h5,
   font-family: $sans;
   font-size: 0.9375rem;
   font-weight: $regular;
-  line-height: 1rem;
+  line-height: 1.5rem;
 }
 
 p,
@@ -90,12 +90,6 @@ strong {
   %h1 {
     font-size: 3rem;
     line-height: 3.5rem;
-  }
-
-  h5,
-  %h5 {
-    font-size: 1rem;
-    line-height: 1.5rem;
   }
 
   .home-header h1 {
