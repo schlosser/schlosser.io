@@ -8,9 +8,14 @@ header {
   top: 0;
   z-index: 100;
 
-  * {
+  span, a {
     // scss-lint:disable ImportantRule
-    color: $white !important;
+    color: $white;
+
+    &:hover {
+      color: $light-gray;
+      text-decoration-color: $light-gray;
+    }
   }
 }
 
@@ -66,7 +71,7 @@ footer {
       color: $black;
 
       &:hover {
-        color: $medium-gray;
+        color: $light-gray;
       }
     }
   }
@@ -91,10 +96,10 @@ footer {
 
   a {
     @extend %subtle-link;
-    text-decoration: none;
+    text-decoration-color: transparent;
 
     &:hover {
-      text-decoration: none;
+      text-decoration-color: $medium-gray;
     }
   }
 }
