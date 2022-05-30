@@ -92,6 +92,10 @@ footer {
   a {
     @extend %subtle-link;
     text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
 
