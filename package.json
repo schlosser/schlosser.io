@@ -6,7 +6,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "deploy": "astro build && yarn deploy:push",
+    "deploy:push": "chmod -R 775 dist && rsync -avuzh dist/* dan:/srv/schlosser.io/public_html/"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.0",

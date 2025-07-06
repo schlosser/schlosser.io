@@ -70,7 +70,6 @@ for (const post of travelPosts) {
         const randomPhoto =
           TRAVEL_PHOTOS[Math.floor(Math.random() * TRAVEL_PHOTOS.length)];
         var page = TRAVEL_PAGES[randomPhoto.pageKey];
-        console.log(randomPhoto.pageKey, page);
         fig.innerHTML = `
           <a href="${page}#${randomPhoto.hash}">
           <i style="background-image:url(${randomPhoto.image.default.src})"></i>

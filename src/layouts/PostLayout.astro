@@ -4,11 +4,14 @@ import Image from "@components/Image.astro";
 import BaseLayout from "./BaseLayout.astro";
 import Collection from "@components/Collection.astro";
 import { getPostDate, type PostLike } from "src/content.config";
+import { postExcerpt } from "@components/PostExcerpt.astro";
 
 type Props = CollectionEntry<PostLike>;
 
 const post = Astro.props;
 const { title, featuredImage, heroImage, heroStyle, link } = post.data;
+
+const excerptContent = postExcerpt({post});
 
 const collection = post.collection;
 
@@ -19,6 +22,7 @@ const collectionPosts = (await getCollection(collection)).sort((a, b) => {
 
 <BaseLayout
   title={title}
+  description={excerptContent}
   collection={collection}
   heroStyle={heroStyle ?? "large"}
 >

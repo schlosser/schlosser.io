@@ -1,0 +1,176 @@
+---
+/**
+ * Author: Igor Dimitrijević (@igorskyflyer)
+ * Source: https://github.com/igorskyflyer/astro-post-excerpt
+ *
+ * Adapted to support links, and more.
+ */
+
+import { stripFile } from "@igor.dvlpr/strip-yaml-front-matter";
+import type { Props as PostExcerptProps } from "@igor.dvlpr/astro-post-excerpt/dist/Props.mjs";
+import {
+  isMdx,
+  isPriorV2,
+  isV2,
+} from "@igor.dvlpr/astro-post-excerpt/dist/utils.mjs";
+
+import type { Root, RootContent } from 'mdast'
+import { fromMarkdown } from 'mdast-util-from-markdown'
+import { mdxFromMarkdown } from 'mdast-util-mdx'
+import { mdxjs } from 'micromark-extension-mdxjs'
+
+export function restoreWhitespace(current: string, previous: string): string {
+  if (previous === '') {
+    return current
+  }
+
+  if (!current.endsWith(' ') && !previous.startsWith(' ')) {
+    return `${previous} ${current}`
+  }
+
+  return `${previous}${current}`
+}
+
+export function walk(node: RootContent | any): string | undefined {
+  const allowedNodes: string[] = ['emphasis', 'paragraph', 'strong', 'text', 'link', 'section', 'mdxJsxTextElement']
+  const allowedNodeNames: string[] = ['paragraph', 'section'];
+
+  const isValidFlowElement = node.type === 'mdxJsxFlowElement' && allowedNodeNames.includes(node.name);
+
+  if (!allowedNodes.includes(node.type) && !isValidFlowElement) {
+    console.log('NODE', node.type, JSON.stringify(node, null, 2))
+    return
+  }
+
+  let result: string = ''
+
+  if (node.value?.length > 0) {
+    result += node.value
+  } else if (node.children?.length > 0) {
+    node.children.forEach((child: RootContent) => {
+      if (allowedNodes.includes(child.type)) {
+        const value: string | undefined = walk(child)
+
+        if (value) {
+          result += value
+        }
+      }
+    })
+  }
+
+  return result
+}
+
+export function getPlainText(markdown: string): string {
+  let result: string = ''
+
+  const tree: Root = fromMarkdown(markdown, {
+    extensions: [mdxjs()],
+    mdastExtensions: [mdxFromMarkdown()]
+  })
+
+  tree.children.forEach((node: RootContent): void => {
+    const value: string | undefined = walk(node)
+
+    if (value) {
+      result = restoreWhitespace(value, result)
+    }
+  })
+
+  return result
+}
+
+
+export const postExcerpt = ({
+  post,
+  words = 40,
+  maxLength = 0,
+  addEllipsis = true,
+  smartEllipsis = true,
+  ellipsis = "…",
+}: PostExcerptProps) => {
+  let postExcerpt: string = "";
+  const punctuationSymbols: string[] = [".", ",", "?", "!", ";", "…"];
+
+
+  if (!post || (!isPriorV2(post) && !isV2(post) && !isMdx(post))) {
+    throw new TypeError("The required prop post is not valid, aborting now.");
+  }
+
+  if (typeof words !== "number" || words < 0) {
+    words = 40;
+    console.warn("The optional prop words is not valid, defaulting to 40.");
+  }
+
+  if (typeof maxLength !== "number" || maxLength < 0) {
+    maxLength = 0;
+    console.warn("The optional prop maxLength is not valid, defaulting to 0.");
+  }
+
+  if (typeof addEllipsis !== "boolean") {
+    addEllipsis = true;
+    console.warn(
+      "The optional prop addEllipsis is not valid, defaulting to true.",
+    );
+  }
+
+  if (typeof smartEllipsis !== "boolean") {
+    smartEllipsis = true;
+    console.warn(
+      "The optional prop smartEllipsis is not valid, defaulting to true.",
+    );
+  }
+
+  if (typeof ellipsis !== "string" || ellipsis.length < 1) {
+    ellipsis = "…";
+    console.warn('The optional prop ellipsis is not valid, defaulting to "…".');
+  }
+
+  if (isV2(post)) {
+    // Astro >= v2 detected
+    postExcerpt = post["body"];
+  } else if (isPriorV2(post)) {
+    // Astro < v2 detected
+    postExcerpt = post.rawContent();
+  } else if (isMdx(post)) {
+    // MDX file detected
+    // cannot be used directly from Astro 😔
+    postExcerpt = stripFile(post.file);
+  }
+
+  postExcerpt = postExcerpt.trim();
+  postExcerpt = getPlainText(postExcerpt);
+
+  if (words > 0) {
+    postExcerpt = postExcerpt.split(" ").slice(0, words).join(" ");
+  }
+
+  if (maxLength > 0) {
+    postExcerpt = postExcerpt.substring(0, maxLength);
+  }
+
+  if (addEllipsis) {
+    const postLength: number = postExcerpt.length;
+
+    if (postLength > 0) {
+      if (smartEllipsis) {
+        const lastChar: string | undefined = postExcerpt.at(-1);
+
+        if (lastChar && !punctuationSymbols.includes(lastChar)) {
+          postExcerpt += ellipsis;
+        }
+      } else {
+        postExcerpt += ellipsis;
+      }
+    }
+  }
+
+  return postExcerpt;
+}
+
+const excerptContent = postExcerpt(Astro.props);
+
+export type Props = PostExcerptProps;
+---
+
+<Fragment set:html={excerptContent} />

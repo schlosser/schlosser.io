@@ -5,15 +5,15 @@ import Footer from "@components/Footer.astro";
 interface Props {
   title: string;
   collection?: string;
+  description?: string;
   heroStyle: "full-bleed" | "large" | "none" | "normal";
 }
-const { title, collection, heroStyle } = Astro.props;
-import ProgressiveImage from "../js/progressive-image";
+const { title, description, collection, heroStyle } = Astro.props;
 ---
 
 <html lang="en">
   <head>
-    <BaseHead title={title} description="" />
+    <BaseHead title={title} description={description} />
   </head>
   <body class={`with-hero-style-${heroStyle}`}>
     <div class="scrim"></div>
