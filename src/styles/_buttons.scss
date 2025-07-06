@@ -1,20 +1,23 @@
+@use "colors";
+@use "typography";
+
 .button,
 %button {
   @extend %h5;
-  background-color: $lighter-gray;
+  background-color: colors.$lighter-gray;
   border: 0;
-  color: $black;
+  color: colors.$black;
   display: inline-block;
   flex-grow: 0;
-  font-weight: $bold;
+  font-weight: typography.$bold;
   padding: 0.75rem 2rem;
   text-decoration: none;
   user-select: none;
 
   &:hover {
     border: 0;
-    border-color: $black;
-    color: $black;
+    border-color: colors.$black;
+    color: colors.$black;
     cursor: pointer;
     text-decoration: none;
   }
@@ -36,7 +39,7 @@
 
 .text-button {
   @extend %button;
-  background-color: $transparent;
-  color: $lightest-text-gray;
+  background-color: colors.$transparent;
+  color: colors.$lightest-text-gray;
   padding: 0;
 }

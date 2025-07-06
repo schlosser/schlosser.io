@@ -1,3 +1,5 @@
+@use "media_queries";
+
     @use "sass:math";
 
     $content-width: 74rem;
@@ -97,14 +99,14 @@
       margin-top: -3rem;
     }
 
-    @media screen and (max-width: $desktop-max) {
+    @media screen and (max-width: media_queries.$desktop-max) {
       .full-bleed-hero h1 {
         font-size: 6rem;
         line-height: 7.5rem;
       }
     }
 
-    @media screen and (max-width: $tablet-landscape-max) {
+    @media screen and (max-width: media_queries.$tablet-landscape-max) {
       .full-bleed-hero h1 {
         font-size: 5rem;
         line-height: 6rem;
@@ -112,14 +114,14 @@
       }
     }
 
-    @media screen and (max-width: $tablet-portrait-max) {
+    @media screen and (max-width: media_queries.$tablet-portrait-max) {
       .full-bleed-hero h1 {
         font-size: 4rem;
         line-height: 5rem;
       }
     }
 
-    @media screen and (max-width: $phone-landscape-max) {
+    @media screen and (max-width: media_queries.$phone-landscape-max) {
       section {
         padding: 3rem 0;
 

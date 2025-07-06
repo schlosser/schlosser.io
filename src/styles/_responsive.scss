@@ -1,44 +1,46 @@
-@media screen and (min-width: $xxl-desktop-min) {
+@use "media_queries";
+
+@media screen and (min-width: media_queries.$xxl-desktop-min) {
   html,
   body {
     font-size: 20px;
   }
 }
 
-@media screen and (max-width: $xl-desktop-max) {
+@media screen and (max-width: media_queries.$xl-desktop-max) {
   html,
   body {
     font-size: 18px;
   }
 }
 
-@media screen and (max-width: $desktop-max) {
+@media screen and (max-width: media_queries.$desktop-max) {
   html,
   body {
     font-size: 16px;
   }
 }
 
-@media screen and (max-width: $tablet-landscape-max) {
+@media screen and (max-width: media_queries.$tablet-landscape-max) {
   html,
   body {
     font-size: 15px;
   }
 }
 
-@media screen and (min-width: $tablet-landscape-min) {
+@media screen and (min-width: media_queries.$tablet-landscape-min) {
   .tablet-only {
     display: none;
   }
 }
 
-@media screen and (min-width: $tablet-portrait-min) {
+@media screen and (min-width: media_queries.$tablet-portrait-min) {
   .mobile-only {
     display: none;
   }
 }
 
-@media screen and (max-width: $phone-landscape-max) {
+@media screen and (max-width: media_queries.$phone-landscape-max) {
   html,
   body {
     font-size: 16px;
@@ -49,21 +51,21 @@
   }
 }
 
-@media screen and (max-width: $phone-portrait-max) {
+@media screen and (max-width: media_queries.$phone-portrait-max) {
   html,
   body {
     font-size: 13px;
   }
 }
 
-@media screen and (max-width: $flip-phone-max) {
+@media screen and (max-width: media_queries.$flip-phone-max) {
   html,
   body {
     font-size: 7px;
   }
 }
 
-@media screen and (max-width: $super-ultra-tiny-flip-phone-max) {
+@media screen and (max-width: media_queries.$super-ultra-tiny-flip-phone-max) {
   html,
   body {
     font-size: 5px;

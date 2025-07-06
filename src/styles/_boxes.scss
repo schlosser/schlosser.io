@@ -1,3 +1,6 @@
+@use "media_queries";
+@use "typography";
+
 @use "sass:math";
 
 $box-spacing: 3rem;
@@ -48,9 +51,9 @@ $half-spacing: math.div($box-spacing, 2);
     width: 50%;
 
     h3 {
-      font-family: $sans;
+      font-family: typography.$sans;
       font-size: 2rem;
-      font-weight: $extra-bold;
+      font-weight: typography.$extra-bold;
       line-height: 1.2;
       margin: 2rem 0 1.5rem;
     }
@@ -68,7 +71,7 @@ $half-spacing: math.div($box-spacing, 2);
   }
 }
 
-@media screen and (max-width: $tablet-landscape-max) {
+@media screen and (max-width: media_queries.$tablet-landscape-max) {
   .boxes {
     &.mini .box:nth-child(4) {
       display: none;
@@ -112,7 +115,7 @@ $half-spacing: math.div($box-spacing, 2);
   }
 }
 
-@media screen and (max-width: $tablet-portrait-max) {
+@media screen and (max-width: media_queries.$tablet-portrait-max) {
   .boxes {
     margin-left: -1rem;
     margin-right: -1rem;

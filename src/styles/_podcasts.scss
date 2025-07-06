@@ -1,3 +1,6 @@
+@use "base";
+@use "media_queries";
+
 .podcast {
   display: flex;
   margin-bottom: 6rem;
@@ -21,7 +24,7 @@
   }
 }
 
-@media screen and (max-width: $phone-landscape-max) {
+@media screen and (max-width: media_queries.$phone-landscape-max) {
   .podcast {
     display: block;
 
@@ -32,7 +35,7 @@
     }
 
     h {
-      @include clearfix;
+      @include base.clearfix;
     }
 
     .copy {

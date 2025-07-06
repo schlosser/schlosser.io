@@ -1,37 +1,39 @@
+@use "colors";
+
 // scss-lint:disable ImportantRule
 
 @mixin dark-mode {
-  background-color: $black;
-  color: $white;
+  background-color: colors.$black;
+  color: colors.$white;
 
   .scrim {
-    background-color: $black;
+    background-color: colors.$black;
   }
 
   p, h1, h2, h3, h4, h5, h6, .path, .component {
-    color: $white;
+    color: colors.$white;
   }
 
   .button {
-    color: $black;
+    color: colors.$black;
   }
 
   .path a {
-    text-decoration-color: $transparent;
+    text-decoration-color: colors.$transparent;
   }
 
   .self-link {
     i {
-      background-color: $black;
+      background-color: colors.$black;
     }
 
     svg path {
-      fill: $white;
+      fill: colors.$white;
     }
 
     label {
-      background-color: $black;
-      color: $white;
+      background-color: colors.$black;
+      color: colors.$white;
     }
   }
 
@@ -48,71 +50,71 @@
 
     .highlight, .scary-math {
       &::before {
-        background: linear-gradient(to left, rgba($true-black, 0), $true-black);
+        background: linear-gradient(to left, rgba(colors.$true-black, 0), colors.$true-black);
       }
 
       &::after {
-        background: linear-gradient(to right, rgba($true-black, 0), $true-black);
+        background: linear-gradient(to right, rgba(colors.$true-black, 0), colors.$true-black);
       }
     }
   }
 
   .scary-math-toggle, .hide-all.button {
-    background-color: $light-gray;
-    color: $black;
+    background-color: colors.$light-gray;
+    color: colors.$black;
   }
 
   a {
-    color: $white;
-    text-decoration-color: $white;
+    color: colors.$white;
+    text-decoration-color: colors.$white;
 
     &:hover {
-      color: $medium-gray !important;
-      text-decoration-color: $medium-gray !important;
+      color: colors.$medium-gray !important;
+      text-decoration-color: colors.$medium-gray !important;
     }
   }
 
   form input {
     &[type=text], &[type=email], &[type=number] {
-      background-color: $light-gray;
-      color: $black;
+      background-color: colors.$light-gray;
+      color: colors.$black;
     }
 
     &[type=radio] {
       + label {
-        background-color: $medium-gray;
-        color: $white;
+        background-color: colors.$medium-gray;
+        color: colors.$white;
       }
 
       &:checked + label {
-        background-color: $light-gray;
-        color: $black;
+        background-color: colors.$light-gray;
+        color: colors.$black;
       }
     }
   }
 
   ::selection {
-    background-color: $light-gray;
-    color: $white;
+    background-color: colors.$light-gray;
+    color: colors.$white;
   }
 
   header a:hover {
-    color: $white !important;
-    text-decoration-color: $white !important;
+    color: colors.$white !important;
+    text-decoration-color: colors.$white !important;
   }
 
   footer {
-    background-color: $black;
+    background-color: colors.$black;
 
     &:hover .footer-wrapper {
       a {
-        color: $white;
+        color: colors.$white;
       }
     }
   }
 
   form, blockquote {
-    background-color: $true-black;
+    background-color: colors.$true-black;
   }
 
 

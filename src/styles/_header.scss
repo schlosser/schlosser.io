@@ -1,3 +1,7 @@
+@use "base";
+@use "colors";
+@use "media_queries";
+
 header {
   padding: 8rem 0 4rem;
 }
@@ -10,11 +14,11 @@ header {
 
   span, a {
     // scss-lint:disable ImportantRule
-    color: $white;
+    color: colors.$white;
 
     &:hover {
-      color: $light-gray;
-      text-decoration-color: $light-gray;
+      color: colors.$light-gray;
+      text-decoration-color: colors.$light-gray;
     }
   }
 }
@@ -24,7 +28,7 @@ footer {
   z-index: 100;
 
   .footer-wrapper {
-    color: $lightest-text-gray;
+    color: colors.$lightest-text-gray;
     display: flex;
     justify-content: space-between;
     margin: -3rem -1.5rem 0;
@@ -61,17 +65,17 @@ footer {
     }
 
     a {
-      color: $lightest-text-gray;
+      color: colors.$lightest-text-gray;
       transition: 0.3s ease color;
     }
   }
 
   &:hover .footer-wrapper {
     a {
-      color: $black;
+      color: colors.$black;
 
       &:hover {
-        color: $light-gray;
+        color: colors.$light-gray;
       }
     }
   }
@@ -99,12 +103,12 @@ footer {
     text-decoration-color: transparent;
 
     &:hover {
-      text-decoration-color: $medium-gray;
+      text-decoration-color: colors.$medium-gray;
     }
   }
 }
 
-@media screen and (max-width: $tablet-landscape-max) {
+@media screen and (max-width: media_queries.$tablet-landscape-max) {
   .path {
     margin-bottom: 1rem;
   }
@@ -120,7 +124,7 @@ footer {
   }
 }
 
-@media screen and (max-width: $tablet-portrait-max) {
+@media screen and (max-width: media_queries.$tablet-portrait-max) {
   footer .footer-wrapper {
     flex-wrap: wrap;
     margin: -2rem -1rem 0;
@@ -142,11 +146,11 @@ footer {
   }
 
   .m-break {
-    @include clearfix;
+    @include base.clearfix;
   }
 }
 
-@media screen and (max-width: $phone-landscape-max) {
+@media screen and (max-width: media_queries.$phone-landscape-max) {
   .with-hero-style-full-bleed header {
     padding: 1rem 0;
   }

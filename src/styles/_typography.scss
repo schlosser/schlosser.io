@@ -1,3 +1,5 @@
+@use "media_queries";
+
 // Font weights
 $extra-bold: 900;
 $bold: 600;
@@ -92,7 +94,7 @@ strong {
   font-weight: $bold;
 }
 
-@media screen and (max-width: $phone-landscape-max) {
+@media screen and (max-width: media_queries.$phone-landscape-max) {
   h1,
   %h1 {
     font-size: 3rem;

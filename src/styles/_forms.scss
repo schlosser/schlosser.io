@@ -1,9 +1,13 @@
+@use "colors";
+@use "media_queries";
+@use "typography";
+
 %form-input {
   -webkit-appearance: none;
-  background-color: $white;
+  background-color: colors.$white;
   border: 0;
   display: block;
-  font-family: $sans;
+  font-family: typography.$sans;
   font-size: 1rem;
   height: 2rem;
   line-height: 1;
@@ -12,12 +16,12 @@
 }
 
 form {
-  background-color: $lighter-gray;
+  background-color: colors.$lighter-gray;
   margin: 3rem 0;
   padding: 3rem;
 
   .button {
-    background-color: $light-gray;
+    background-color: colors.$light-gray;
   }
 
   input {
@@ -28,7 +32,7 @@ form {
       min-width: 8rem;
 
       &:focus {
-        outline: 2px ridge $blue;
+        outline: 2px ridge colors.$blue;
       }
     }
 
@@ -39,8 +43,8 @@ form {
 
       + label {
         @extend %form-input;
-        background-color: $light-gray;
-        border-bottom-color: $light-gray;
+        background-color: colors.$light-gray;
+        border-bottom-color: colors.$light-gray;
         cursor: pointer;
         min-width: 4rem;
         text-align: center;
@@ -48,9 +52,9 @@ form {
       }
 
       &:checked + label {
-        background-color: $medium-gray;
-        border-bottom-color: $medium-gray;
-        color: $white;
+        background-color: colors.$medium-gray;
+        border-bottom-color: colors.$medium-gray;
+        color: colors.$white;
       }
     }
   }
@@ -88,7 +92,7 @@ form {
   }
 }
 
-@media screen and (max-width: $tablet-portrait-max) {
+@media screen and (max-width: media_queries.$tablet-portrait-max) {
   form {
     margin-left: -4rem;
     margin-right: -4rem;
@@ -97,7 +101,7 @@ form {
   }
 }
 
-@media screen and (max-width: $phone-landscape-max) {
+@media screen and (max-width: media_queries.$phone-landscape-max) {
   article form {
     margin-left: -2rem;
     margin-right: -2rem;

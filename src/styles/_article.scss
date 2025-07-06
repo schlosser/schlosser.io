@@ -1,3 +1,7 @@
+@use "colors";
+@use "media_queries";
+@use "typography";
+
 article {
   padding-top: 2rem;
 
@@ -11,9 +15,9 @@ article {
   }
 
   h2 {
-    font-family: $sans;
+    font-family: typography.$sans;
     font-size: 3.5rem;
-    font-weight: $extra-bold;
+    font-weight: typography.$extra-bold;
     line-height: 1.25;
     margin: 6rem 0 1.5rem;
 
@@ -24,9 +28,9 @@ article {
   }
 
   h3 {
-    font-family: $sans;
+    font-family: typography.$sans;
     font-size: 1.5rem;
-    font-weight: $bold;
+    font-weight: typography.$bold;
     margin-bottom: 1rem;
   }
 
@@ -35,13 +39,13 @@ article {
   }
 
   aside {
-    border-left: 0.5rem solid $lighter-gray;
+    border-left: 0.5rem solid colors.$lighter-gray;
     margin: 1.5rem 0;
     padding-left: 1.5rem;
   }
 
   blockquote {
-    background-color: $lighter-gray;
+    background-color: colors.$lighter-gray;
     margin: 3rem 0;
     padding: 3rem;
   }
@@ -63,8 +67,8 @@ article {
     &::before {
       background: linear-gradient(
         to left,
-        rgba($lighter-gray, 0),
-        $lighter-gray
+        rgba(colors.$lighter-gray, 0),
+        colors.$lighter-gray
       );
       left: 0;
     }
@@ -72,8 +76,8 @@ article {
     &::after {
       background: linear-gradient(
         to right,
-        rgba($lighter-gray, 0),
-        $lighter-gray
+        rgba(colors.$lighter-gray, 0),
+        colors.$lighter-gray
       );
       right: 0;
     }
@@ -101,7 +105,7 @@ article {
 
   code {
     // background-color: $lighter-gray;
-    font-family: $monospace;
+    font-family: typography.$monospace;
     margin: 0;
     padding: 0.25rem 0.5rem;
   }
@@ -148,7 +152,7 @@ article {
   .timestamp,
   .button {
     @extend %h5;
-    font-weight: $regular;
+    font-weight: typography.$regular;
   }
 
   .button {
@@ -221,7 +225,7 @@ article {
 
   table {
     thead {
-      font-weight: $bold;
+      font-weight: typography.$bold;
     }
 
     td {
@@ -230,7 +234,7 @@ article {
   }
 }
 
-@media screen and (max-width: $tablet-portrait-max) {
+@media screen and (max-width: media_queries.$tablet-portrait-max) {
   article {
     blockquote,
     form {
@@ -239,7 +243,7 @@ article {
   }
 }
 
-@media screen and (max-width: $phone-landscape-max) {
+@media screen and (max-width: media_queries.$phone-landscape-max) {
   article {
     blockquote,
     form {

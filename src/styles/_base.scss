@@ -1,15 +1,18 @@
+@use "colors";
+@use "typography";
+
 html,
 body {
-  color: $black;
-  font-family: $sans;
+  color: colors.$black;
+  font-family: typography.$sans;
   font-size: 16px;
-  font-weight: $regular;
+  font-weight: typography.$regular;
   line-height: 1.65;
   position: relative;
 }
 
 body {
-  background-color: $white;
+  background-color: colors.$white;
 }
 
 h1,
@@ -19,20 +22,20 @@ h4,
 h5,
 h6 {
   a {
-    color: $black;
-    text-decoration-color: $black;
+    color: colors.$black;
+    text-decoration-color: colors.$black;
     text-decoration-line: none;
     transition: 0.3s ease all;
 
     &:hover {
-      color: $medium-gray;
-      text-decoration-color: $medium-gray;
+      color: colors.$medium-gray;
+      text-decoration-color: colors.$medium-gray;
     }
   }
 }
 
 hr {
-  background-color: $light-gray;
+  background-color: colors.$light-gray;
   border: 0;
   height: 1px;
   margin: 0;
@@ -42,25 +45,25 @@ hr {
 p a,
 article h2 a {
   border: 0;
-  color: $black;
+  color: colors.$black;
   text-decoration: underline;
   transition: 0.3s ease all;
 
   &:hover {
     border: 0;
-    color: $medium-gray;
+    color: colors.$medium-gray;
     text-decoration: underline;
   }
 }
 
 %subtle-link {
-  text-decoration-color: $transparent;
+  text-decoration-color: colors.$transparent;
   text-decoration-line: underline;
   transition: 0.3s ease all;
 
   &:hover {
-    color: $medium-gray;
-    text-decoration-color: $transparent;
+    color: colors.$medium-gray;
+    text-decoration-color: colors.$transparent;
   }
 }
 
@@ -75,8 +78,8 @@ img {
 }
 
 ::selection {
-  background-color: $light-gray;
-  color: $black;
+  background-color: colors.$light-gray;
+  color: colors.$black;
 }
 
 .capitalize {
