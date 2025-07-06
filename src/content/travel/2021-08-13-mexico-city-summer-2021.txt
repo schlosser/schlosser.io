@@ -1,0 +1,241 @@
+---
+title: Mexico City, Summer 2021
+start_date: 2021-08-13
+end_date: 2021-08-21
+cities:
+- Mexico City
+featured_image: travel/mexico-city/roma-norte-architecture-cover.jpg
+hero_image: travel/mexico-city/roma-norte-architecture.jpg
+image_roots:
+- mexico-city
+redirect_from:
+- /mexico-city/
+---
+
+<section class="text">
+  <p>There was a magic time, in the summer of 2021, where it felt like Covid was really getting under control. People were getting vaccinated and all the bad numbers were dropping. International travel was beginning to open up and my wanderlust was peaking. I had learned my lesson from <a href="/travel/alaska-summer-2021/">Alaska</a>, though. While working at a startup, being unplugged for an extended trip was tricky. There was a lot to do!</p>
+  <p>With all of this in mind, my friend Diane and I came up with the plan to spend a week working from Mexico City. We could both work remotely (Diane at Google and me at Ambrook), so it fit perfectly. Mexico City checked all the boxes: great food and rich cultural history in a big enough city to have good Wi-Fi and in a US-friendly timezone. And, with New York experiencing peak-gross-heat, August was a perfect time to escape. We booked our flights and a fantastic Airbnb (a 2-bedroom penthouse with a roof deck for less than $75/night per person) and set off!</p>
+</section>
+
+<section>
+  {% include resimg.html src="travel/mexico-city/roma-norte-airbnb.jpg" class="with-viewer" %}
+  <h5>Our Airbnb had a generous roof deck connecting the bedrooms to the living room.</h5>
+</section>
+
+<section class="text">
+  <p>We were working during the week, so most of our exploration of Mexico City took place on bookended weekends. I was excited to see Mexico City architecture for myself, exploring various neighborhoods and parks.</p>
+</section>
+
+<section>
+  {% include resimg.html src="travel/mexico-city/yellow-church.jpg" class="with-viewer" %}
+  <h5>Mexico City was unafraid of bold colors, a welcome change from New York.</h5>
+
+  <div class="image-set">
+    <div class="large">
+      {% include resimg.html src="travel/mexico-city/architeceture-belltower.jpg" class="with-viewer" %}
+      {% include resimg.html src="travel/mexico-city/architecture-dan.jpg" class="with-viewer" %}
+    </div>
+  </div>
+  <h5>We walked from Coyoacán to San Ángel, stopping to enjoy the architecture.</h5>
+
+  <div class="image-set">
+    <div class="large">
+      {% include resimg.html src="travel/mexico-city/watercolor-museum-arch.jpg" class="with-viewer" %}
+      {% include resimg.html src="travel/mexico-city/watercolor-museum-mountain.jpg" class="with-viewer" %}
+    </div>
+  </div>
+  <h5>After walking for an hour or two, we stumbled upon the Alfredo Guati Rojo National Watercolor Museum.</h5>
+
+  {% include resimg.html src="travel/mexico-city/library-yard.jpg" class="with-viewer" %}
+  <h5>We stopped by the National Autonomous University of Mexico (UNAM) to see the university library, which is covered on all sides in mural.</h5>
+
+  <div class="image-set">
+    <div class="large">
+      {% include resimg.html src="travel/mexico-city/library-close.jpg" class="with-viewer" %}
+      {% include resimg.html src="travel/mexico-city/library-side.jpg" class="with-viewer" %}
+    </div>
+  </div>
+  <h5>The mural, by Juan O'Gorman, depicts a narrative history of Mexico and UNAM.</h5>
+
+  {% include resimg.html src="travel/mexico-city/frida-kahlo-garden.jpg" class="with-viewer" %}
+  <h5>On the second attempt, we made it inside the Frida Kahlo museum, an cobalt-colored complex surrounding a beautiful courtyard.</h5>
+
+  {% include resimg.html src="travel/mexico-city/frida-kahlo-steps.jpg" class="with-viewer" %}
+  <h5>The museum was converted from Kahlo's former home.</h5>
+
+  {% include resimg.html src="travel/mexico-city/trotsky-tombstone.jpg" class="with-viewer" %}
+  <h5>Appropriately proximate to the Firda Kahlo museum was the former home and museum of León Trotsky.</h5>
+
+  <div class="image-set">
+    <div class="large">
+      {% include resimg.html src="travel/mexico-city/trotsky-garden.jpg" class="with-viewer" %}
+      {% include resimg.html src="travel/mexico-city/trotsky-house.jpg" class="with-viewer" %}
+    </div>
+  </div>
+  <h5>Trotsky's home also surrounds a central garden.</h5>
+
+  {% include resimg.html src="travel/mexico-city/palacio-bellas-artes-mural.jpg" class="with-viewer" %}
+  <h5>Closer to the downtown Mexico City, we visited the Palacio de Bellas Artes, to see the Diego Rivera murals they have on permanent display.</h5>
+
+  <div class="image-set">
+    <div class="large">
+      {% include resimg.html src="travel/mexico-city/palacio-bellas-artes-cieling.jpg" class="with-viewer" %}
+      {% include resimg.html src="travel/mexico-city/palacio-bellas-artes-room.jpg" class="with-viewer" %}
+    </div>
+  </div>
+  <h5>The building interior is executed in striking marble.</h5>
+
+  {% include resimg.html src="travel/mexico-city/soumaya-exterior.jpg" class="with-viewer" %}
+  <h5>Across town, the Soumaya Museum impressed on the outside more than the inside.</h5>
+
+  <div class="image-set">
+    <div class="large">
+      {% include resimg.html src="travel/mexico-city/soumaya-piano.jpg" class="with-viewer" %}
+      {% include resimg.html src="travel/mexico-city/soumaya-sculpture-room.jpg" class="with-viewer" %}
+    </div>
+  </div>
+  <h5>While the collection of sculpture and decorative art was impressive, the curation was lacking.</h5>
+
+  {% include resimg.html src="travel/mexico-city/soumaya-train-tracks.jpg" class="with-viewer" %}
+  <h5>Outside, a High Line-inspired park led us back towards our apartment.</h5>
+
+  {% include resimg.html src="travel/mexico-city/roma-norte-architecture.jpg" class="with-viewer" %}
+  <h5>Across the street from our Airbnb was a cafe with a beautiful view of the sky.</h5>
+
+</section>
+
+<section class="text">
+  <p>In the center of the city is Chapultepec park, the second-largest park in Latin America. At its center is Chapultepec Castle, which sits on top of a hill, and is accessible only by a spiraling ramp.</p>
+</section>
+
+<section>
+
+  {% include resimg.html src="travel/mexico-city/park-walkway.jpg" class="with-viewer" %}
+  <h5>Unlike central park which has much more meandering paths, Chapultepec park feels far more man-made.</h5>
+
+  {% include resimg.html src="travel/mexico-city/chapultepec-garden-2.jpg" class="with-viewer" %}
+  <h5>At the top of Chapultepec Castle, we enjoyed an open-air garden.</h5>
+
+  {% include resimg.html src="travel/mexico-city/chapultepec-stained-glass.jpg" class="with-viewer" %}
+  <h5>On the east side of the residence, a floor-to-ceiling stain glassed wall lets light into an otherwise typical corridor.</h5>
+
+  <div class="image-set">
+    <div class="large">
+      {% include resimg.html src="travel/mexico-city/chapultepec-balcony.jpg" class="with-viewer" %}
+      {% include resimg.html src="travel/mexico-city/chapultepec-glass.jpg" class="with-viewer" %}
+    </div>
+  </div>
+  <h5>The weather was quite crummy during our visit, but it didn't keep us from exploring the castle.</h5>
+
+  {% include resimg.html src="travel/mexico-city/chapultepec-gallary.jpg" class="with-viewer" %}
+  <h5>In front of the castle, a guards quarters and military training camp has been turned into a museum.</h5>
+
+  <div class="image-set">
+    <div class="large">
+      {% include resimg.html src="travel/mexico-city/chapultepec-view.jpg" class="with-viewer" %}
+      {% include resimg.html src="travel/mexico-city/chapultepec-view-city.jpg" class="with-viewer" %}
+    </div>
+  </div>
+  <h5>At the end of our visit, we were treated to some fantastic views of the surrounding Mexico City.</h5>
+</section>
+
+<section class="text">
+  <h2>Food</h2>
+  <p>One of the biggest draws to visit Mexico City was the food. We enjoyed all sorts of meals in our week, from street tacos to upscale tasting menus. With respect to fine dining, we got extremely lucky, with last minute reservations opening up at Pujol, Quintonil, Sud 777, and Lorea.</p>
+</section>
+
+<section>
+  {% include resimg.html src="travel/mexico-city/pujol-patio.jpg" class="with-viewer" %}
+  <h5>Pujol's garden was beautiful at night. We enjoyed our meal at the bar, and dessert outside.</h5>
+
+  <div class="image-set">
+    <div class="large">
+      {% include resimg.html src="travel/mexico-city/pujol-pizza.jpg" class="with-viewer" %}
+      {% include resimg.html src="travel/mexico-city/pujol-mole.jpg" class="with-viewer" %}
+    </div>
+    <div class="large">
+      {% include resimg.html src="travel/mexico-city/pujol-mushroom-taco.jpg" class="with-viewer" %}
+      {% include resimg.html src="travel/mexico-city/pujol-octopus.jpg" class="with-viewer" %}
+    </div>
+    <div class="large">
+      {% include resimg.html src="travel/mexico-city/pujol-churro.jpg" class="with-viewer" %}
+      {% include resimg.html src="travel/mexico-city/pujol-scallops.jpg" class="with-viewer" %}
+    </div>
+  </div>
+  <h5>Our taco tasting menu at Pujol included a delicious mushroom pizza and a dish of pure mole.</h5>
+
+  <div class="image-set">
+    <div class="large">
+      {% include resimg.html src="travel/mexico-city/quintonil-vegetables.jpg" class="with-viewer" %}
+      {% include resimg.html src="travel/mexico-city/quintonil-tomatoes.jpg" class="with-viewer" %}
+    </div>
+    <div class="large">
+      {% include resimg.html src="travel/mexico-city/quintonil-mushrooms.jpg" class="with-viewer" %}
+      {% include resimg.html src="travel/mexico-city/quintonil-steak.jpg" class="with-viewer" %}
+    </div>
+    <div class="large">
+      {% include resimg.html src="travel/mexico-city/quintonil-custard.jpg" class="with-viewer" %}
+      {% include resimg.html src="travel/mexico-city/quintonil-chips.jpg" class="with-viewer" %}
+    </div>
+  </div>
+  <h5>Even though Pujol was supposed to be the best restaurant in Mexico City, we enjoyed Quintonil more. The vegetable dishes and wine were especially tasty.</h5>
+
+  <div class="image-set">
+    <div class="large">
+      {% include resimg.html src="travel/mexico-city/lorea-flower.jpg" class="with-viewer" %}
+      {% include resimg.html src="travel/mexico-city/lorea-blossoms.jpg" class="with-viewer" %}
+    </div>
+    <div class="large">
+      {% include resimg.html src="travel/mexico-city/lorea-appetizers.jpg" class="with-viewer" %}
+      {% include resimg.html src="travel/mexico-city/lorea-ceviche.jpg" class="with-viewer" %}
+    </div>
+  </div>
+  <h5>At Lorea, I enjoyed the ceviche and the fried blossoms.</h5>
+
+  {% include resimg.html src="travel/mexico-city/restaurant-from-above.jpg" class="with-viewer" %}
+  <h5>Sud 777 was located above a Japanese restaurant, which we didn't get to visit.</h5>
+
+  <div class="image-set">
+    <div class="large">
+      {% include resimg.html src="travel/mexico-city/sud-duck.jpg" class="with-viewer" %}
+      {% include resimg.html src="travel/mexico-city/sud-fish.jpg" class="with-viewer" %}
+    </div>
+  </div>
+  <h5>The duck and fish were my favorite dishes.</h5>
+
+  {% include resimg.html src="travel/mexico-city/roma-norte-lunch.jpg" class="with-viewer" %}
+  <h5>While we ate our fancier meals on nights and weekend, I also enjoyed some delicious lunches from local restaurants near our Airbnb.</h5>
+</section>
+
+<section class="text">
+  <h2>Teotihuacán</h2>
+  <p>After some time exploring the city, we also made the trip to Teotihuacán, about an hour outside of Mexico City. The site is an archeological site of an ancient Mesoamerican city. With dozens of partial structures, staircases, and two massive stepped pyramids, Teotihuacán was by far the most impressive site like this I've seen in the world.</p>
+</section>
+
+<section>
+  {% include resimg.html src="travel/mexico-city/teotihuacan-stepped-pyramid.jpg" class="with-viewer" %}
+  <h5>There were several stepped pyramids across the site.</h5>
+
+  {% include resimg.html src="travel/mexico-city/teotihuacan-tourists.jpg" class="with-viewer" %}
+  <h5>Although we got in early, Teotihuacán was quickly flooded with tourists.</h5>
+
+  <div class="image-set">
+    <div class="large">
+      {% include resimg.html src="travel/mexico-city/teotihuacan-courtyard.jpg" class="with-viewer" %}
+      {% include resimg.html src="travel/mexico-city/teotihuacan-gargoyles.jpg" class="with-viewer" %}
+    </div>
+  </div>
+  <h5><strong>Left:</strong> Several stepped structures surround a central courtyard. <strong>Right:</strong> Gargoyle-like structures guard some of the larger pyramids.</h5>
+
+  <div class="image-set">
+    <div class="small">
+      {% include resimg.html src="travel/mexico-city/teotihuacan-steps.jpg" class="with-viewer" %}
+      {% include resimg.html src="travel/mexico-city/teotihuacan-selfie.jpg" class="with-viewer" %}
+      {% include resimg.html src="travel/mexico-city/teotihuacan-sun.jpg" class="with-viewer" %}
+    </div>
+  </div>
+  <h5>While the Sun and Moon pyramids were closed due to COVID, this closure let us take better pictures of the pyramids from the ground.</h5>
+
+  {% include resimg.html src="travel/mexico-city/teotihuacan-moon-2.jpg" class="with-viewer" %}
+  <h5>The strong lines of the Pyramid of the Moon were striking.</h5>
+</section>

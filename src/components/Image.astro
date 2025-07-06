@@ -2,7 +2,7 @@
 import { Image as AstroImage } from "astro:assets";
 import LinkIcon from "src/img/svg/LinkIcon.astro";
 interface Props {
-  image: ImageMetadata | Promise<{ default: ImageMetadata }>;
+  image: ImageMetadata | Promise<{ default: ImageMetadata }> | { default: ImageMetadata };
   link?: string;
   target?: string;
   className?: string;
@@ -14,7 +14,19 @@ interface Props {
 const { image, link, target, className, alt, withViewer, caption } =
   Astro.props;
 
-const imageMetadata = "src" in image ? image : (await image).default;
+// Handle different image formats
+let imageMetadata: ImageMetadata;
+if ("src" in image) {
+  // Direct ImageMetadata
+  imageMetadata = image;
+} else if ("default" in image) {
+  // { default: ImageMetadata } from import.meta.glob
+  imageMetadata = image.default;
+} else {
+  // Promise<{ default: ImageMetadata }>
+  imageMetadata = (await image).default;
+}
+
 const urlAsAlt = imageMetadata.src
   .replace(/.*\//, "")
   .replace(/\.*/, "")
@@ -27,13 +39,13 @@ if (withViewer) {
 ---
 
 <style lang="scss" is:global>
-  @import "../styles/_media_queries.scss";
-  @import "../styles/_colors.scss";
-  @import "../styles/_typography.scss";
+  @use "../styles/_media_queries.scss";
+  @use "../styles/_colors.scss";
+  @use "../styles/_typography.scss";
 
   body {
     .scrim {
-      background-color: $white;
+      background-color: colors.$white;
       bottom: 0;
       left: 0;
       opacity: 0;
@@ -110,7 +122,7 @@ if (withViewer) {
 
       i {
         align-items: center;
-        background-color: $white;
+        background-color: colors.$white;
         border-radius: 50%;
         box-sizing: content-box;
         display: flex;
@@ -118,8 +130,8 @@ if (withViewer) {
       }
 
       label {
-        background-color: $white;
-        color: $black;
+        background-color: colors.$white;
+        color: colors.$black;
         font-size: 0.875rem;
         left: 100%;
         margin-left: 0.5rem;
@@ -142,7 +154,7 @@ if (withViewer) {
         width: 0.75rem;
 
         path {
-          fill: $black;
+          fill: colors.$black;
         }
       }
     }
@@ -164,7 +176,7 @@ if (withViewer) {
       <figure class={classes.join(" ")} id={hash}>
         <AstroImage
           alt={alt ?? urlAsAlt}
-          src={image}
+          src={imageMetadata}
           decoding="async"
           format="webp"
           widths={[320, 640, 1024, 1536]}
@@ -175,7 +187,7 @@ if (withViewer) {
     <figure class={classes.join(" ")} id={hash}>
       <AstroImage
         alt={alt ?? urlAsAlt}
-        src={image}
+        src={imageMetadata}
         decoding="async"
         format="webp"
         widths={[320, 640, 1024, 1536]}

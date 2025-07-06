@@ -49,6 +49,7 @@ If you follow these simple rules, you’ll speed through your next subway sessio
         <span class="hide">Hide Math Equations</span>
     </div>
     <p class="is-hidden-text">Math hidden</p>
+
 </blockquote>
 
 ### Getting an estimate
@@ -76,7 +77,7 @@ An average transfer is worth a five minute difference in transit time estimate, 
 
         `} />
 
-        Where...
+        Where&hellip;
 
         <Latex formula={`
         \\begin{align}
@@ -103,7 +104,6 @@ Similarly, all train lines are not created equal. Some lines are notorious for b
 - **Tier 2:** The <Subway6 />, <SubwayA />, <SubwayN />, <SubwayQ />, <SubwayB />, <SubwayD />, <SubwayF />, and <SubwayM /> are often delayed, but passable. At night they become especially risky.
 - **Tier 3:** The <SubwayG />, <SubwayL />, <SubwayJ />, and <SubwayZ /> are to be avoided if at all possible. These lines may as well not exist at night. Sorry, Williamsburg.
 
-
 <ScaryMath>
 
     Or more simply,
@@ -112,7 +112,7 @@ Similarly, all train lines are not created equal. Some lines are notorious for b
         f(L,t)= \\sum\\limits_{l=0}^L \\left(\\frac{1}{r_{tl}} \\cdot e_l + d_{tl} \\right)+5(L-1)
         `}/>
 
-        Where...
+        Where&hellip;
 
         <Latex formula={`
         \\begin{align}
@@ -124,9 +124,10 @@ Similarly, all train lines are not created equal. Some lines are notorious for b
         \\end{align}
         `}/>
 
-        Using lookup tables...
+        Using lookup tables&hellip;
 
     <LookupTable />
+
 </ScaryMath>
 
 ### Walking
@@ -136,10 +137,10 @@ Most transit trips involve walking. For the most part, your app will account for
 Memorizing station layouts is the most reliable way to pick your car, but there are other strategies. The Google Maps app displays all station exits, and it’s often easy to pick the right car by looking there.
 
 <Image image={import("img/subway-exit-locations.png")} className="tight" />
-### When taking the 1 train to Christopher Street or transferring to the 7 at Times Square, riders should choose in the middle car to cut down on wasted time.
+### When taking the 1 train to Christopher Street or transferring to the 7 at
+Times Square, riders should choose in the middle car to cut down on wasted time.
 
 If you want to be even more confident, Exit Strategy or CityMapper can be used to determine which car is best to nail your transfer or exit swiftly.
-
 
 <ScaryMath>
 
@@ -149,7 +150,7 @@ If you want to be even more confident, Exit Strategy or CityMapper can be used t
         f(L,t)= \\sum\\limits_{l=0}^L \\left(\\frac{1}{r_{tl}} \\cdot e_l + d_{tl}\\right) + 5(L-1) - o_w
         `} />
 
-        Where...
+        Where&hellip;
 
         <Latex formula={`
             \\begin{align}
@@ -164,9 +165,10 @@ If you want to be even more confident, Exit Strategy or CityMapper can be used t
        `} />
 
 
-    Using lookup tables...
+    Using lookup tables&hellip;
 
     <LookupTable />
+
 </ScaryMath>
 
 <h3>Managing express trains</h3>
@@ -177,8 +179,12 @@ If the express train will arrive first, it’s almost always a good idea to take
 
 If the local train comes first, though, you have a predicament. The correct train to take depends on how many local stops you could skip on the express, which each train is arriving, and the periodicity of (or distance between) local trains. The time between trains varies greatly, depending on train line and time of day. Go ahead and <a href="https://en.wikipedia.org/wiki/List_of_New_York_City_Subway_services#Train_intervals">memorize this chart</a>, or just look up how frequently your line is running on Google Maps.
 
-<Image image={import("img/subway-local-train-periodicity.png")} className="tight" />
-##### Tapping on the station in the transit overview in Google Maps displays departure times. Here, the 1 train runs every 4-5 minutes.
+<Image
+  image={import("img/subway-local-train-periodicity.png")}
+  className="tight"
+/>
+##### Tapping on the station in the transit overview in Google Maps displays
+departure times. Here, the 1 train runs every 4-5 minutes.
 
 That said, in general it’s never worth waiting for an express train to skip 2 or fewer local stops. Waiting 2 minutes to skip 3 stops is acceptable, and waiting 3 minutes to skip 4 stops makes sense. Beyond 3 minutes though, the trade off becomes less favorable. I’d be willing to wait 5 minutes to skip 8 stops.
 
@@ -192,7 +198,7 @@ That said, in general it’s never worth waiting for an express train to skip 2 
     6 \\log(s_l-1)
     `} />
 
-    Where...
+    Where&hellip;
 
     <Latex formula={`
     s_l = \\text{ The number of skippable local-only stops on the express line for leg } l
@@ -207,7 +213,7 @@ That said, in general it’s never worth waiting for an express train to skip 2 
     `} />
 
 
-    Where...
+    Where&hellip;
 
     <Latex formula={`
     \\begin{align}
@@ -228,7 +234,7 @@ That said, in general it’s never worth waiting for an express train to skip 2 
     `} />
 
 
-    Where...
+    Where&hellip;
 
         <Latex formula={`
         \\begin{align}
@@ -238,10 +244,9 @@ That said, in general it’s never worth waiting for an express train to skip 2 
                 & \\text{ (0 if departing from a local-only station)} \\\\
        w_{exp} =& \\text{ The wait for express train at the first express stop} \\\\
            p_t =& \\text{ The periodicity of the local train at time} t
-   \\end{align}
-   `} />
 
-
+\\end{align}
+`} />
 
     Expressed together, we get:
 
@@ -255,7 +260,7 @@ That said, in general it’s never worth waiting for an express train to skip 2 
     `} />
 
 
-    Where...
+    Where&hellip;
 
         <Latex formula={`
         \\begin{align}
@@ -266,9 +271,9 @@ That said, in general it’s never worth waiting for an express train to skip 2 
         w_{exp} =& \\text{ The wait for express train at the first express stop} \\\\
             p_t =& \\text{ The periodicity of the local train at time } t \\\\
             X_l =& \\begin{cases}1 & \\text{if leg } l \\text{ ends at an express stop} \\ 0 & otherwise\\end{cases}
-   \\end{align}
-   `} />
 
+\\end{align}
+`} />
 
     This yields our final equation:
 
@@ -283,7 +288,7 @@ That said, in general it’s never worth waiting for an express train to skip 2 
     `} />
 
 
-    Where...
+    Where&hellip;
 
         <Latex formula={`
         \\begin{align}
@@ -304,9 +309,10 @@ That said, in general it’s never worth waiting for an express train to skip 2 
     `} />
 
 
-    Using lookup tables...
+    Using lookup tables&hellip;
 
     <LookupTable />
+
 </ScaryMath>
 
 <h3>Try it out</h3>
@@ -343,12 +349,17 @@ For those of you that prefer apps and websites to good old fashioned math, I als
         <strong><span id="output-minutes-total">0</span> minutes</strong>
 
     </div>
+
 </form>
 
 <h3>You’ve got this</h3>
 
 It can be a lot to take in, I know. But I promise by following my advice you’ll shave seconds, perhaps even low single-digit minutes off of your journey. Happy riding!
 
-<em>Does my math not add up? Shoot me a <a href="https://twitter.com/danrschlosser">tweet</a> or <a href="mailto:dan@schlosser.io">email</a> and let me know.</em>
+<em>
+  Does my math not add up? Shoot me a{" "}
+  <a href="https://twitter.com/danrschlosser">tweet</a> or{" "}
+  <a href="mailto:dan@schlosser.io">email</a> and let me know.
+</em>
 
 <script src="/js/scary-math.js"></script>

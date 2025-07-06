@@ -18,142 +18,403 @@ redirectFrom:
   - /israel/
 ---
 
-import Image from '@components/Image.astro';
-import ImageSet from '@components/ImageSet.astro';
+import Image from "@components/Image.astro";
+import ImageSet from "@components/ImageSet.astro";
 
 <section class="text">
-    <p>Earlier this year, I learned that my long time best friend Nathan had won a fellowship to study abroad over the summer in Tel Aviv. A part of his graduate program at NYU, the 60-day trip would have him living in the city with opportunities to explore the country and region. When his trip was confirmed, it wasn't long before the offer was made: &quot;So, are you going to visit me in Israel?&quot; I said yes almost instantly. With Nathan's love for archeology and fascination with the region's history I knew he was going to have a blast, and how could I turn down a week with my best friend in his prime?</p>
-    <p>After few days and a few visits to Delta's website, I was confirmed for a week-long trip. I'll be honest, it was not what I expected. I expected hot, but not sweltering. I knew the region was political, but I didn't expect racial and religious divisions to be so present for me. While I'm glad to have gotten the opportunity to travel to Israel and Jerusalem, I'm not sure I'd make an effort to go back any time soon.</p>
+  <p>
+    Earlier this year, I learned that my long time best friend Nathan had won a
+    fellowship to study abroad over the summer in Tel Aviv. A part of his
+    graduate program at NYU, the 60-day trip would have him living in the city
+    with opportunities to explore the country and region. When his trip was
+    confirmed, it wasn't long before the offer was made: &quot;So, are you going
+    to visit me in Israel?&quot; I said yes almost instantly. With Nathan's love
+    for archeology and fascination with the region's history I knew he was going
+    to have a blast, and how could I turn down a week with my best friend in his
+    prime?
+  </p>
+  <p>
+    After few days and a few visits to Delta's website, I was confirmed for a
+    week-long trip. I'll be honest, it was not what I expected. I expected hot,
+    but not sweltering. I knew the region was political, but I didn't expect
+    racial and religious divisions to be so present for me. While I'm glad to
+    have gotten the opportunity to travel to Israel and Jerusalem, I'm not sure
+    I'd make an effort to go back any time soon.
+  </p>
 </section>
 
 <section class="text">
-    <h2>Tel Aviv</h2>
-    <p>Landing in Tel Aviv as a white guy with noise canceling headphones meant airport security was fairly smooth. As I took a cab into the city, my image of a Mediterranean coastal city quickly vanished. The intimate winding streets in my imagination were replaced by a monochromatic monolith. Walking around the streets during my first few days cemented this impression. It's not that Tel Aviv is overwhelming in size, but rather that its seeming neighborhoodlessness creates a feeling of a never-ending beige.</p>
-    <p>Sprinkled throughout the sprawling streets are peppered a few interesting street art installations and architectural points of interest. The city is more akin to a American or European <a target="_blank" href="/travel/ireland-uk-summer-2016/#flowers">botanical garden</a> (with individual plants garnering attention) than it is to the <a target="_blank" href="/travel/japan-fall-2018/#kenroku-en">Kenroku-en in Kanazawa, Japan</a> where the entire landscape is curated for beauty.</p>
+  <h2>Tel Aviv</h2>
+  <p>
+    Landing in Tel Aviv as a white guy with noise canceling headphones meant
+    airport security was fairly smooth. As I took a cab into the city, my image
+    of a Mediterranean coastal city quickly vanished. The intimate winding
+    streets in my imagination were replaced by a monochromatic monolith. Walking
+    around the streets during my first few days cemented this impression. It's
+    not that Tel Aviv is overwhelming in size, but rather that its seeming
+    neighborhoodlessness creates a feeling of a never-ending beige.
+  </p>
+  <p>
+    Sprinkled throughout the sprawling streets are peppered a few interesting
+    street art installations and architectural points of interest. The city is
+    more akin to a American or European{" "}
+    <a target="_blank" href="/travel/ireland-uk-summer-2016/#flowers">
+      botanical garden
+    </a>{" "}
+    (with individual plants garnering attention) than it is to the{" "}
+    <a target="_blank" href="/travel/japan-fall-2018/#kenroku-en">
+      Kenroku-en in Kanazawa, Japan
+    </a>{" "}
+    where the entire landscape is curated for beauty.
+  </p>
 </section>
 
 <section>
-    <Image image={import("img/israel/tel-aviv/tree.jpg")} caption="This beautifully manicured tree offers a welcome pop of color." withViewer />
-    <ImageSet>
-        <ImageSet size="small" captions={["Tel Aviv's architecture was a major draw for me. I love the mix of Bauhaus, modern, and well, crazy."]}>
-            <Image image={import("img/israel/tel-aviv/buildings-45d.jpg")} withViewer />
-            <Image image={import("img/israel/tel-aviv/buildings-carlton.jpg")} withViewer />
-            <Image image={import("img/israel/tel-aviv/buildings-crazy-house.jpg")} withViewer />
-        </ImageSet>
-        <ImageSet size="small">
-            <Image image={import("img/israel/tel-aviv/buildings-pink.jpg")} withViewer />
-            <Image image={import("img/israel/tel-aviv/buildings-rainbow.jpg")} withViewer />
-            <Image image={import("img/israel/tel-aviv/buildings-yellow.jpg")} withViewer />
-        </ImageSet>
+  <Image
+    image={import("img/israel/tel-aviv/tree.jpg")}
+    caption="This beautifully manicured tree offers a welcome pop of color."
+    withViewer
+  />
+  <ImageSet>
+    <ImageSet
+      size="small"
+      captions={[
+        "Tel Aviv's architecture was a major draw for me. I love the mix of Bauhaus, modern, and well, crazy.",
+      ]}
+    >
+      <Image
+        image={import("img/israel/tel-aviv/buildings-45d.jpg")}
+        withViewer
+      />
+      <Image
+        image={import("img/israel/tel-aviv/buildings-carlton.jpg")}
+        withViewer
+      />
+      <Image
+        image={import("img/israel/tel-aviv/buildings-crazy-house.jpg")}
+        withViewer
+      />
+      <Image
+        image={import("img/israel/tel-aviv/buildings-pink.jpg")}
+        withViewer
+      />
+      <Image
+        image={import("img/israel/tel-aviv/buildings-rainbow.jpg")}
+        withViewer
+      />
+      <Image
+        image={import("img/israel/tel-aviv/buildings-yellow.jpg")}
+        withViewer
+      />
     </ImageSet>
-    <Image image={import("img/israel/tel-aviv/walkway.jpg")} caption="Tel Aviv's tree-lined walking paths were a joy." withViewer />
+  </ImageSet>
+  <Image
+    image={import("img/israel/tel-aviv/walkway.jpg")}
+    caption="Tel Aviv's tree-lined walking paths were a joy."
+    withViewer
+  />
 </section>
 
 <section class="text">
-    <p>Meeting up with Nathan and his dad Robert in Tel Aviv was truly quite fun. I've known both of them since I was three, and getting to explore a new place with them was an excellent opportunity to catch up and entertain winding discussions that would last for hours at a time.</p>
-    <p>On our second day, feeling a bit more adventurous, we walked south down the beach to Old Jaffa (pronounced &quot;Yaffa&quot;). I far preferred the winding, cobblestone-lined streets of this old town, where the high walls offered respite from the sun.</p>
+  <p>
+    Meeting up with Nathan and his dad Robert in Tel Aviv was truly quite fun.
+    I've known both of them since I was three, and getting to explore a new
+    place with them was an excellent opportunity to catch up and entertain
+    winding discussions that would last for hours at a time.
+  </p>
+  <p>
+    On our second day, feeling a bit more adventurous, we walked south down the
+    beach to Old Jaffa (pronounced &quot;Yaffa&quot;). I far preferred the
+    winding, cobblestone-lined streets of this old town, where the high walls
+    offered respite from the sun.
+  </p>
 </section>
 
 <section>
-    <ImageSet size="large" captions={["The walk to Jaffa. The twisting alleys of Jaffa were fun to explore."]}>
-        <Image image={import("img/israel/tel-aviv/beach.jpg")} withViewer />
-        <Image image={import("img/israel/tel-aviv/jaffa.jpg")} withViewer />
-    </ImageSet>
+  <ImageSet
+    size="large"
+    captions={[
+      "The walk to Jaffa. The twisting alleys of Jaffa were fun to explore.",
+    ]}
+  >
+    <Image image={import("img/israel/tel-aviv/beach.jpg")} withViewer />
+    <Image image={import("img/israel/tel-aviv/jaffa.jpg")} withViewer />
+  </ImageSet>
 </section>
 
 <section class="text" id="tel-aviv-museum-of-art">
-    <p>In time, we found ourselves in a routine. We enjoyed an early morning walk, followed by brunch (<a href="https://goo.gl/maps/xuditDSNGZCZhXWE8" target="_blank"><em>Benedict</em></a> was by far the group's favorite spot), and then a siesta through the afternoon. One evening, we decided on a whim to check out the Tel Aviv Museum of Art. The museum, with its striking architecture and mix of modern and contemporary art was the surprise highlight of my trip.</p>
+  <p>
+    In time, we found ourselves in a routine. We enjoyed an early morning walk,
+    followed by brunch ([_Benedict_](https://goo.gl/maps/xuditDSNGZCZhXWE8) was
+    by far the group's favorite spot), and then a siesta through the afternoon.
+    One evening, we decided on a whim to check out the Tel Aviv Museum of Art.
+    The museum, with its striking architecture and mix of modern and
+    contemporary art was the surprise highlight of my trip.
+  </p>
 </section>
 
 <section>
-    <Image image={import("img/israel/tel-aviv/museum-day.jpg")} caption="The stunning entrance to the museum could be described as a low-poly battleship." withViewer />
-    <ImageSet>
-        <ImageSet size="small" captions={["The interior is equally striking. The gradual ramps, sharp angles, and subtle curves were addictive to explore."]}>
-            <Image image={import("img/israel/tel-aviv/museum-design-balcony.jpg")} withViewer />
-            <Image image={import("img/israel/tel-aviv/museum-design-ramp.jpg")} withViewer />
-            <Image image={import("img/israel/tel-aviv/museum-design-skylight.jpg")} withViewer />
-        </ImageSet>
-        <ImageSet size="xl">
-            <Image image={import("img/israel/tel-aviv/museum-design-nathan.jpg")} withViewer />
-        </ImageSet>
-    </ImageSet>
-    <ImageSet size="large" captions={["We stepped outside to see this courtyard nestled in the angles of the building."]}>
-        <Image image={import("img/israel/tel-aviv/museum-courtyard-tower.jpg")} withViewer />
-        <Image image={import("img/israel/tel-aviv/museum-courtyard.jpg")} withViewer />
-    </ImageSet>
-    <Image image={import("img/israel/tel-aviv/museum-glass.jpg")} caption="The second building is connected via this glass cube." withViewer />
-    <Image image={import("img/israel/tel-aviv/museum-night.jpg")} caption="By the time we left, it was dark out." withViewer />
+  <Image
+    image={import("img/israel/tel-aviv/museum-day.jpg")}
+    caption="The stunning entrance to the museum could be described as a low-poly battleship."
+    withViewer
+  />
+  <ImageSet size="small">
+    <Image
+      image={import("img/israel/tel-aviv/museum-design-balcony.jpg")}
+      withViewer
+    />
+    <Image
+      image={import("img/israel/tel-aviv/museum-design-ramp.jpg")}
+      withViewer
+    />
+    <Image
+      image={import("img/israel/tel-aviv/museum-design-skylight.jpg")}
+      withViewer
+    />
+  </ImageSet>
+  <ImageSet
+    size="xl"
+    captions={[
+      "The interior is equally striking. The gradual ramps, sharp angles, and subtle curves were addictive to explore.",
+    ]}
+  >
+    <Image
+      image={import("img/israel/tel-aviv/museum-design-nathan.jpg")}
+      withViewer
+    />
+  </ImageSet>
+  <ImageSet
+    size="large"
+    captions={[
+      "We stepped outside to see this courtyard nestled in the angles of the building.",
+    ]}
+  >
+    <Image
+      image={import("img/israel/tel-aviv/museum-courtyard-tower.jpg")}
+      withViewer
+    />
+    <Image
+      image={import("img/israel/tel-aviv/museum-courtyard.jpg")}
+      withViewer
+    />
+  </ImageSet>
+  <Image
+    image={import("img/israel/tel-aviv/museum-glass.jpg")}
+    caption="The second building is connected via this glass cube."
+    withViewer
+  />
+  <Image
+    image={import("img/israel/tel-aviv/museum-night.jpg")}
+    caption="By the time we left, it was dark out."
+    withViewer
+  />
 </section>
 
 <section class="text">
-    <h2>Jerusalem</h2>
-    <p>We had considered taking lots of different day trips from Tel Aviv, but Jerusalem was squarely at the top. I knew of Jerusalem from my religious education, but my image of it rarely left BCE. It was an honor to be allowed to enter some of the most sacred spaces of the world's three major Abrahamic religions, all within a five minute walk of each other: the Church of the Holy Sepulchre, the Western Wall, and the Dome of the Rock. As someone who doesn't hold any particular space sacred in the same way, it was initially hard for me to see past the ways in which they were secular tourist destinations. Throughout my day in Jerusalem, I reflected on the influence of religion and religious spaces on billions of people globally.</p>
-    <p>Racial and religious divisions in Jerusalem were very present for me. Military posts were scattered throughout the city, a latent anxiety made worse by small children play with firecrackers and toy guns. Walking down an alley, a preteen kid bent over and picked up a pistol. (Was it real? Or just a very close imitation?) Waving it around, including at me, he said &quot;Bang!&quot; giggling. I knew plenty of kids growing up that cut the orange piece of plastic off a toy gun and waved it around, but walking through Jerusalem it felt different. I kept asking myself how I'd feel about the armed officers, about the kid, about guns if I weren't American, or if I weren't white.</p>
+  <h2>Jerusalem</h2>
+  <p>
+    We had considered taking lots of different day trips from Tel Aviv, but
+    Jerusalem was squarely at the top. I knew of Jerusalem from my religious
+    education, but my image of it rarely left BCE. It was an honor to be allowed
+    to enter some of the most sacred spaces of the world's three major Abrahamic
+    religions, all within a five minute walk of each other: the Church of the
+    Holy Sepulchre, the Western Wall, and the Dome of the Rock. As someone who
+    doesn't hold any particular space sacred in the same way, it was initially
+    hard for me to see past the ways in which they were secular tourist
+    destinations. Throughout my day in Jerusalem, I reflected on the influence
+    of religion and religious spaces on billions of people globally.
+  </p>
+  <p>
+    Racial and religious divisions in Jerusalem were very present for me.
+    Military posts were scattered throughout the city, a latent anxiety made
+    worse by small children play with firecrackers and toy guns. Walking down an
+    alley, a preteen kid bent over and picked up a pistol. (Was it real? Or just
+    a very close imitation?) Waving it around, including at me, he said
+    &quot;Bang!&quot; giggling. I knew plenty of kids growing up that cut the
+    orange piece of plastic off a toy gun and waved it around, but walking
+    through Jerusalem it felt different. I kept asking myself how I'd feel about
+    the armed officers, about the kid, about guns if I weren't American, or if I
+    weren't white.
+  </p>
 </section>
 
 <section>
-    <Image image={import("img/israel/jerusalem/church-exterior.jpg")} caption="The Church of the Holy Sepulchre does not look like most churches from the outside." withViewer />
-    <ImageSet size="large" captions={["Inside, I was blown away by the beautiful painting, tile, and fresco."]}>
-        <Image image={import("img/israel/jerusalem/church-ceilings.jpg")} withViewer />
-        <Image image={import("img/israel/jerusalem/church-dome.jpg")} withViewer />
-    </ImageSet>
-    <Image image={import("img/israel/jerusalem/wailing-wall.jpg")} caption="I was able to get this view of the Western Wall from the ramp to the Dome of the Rock." withViewer />
-    <Image image={import("img/israel/jerusalem/dome-of-the-rock.jpg")} caption="I love how off-center this approach is to the Dome of the Rock." withViewer />
-    <Image image={import("img/israel/jerusalem/dome-of-the-rock-close.jpg")} caption="The building is absolutely marvelous. The balance of solid gold and ornate tile work is stunning. We weren't allowed inside, but I was glad to be able to enter the grounds, which are only open during certain hours." withViewer />
-    <Image image={import("img/israel/jerusalem/dome-of-the-rock-tile.jpg")} caption="I couldn't help but capture the extravagant detail of the blue tile." withViewer />
-    <Image image={import("img/israel/jerusalem/view.jpg")} caption="Before heading home, we climbed to the top of a church tower to get one last view of the city." withViewer />
+  <Image
+    image={import("img/israel/jerusalem/church-exterior.jpg")}
+    caption="The Church of the Holy Sepulchre does not look like most churches from the outside."
+    withViewer
+  />
+  <ImageSet
+    size="large"
+    captions={[
+      "Inside, I was blown away by the beautiful painting, tile, and fresco.",
+    ]}
+  >
+    <Image
+      image={import("img/israel/jerusalem/church-ceilings.jpg")}
+      withViewer
+    />
+    <Image image={import("img/israel/jerusalem/church-dome.jpg")} withViewer />
+  </ImageSet>
+  <Image
+    image={import("img/israel/jerusalem/wailing-wall.jpg")}
+    caption="I was able to get this view of the Western Wall from the ramp to the Dome of the Rock."
+    withViewer
+  />
+  <Image
+    image={import("img/israel/jerusalem/dome-of-the-rock.jpg")}
+    caption="I love how off-center this approach is to the Dome of the Rock."
+    withViewer
+  />
+  <Image
+    image={import("img/israel/jerusalem/dome-of-the-rock-close.jpg")}
+    caption="The building is absolutely marvelous. The balance of solid gold and ornate tile work is stunning. We weren't allowed inside, but I was glad to be able to enter the grounds, which are only open during certain hours."
+    withViewer
+  />
+  <Image
+    image={import("img/israel/jerusalem/dome-of-the-rock-tile.jpg")}
+    caption="I couldn't help but capture the extravagant detail of the blue tile."
+    withViewer
+  />
+  <Image
+    image={import("img/israel/jerusalem/view.jpg")}
+    caption="Before heading home, we climbed to the top of a church tower to get one last view of the city."
+    withViewer
+  />
 </section>
 
 <section class="text">
-    <h2>Acre, Haifa, and Northern Israel</h2>
-    <p>On one of our last days of the trip, we took a guided tour of northwest Israel, making our way up the coast to Caesarea, the Bahai Gardens at Haifa, Acre, and the Lebanon border. The tour was educational, both historically and culturally. I was especially fascinated by the history of Acre, a city buried and uncovered over the centuries.</p>
-    <p>The day was colored by our first stop, in Caesarea, where we watched a particularly charged video presentation intended for tourists. My cursory understand of Caesarea (and the entire region) is that it changed hands many times throughout history. However, as each sequential takeover was described, it was only the Muslim reign (not the Roman Crusader or British or Mulmuk or Israeli) that was a brutal conquest. It didn't take a historian to notice the skewed perspective. We heard a similar narrative in descriptions of acquisitions and regime changes in northern Israel.</p>
-    <p>Overall, the day was a mixed bag. While I was glad to be able to visit these historic sites, the experience was inseparable from the problematic narrative that accompanied it.</p>
+  <h2>Acre, Haifa, and Northern Israel</h2>
+  <p>
+    On one of our last days of the trip, we took a guided tour of northwest
+    Israel, making our way up the coast to Caesarea, the Bahai Gardens at Haifa,
+    Acre, and the Lebanon border. The tour was educational, both historically
+    and culturally. I was especially fascinated by the history of Acre, a city
+    buried and uncovered over the centuries.
+  </p>
+  <p>
+    The day was colored by our first stop, in Caesarea, where we watched a
+    particularly charged video presentation intended for tourists. My cursory
+    understand of Caesarea (and the entire region) is that it changed hands many
+    times throughout history. However, as each sequential takeover was
+    described, it was only the Muslim reign (not the Roman Crusader or British
+    or Mulmuk or Israeli) that was a brutal conquest. It didn't take a historian
+    to notice the skewed perspective. We heard a similar narrative in
+    descriptions of acquisitions and regime changes in northern Israel.
+  </p>
+  <p>
+    Overall, the day was a mixed bag. While I was glad to be able to visit these
+    historic sites, the experience was inseparable from the problematic
+    narrative that accompanied it.
+  </p>
 </section>
 
 <section>
-    <Image image={import("img/israel/haifa/aquaduct.jpg")} caption="Nothing gets me going like a Roman aqueduct. I can't believe this thing is still standing." withViewer />
-    <ImageSet size="large" captions={["We visited the Bahai Gardens at Haifa. Tourists are not allowed to enter most areas of the gardens, leaving room for some eerie photos."]}>
-        <Image image={import("img/israel/haifa/haifa-garden.jpg")} withViewer />
-        <Image image={import("img/israel/haifa/haifa-stairs.jpg")} withViewer />
-    </ImageSet>
-    <Image image={import("img/israel/haifa/haifa-view.jpg")} caption="The view into the bay was fantastic." withViewer />
-    <Image image={import("img/israel/lebanon-border/coastline.jpg")} caption="We made our way up the coast to the Lebanon border. I love the blackened rock on the coast here." withViewer />
-    <Image image={import("img/israel/lebanon-border/cable-car.jpg")} caption="We took a very short cable car down into a series of caves near an abandoned train tunnel." withViewer />
-    <ImageSet size="large" captions={["Exploring these coastal caves was a welcome break from the sun."]}>
-        <Image image={import("img/israel/lebanon-border/cave.jpg")} withViewer />
-        <Image image={import("img/israel/lebanon-border/cliffs.jpg")} withViewer />
-    </ImageSet>
-    <Image image={import("img/israel/lebanon-border/border.jpg")} caption="I walked over to the formal border with Lebanon." withViewer />
+  <Image
+    image={import("img/israel/haifa/aquaduct.jpg")}
+    caption="Nothing gets me going like a Roman aqueduct. I can't believe this thing is still standing."
+    withViewer
+  />
+  <ImageSet
+    size="large"
+    captions={[
+      "We visited the Bahai Gardens at Haifa. Tourists are not allowed to enter most areas of the gardens, leaving room for some eerie photos.",
+    ]}
+  >
+    <Image image={import("img/israel/haifa/haifa-garden.jpg")} withViewer />
+    <Image image={import("img/israel/haifa/haifa-stairs.jpg")} withViewer />
+  </ImageSet>
+  <Image
+    image={import("img/israel/haifa/haifa-view.jpg")}
+    caption="The view into the bay was fantastic."
+    withViewer
+  />
+  <Image
+    image={import("img/israel/lebanon-border/coastline.jpg")}
+    caption="We made our way up the coast to the Lebanon border. I love the blackened rock on the coast here."
+    withViewer
+  />
+  <Image
+    image={import("img/israel/lebanon-border/cable-car.jpg")}
+    caption="We took a very short cable car down into a series of caves near an abandoned train tunnel."
+    withViewer
+  />
+  <ImageSet
+    size="large"
+    captions={[
+      "Exploring these coastal caves was a welcome break from the sun.",
+    ]}
+  >
+    <Image image={import("img/israel/lebanon-border/cave.jpg")} withViewer />
+    <Image image={import("img/israel/lebanon-border/cliffs.jpg")} withViewer />
+  </ImageSet>
+  <Image
+    image={import("img/israel/lebanon-border/border.jpg")}
+    caption="I walked over to the formal border with Lebanon."
+    withViewer
+  />
 </section>
 
 <section class="text">
-    <p>Our last stop on our way back to Tel Aviv was at the crusader city of Acre. We toured the Old City, which was covered over by the present city. We saw beautifully restored crusader halls and yet-to-be-excavated structures. It was stunning, and understandably a UNESCO World Heritage cite.</p>
+  <p>
+    Our last stop on our way back to Tel Aviv was at the crusader city of Acre.
+    We toured the Old City, which was covered over by the present city. We saw
+    beautifully restored crusader halls and yet-to-be-excavated structures. It
+    was stunning, and understandably a UNESCO World Heritage cite.
+  </p>
 </section>
 
 <section>
-    <ImageSet size="large" captions={["The halls of these crusader buildings were absolutely fantastic. I love where the two arches intersect in the ceiling."]}>
-        <Image image={import("img/israel/acre/castle-interior-hall.jpg")} withViewer />
-        <Image image={import("img/israel/acre/castle-interior.jpg")} withViewer />
-    </ImageSet>
-    <Image image={import("img/israel/acre/excavation.jpg")} caption="Here, you can see a building that has only been partially excavated. We were told that instead of tearing down the city, the new occupants simply filled the buildings with debris and constructed new buildings on top." withViewer />
-    <Image image={import("img/israel/acre/concert-venue.jpg")} caption="Of course, Acre is also a popular concert venue." withViewer />
-    <ImageSet size="large" captions={["Two different arches from two different eras."]}>
-        <Image image={import("img/israel/acre/texture-up-light.jpg")} withViewer />
-        <Image image={import("img/israel/acre/texture-up.jpg")} withViewer />
-    </ImageSet>
+  <ImageSet
+    size="large"
+    captions={[
+      "The halls of these crusader buildings were absolutely fantastic. I love where the two arches intersect in the ceiling.",
+    ]}
+  >
+    <Image
+      image={import("img/israel/acre/castle-interior-hall.jpg")}
+      withViewer
+    />
+    <Image image={import("img/israel/acre/castle-interior.jpg")} withViewer />
+  </ImageSet>
+  <Image
+    image={import("img/israel/acre/excavation.jpg")}
+    caption="Here, you can see a building that has only been partially excavated. We were told that instead of tearing down the city, the new occupants simply filled the buildings with debris and constructed new buildings on top."
+    withViewer
+  />
+  <Image
+    image={import("img/israel/acre/concert-venue.jpg")}
+    caption="Of course, Acre is also a popular concert venue."
+    withViewer
+  />
+  <ImageSet
+    size="large"
+    captions={["Two different arches from two different eras."]}
+  >
+    <Image image={import("img/israel/acre/texture-up-light.jpg")} withViewer />
+    <Image image={import("img/israel/acre/texture-up.jpg")} withViewer />
+  </ImageSet>
 </section>
 
 <section class="text">
-    <h2>Tel Aviv</h2>
-    <p>As the week drew to a close, we spent our evenings walking up and down the beach of Tel Aviv. I'm not sure when or if I'll be back to Tel Aviv, but I must admit that around sunset the beach is magnetic.</p>
+  <h2>Tel Aviv</h2>
+  <p>
+    As the week drew to a close, we spent our evenings walking up and down the
+    beach of Tel Aviv. I'm not sure when or if I'll be back to Tel Aviv, but I
+    must admit that around sunset the beach is magnetic.
+  </p>
 </section>
 
 <section>
-    <ImageSet size="small" captions={["Nathan, Robert and me."]}>
-        <Image image={import("img/israel/tel-aviv/nathan.jpg")} withViewer />
-        <Image image={import("img/israel/tel-aviv/bob.jpg")} withViewer />
-        <Image image={import("img/israel/tel-aviv/dan.jpg")} withViewer />
-    </ImageSet>
-    <Image image={import("img/israel/tel-aviv/beach-shade.jpg")} caption="Evening by the beach." withViewer />
+  <ImageSet size="small" captions={["Nathan, Robert and me."]}>
+    <Image image={import("img/israel/tel-aviv/nathan.jpg")} withViewer />
+    <Image image={import("img/israel/tel-aviv/bob.jpg")} withViewer />
+    <Image image={import("img/israel/tel-aviv/dan.jpg")} withViewer />
+  </ImageSet>
+  <Image
+    image={import("img/israel/tel-aviv/beach-shade.jpg")}
+    caption="Evening by the beach."
+    withViewer
+  />
 </section>

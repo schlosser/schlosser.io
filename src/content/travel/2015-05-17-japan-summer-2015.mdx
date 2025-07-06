@@ -22,6 +22,7 @@ import ImageSet from "@components/ImageSet.astro";
     <p>Right after the last day of classes my junior year at Columbia, I spent a week in Japan on a trip for Columbia students. The trip, organized by the Japanese Prime Minister's office, was called the Kakehashi Project, which translates literally as "Friendship Ties Project." The Kakehashi Project was part of a larger effort to encourage a healthy relationship between Japan and the rest of the world. After a visit to Columbia, Prime Minister Abe extended an offer to sponsor fifty Columbia students to visit Japan as the first batch of students in the program.</p>
 
     <p>In just ten days, we visited Tokyo, Osaka, Kyoto, and Shiga, travelling within the country by bus and high-speed train. We visited universities, government buildings, shopping districts, small towns, and religeous monuments, with the goal of getting to know more about the country.</p>
+
 </section>
 <section class="text">
     <h2>Tokyo</h2>
@@ -38,7 +39,12 @@ import ImageSet from "@components/ImageSet.astro";
 </section>
 
 <section class="text" id="tokyo-national-museum">
-    <p>One of our first visits was to the Tokyo National Museum. As a fan of Japanese art and culture, this was a dream. They had a seemingly endless collection of works from throughout Japanese history, from Samurai armor and weapons to traditional screen paintings.</p>
+  <p>
+    One of our first visits was to the Tokyo National Museum. As a fan of
+    Japanese art and culture, this was a dream. They had a seemingly endless
+    collection of works from throughout Japanese history, from Samurai armor and
+    weapons to traditional screen paintings.
+  </p>
 </section>
 
 <section>
@@ -49,13 +55,14 @@ import ImageSet from "@components/ImageSet.astro";
         <Image image={import("img/japan/tokyo-museum-lake.jpg")} withViewer />
         <Image image={import("img/japan/tokyo-museum-calligraphy.jpg")} withViewer />
     </ImageSet>
+
 </section>
 <section class="text">
     <p>With the intention of connecting us with Japanese students, the Japanese govenrment organized tours of two differnet national universities. In Tokyo, we visited Waseda University. Our tour guide, a second-year student at Waseda, took us across the street to the education shrine. Some students go to the shrine on the day before a big exam or project, she told us.</p>
     <p>The Waseda campus was absolutely beautiful. Their student union building has floor to ceiling glass windows, surrounded by trees, and a garden with a coy pond!</p>
 </section>
 <section>
-    <Image image={import("img/japan/tokyo-waseda-glass.jpg")} withViewer captions="I barely stopped walking to take this picture of the Waseda University cafeteria building in Tokyo. It wasn't until I got back to my computer that I realized how  brightly the trees reflected off the glass."/>
+    <Image image={import("img/japan/tokyo-waseda-glass.jpg")} withViewer caption="I barely stopped walking to take this picture of the Waseda University cafeteria building in Tokyo. It wasn't until I got back to my computer that I realized how  brightly the trees reflected off the glass."/>
 
     <ImageSet size="large" captions={["Across the street from the Waseda campus, the shrine's entrance is unassuming.", "Our tour guides show us around the campus.", "Me outside the Waseda student center in the garden.", "The coy pond nearby."]}>
         <Image image={import("img/japan/tokyo-waseda-shrine-entry.jpg")} withViewer />
@@ -63,6 +70,7 @@ import ImageSet from "@components/ImageSet.astro";
         <Image image={import("img/japan/tokyo-waseda-me.jpg")} withViewer />
         <Image image={import("img/japan/tokyo-waseda-fish.jpg")} withViewer />
     </ImageSet>
+
 </section>
 
 <section class="text">
@@ -96,6 +104,7 @@ import ImageSet from "@components/ImageSet.astro";
     <p>One striking example of this was in Fukashimi Inari-taisha, a Shinto shrine in Kyoto. As we walked through the town in Fukashimi-ku, we saw large orange gates, or arches, straddling the road. Following these gates led us to the entrance to the shrine, a path leading from the city streets up into the forest and mountain. Climbing higher, the gates got closer and closer together, until they were practically adjacent.</p>
 
     <p>This smooth transformation from city to shrine was stunning and felt very different than the more walled-in or contained monuments of the United States. Walking deep into the forest, I found a quiet set of shrines and gates next to a lake. Very surreal.</p>
+
 </section>
 <section>
     <ImageSet size="large" captions={["Walking through Fukashimi-ku, Kyoto.", "A large gate at the entrance to Fukashimi Inari-taisha.", "Just a few of the thousands of gates along the trail.", "Away from the crowds of the lower areas of the shrine, I found this lake tucked into the hillside."]}>
@@ -119,6 +128,5 @@ import ImageSet from "@components/ImageSet.astro";
             <Image image={import("img/japan/shiga-basketball.jpg")} withViewer />
         <Image image={import("img/japan/shiga-calligraphy.jpg")} withViewer />
     </ImageSet>
+
 </section>
-
-

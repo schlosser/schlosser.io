@@ -1,0 +1,435 @@
+---
+title: Alaska, Summer 2021
+start_date: 2021-05-15
+end_date: 2021-05-29
+cities:
+- Anchorage
+- Seward
+- Cooper Landing
+- Denali
+- Glacier View
+- Juneau
+featured_image: travel/alaska/anchorage/helicopter-glacier-side-cover.jpg
+hero_image: travel/alaska/anchorage/helicopter-glacier-side.jpg
+image_roots:
+- alaska
+redirect_from:
+- /alaska/
+---
+
+<section class="text">
+    <p>After more than a year spent in various stages of quarantine, the summer of 2021 promised to be a return to normal. I got my second dose of the vaccine in March, and so when I was invited to a spend a week in Sitka, I thought "Why not extend the trip and really see Alaska?" With friends onboard with the plan (Lily, Yih-Jen, and Hugh), I set off for what was supposed to be a three week trip to the 49th state.</p>
+
+    <p>Due to some emergencies at work, my trip was shortened, and I never made it to Sitka, a serious regret. If I had made it, though, the trip would have been near perfect. We arrived at the very end of the shoulder season in fall, with snow melting and tourists largely scarce. We got to explore Anchorage, Kenai, Denali, and Juneau in brisk but not cold weather, perfect for a New Englander fleeing a sticky summer in New York.</p>
+</section>
+
+<section class="text" id="seward">
+    <h2>Seward</h2>
+    <p>We flew into Anchorage, where we rented a car and set of for our first stop: Seward, a town on the Kenai peninsula. We took our time driving down Alaska Route 1, stopping for photos along the way. On a whim, we stopped over in Whittier, a quaint town with a world-class gimmick: the longest (2.5 miles) highway tunnel in North America!</p>
+</section>
+
+<section>
+    <div class="image-set">
+        <div class="large">
+            {% include resimg.html src="travel/alaska/anchorage/route-1-swamp.jpg" class="with-viewer" %}
+            {% include resimg.html src="travel/alaska/anchorage/route-1-train.jpg" class="with-viewer" %}
+        </div>
+    </div>
+    <h5>Near Anchorage, Route 1 is flanked by swampland and the Turnagain Arm of the Cook Inlet.</h5>
+
+    {% include resimg.html src="travel/alaska/seward/whittier-tunnel.jpg" class="with-viewer" %}
+    <h5>By land, Whittier is only accessible by a 2.5 mile single-lane tunnel. Cars take turns driving in each direction every 30 minutes.</h5>
+
+    {% include resimg.html src="travel/alaska/seward/whittier-portage-lake.jpg" class="with-viewer" %}
+    <h5>We hiked up to Portage Lake, a rapid ascent through a snow-capped mountain pass.</h5>
+
+    {% include resimg.html src="travel/alaska/seward/cooper-landing-porch.jpg" class="with-viewer" %}
+    <h5>When we reached our Airbnb (technically in Cooper Landing), we were greeted with a bright-blue river.</h5>
+</section>
+
+<section class="text">
+    <p>We woke up early the next day to get out on the water for an all day tour of Resurrection Bay and Kenai Fjords National Park. We booked with <a href="https://sewardoceanexcursions.com/" target="blank" rel="noopener noreferrer">Seward Ocean Excursions</a> and had an amazing time. We were four of just six guests on this small fishing boat that sped through the bay and out to Aialik Bay and the Chiswell Islands.</p>
+</section>
+
+<section>
+    {% include resimg.html src="travel/alaska/seward/seward-harbour.jpg" class="with-viewer" %}
+    <h5>Seward harbor from the back of our boat.</h5>
+
+    {% include resimg.html src="travel/alaska/seward/seward-gap.jpg" class="with-viewer" %}
+    <h5>The rock formations at the end of Resurrection Bay were stunning.</h5>
+
+    <div class="image-set">
+        <div class="large">
+            {% include resimg.html src="travel/alaska/seward/seward-cliffs-wall.jpg" class="with-viewer" %}
+            {% include resimg.html src="travel/alaska/seward/seward-coast-spikes-far.jpg" class="with-viewer" %}
+        </div>
+        <div class="large">
+            {% include resimg.html src="travel/alaska/seward/seward-coast-2.jpg" class="with-viewer" %}
+            {% include resimg.html src="travel/alaska/seward/seward-coast-spikes.jpg" class="with-viewer" %}
+        </div>
+    </div>
+    <h5>The islands and cliffs in Kenai Fjords National Park had dramatic height and shape, formed from glacial activity.</h5>
+
+    {% include resimg.html src="travel/alaska/seward/seward-coast.jpg" class="with-viewer" %}
+    <h5>I love the way the light plays on the rock face.</h5>
+
+    <div class="image-set">
+        <div class="large">
+            {% include resimg.html src="travel/alaska/seward/kenai-glacier-front.jpg" class="with-viewer" %}
+            {% include resimg.html src="travel/alaska/seward/kenai-glacier-side.jpg" class="with-viewer" %}
+        </div>
+    </div>
+    <h5>Kenai Glacier was quite impressive, but we had to keep our distance to avoid any falling ice.</h5>
+
+    <div class="image-set">
+        <div class="large">
+            {% include resimg.html src="travel/alaska/seward/seward-porpoises.jpg" class="with-viewer" %}
+            {% include resimg.html src="travel/alaska/seward/seward-otters.jpg" class="with-viewer" %}
+        </div>
+    </div>
+    <h5>A highlight of our boat trip was the wildlife. We saw eagles, otters, and even a bear!</h5>
+
+    {% include resimg.html src="travel/alaska/seward/porpoises.gif" class="with-viewer" %}
+    <h5>Best of all, we were lucky enough to find a group of porpoises that were thrilled to swim along with our boat, jumping out of the water right in front of us.</h5>
+
+    {% include resimg.html src="travel/alaska/seward/seward-wake.jpg" class="with-viewer" %}
+    <h5>We were thrilled with how much we saw in such a short trip.</h5>
+</section>
+
+<section class="text">
+    <p>After arriving on land and warming up with some hot cocoa, we headed to Lowell Point, at the edge of town, for a short, flat hike through the forest.</p>
+</section>
+
+<section>
+    <div class="image-set">
+        <div class="large">
+            {% include resimg.html src="travel/alaska/seward/seward-hike-wooden-bridge.jpg" class="with-viewer" %}
+            {% include resimg.html src="travel/alaska/seward/seward-hike-woods.jpg" class="with-viewer" %}
+        </div>
+    </div>
+    <h5>Our short hike was welcome exercise after several hours sitting or standing still on a boat.</h5>
+
+    {% include resimg.html src="travel/alaska/seward/seward-hike-path.jpg" class="with-viewer" %}
+    <h5>The greenery was surprisingly lush!</h5>
+
+    <div class="image-set">
+        <div class="large">
+            {% include resimg.html src="travel/alaska/seward/seward-hike-field.jpg" class="with-viewer" %}
+            {% include resimg.html src="travel/alaska/seward/seward-hike-river.jpg" class="with-viewer" %}
+        </div>
+    </div>
+    <h5>After a mile or two of hiking, the path opens up to a large riverbed. We walked down the riverbed to the beach.</h5>
+
+    {% include resimg.html src="travel/alaska/seward/seward-hike-treeline.jpg" class="with-viewer" %}
+    <h5>A view of a previously burned patch of forest from the beach.</h5>
+</section>
+
+<section class="text" id="cooper-landing">
+    <h2>Cooper Landing</h2>
+    <p>We were staying in Cooper Landing, around 45 minutes driving from Seward. After a full day on the boat, we spend the next two hiking in Cooper Landing. We also thoroughly enjoyed a river raft tour from <a href="http://kenairiverdog.com/" target="_blank" ref="noopener noreferrer">Kenai Riverdog</a>.</p>
+</section>
+
+<section>
+    {% include resimg.html src="travel/alaska/seward/cooper-landing-reflection.jpg" class="with-viewer" %}
+    <h5>About half way between Cooper Landing and Seward, there's an amazing pullover with a beautiful view of the Kenai Mountains.</h5>
+
+    <div class="image-set">
+        <div class="large">
+            {% include resimg.html src="travel/alaska/seward/cooper-landing-river.jpg" class="with-viewer" %}
+            {% include resimg.html src="travel/alaska/seward/cooper-landing-tourguide.jpg" class="with-viewer" %}
+        </div>
+    </div>
+    <h5>Our river rafting tour took us right past our Airbnb!</h5>
+</section>
+
+<section class="text">
+    <p>Later that day, Hugh had a hike picked out that sounded amazing. We packed some water and jackets for Slaughter Ridge Trail, a 5-mile, 2600-ft elevation gain. When we set off, Hugh pulled me aside and clued me in to his real plan. All I had to do was have my camera ready...</p>
+</section>
+
+<section>
+    {% include resimg.html src="travel/alaska/seward/slaughter-group.jpg" class="with-viewer" %}
+    <h5>Pretty much every time you turn around, there was this beautiful view of the river and mountains.</h5>
+
+    <div class="image-set">
+        <div class="large">
+            {% include resimg.html src="travel/alaska/seward/slaughter-yj-hugh.jpg" class="with-viewer" %}
+            {% include resimg.html src="travel/alaska/seward/slaughter-yj-hugh-top.jpg" class="with-viewer" %}
+        </div>
+    </div>
+    <h5>I took Yih-Jen and Hugh's photo several times along the trail. But what Yih-Jen didn't know was...</h5>
+
+    {% include resimg.html src="travel/alaska/seward/proposal.jpg" class="with-viewer" %}
+    <h5>Hugh would propose at the top!</h5>
+
+    <div class="image-set">
+        <div class="large">
+            {% include resimg.html src="travel/alaska/seward/proposal-yj-lily-dan.jpg" class="with-viewer" %}
+            {% include resimg.html src="travel/alaska/seward/proposal-ring-after.jpg" class="with-viewer" %}
+        </div>
+    </div>
+    <h5>He said yes! We couldn't be more excited for the two of them!</h5>
+</section>
+
+
+<section class="text" id="anchorage">
+    <h2>Anchorage</h2>
+    <p>When we returned to Anchorage, the mood was celebratory. We enjoyed pastries at <a href="https://g.page/fire-island-downtown" target="_blank" rel="noopener noreferrer">Fire Island Rustic Bakeshop</a>, and had dinner at <a href="https://g.page/Kincaidgrill?share" target="_blank" rel="noopener noreferrer">Kincaid Grill</a>. We were also able to visit two top museums on our list: the <a href="https://www.alaskanative.net/" target="_blank" rel="noopener noreferrer">Alaska Native Heritage Center</a> and the <a href="https://www.anchoragemuseum.org/" target="_blank" rel="noopener noreferrer">Anchorage Museum</a>.</p>
+</section>
+<section>
+    {% include resimg.html src="travel/alaska/anchorage/alaska-native-heritage-center.jpg" class="with-viewer" %}
+    <h5>The Alaska Native heritage Center had impressive demonstrations of Alaska native culture and artifacts.</h5>
+    {% include resimg.html src="travel/alaska/anchorage/anchorage-art-museum-bears.jpg" class="with-viewer" %}
+    <h5>The Anchorage Museum blended art and history.</h5>
+    {% include resimg.html src="travel/alaska/anchorage/anchorage-art-museum-room.jpg" class="with-viewer" %}
+    <h5>The Alaskan contemporary art was some of my favorite.</h5>
+</section>
+
+<section class="text">
+    <p>As we left Anchorage, we set out for one of the most highly anticipated parts of our trip: visiting a dogsled camp on a glacier, only accessible by helicopter. Only an hour and a half from Anchorage, we set out for basecamp at Knik River Lodge.</p>
+</section>
+
+<section>
+    {% include resimg.html src="travel/alaska/glacier-view/glacier-view-bridge.jpg" class="with-viewer" %}
+    <h5>We stopped at the side of the road to walk an abandoned bridge.</h5>
+
+    <div class="image-set">
+        <div class="large">
+            {% include resimg.html src="travel/alaska/anchorage/helicopter-grounded.jpg" class="with-viewer" %}
+            {% include resimg.html src="travel/alaska/anchorage/helicopter-pilot.jpg" class="with-viewer" %}
+        </div>
+    </div>
+    <h5>The four of us packed in to the largest helicopter they had, a six-seater, and took off for the glacier.</h5>
+
+    {% include resimg.html src="travel/alaska/anchorage/helicopter-glacier-from-bottom.jpg" class="with-viewer" %}
+    <h5>The glacier has a river of soil sediment running through center of it.</h5>
+
+    <div class="image-set">
+        <div class="large">
+            {% include resimg.html src="travel/alaska/anchorage/helicopter-glacier.jpg" class="with-viewer" %}
+            {% include resimg.html src="travel/alaska/anchorage/helicopter-ice-field.jpg" class="with-viewer" %}
+        </div>
+    </div>
+    <h5>We flew over the ice field, spotting little pools of clear glacial melt.</h5>
+
+    {% include resimg.html src="travel/alaska/anchorage/helicopter-glacier-side.jpg" class="with-viewer" %}
+    <h5>We were headed higher up into the mountains, and started to ascend after passing over the glacier.</h5>
+</section>
+
+<section class="text">
+    <p>By the time we got past the main glacier, the wind started really picking up. We heard on the radio that the smaller helicopter behind us had to turn around because of wind speed. We could feel the gusts pushing us around, but our pilot pushed through expertly, to a safe landing on glacier nestled between two mountains.</p>
+</section>
+
+<section>
+
+    <div class="image-set">
+        <div class="large">
+            {% include resimg.html src="travel/alaska/anchorage/helicopter-close.jpg" class="with-viewer" %}
+            {% include resimg.html src="travel/alaska/anchorage/helicopter-landed.jpg" class="with-viewer" %}
+        </div>
+    </div>
+    <h5>The wind had died down by the time we landed.</h5>
+
+    {% include resimg.html src="travel/alaska/anchorage/dogs-houses.jpg" class="with-viewer" %}
+    <h5>Each dog has their own little house. Most of them were hanging out lying in the snow because it was hot (only 20&deg;F).</h5>
+
+
+    <div class="image-set">
+        <div class="large">
+            {% include resimg.html src="travel/alaska/anchorage/dogs-group.jpg" class="with-viewer" %}
+            {% include resimg.html src="travel/alaska/anchorage/dogs-sledding.jpg" class="with-viewer" %}
+        </div>
+    </div>
+    <h5>After some mandatory pictures, we were off! The dogs were <em>very</em> excited to run.</h5>
+
+    {% include resimg.html src="travel/alaska/anchorage/dogs-running.jpg" class="with-viewer" %}
+    <h5>Most dogs were paired up with a running partner, except the rowdy ones that were by themselves.</h5>
+
+    <div class="image-set">
+        <div class="large">
+            {% include resimg.html src="travel/alaska/anchorage/dogs-lying-down.jpeg" class="with-viewer" %}
+            {% include resimg.html src="travel/alaska/anchorage/helicopter-pose.jpg" class="with-viewer" %}
+        </div>
+    </div>
+    <h5><strong>Left:</strong> A good boy. <strong>Right:</strong> Our departure.</h5>
+</section>
+
+<section class="text" id="denali">
+    <h2>Denali</h2>
+    <p>From Knik, we continued north to Denali National Park. Denali had some of the worst weather of our trip, with snow blustering in, especially as we got deeper into the park. We had waited online for a small drop of permits to drive our own car past the Savage River Check Station to Teklanika on the second day, but on the first day we hiked the Savage River Alpine Trail.</p>
+</section>
+
+<section>
+    {% include resimg.html src="travel/alaska/denali/hike-ascent.jpg" class="with-viewer" %}
+    <h5>We started at the Savage River Loop Trailhead, and started a switch-backing ascent. </h5>
+
+    <div class="image-set">
+        <div class="large">
+            {% include resimg.html src="travel/alaska/denali/hike-snow.jpg" class="with-viewer" %}
+            {% include resimg.html src="travel/alaska/denali/hike-narrows.jpg" class="with-viewer" %}
+        </div>
+    </div>
+    <h5><strong>Left:</strong> The hike had a few spots with heavy snow, but it had been cleared by earlier hikers. <strong>Right:</strong> The path snaked between two large hunks of rock.</h5>
+
+    {% include resimg.html src="travel/alaska/denali/hike-trail.jpg" class="with-viewer" %}
+    <h5>The higher we got, the more things evened out.</h5>
+
+    {% include resimg.html src="travel/alaska/denali/hike-view.jpg" class="with-viewer" %}
+    <h5>From the top, we could see more mountains peaking out through the clouds.</h5>
+
+    {% include resimg.html src="travel/alaska/denali/hike-descent.jpg" class="with-viewer" %}
+    <h5>As we started our descent, small flakes of snow started to fall.</h5>
+</section>
+
+<section class="text">
+    <p>That snow continued on to the next day, when we were due to drive deeper into the park. We arrived early at the checkpoint and checked in with the staff. We learned later that if we had arrived a few minutes later, we might not have been let through! The snow ended up being fairly light, though, so we were able to explore the park by foot.</p>
+</section>
+
+<section>
+    {% include resimg.html src="travel/alaska/denali/denali-road-group.jpg" class="with-viewer" %}
+    <h5>After parking our car at Teklanika, we started walking deeper into the park.</h5>
+
+    {% include resimg.html src="travel/alaska/denali/denali-road.jpg" class="with-viewer" %}
+    <h5>For a while, the weather was clear, and we had good views of the surrounding ranges.</h5>
+
+    {% include resimg.html src="travel/alaska/denali/denali-bridge.jpg" class="with-viewer" %}
+    <h5>But soon enough, a light snow returned.</h5>
+
+    <div class="image-set">
+        <div class="large">
+            {% include resimg.html src="travel/alaska/denali/denali-laughing-hugh-dan.jpg" class="with-viewer" %}
+            {% include resimg.html src="travel/alaska/denali/denali-laughing-lily-yihjen.jpg" class="with-viewer" %}
+        </div>
+    </div>
+    <h5>We took a few stock photos of us enjoying the park, and headed back to our car.</h5>
+</section>
+
+<section class="text" id="glacier-view">
+    <h2>Glacier View</h2>
+    <p>Spending a night glamping in the mountains was on our bucket list, and we were able to squeeze in a reservation the night before our flight to Juneau. If we'd know more about the place ahead of time, we definitely would have booked two nights. The campground, <a href="https://www.alpenglowluxurycamping.com/" target="_blank" rel="noopener noreferrer">Alpenglow</a>, is off-grid and has beautiful views of Matanuska Glacier.</p>
+</section>
+
+<section>
+    <div class="image-set">
+        <div class="large">
+            {% include resimg.html src="travel/alaska/glacier-view/glacier-view-outlook.jpg" class="with-viewer" %}
+            {% include resimg.html src="travel/alaska/glacier-view/glacier-view-outlook-mountain.jpg" class="with-viewer" %}
+        </div>
+    </div>
+    <h5>We stopped at a pulloff on our way to Glacier View.</h5>
+
+    {% include resimg.html src="travel/alaska/glacier-view/glacier-view-tent.jpg" class="with-viewer" %}
+    <h5>The tents had a beautiful view; we were blown away by the location.</h5>
+</section>
+
+<section class="text" id="juneau">
+    <h2>Juneau</h2>
+    <p>After waking up content in our tents, we packed our things and drove down the the Anchorage airport. After a 90 minute flight, we landed in Juneau, the capital of Alaska and heart of the Southeast, a region of Alaska that felt more like the Pacific Northwest than like the untarnished frontier of the Anchorage area. Juneau is only accessible by plane or boat, and is a quite small town. Like most houses in Juneau, our Airbnb had great views of the Gastineau Channel.</p>
+</section>
+
+<section>
+    {% include resimg.html src="travel/alaska/juneau/juneau-morning-light.jpg" class="with-viewer" %}
+    <h5>Golden hour at our Airbnb on Douglass Island.</h5>
+
+    {% include resimg.html src="travel/alaska/juneau/juneau-glacier-pass.jpg" class="with-viewer" %}
+    <h5>We did some hiking near the town center, including an ascent near Mendenhall Glacier.</h5>
+
+    {% include resimg.html src="travel/alaska/juneau/juneau-warf.jpg" class="with-viewer" %}
+    <h5>The next day, we drove a few minutes north to Mendenhall, where we took a whale watching boat into the channel.</h5>
+
+    <div class="image-set">
+        <div class="large">
+            {% include resimg.html src="travel/alaska/juneau/seals-far.jpg" class="with-viewer" %}
+            {% include resimg.html src="travel/alaska/juneau/seals-close.jpg" class="with-viewer" %}
+        </div>
+    </div>
+    <h5>From far away I wasn't sure what they were, but it turns out this brown pile was a big group of seals sunbathing!</h5>
+
+    <div class="image-set">
+        <div class="large">
+            {% include resimg.html src="travel/alaska/juneau/whales-scope.jpg" class="with-viewer" %}
+            {% include resimg.html src="travel/alaska/juneau/whales-spout-scope.jpg" class="with-viewer" %}
+        </div>
+        <div class="large">
+            {% include resimg.html src="travel/alaska/juneau/whales-spout-steam.jpg" class="with-viewer" %}
+            {% include resimg.html src="travel/alaska/juneau/whales-hump.jpg" class="with-viewer" %}
+        </div>
+    </div>
+    <h5>To overcome the lack of a good zoom lens on my camera, I pressed my lens against some binoculars. It took a while to figure out, but eventually I got some good photos!</h5>
+
+    {% include resimg.html src="travel/alaska/juneau/whales-animated.gif" class="with-viewer" %}
+    <h5>Very thankful for live photos in this moment. Two whales swimming along the coast!</h5>
+</section>
+
+<section class="text">
+    <p>On our last full day, we set out once last time on a boat tour, this time of Tracy Arm Fjord. We had originally wanted to go in a small fishing boat, but couldn't find a good crew to take us. But I'm quite glad we went the way we did. Our larger boat (with 15-20 passengers) was definitely the right call.</p>
+    <p>The first part of the trip was about an hour full speed through choppy water getting down from Juneau to the mouth of Tracy Arm. In a smaller boat I'm sure it would have taken us much longer and been way more uncomfortable. But the big boat really made a difference when we got further in. With an aluminum bottom, we easily pushed through the floating ice to get closer to the glacier than any other kind of boat could. It was amazing!</p>
+</section>
+
+<section>
+    {% include resimg.html src="travel/alaska/juneau/cruise-glacier-glimpse.jpg" class="with-viewer" %}
+    <h5>Sawyer Glacier peaks out behind some rock at the end of Tracy Arm.</h5>
+
+    {% include resimg.html src="travel/alaska/juneau/cruise-mountains.jpg" class="with-viewer" %}
+    <h5>As we entered the arm, we were surrounded by steep verdant cliffs.</h5>
+
+    {% include resimg.html src="travel/alaska/juneau/cruise-valley.jpg" class="with-viewer" %}
+    <h5>Even the valleys had some snow on the ground.</h5>
+
+    <div class="image-set">
+        <div class="large">
+            {% include resimg.html src="travel/alaska/juneau/cruise-snowslide.jpg" class="with-viewer" %}
+            {% include resimg.html src="travel/alaska/juneau/cruise-waterfall.jpg" class="with-viewer" %}
+        </div>
+    </div>
+    <h5>Everywhere we looked there were waterfalls and glacial melt.</h5>
+
+    {% include resimg.html src="travel/alaska/juneau/cruise-waterfall-close.jpg" class="with-viewer" %}
+    <h5>Our captain took us within just a feet or two of these waterfalls. </h5>
+
+    <div class="image-set">
+        <div class="large">
+            {% include resimg.html src="travel/alaska/juneau/juneau-glacier-around.jpg" class="with-viewer" %}
+            {% include resimg.html src="travel/alaska/juneau/juneau-glacier-wide.jpg" class="with-viewer" %}
+        </div>
+    </div>
+    <h5>Towards the mouth, some much larger chunks of glacial deposit were still floating down the fjord.</h5>
+
+    {% include resimg.html src="travel/alaska/juneau/juneau-glacier-eagle.jpg" class="with-viewer" %}
+    <h5>I managed to catch some great photos of wildlife, including this bald eagle who had been camping out on the iceberg.</h5>
+
+    <div class="image-set">
+        <div class="large">
+            {% include resimg.html src="travel/alaska/juneau/cruise-bear-looking.jpg" class="with-viewer" %}
+            {% include resimg.html src="travel/alaska/juneau/cruise-bear-sitting.jpg" class="with-viewer" %}
+        </div>
+        <div class="large">
+            {% include resimg.html src="travel/alaska/juneau/cruise-bear-climbing.jpg" class="with-viewer" %}
+            {% include resimg.html src="travel/alaska/juneau/cruise-bear-climbing-close.jpg" class="with-viewer" %}
+        </div>
+    </div>
+    <h5>I used a similar binocular technique to capture this friendly boy.</h5>
+
+    {% include resimg.html src="travel/alaska/juneau/cruise-floating-ice.jpg" class="with-viewer" %}
+    <h5>As we approached the glacier, the greenery was replaced with snow and ice.</h5>
+
+    <div class="image-set">
+        <div class="large">
+            {% include resimg.html src="travel/alaska/juneau/cruise-greenery.jpg" class="with-viewer" %}
+            {% include resimg.html src="travel/alaska/juneau/cruise-ice-field.jpg" class="with-viewer" %}
+        </div>
+    </div>
+    <h5>When we approached the end, I thought we'd stop, as we started to bump into little chunks of ice.</h5>
+
+    {% include resimg.html src="travel/alaska/juneau/cruise-glacier.jpg" class="with-viewer" %}
+    <h5>After about an hour of pushing through ice, we finally turned off the motor to sit and watch the glacier in silence. It was magnificent!</h5>
+
+</section>
+
+<section class="text">
+    <p>Content, we turned around and headed back for Juneau. The next morning, before heading to the Juneau airport, we made one quick stop to ride the tram, which was open for one of the first days of the season. It was a pretty quick trip, but gave us one last view of town before we headed out.</p>
+</section>
+
+<section>
+    {% include resimg.html src="travel/alaska/juneau/juneau-town-view.jpg" class="with-viewer" %}
+    <h5>Juneau from the tram.</h5>
+</section>

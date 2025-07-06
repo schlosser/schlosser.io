@@ -1,5 +1,5 @@
 // Specify the file extension you want to import
-declare module "src/data/museums.yaml" {
+declare module "@data/museums.yml" {
   const value: {
     id: string;
     img: string;

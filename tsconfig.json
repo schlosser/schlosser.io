@@ -6,8 +6,11 @@
     "strictNullChecks": true,
     "baseUrl": ".",
     "paths": {
+      "@content.config": ["src/content.config"],
       "@components/*": ["src/components/*"],
-      "@layouts/*": ["src/layouts/*"]
+      "@layouts/*": ["src/layouts/*"],
+      "@data/*": ["src/data/*"],
+      "@content/*": ["src/content/*"]
     }
   }
 }

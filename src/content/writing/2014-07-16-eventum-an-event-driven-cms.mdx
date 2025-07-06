@@ -20,7 +20,7 @@ Long Description
 <em>---</em>
 slides --&gt; <em>http://link-to-slides.com/this_event</em>
 code samples --&gt; <em>http://github.com/adicu/this_event</em>
-...
+…
 ```
 
 It was painful. The JavaScript (which I dug up directly from our old site) says it all:
@@ -30,14 +30,14 @@ var parts = event.description.split("---");
 event.description = parts[0];
 
 if (parts.length == 3) {
-    event.longDescription = parts[1];
-    var resources = parts[2];
-    resources = resources.split("-->");
-    event.resources = {};
+  event.longDescription = parts[1];
+  var resources = parts[2];
+  resources = resources.split("-->");
+  event.resources = {};
 
-    for (var x = 0; x < resources.length; x += 2) {
-      event.resources[resources[x].toLowerCase().trim()] = resources[x+1];
-    }
+  for (var x = 0; x < resources.length; x += 2) {
+    event.resources[resources[x].toLowerCase().trim()] = resources[x + 1];
+  }
 }
 ```
 
@@ -63,7 +63,8 @@ Eventum is built in [Python](https://www.python.org/) and [Flask](http://flask.p
 ##### Events and posts can be edited in Markdown.
 
 <Image image={import("img/eventum-an-event-driven-cms-home.png")} />
-##### The "Home" page shows this weeks events and the most recent blog posts on the site.
+##### The "Home" page shows this weeks events and the most recent blog posts on
+the site.
 
 <Image image={import("img/eventum-an-event-driven-cms-events.png")} />
 ##### The "Events" page gives an overview of this week and next week's events.

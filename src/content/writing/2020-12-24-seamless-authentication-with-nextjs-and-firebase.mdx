@@ -12,16 +12,16 @@ When I started working on [Ambrook](/teams/ambrook), adopting [Next.js](https://
 
 In using both, I hoped to create a best-in-class user experience. Here's what I wanted:
 
-* Server-side rendered private pages that load the user's data without lots of spinners.
-* Statically generated public pages, that show the same content for all users.
-* Anonymous authentication that lets users start to input their information and use our app before being asked to make an account.
-* Server-side redirects for users that load a private page without being logged in.
-* Client-side redirects for users that click an onsite link to a private page without being logged in.
+- Server-side rendered private pages that load the user's data without lots of spinners.
+- Statically generated public pages, that show the same content for all users.
+- Anonymous authentication that lets users start to input their information and use our app before being asked to make an account.
+- Server-side redirects for users that load a private page without being logged in.
+- Client-side redirects for users that click an onsite link to a private page without being logged in.
 
 Furthermore, I had some developer experience requirements:
 
-* Make it easy to introduce new pages and API routes that are auth-guarded.
-* Reduce the likelihood that private pages are accidentally exposed.
+- Make it easy to introduce new pages and API routes that are auth-guarded.
+- Reduce the likelihood that private pages are accidentally exposed.
 
 While the basic integration was straightforward, the combination of these two tools created a fair number of cases to consider. Next.js lets users access pages by client side navigation and server side navigation. Firebase Authentication issues ID tokens that only last for an hour, after which they need to be refreshed using the client-side SDKs.
 
@@ -30,31 +30,32 @@ While the basic integration was straightforward, the combination of these two to
 Authenticating pages accessed via client side navigation is easy – the Firebase SDK will log users in automatically if they have an account, and private pages can check the `currentUser`. But for the initial HTTP request, we'll need to use a cookie to store the user's [ID token](https://firebase.google.com/docs/auth/admin/verify-id-tokens) to be verified on the server. Here's how it works:
 
 1. We sign in the user using the Javascript SDK:
-    ```tsx
-    const { user } = await auth().signInWithCredential(cred);
-    ```
+
+   ```tsx
+   const { user } = await auth().signInWithCredential(cred);
+   ```
 
 2. On the client, we generate an ID token and write it to the user's cookies.
-    ```tsx
-    import cookie from 'js-cookie';
 
-    export const persistUserCredential = (user: firebase.User) => {
-      const token = await user.getIdToken();
-      cookie.set('token', token, {
-        expires: 1,
-        path: '/',
-      });
-    }
-    ```
+   ```tsx
+   import cookie from "js-cookie";
+
+   export const persistUserCredential = (user: firebase.User) => {
+     const token = await user.getIdToken();
+     cookie.set("token", token, {
+       expires: 1,
+       path: "/",
+     });
+   };
+   ```
 
 3. When the user next requests an SSR-powered page, the cookies are passed along in the request headers. We can then verify the ID token to validate a user's identity.
 
-    ```tsx
-    // Some code is missing here, I'll go into more detail later.
-    const token = getCookie('token', ctx.req.headers);
-    const { uid, email } = await verifyIdToken(token);
-    ```
-
+   ```tsx
+   // Some code is missing here, I'll go into more detail later.
+   const token = getCookie("token", ctx.req.headers);
+   const { uid, email } = await verifyIdToken(token);
+   ```
 
 ### Anonymous Authentication
 
@@ -66,14 +67,16 @@ We want users to be able to start using our app without making an account, and c
 
 ```tsx
 // pages/_app.tsx
-import { AppProps } from 'next/app';
-import React, { FC, useEffect } from 'react';
-import firebase from 'firebase/app';
-import persistUserCredential from 'utils/auth/persistUserCredential';
+import { AppProps } from "next/app";
+import React, { FC, useEffect } from "react";
+import firebase from "firebase/app";
+import persistUserCredential from "utils/auth/persistUserCredential";
 
-const MyApp: FC<AppProps> = ({ Component, pageProps }: AppProps): JSX.Element => {
-
-  // ...
+const MyApp: FC<AppProps> = ({
+  Component,
+  pageProps,
+}: AppProps): JSX.Element => {
+  // …
 
   useEffect(() => {
     return firebase.auth().onAuthStateChanged((user) => {
@@ -81,7 +84,8 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }: AppProps): JSX.Element =>
         // If the user just signed in, we call the code to create the cookie.
         persistUserCredential(user);
       } else {
-        firebase.auth()
+        firebase
+          .auth()
           .signInAnonymously()
           .catch(function (error) {
             // Handle Errors here.
@@ -90,9 +94,9 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }: AppProps): JSX.Element =>
     });
   }, []);
 
-  // ...
+  // …
 
-  return (<Component {...pageProps} />);
+  return <Component {...pageProps} />;
 };
 
 export default MyApp;
@@ -110,8 +114,8 @@ I wrote a wrapper function, `withPrivateServerSideProps` that wraps a page's `Ge
 
 ```ts
 // withPrivateServerSideProps.ts
-import { GetServerSideProps } from 'next';
-import isAuthenticated from 'utils/auth/isAuthenticated';
+import { GetServerSideProps } from "next";
+import isAuthenticated from "utils/auth/isAuthenticated";
 
 /**
  * This function wraps a page's GetServerSideProps function. It passes the
@@ -149,13 +153,13 @@ This code uses a helper function, `isAuthenticated`, to determine if the user is
 
 ```ts
 // utils/auth/isAuthenticated.ts
-import { GetServerSidePropsContext } from 'next';
-import { getCookie } from 'utils/auth/cookies';
+import { GetServerSidePropsContext } from "next";
+import { getCookie } from "utils/auth/cookies";
 
 export default async function isAuthenticated(
-  ctx: GetServerSidePropsContext
+  ctx: GetServerSidePropsContext,
 ): Promise<boolean> {
-  const token = getCookie('token', ctx.req.headers);
+  const token = getCookie("token", ctx.req.headers);
 
   if (token) {
     const { uid, email } = await verifyIdToken(token);
@@ -174,27 +178,23 @@ This makes for a very simple integration into a private page, like `/account`:
 
 ```tsx
 // pages/account.tsx
-import withPrivateServerSideProps from 'hocs/withPrivateServerSideProps';
-import React from 'react';
-import { getAccountDetails } from 'lib/account'
-import Account, { AccountProps } from 'screens/Account/Account';
+import withPrivateServerSideProps from "hocs/withPrivateServerSideProps";
+import React from "react";
+import { getAccountDetails } from "lib/account";
+import Account, { AccountProps } from "screens/Account/Account";
 
 const AccountPage = (props: AccountProps): JSX.Element => {
-  return (
-    <Account {...props} />
-  );
+  return <Account {...props} />;
 };
 
-export const getServerSideProps = withPrivateServerSideProps(
-  async (ctx) => {
-    try {
-      const accountDetails = await getAccountDetails();
-      return { props: accountDetails };
-    } catch (error) {
-      return { props: {} };
-    }
-  },
-);
+export const getServerSideProps = withPrivateServerSideProps(async (ctx) => {
+  try {
+    const accountDetails = await getAccountDetails();
+    return { props: accountDetails };
+  } catch (error) {
+    return { props: {} };
+  }
+});
 
 export default AccountPage;
 ```
@@ -215,7 +215,7 @@ const LoginPage = ({
 }: {redirectUrl: string}): JSX.Element => {
   const router = useRouter();
 
-  // ...
+  // …
 
   useEffect(() => {
     return firebase.auth().onIdTokenChanged((user) => {

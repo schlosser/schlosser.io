@@ -14,59 +14,260 @@ redirectFrom:
   - /peru/
 ---
 
-import Image from '@components/Image.astro';
-import ImageSet from '@components/ImageSet.astro';
-
-After a somewhat complicated series of flights that involved an unexpected overnight layover in Mexico City (thanks, Interjet) we arrived in Cusco. It was immediately apparent that we were at a much higher altitude, over 11,000 feet. A quick check-in to our hotel and we were off to explore the city.
+import Image from "@components/Image.astro";
+import ImageSet from "@components/ImageSet.astro";
 
 <section class="text">
-<h2 id="cusco">Cusco</h2>
+    <p>I've always known that I wanted to visit Peru. Well really, I've always known that I wanted to visit Machu Picchu; I didn't even necessarily know where Machu Picchu was for most of my life, but I knew I wanted to go there. There's something inspirational and magical about the idea of a lost city hidden in the clouds at the top of a mountain. I've always known I've wanted to go there.</p>
 
-Cusco is a beautiful city, with a mix of Spanish colonial architecture and older Incan stonework. We spent our first day wandering around, acclimatizing to the altitude, and drinking lots of coca tea.
+    <p>What I didn't know is how fantastic Peruvian food is, or how much history there is in Lima, and in Cusco. When our plane took off from New York towards Lima, I only hoped it wouldn't rain on our day at Machu Picchu.</p>
 
-<Image image={import("img/travel/2017-10-14-peru-fall-2017/cusco-1@2x.jpg")} caption="Plaza de Armas, Cusco." withViewer />
-<Image image={import("img/travel/2017-10-14-peru-fall-2017/cusco-2@2x.jpg")} caption="Street scene in Cusco." withViewer />
-<Image image={import("img/travel/2017-10-14-peru-fall-2017/cusco-3@2x.jpg")} caption="Incan stonework visible everywhere." withViewer />
+</section>
 
-The next day we took a tour of the Sacred Valley. Our first stop was Chinchero, a small village known for its weaving traditions.
+<section class="text">
+  <h2>Lima</h2>
+  <p>
+    When we arrived in Lima off a red-eye flight, we had some time to kill.
+    Before heading anywhere, we went to Larcomar shopping mall, situated on a
+    cliff looking out on the Pacific Ocean.
+  </p>
+</section>
 
-<Image image={import("img/travel/2017-10-14-peru-fall-2017/chinchero-1@2x.jpg")} caption="Chinchero market." withViewer />
-<Image image={import("img/travel/2017-10-14-peru-fall-2017/chinchero-2@2x.jpg")} caption="Weaving demonstration." withViewer />
+<section>
+    <Image image={import("img/peru/lima-mall-view.jpg")} withViewer caption="A view of the Pacific ocean from Larcomar." />
 
-Then it was on to Ollantaytambo, a massive Incan fortress and town. The scale of the stonework here was incredible.
+    <ImageSet size="large" captions={['Breakfast at Larcomar.', 'My dish was like lomo saltado with fried eggs on top.']}>
+        <Image image={import("img/peru/lima-mall-breakfast-1.jpg")} withViewer />
+        <Image image={import("img/peru/lima-mall-breakfast-2.jpg")} withViewer />
+    </ImageSet>
 
-<Image image={import("img/travel/2017-10-14-peru-fall-2017/ollantaytambo-1@2x.jpg")} caption="Ollantaytambo." withViewer />
-<Image image={import("img/travel/2017-10-14-peru-fall-2017/ollantaytambo-pano-1@2x.jpg")} caption="Panoramic view from Ollantaytambo." withViewer id="ollantaytambo-pano-1" />
-<Image image={import("img/travel/2017-10-14-peru-fall-2017/ollantaytambo-2@2x.jpg")} caption="Detail of Incan stonework." withViewer />
+    <Image image={import("img/peru/lima-mall-pano.jpg")} withViewer caption="The Larcomar shopping complex on a foggy Lima day." />
 
-From Ollantaytambo, we caught the train to Aguas Calientes, the town at the base of Machu Picchu.
+</section>
+<section class="text" id="miraflores">
+    <p>After breakfast, we met up with our friend Anastasia and explored Miraflores, the neighborhood in Lima where we were staying. Between delicious ceviche, beautiful murals, and bold architecture, I was surprised by how much I enjoyed spending time in Lima.</p>
+</section>
+<section>
+    <div class="image-set">
+        <div class="large">
+            <Image image={import("img/peru/lima-graffiti-anastasia.jpg")} withViewer />
+            <Image image={import("img/peru/lima-graffiti-rainbow.jpg")} withViewer />
+        </div>
+    </div>
+    <h5>Anastasia, Daniela, and me in front of some especially impressive murals in Miraflores.</h5>
+
+    <Image image={import("img/peru/lima-graffiti-ground.jpg")} withViewer caption="I spotted some cool graffiti on the sidewalk." />
+
+    <ImageSet size="small" captions={['Lima strikes this fascinating balance between old and new, playful and serious.']}>
+            <Image image={import("img/peru/lima-alley.jpg")} withViewer />
+            <Image image={import("img/peru/lima-street.jpg")} withViewer />
+            <Image image={import("img/peru/lima-car.jpg")} withViewer />
+    </ImageSet>
+
+    <ImageSet size="large">
+            <Image image={import("img/peru/lima-design-corner.jpg")} withViewer />
+            <Image image={import("img/peru/lima-design-estate.jpg")} withViewer />
+    </ImageSet>
+    <ImageSet size="large" captions={['I absolutely love the architecture in Miraflores. On the same street you can find ornate palaces next to ultra-modern houses.']}>
+        <Image image={import("img/peru/lima-design-parking.jpg")} withViewer />
+        <Image image={import("img/peru/lima-design-white.jpg")} withViewer />
+    </ImageSet>
+
+    <Image image={import("img/peru/lima-design-yellow.jpg")} withViewer caption="One of my favorite facades of a house in Miraflores." />
+
+</section>
+
+<section class="text">
+  <p>
+    The next day, we took a series of buses to the Larco Museum a museum and
+    gardens that hosts pre-Columbian artifacts.
+  </p>
+</section>
+
+<section>
+
+    <Image image={import("img/peru/lima-museum-exterior.jpg")} withViewer caption="After you get inside the museum gates, you're greeted with massive walls of bright flowers." />
+
+    <ImageSet size="large" captions={['Anastasia, Daniela, and me with the flowers inside the Larco Museum\'s walls.']}>
+            <Image image={import("img/peru/lima-museum-flowers-anastasia.jpg")} withViewer />
+            <Image image={import("img/peru/lima-museum-flowers.jpg")} withViewer />
+    </ImageSet>
+
+    <ImageSet size="small" captions={['The artifacts themselves were stunning. These jugs were shaped like human heads.']}>
+            <Image image={import("img/peru/lima-museum-square-head.jpg")} withViewer />
+            <Image image={import("img/peru/lima-museum-square-prayer.jpg")} withViewer />
+            <Image image={import("img/peru/lima-museum-square-skull.jpg")} withViewer />
+    </ImageSet>
+
+    <Image image={import("img/peru/lima-museum-hats.jpg")} withViewer caption="I love these spooky headdresses." />
+
+    <ImageSet size="small" captions={['The museum also had beautiful sculpture, writings, and other artifacts.']}>
+            <Image image={import("img/peru/lima-museum-tall-cat.jpg")} withViewer />
+            <Image image={import("img/peru/lima-museum-tall-nose.jpg")} withViewer />
+            <Image image={import("img/peru/lima-museum-tall-statue.jpg")} withViewer />
+    </ImageSet>
 
 </section>
 <section class="text">
-<h2 id="machu-picchu">Machu Picchu</h2>
+    <p>On our last day before heading out to Cusco, we went to Huaca Pucllana, the ruins of a 3rd century stepped pyramid. Made from clay bricks stood vertically, Huaca Pucllana was an administrative center for the Lima Civilization, which came before the Incas.</p>
+</section>
 
-The next morning, we were up before dawn to catch one of the first buses up to Machu Picchu. It was an incredible experience to see the sun rise over the mountains and illuminate the ancient city.
+<section>
+    <Image image={import("img/peru/lima-huaca-pucllana-buildings.jpg")} withViewer caption="Huaca Pucllana sits in the middle of Miraflores." />
 
-<Image image={import("img/travel/2017-10-14-peru-fall-2017/machu-picchu-1@2x.jpg")} caption="First glimpse of Machu Picchu." withViewer />
-<Image image={import("img/travel/2017-10-14-peru-fall-2017/machu-picchu-2@2x.jpg")} caption="Classic view of Machu Picchu." withViewer />
-<Image image={import("img/travel/2017-10-14-peru-fall-2017/machu-picchu-3@2x.jpg")} caption="Llamas at Machu Picchu!" withViewer />
-<Image image={import("img/travel/2017-10-14-peru-fall-2017/machu-picchu-4@2x.jpg")} caption="Exploring the ruins." withViewer />
-<Image image={import("img/travel/2017-10-14-peru-fall-2017/machu-picchu-5@2x.jpg")} caption="Intricate stonework." withViewer />
+    <ImageSet size="large" captions={['Archaeologists discovered Huaca Pucllana under a mound of soil, and their still excavating it.']}>
+            <Image image={import("img/peru/lima-huaca-pucllana-slope.jpg")} withViewer />
+            <Image image={import("img/peru/lima-huaca-pucllana-mound.jpg")} withViewer />
+    </ImageSet>
 
-We spent several hours exploring the site, and also hiked up to the Sun Gate for a different perspective.
-
-<Image image={import("img/travel/2017-10-14-peru-fall-2017/machu-picchu-sun-gate-1@2x.jpg")} caption="View from the Sun Gate." withViewer />
+    <Image image={import("img/peru/lima-huaca-pucllana-texture.jpg")} withViewer caption="The pattern of the bricks is magnificent." />
 
 </section>
+
 <section class="text">
-<h2 id="lima">Lima</h2>
+    <h2>Cusco</h2>
+    <p>After a few days in Lima, we headed to Cusco. While Lima sits along the coast at sea level, Cusco is up in the Andes mountains at 11,000 feet. At that height, elevation sickness is an unfortunate reality, We spent around three days casually exploring the city, while getting acclimated.</p>
 
-After Machu Picchu, we returned to Cusco for a night before flying to Lima. We only had a short time in Lima, but we made the most of it, exploring the Miraflores district and enjoying some amazing food.
+    <p>The city is absolutely beautiful and the food was delicious, although we had to be careful to not try to pack too much into a single day. Even without any serious hikes or physical activity, we found ourselves sick and tired by the end of the day.</p>
 
-<Image image={import("img/travel/2017-10-14-peru-fall-2017/lima-1@2x.jpg")} caption="Parque del Amor, Miraflores, Lima." withViewer />
-<Image image={import("img/travel/2017-10-14-peru-fall-2017/lima-2@2x.jpg")} caption="Huaca Pucllana, an ancient adobe pyramid in the middle of Miraflores." withViewer />
-<Image image={import("img/travel/2017-10-14-peru-fall-2017/lima-3@2x.jpg")} caption="Delicious Peruvian cuisine." withViewer />
+</section>
 
-Peru was an incredible trip, packed with history, culture, and stunning landscapes.
+<section>
+    <Image image={import("img/peru/cusco-houses.jpg")} withViewer caption="Houses in Cusco are built into the surrounding hills." />
+
+    <ImageSet size="large" captions={['We walked up and down a lot of stairs getting around Cusco.', 'The narrow streets barely had room for pedestrians.']}>
+        <Image image={import("img/peru/cusco-stairs.jpg")} withViewer />
+        <Image image={import("img/peru/cusco-street.jpg")} withViewer />
+    </ImageSet>
+
+    <Image image={import("img/peru/cusco-view.jpg")} withViewer caption="Cusco, from on top of one of the surrounding hills." />
+
+</section>
+
+<section class="text">
+  <p>
+    On our third day in Cusco, we took a cab up and through the hills to a llama
+    zoo.
+  </p>
+</section>
+
+<section>
+    <ImageSet size="small">
+            <Image image={import("img/peru/cusco-llama-1.jpg")} withViewer />
+            <Image image={import("img/peru/cusco-llama-2.jpg")} withViewer />
+            <Image image={import("img/peru/cusco-llama-3.jpg")} withViewer />
+            </ImageSet>
+            <ImageSet size="small">
+            <Image image={import("img/peru/cusco-llama-4.jpg")} withViewer />
+            <Image image={import("img/peru/cusco-llama-5.jpg")} withViewer />
+            <Image image={import("img/peru/cusco-llama-6.jpg")} withViewer />
+    </ImageSet>
+    <ImageSet size="small" captions={['We met a LOT of llamas. So many handsome faces!']}>
+            <Image image={import("img/peru/cusco-llama-7.jpg")} withViewer />
+            <Image image={import("img/peru/cusco-llama-8.jpg")} withViewer />
+            <Image image={import("img/peru/cusco-llama-9.jpg")} withViewer />
+    </ImageSet>
+
+    <Image image={import("img/peru/cusco-llamas-all.jpg")} withViewer caption="We got a few of the Llamas to pose with us for a picture" />
+
+</section>
+
+<section class="text">
+  <h2>Machu Picchu</h2>
+  <p>
+    After spending a few days acclimating in Cusco, we headed to Machu Picchu.
+    We went from Cusco on a guided tour by a company called Llama Path. They
+    were great! We took a bus and then a train from Cusco, and got off the train
+    a few miles before Aguas Calientes, the town at the base of Machu Picchu.
+    From that stop, we started a day-long hike (6 miles, 2,000 feet) along the
+    Inca trail towards Machu Picchu. They also offer a four-day version of this
+    hike, but we only had time for the shorter version.
+  </p>
+</section>
+
+<section>
+    <Image image={import("img/peru/cusco-train.jpg")} withViewer caption="We took a beautiful train from Cusco to the starting point of our hike, 6 miles from Machu Picchu" />
+
+    <Image image={import("img/peru/machu-picchu-hike-valley-2.jpg")} withViewer caption="The entire hike follows the Urubamba River, which flows north east to become the Amazon river." />
+
+    <Image image={import("img/peru/machu-picchu-hike-mountains.jpg")} withViewer caption="For almost the entire hike we were treated with breathtaking views of the surrounding mountains." />
+
+    <ImageSet size="large" captions={['I spotted some beautiful bright pink flowers along our hike, and managed to capture the flowers and the surrounding mountains in a single shot.']}>
+            <Image image={import("img/peru/machu-picchu-hike-flower-2.jpg")} withViewer />
+            <Image image={import("img/peru/machu-picchu-hike-flower.jpg")} withViewer />
+    </ImageSet>
+
+    <Image image={import("img/peru/machu-picchu-hike-terraces.jpg")} withViewer caption="Now you might think that this is a picture of Machu Picchu, but it's actually Winay Wayna, one of the dozens of similar sites in the surrounding mountains." />
+
+
+    <ImageSet size="large">
+            <Image image={import("img/peru/machu-picchu-hike-ruins.jpg")} withViewer />
+            <Image image={import("img/peru/machu-picchu-hike-window.jpg")} withViewer />
+    </ImageSet>
+    <ImageSet size="large" captions={['Winay Wayna was a small agricultural village, located about 3 miles from Machu Picchu.']}>
+            <Image image={import("img/peru/machu-picchu-hike-terraces-faceoff.jpg")} withViewer />
+            <Image image={import("img/peru/machu-picchu-hike-terraces-daniela.jpg")} withViewer />
+    </ImageSet>
+
+    <Image image={import("img/peru/machu-picchu-hike-terraces-2.jpg")} withViewer caption="A view of the river valley from Winay Wayna." />
+
+</section>
+
+<section class="text">
+  <p>
+    Finally, after severals hours and countless steps and slips, we made it to
+    Machu Picchu. By this time, the sun was setting and the site was closed for
+    the day. While we wouldn't enter the city until the next day, we were able
+    to get some amazing photos of it before the sun set but after all the
+    tourists vacated.
+  </p>
+</section>
+
+<section>
+    <Image image={import("img/peru/machu-picchu-classic.jpg")} withViewer caption="The classic Machu Picchu shot, captured at golden hour." />
+
+    <Image image={import("img/peru/machu-picchu-classic-group.jpg")} withViewer caption="All four of us survived the hike! It was well worth it." />
+
+</section>
+
+<section class="text">
+  <p>
+    After getting all the photos we could manage, we headed down the mountain to
+    Aguas Calientes, where we spent the night. While we didn't get a lot of time
+    to explore the town, it was certainly beautiful.
+  </p>
+</section>
+
+<section>
+    <Image image={import("img/peru/aguas-bridge.jpg")} withViewer caption="Aguas Calientes sits in the river valley below Machu Picchu." />
+
+    <ImageSet size="large" captions={['In the morning, the clouds sat calmly between the surrounding mountains.']}>
+            <Image image={import("img/peru/aguas-apartments.jpg")} withViewer />
+            <Image image={import("img/peru/aguas-clouds.jpg")} withViewer />
+    </ImageSet>
+
+    <Image image={import("img/peru/aguas-houses.jpg")} withViewer caption="Many houses here are built directly on top of each other, which brings a characteristic sense of verticality to the town." />
+
+</section>
+
+<section class="text">
+  <p>
+    The next morning, we took a bus up the winding road back to Machu Picchu.
+    This time, we got to go inside, and explore the terraced fields, narrow
+    streets, and ruined buildings.
+  </p>
+</section>
+
+<section>
+    <Image image={import("img/peru/machu-picchu-field.jpg")} withViewer caption="'Machu Picchu' is Quechua for 'Old Mountain.' However, the iconic mountain you see in pictures is actually the 'Young Mountain,' adjacent to the city. " />
+
+    <Image image={import("img/peru/machu-picchu-plant.jpg")} withViewer caption="The Peruvian government decorates and maintains Machu Picchu. This plant is (obviously) not original to the ruin." />
+
+    <ImageSet size="small" captions={['The city is truly fantastic from every angle, it\'s hard not to take a photo every ten seconds.']}>
+            <Image image={import("img/peru/machu-picchu-valley-2.jpg")} withViewer />
+            <Image image={import("img/peru/machu-picchu-valley.jpg")} withViewer />
+    </ImageSet>
+
+    <Image image={import("img/peru/machu-picchu-dan.jpg")} withViewer caption="My friend Lily got this photo of me right before we left Machu Picchu for Cusco, then Lima, then New York." />
 
 </section>

@@ -369,9 +369,9 @@
   });
 </script>
 <style lang="scss" is:global>
-  @import "../styles/_media_queries.scss";
-  @import "../styles/_colors.scss";
-  @import "../styles/_typography.scss";
+  @use "../styles/_media_queries.scss";
+  @use "../styles/_colors.scss";
+  @use "../styles/_typography.scss";
 
   @keyframes fade-in-out {
     0% {
@@ -396,7 +396,7 @@
   }
 
   .hide-all.button {
-    background-color: $light-gray;
+    background-color: colors.$light-gray;
     display: inline-block;
     margin-bottom: 0;
     margin-right: 1.5rem;
@@ -460,7 +460,7 @@
     }
 
     .mjx-mtext .mjx-char {
-      font-family: $sans;
+      font-family: typography.$sans;
       font-size: 1rem;
 
       // scss-lint:disable SelectorFormat
@@ -486,7 +486,7 @@
 
     .scary-math-toggle {
       @extend %h5;
-      background-color: $light-gray;
+      background-color: colors.$light-gray;
       cursor: pointer;
       line-height: 3rem;
       min-width: 10rem;
@@ -538,7 +538,7 @@
 
   form {
     .num-leg-buttons {
-      border-bottom: 2px solid $light-gray;
+      border-bottom: 2px solid colors.$light-gray;
       margin-bottom: 2rem;
 
       .hidden {
@@ -552,7 +552,7 @@
     }
 
     .leg {
-      border-top: 2px solid $light-gray;
+      border-top: 2px solid colors.$light-gray;
       list-style: none;
       padding: 2rem 0 1rem;
 
@@ -561,19 +561,19 @@
       }
 
       &:last-child {
-        border-bottom: 2px solid $light-gray;
+        border-bottom: 2px solid colors.$light-gray;
         margin-bottom: 1rem;
       }
     }
   }
 
-  @media screen and (max-width: $tablet-portrait-max) {
+  @media screen and (max-width: media_queries.$tablet-portrait-max) {
     .scary-math .scary-math-redacted {
       left: 4rem;
     }
   }
 
-  @media screen and (max-width: $phone-landscape-max) {
+  @media screen and (max-width: media_queries.$phone-landscape-max) {
     .hide-all {
       margin-bottom: 1rem;
       margin-right: 0;

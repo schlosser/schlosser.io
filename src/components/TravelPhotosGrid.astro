@@ -1,46 +1,20 @@
 ---
 import { getCollection } from "astro:content";
-import fs from "node:fs/promises";
-import path from "node:path";
 import { makePostSlug } from "src/content.config";
 import ImageSet from "./ImageSet.astro";
 
-async function walkDir(dir: string): Promise<string[]> {
-  let files: string[] = [];
-
-  try {
-    const entries = await fs.readdir(dir, { withFileTypes: true });
-
-    for (const entry of entries) {
-      const fullPath = path.join(dir, entry.name);
-
-      if (entry.isDirectory()) {
-        // Recursively walk subdirectories
-        files = files.concat(await walkDir(fullPath));
-      } else if (
-        entry.isFile() &&
-        entry.name.toLowerCase().match(/.*\.(png|jpg|jpeg|gif|svg|webp)$/)
-      ) {
-        files.push(fullPath);
-      }
-    }
-  } catch (error) {
-    console.error(`Error walking directory ${dir}:`, error);
-  }
-
-  return files;
-}
-
-const allImages = await walkDir("src/content/travel/img");
+// Use import.meta.glob for static builds
+const imageModules = import.meta.glob("/src/content/travel/img/**/*.{png,jpg,jpeg,gif,svg,webp}", { eager: true });
 
 const travelPhotos = await Promise.all(
-  allImages.map(async (image) => {
-    const imagePath = image.replace("src/content/travel/img/", "");
-    var parts = imagePath.split(".")[0].split("/");
-    var pageKey = parts[0];
-    var hash = parts.slice(2).join("-");
+  Object.entries(imageModules).map(async ([imagePath, module]) => {
+    const relativePath = imagePath.replace("/src/content/travel/img/", "");
+    const parts = relativePath.split(".")[0].split("/");
+    const pageKey = parts[0];
+    const hash = parts.slice(2).join("-");
+
     return {
-      image: await import("/src/content/travel/img/" + imagePath),
+      image: module,
       hash,
       pageKey,
     };

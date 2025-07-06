@@ -81,8 +81,8 @@ const makeCaptions = () => {
 ---
 
 <style lang="scss" is:global>
-  @import "../styles/media_queries.scss";
-  @import "../styles/colors.scss";
+  @use "../styles/media_queries.scss";
+  @use "../styles/colors.scss";
 
   figure + .image-set {
     margin-top: -2.5rem;
@@ -141,7 +141,7 @@ const makeCaptions = () => {
     }
 
     .figure-placeholder {
-      background-color: $light-gray;
+      background-color: colors.$light-gray;
 
       a {
         display: block;
@@ -163,7 +163,7 @@ const makeCaptions = () => {
     }
   }
 
-  @media screen and (max-width: $phone-landscape-max) {
+  @media screen and (max-width: media_queries.$phone-landscape-max) {
     .image-set {
       margin-top: 3rem;
 

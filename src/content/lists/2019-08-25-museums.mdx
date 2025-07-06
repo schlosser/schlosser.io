@@ -11,6 +11,9 @@ redirectFrom:
 import museums from "../../data/museums.yml";
 import Image from "@components/Image.astro";
 
+export const imageModules = import.meta.glob("/src/content/**/*.{png,jpg,jpeg,gif,svg,webp}", { eager: true });
+
+
 One of my favorite things to do, both at home and while traveling, is visiting
 museums. As a kid, I hated them, because I always felt pressured to learn and
 understand the story behind everything I saw. In fact, I sort of thought that
@@ -19,40 +22,52 @@ through museums (especially art museums) aimlessly. And I love it! This is a
 running collection of my favorites, roughly ranked:
 
 {
-  museums.map(({ id, img, title, location, website, trip, description }) => (
-    <div class="visual-list large">
-      <div class="image">
-        <Image
-          image={import("/src/content/" + img)}
-          alt={title}
-          className="museum-image force-small"
-        />
-      </div>
-      <div class="copy">
-        <h3 id={id}>{title}</h3>
-        <h4>
-          {location} |{" "}
-          <a
-            target="_blank"
-            href={`https://google.com/maps?q=${title}, ${location}`}
-          >
-            Map
-          </a>
-        </h4>
-        <p>{description}</p>
-        <div class="button-group">
-          {trip && (
-            <a target="_blank" href={`/travel/${trip}#${id}`} class="button">
-              Photos
+  museums
+    .filter(({ img }) => {
+      const imagePath = `/src/content/${img}`;
+      const exists = imageModules[imagePath];
+      if (!exists) console.warn(`Missing image: ${img}`);
+      return exists;
+    })
+    .map(({ id, img, title, location, website, trip, description }) => {
+      const imagePath = `/src/content/${img}`;
+      const imageModule = imageModules[imagePath];
+
+      return (
+        <div class="visual-list large">
+          <div class="image">
+            <Image
+              image={imageModule}
+              alt={title}
+              className="museum-image force-small"
+            />
+          </div>
+        <div class="copy">
+          <h3 id={id}>{title}</h3>
+          <h4>
+            {location} |{" "}
+            <a
+              target="_blank"
+              href={`https://google.com/maps?q=${title}, ${location}`}
+            >
+              Map
             </a>
-          )}
-          {website && (
-            <a target="_blank" href={website} class="button">
-              Website
-            </a>
-          )}
+          </h4>
+          <p>{description}</p>
+          <div class="button-group">
+            {trip && (
+              <a target="_blank" href={`/travel/${trip}#${id}`} class="button">
+                Photos
+              </a>
+            )}
+            {website && (
+              <a target="_blank" href={website} class="button">
+                Website
+              </a>
+            )}
+          </div>
         </div>
       </div>
-    </div>
-  ))
+    );
+  })
 }

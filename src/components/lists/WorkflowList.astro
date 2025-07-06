@@ -12,27 +12,42 @@ interface Props {
 }
 
 const { workflows } = Astro.props;
+
+// Preload all workflow images
+const imageModules = import.meta.glob("/src/content/lists/img/**/*.{png,jpg,jpeg,gif,svg,webp}", { eager: true });
 ---
 
 {
-  workflows.map(({ id, title, img, link, description }) => (
-    <div class="visual-list">
-      <div class="image">
-        <Image
-          image={import("/src/content/lists/img/" + img)}
-          alt={title}
-          className="force-small"
-        />
-      </div>
-      <div class="copy">
-        <h3 id={id}>{title}</h3>
-        <p>{description}</p>
-        <div class="button-group">
-          <a href={link} class="button">
-            Download
-          </a>
+  workflows
+    .filter(({ img }) => {
+      const imagePath = `/src/content/lists/img/${img}`;
+      const exists = imageModules[imagePath];
+      if (!exists) console.warn(`Missing workflow image: ${img}`);
+      return exists;
+    })
+    .map(({ id, title, img, link, description }) => {
+      const imagePath = `/src/content/lists/img/${img}`;
+      const imageModule = imageModules[imagePath];
+
+      return (
+        <div class="visual-list">
+          <div class="image">
+            <Image
+              image={imageModule as ImageMetadata}
+              alt={title}
+              className="force-small"
+            />
+          </div>
+          <div class="copy">
+            <h3 id={id}>{title}</h3>
+            <p>{description}</p>
+            <div class="button-group">
+              <a href={link} class="button">
+                Download
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  ))
+      );
+    })
 }

@@ -4,6 +4,7 @@ date: 2014-03-01
 featuredImage: img/i-hate-cross-browser-compatibility.png
 heroStyle: large
 ---
+
 import Image from "@components/Image.astro";
 
 There comes a time where I get just bored enough that I'm restless and not so bored that I'm lazy. During these times, I code myself a website, usually from scratch. The last time was around finals season of last year, and it resulted in the first iteration of my personal website (which despite my best intentions was bloated and ugly). Anyway, it's happened again, and so now I have a new website. Hope you enjoy it!
@@ -37,15 +38,15 @@ After some creative Googling, I found and adapted a function that calculates tex
 
 ```js
 function calculateWordWidth(text, classes) {
-    classes = classes || [];
-    classes.push('textDimensionCalculation');
-    var div = document.createElement('div');
-    div.setAttribute('class', classes.join(' '));
-    div.innerHTML = text;
-    document.body.appendChild(div);
-    var width = jQuery(div).outerWidth(true);
-    div.parentNode.removeChild(div);
-    return width;
+  classes = classes || [];
+  classes.push("textDimensionCalculation");
+  var div = document.createElement("div");
+  div.setAttribute("class", classes.join(" "));
+  div.innerHTML = text;
+  document.body.appendChild(div);
+  var width = jQuery(div).outerWidth(true);
+  div.parentNode.removeChild(div);
+  return width;
 }
 ```
 
@@ -53,12 +54,12 @@ Fairly straightforward, but definitely non-obvious. The element is created, give
 
 ```css
 .textDimensionCalculation {
-    position: absolute;
-    visibility: hidden;
-    height: auto;
-    width: auto;
-    display: inline-block;
-    white-space: nowrap;
+  position: absolute;
+  visibility: hidden;
+  height: auto;
+  width: auto;
+  display: inline-block;
+  white-space: nowrap;
 }
 ```
 
@@ -68,10 +69,10 @@ With the width of the text determined, the next step would be to implement the w
 
 ```html
 <div class="sentence">
-    I <span class="verb">verb</span>
-    <span class="obj">object</span>
-    <span class="preposition">preposition</span>
-    <span class="noun">noun</span>.
+  I <span class="verb">verb</span>
+  <span class="obj">object</span>
+  <span class="preposition">preposition</span>
+  <span class="noun">noun</span>.
 </div>
 ```
 
@@ -84,7 +85,7 @@ Consider animating from the word "preposition" to the word "about", however. Whe
         <span class="verb">verb</span>
         <span class="verb">verb</span>
     </div>
-    ...
+    &hellip;
 ```
 
 ```css
@@ -123,23 +124,28 @@ For alignment reasons, and because `<div>`s around all the words removes whitesp
 
 ```html
 <div class="sentence">
-    <div class="word">
-        <span>I</span>
-    </div><div class="word">
-        <span>&nbsp;</span>
-    </div><div class="word verb">
-        <span class="visible">verb</span>
-        <span class="invisible">verb</span>
-    </div><div class="word">
-        <span>&nbsp;</span>
-    </div><div class="word obj">
-        <span>object class="visible"</span>
-        <span class="invisible">object</span>
-    </div><div>
-    ...
+  <div class="word">
+    <span>I</span>
+  </div>
+  <div class="word">
+    <span>&nbsp;</span>
+  </div>
+  <div class="word verb">
+    <span class="visible">verb</span>
+    <span class="invisible">verb</span>
+  </div>
+  <div class="word">
+    <span>&nbsp;</span>
+  </div>
+  <div class="word obj">
+    <span>object class="visible"</span>
+    <span class="invisible">object</span>
+  </div>
+  <div>…</div>
+</div>
 ```
 
-I had never heard of this being a problem before, but I actually ran into whitespace issues between the `<div>` elements that are `display: inline-block;`, which was solved most simply [by removing any space after the closing tag of the `<div>`](http://css-tricks.com/fighting-the-space-between-inline-block-elements/) (`</div><div class=...`). It was a massive pain across different browsers. Some browsers would display the sentence just as I expected, others would cut off part of the words, others would have an unnatural amount of spacing, etc. The whitespace logic of HTML still deceives me, and because it's so loosely defined, there's no way to understand whether or not you're being compliant.
+I had never heard of this being a problem before, but I actually ran into whitespace issues between the `<div>` elements that are `display: inline-block;`, which was solved most simply [by removing any space after the closing tag of the `<div>`](http://css-tricks.com/fighting-the-space-between-inline-block-elements/) (`</div><div class=…`). It was a massive pain across different browsers. Some browsers would display the sentence just as I expected, others would cut off part of the words, others would have an unnatural amount of spacing, etc. The whitespace logic of HTML still deceives me, and because it's so loosely defined, there's no way to understand whether or not you're being compliant.
 
 <Image image={import("img/i-hate-cross-browser-compatibility-scroll.gif")} />
 
@@ -153,7 +159,7 @@ In order to achieve this, I calculate the percentage left in the animation as th
 
 ```js
 var distanceToTop = $title.offset().top - $(window).scrollTop();
-...
+…
 var percentageLeft = Math.max(distanceToTop, 0)/$title.offset().top;
 ```
 
@@ -164,17 +170,23 @@ Now what is being animated? I separate all the parts of my name into fragments, 
 ```html
 <div class="name-fragment">
   <span>D</span>
-  </div><div class="name-fragment fragment-first">
+</div>
+<div class="name-fragment fragment-first">
   <span>an</span>
-  </div><div class="name-fragment fragment-nbsp">
+</div>
+<div class="name-fragment fragment-nbsp">
   <span>&nbsp;</span>
-  </div><div class="name-fragment">
+</div>
+<div class="name-fragment">
   <span>R</span>
-  </div><div class="name-fragment fragment-nbsp">
+</div>
+<div class="name-fragment fragment-nbsp">
   <span>&nbsp;</span>
-  </div><div class="name-fragment">
+</div>
+<div class="name-fragment">
   <span>S</span>
-  </div><div class="name-fragment fragment-last">
+</div>
+<div class="name-fragment fragment-last">
   <span>chlosser</span>
 </div>
 ```
@@ -189,7 +201,7 @@ I knew I wanted my name to stay at the top of the page on mobile, but that broug
 
 ```js
 $(window).scroll(updateTitle);
-window.addEventListener('resize', updateTitle);
+window.addEventListener("resize", updateTitle);
 ```
 
 Then, in `updateTitle()` I either update the animation if the screen is desktop width, or set the title to be at the top of the page on tablets and mobile.
@@ -198,7 +210,7 @@ Then, in `updateTitle()` I either update the animation if the screen is desktop 
 function updateTitle() {
     if ($(window).width() > 1024) {
         // Animate the title's width appropriately
-        ...
+        …
     }
     else {
         doMobile();
@@ -223,7 +235,7 @@ Seems right, but I had forgotten something: orientation changes on mobile. Becau
 The fix is easy, but I'm lucky I caught this, it's not often that I rotate my device in the middle of browsing a web page.
 
 ```js
-window.addEventListener('orientationchange', updateTitle);
+window.addEventListener("orientationchange", updateTitle);
 ```
 
 I didn't know about this until it started causing me trouble, but apparently, scrolling with a scroll wheel on a mouse is actually different from the browser's perspective than scrolling on a trackpad. As a result, when I used a traditional mouse to scroll on my site, sometimes the `updateTitle()` function would not be called, or would be called unpredictably.
@@ -231,7 +243,7 @@ I didn't know about this until it started causing me trouble, but apparently, sc
 The fix should have been easy: bind `updateTitle()` to the wheel event in JavaScript and call it a day.
 
 ```js
-window.addEventListener('wheel', updateTitle);
+window.addEventListener("wheel", updateTitle);
 ```
 
 I thought this would be good enough, I was wrong. It turns out that both thescroll and wheel events will get called when you scroll down the page; it doesn't matter what actual device is being used to do the scrolling. As result, sometimes I would scroll down the page just fast enough and my code would `callupdateTitle()` twice, and the result would be a miscalculation of where the title belonged on the page. This is because sometimes an event would be triggered when the user was near the top, but only resolve when they had scrolled down a ways, causing the title to float somewhere in the middle of a blog post — very annoying. To solve this problem, I had to make clever use of [`setTimeout()`](https://developer.mozilla.org/en-US/docs/Web/API/Window.setTimeout) and [`clearTimeout()`](https://developer.mozilla.org/en-US/docs/Web/API/window.clearTimeout).
@@ -244,7 +256,7 @@ var id = setTimeout(myFunction, 1000);
 clearTimeout(id);
 
 function myFunction() {
-    alert("This never happens.");
+  alert("This never happens.");
 }
 ```
 
@@ -253,42 +265,39 @@ Because I only want one call to `updateTitle()` when the user scrolls, but I wan
 ```js
 /* Before */
 $(window).scroll(updateTitle);
-window.addEventListener('wheel', updateTitle);
-window.addEventListener('orientationchange', updateTitle);
-window.addEventListener('resize', updateTitle);
+window.addEventListener("wheel", updateTitle);
+window.addEventListener("orientationchange", updateTitle);
+window.addEventListener("resize", updateTitle);
 
 /* After */
-var scrollTimerId,
-    wheelTimerId,
-    orientationchangeTimerId,
-    resizeTimerId;
+var scrollTimerId, wheelTimerId, orientationchangeTimerId, resizeTimerId;
 
-$(window).scroll(function() {
-    clearTimeout(wheelTimerId);
-    clearTimeout(orientationchangeTimerId);
-    clearTimeout(resizeTimerId);
-    scrollTimerId = setTimeout(updateTitle, 1);
+$(window).scroll(function () {
+  clearTimeout(wheelTimerId);
+  clearTimeout(orientationchangeTimerId);
+  clearTimeout(resizeTimerId);
+  scrollTimerId = setTimeout(updateTitle, 1);
 });
 
-window.addEventListener('wheel', function() {
-    clearTimeout(scrollTimerId);
-    clearTimeout(orientationchangeTimerId);
-    clearTimeout(resizeTimerId);
-    wheelTimerId= setTimeout(updateTitle, 1);
+window.addEventListener("wheel", function () {
+  clearTimeout(scrollTimerId);
+  clearTimeout(orientationchangeTimerId);
+  clearTimeout(resizeTimerId);
+  wheelTimerId = setTimeout(updateTitle, 1);
 });
 
-window.addEventListener('orientationchange', function() {
-    clearTimeout(scrollTimerId);
-    clearTimeout(wheelTimerId);
-    clearTimeout(resizeTimerId);
-    orientationchangeTimerId = setTimeout(updateTitle, 1);
+window.addEventListener("orientationchange", function () {
+  clearTimeout(scrollTimerId);
+  clearTimeout(wheelTimerId);
+  clearTimeout(resizeTimerId);
+  orientationchangeTimerId = setTimeout(updateTitle, 1);
 });
 
-window.addEventListener('resize', function() {
-    clearTimeout(scrollTimerId);
-    clearTimeout(wheelTimerId);
-    clearTimeout(orientationchangeTimerId);
-    resizeTimerId = setTimeout(updateTitle, 1);
+window.addEventListener("resize", function () {
+  clearTimeout(scrollTimerId);
+  clearTimeout(wheelTimerId);
+  clearTimeout(orientationchangeTimerId);
+  resizeTimerId = setTimeout(updateTitle, 1);
 });
 ```
 
@@ -299,7 +308,7 @@ Even simple variable declarations started causing me trouble. Did you notice in 
 ```js
 var titleOriginalWidth = $('body').width();
 var nbspWidth = calculateWordWidth("&nbsp;", ["site-title"]);
-...
+…
 ```
 
 But this actually caused some problems.
@@ -315,7 +324,7 @@ var nbspWidth = function() {
 titleOriginalWidth = function() {
     return $("body").width();
 },
-...
+…
 ```
 
 ## You Won't Believe This Bug
@@ -333,15 +342,15 @@ So what really changes when you reload a web page? Well, many smart browsers (in
 So how do I fix this bug? Closer inspection of the [`Document.ready()`](http://api.jquery.com/ready/) function. Almost every JavaScript document wraps all functions and commands in a function that ensures that the code inside is only run once the page has loaded:
 
 ```js
-$( document ).ready(function() {
-    // Functions and commands go here
+$(document).ready(function () {
+  // Functions and commands go here
 });
 ```
 
 The problem with this is that this doesn't wait for CSS and images to load, and so my font was not yet loaded. I discovered that there was another function similar to `.ready()` that would wait for all assets to be loaded, and I replaced `.ready()` with that:
 
 ```js
-$(window).bind("load", function() {
+$(window).bind("load", function () {
   // CSS and images will be loaded.
 });
 ```

@@ -21,13 +21,33 @@ import Image from "@components/Image.astro";
 import ImageSet from "@components/ImageSet.astro";
 
 <section class="text">
-  <p>After more than a year spent in various stages of quarantine, the summer of 2021 promised to be a return to normal. I got my second dose of the vaccine in March, and so when I was invited to a spend a week in Sitka, I thought "Why not extend the trip and really see Alaska?" With friends onboard with the plan (Lily, Yih-Jen, and Hugh), I set off for what was supposed to be a three week trip to the 49th state.</p>
-  <p>Due to some emergencies at work, my trip was shortened, and I never made it to Sitka, a serious regret. If I had made it, though, the trip would have been near perfect. We arrived at the very end of the shoulder season in fall, with snow melting and tourists largely scarce. We got to explore Anchorage, Kenai, Denali, and Juneau in brisk but not cold weather, perfect for a New Englander fleeing a sticky summer in New York.</p>
+  <p>
+    After more than a year spent in various stages of quarantine, the summer of
+    2021 promised to be a return to normal. I got my second dose of the vaccine
+    in March, and so when I was invited to a spend a week in Sitka, I thought
+    "Why not extend the trip and really see Alaska?" With friends onboard with
+    the plan (Lily, Yih-Jen, and Hugh), I set off for what was supposed to be a
+    three week trip to the 49th state.
+  </p>
+  <p>
+    Due to some emergencies at work, my trip was shortened, and I never made it
+    to Sitka, a serious regret. If I had made it, though, the trip would have
+    been near perfect. We arrived at the very end of the shoulder season in
+    fall, with snow melting and tourists largely scarce. We got to explore
+    Anchorage, Kenai, Denali, and Juneau in brisk but not cold weather, perfect
+    for a New Englander fleeing a sticky summer in New York.
+  </p>
 </section>
 
 <section class="text" id="seward">
   <h2>Seward</h2>
-  <p>We flew into Anchorage, where we rented a car and set of for our first stop: Seward, a town on the Kenai peninsula. We took our time driving down Alaska Route 1, stopping for photos along the way. On a whim, we stopped over in Whittier, a quaint town with a world-class gimmick: the longest (2.5 miles) highway tunnel in North America!</p>
+  <p>
+    We flew into Anchorage, where we rented a car and set of for our first stop:
+    Seward, a town on the Kenai peninsula. We took our time driving down Alaska
+    Route 1, stopping for photos along the way. On a whim, we stopped over in
+    Whittier, a quaint town with a world-class gimmick: the longest (2.5 miles)
+    highway tunnel in North America!
+  </p>
 </section>
 
 <section>
@@ -36,51 +56,108 @@ import ImageSet from "@components/ImageSet.astro";
     <Image image={import("img/alaska/anchorage/route-1-train.jpg")} withViewer />
   </ImageSet>
 
-  <Image image={import("img/alaska/seward/whittier-tunnel.jpg")} withViewer caption="By land, Whittier is only accessible by a 2.5 mile single-lane tunnel. Cars take turns driving in each direction every 30 minutes."/>
+<Image
+  image={import("img/alaska/seward/whittier-tunnel.jpg")}
+  withViewer
+  caption="By land, Whittier is only accessible by a 2.5 mile single-lane tunnel. Cars take turns driving in each direction every 30 minutes."
+/>
 
-  <Image image={import("img/alaska/seward/whittier-portage-lake.jpg")} withViewer caption="We hiked up to Portage Lake, a rapid ascent through a snow-capped mountain pass."/>
+<Image
+  image={import("img/alaska/seward/whittier-portage-lake.jpg")}
+  withViewer
+  caption="We hiked up to Portage Lake, a rapid ascent through a snow-capped mountain pass."
+/>
 
   <Image image={import("img/alaska/seward/cooper-landing-porch.jpg")} withViewer caption="When we reached our Airbnb (technically in Cooper Landing), we were greeted with a bright-blue river."/>
 </section>
 
 <section class="text">
-  <p>We woke up early the next day to get out on the water for an all day tour of Resurrection Bay and Kenai Fjords National Park. We booked with <a href="https://sewardoceanexcursions.com/" target="blank" rel="noopener noreferrer">Seward Ocean Excursions</a> and had an amazing time. We were four of just six guests on this small fishing boat that sped through the bay and out to Aialik Bay and the Chiswell Islands.</p>
+  <p>
+    We woke up early the next day to get out on the water for an all day tour of
+    Resurrection Bay and Kenai Fjords National Park. We booked with [Seward
+    Ocean Excursions](https://sewardoceanexcursions.com/) and had an amazing
+    time. We were four of just six guests on this small fishing boat that sped
+    through the bay and out to Aialik Bay and the Chiswell Islands.
+  </p>
 </section>
 
 <section>
   <Image image={import("img/alaska/seward/seward-harbour.jpg")} withViewer caption="Seward harbor from the back of our boat."/>
 
-  <Image image={import("img/alaska/seward/seward-gap.jpg")} withViewer caption="The rock formations at the end of Resurrection Bay were stunning."/>
+<Image
+  image={import("img/alaska/seward/seward-gap.jpg")}
+  withViewer
+  caption="The rock formations at the end of Resurrection Bay were stunning."
+/>
 
-  <ImageSet size="large" captions={["The islands and cliffs in Kenai Fjords National Park had dramatic height and shape, formed from glacial activity."]}>
-    <Image image={import("img/alaska/seward/seward-cliffs-wall.jpg")} withViewer />
-    <Image image={import("img/alaska/seward/seward-coast-spikes-far.jpg")} withViewer />
-  </ImageSet>
+<ImageSet
+  size="large"
+  captions={[
+    "The islands and cliffs in Kenai Fjords National Park had dramatic height and shape, formed from glacial activity.",
+  ]}
+>
+  <Image
+    image={import("img/alaska/seward/seward-cliffs-wall.jpg")}
+    withViewer
+  />
+  <Image
+    image={import("img/alaska/seward/seward-coast-spikes-far.jpg")}
+    withViewer
+  />
+  <Image image={import("img/alaska/seward/seward-coast-2.jpg")} withViewer />
+  <Image
+    image={import("img/alaska/seward/seward-coast-spikes.jpg")}
+    withViewer
+  />
+</ImageSet>
 
-  <ImageSet size="large" captions={["The jagged coastline of Kenai Fjords National Park."]}>
-    <Image image={import("img/alaska/seward/seward-coast-2.jpg")} withViewer />
-    <Image image={import("img/alaska/seward/seward-coast-spikes.jpg")} withViewer />
-  </ImageSet>
+<Image
+  image={import("img/alaska/seward/seward-coast.jpg")}
+  withViewer
+  caption="I love the way the light plays on the rock face."
+/>
 
-  <Image image={import("img/alaska/seward/seward-coast.jpg")} withViewer caption="I love the way the light plays on the rock face."/>
+<ImageSet
+  size="large"
+  captions={[
+    "Kenai Glacier was quite impressive, but we had to keep our distance to avoid any falling ice.",
+  ]}
+>
+  <Image
+    image={import("img/alaska/seward/kenai-glacier-front.jpg")}
+    withViewer
+  />
+  <Image
+    image={import("img/alaska/seward/kenai-glacier-side.jpg")}
+    withViewer
+  />
+</ImageSet>
 
-  <ImageSet size="large" captions={["Kenai Glacier was quite impressive, but we had to keep our distance to avoid any falling ice."]}>
-    <Image image={import("img/alaska/seward/kenai-glacier-front.jpg")} withViewer />
-    <Image image={import("img/alaska/seward/kenai-glacier-side.jpg")} withViewer />
-  </ImageSet>
+<ImageSet
+  size="large"
+  captions={[
+    "A highlight of our boat trip was the wildlife. We saw eagles, otters, and even a bear!",
+  ]}
+>
+  <Image image={import("img/alaska/seward/seward-porpoises.jpg")} withViewer />
+  <Image image={import("img/alaska/seward/seward-otters.jpg")} withViewer />
+</ImageSet>
 
-  <ImageSet size="large" captions={["A highlight of our boat trip was the wildlife. We saw eagles, otters, and even a bear!"]}>
-    <Image image={import("img/alaska/seward/seward-porpoises.jpg")} withViewer />
-    <Image image={import("img/alaska/seward/seward-otters.jpg")} withViewer />
-  </ImageSet>
-
-  <Image image={import("img/alaska/seward/porpoises.gif")} withViewer caption="Best of all, we were lucky enough to find a group of porpoises that were thrilled to swim along with our boat, jumping out of the water right in front of us."/>
+<Image
+  image={import("img/alaska/seward/porpoises.gif")}
+  withViewer
+  caption="Best of all, we were lucky enough to find a group of porpoises that were thrilled to swim along with our boat, jumping out of the water right in front of us."
+/>
 
   <Image image={import("img/alaska/seward/seward-wake.jpg")} withViewer caption="We were thrilled with how much we saw in such a short trip."/>
 </section>
 
 <section class="text">
-  <p>After arriving on land and warming up with some hot cocoa, we headed to Lowell Point, at the edge of town, for a short, flat hike through the forest.</p>
+  <p>
+    After arriving on land and warming up with some hot cocoa, we headed to
+    Lowell Point, at the edge of town, for a short, flat hike through the
+    forest.
+  </p>
 </section>
 
 <section>
@@ -89,19 +166,33 @@ import ImageSet from "@components/ImageSet.astro";
     <Image image={import("img/alaska/seward/seward-hike-woods.jpg")} withViewer />
   </ImageSet>
 
-  <Image image={import("img/alaska/seward/seward-hike-path.jpg")} withViewer caption="The greenery was surprisingly lush!"/>
+<Image
+  image={import("img/alaska/seward/seward-hike-path.jpg")}
+  withViewer
+  caption="The greenery was surprisingly lush!"
+/>
 
-  <ImageSet size="large" captions={["After a mile or two of hiking, the path opens up to a large riverbed. We walked down the riverbed to the beach."]}>
-    <Image image={import("img/alaska/seward/seward-hike-field.jpg")} withViewer />
-    <Image image={import("img/alaska/seward/seward-hike-river.jpg")} withViewer />
-  </ImageSet>
+<ImageSet
+  size="large"
+  captions={[
+    "After a mile or two of hiking, the path opens up to a large riverbed. We walked down the riverbed to the beach.",
+  ]}
+>
+  <Image image={import("img/alaska/seward/seward-hike-field.jpg")} withViewer />
+  <Image image={import("img/alaska/seward/seward-hike-river.jpg")} withViewer />
+</ImageSet>
 
   <Image image={import("img/alaska/seward/seward-hike-treeline.jpg")} withViewer caption="A view of a previously burned patch of forest from the beach."/>
 </section>
 
 <section class="text" id="cooper-landing">
   <h2>Cooper Landing</h2>
-  <p>We were staying in Cooper Landing, around 45 minutes driving from Seward. After a full day on the boat, we spend the next two hiking in Cooper Landing. We also thoroughly enjoyed a river raft tour from <a href="http://kenairiverdog.com/" target="_blank" ref="noopener noreferrer">Kenai Riverdog</a>.</p>
+  <p>
+    We were staying in Cooper Landing, around 45 minutes driving from Seward.
+    After a full day on the boat, we spend the next two hiking in Cooper
+    Landing. We also thoroughly enjoyed a river raft tour from [Kenai
+    Riverdog](http://kenairiverdog.com/).
+  </p>
 </section>
 
 <section>
@@ -114,18 +205,35 @@ import ImageSet from "@components/ImageSet.astro";
 </section>
 
 <section class="text">
-  <p>Later that day, Hugh had a hike picked out that sounded amazing. We packed some water and jackets for Slaughter Ridge Trail, a 5-mile, 2600-ft elevation gain. When we set off, Hugh pulled me aside and clued me in to his real plan. All I had to do was have my camera ready...</p>
+  <p>
+    Later that day, Hugh had a hike picked out that sounded amazing. We packed
+    some water and jackets for Slaughter Ridge Trail, a 5-mile, 2600-ft
+    elevation gain. When we set off, Hugh pulled me aside and clued me in to his
+    real plan. All I had to do was have my camera ready…
+  </p>
 </section>
 
 <section>
   <Image image={import("img/alaska/seward/slaughter-group.jpg")} withViewer caption="Pretty much every time you turn around, there was this beautiful view of the river and mountains."/>
 
-  <ImageSet size="large" captions={["I took Yih-Jen and Hugh's photo several times along the trail. But what Yih-Jen didn't know was..."]}>
-    <Image image={import("img/alaska/seward/slaughter-yj-hugh.jpg")} withViewer />
-    <Image image={import("img/alaska/seward/slaughter-yj-hugh-top.jpg")} withViewer />
-  </ImageSet>
+<ImageSet
+  size="large"
+  captions={[
+    "I took Yih-Jen and Hugh's photo several times along the trail. But what Yih-Jen didn't know was…",
+  ]}
+>
+  <Image image={import("img/alaska/seward/slaughter-yj-hugh.jpg")} withViewer />
+  <Image
+    image={import("img/alaska/seward/slaughter-yj-hugh-top.jpg")}
+    withViewer
+  />
+</ImageSet>
 
-  <Image image={import("img/alaska/seward/proposal.jpg")} withViewer caption="Hugh would propose at the top!"/>
+<Image
+  image={import("img/alaska/seward/proposal.jpg")}
+  withViewer
+  caption="Hugh would propose at the top!"
+/>
 
   <ImageSet size="large" captions={["He said yes! We couldn't be more excited for the two of them!"]}>
     <Image image={import("img/alaska/seward/proposal-yj-lily-dan.jpg")} withViewer />
@@ -135,41 +243,89 @@ import ImageSet from "@components/ImageSet.astro";
 
 <section class="text" id="anchorage">
   <h2>Anchorage</h2>
-  <p>When we returned to Anchorage, the mood was celebratory. We enjoyed pastries at <a href="https://g.page/fire-island-downtown" target="_blank" rel="noopener noreferrer">Fire Island Rustic Bakeshop</a>, and had dinner at <a href="https://g.page/Kincaidgrill?share" target="_blank" rel="noopener noreferrer">Kincaid Grill</a>. We were also able to visit two top museums on our list: the <a href="https://www.alaskanative.net/" target="_blank" rel="noopener noreferrer">Alaska Native Heritage Center</a> and the <a href="https://www.anchoragemuseum.org/" target="_blank" rel="noopener noreferrer">Anchorage Museum</a>.</p>
+  <p>
+    When we returned to Anchorage, the mood was celebratory. We enjoyed pastries
+    at [Fire Island Rustic Bakeshop](https://g.page/fire-island-downtown), and
+    had dinner at [Kincaid Grill](https://g.page/Kincaidgrill?share). We were
+    also able to visit two top museums on our list: the [Alaska Native Heritage
+    Center](https://www.alaskanative.net/) and the [Anchorage
+    Museum](https://www.anchoragemuseum.org/).
+  </p>
 </section>
 
 <section>
   <Image image={import("img/alaska/anchorage/alaska-native-heritage-center.jpg")} withViewer caption="The Alaska Native heritage Center had impressive demonstrations of Alaska native culture and artifacts."/>
 
-  <Image image={import("img/alaska/anchorage/anchorage-art-museum-bears.jpg")} withViewer caption="The Anchorage Museum blended art and history."/>
+<Image
+  image={import("img/alaska/anchorage/anchorage-art-museum-bears.jpg")}
+  withViewer
+  caption="The Anchorage Museum blended art and history."
+/>
 
   <Image image={import("img/alaska/anchorage/anchorage-art-museum-room.jpg")} withViewer caption="The Alaskan contemporary art was some of my favorite."/>
 </section>
 
 <section class="text">
-  <p>As we left Anchorage, we set out for one of the most highly anticipated parts of our trip: visiting a dogsled camp on a glacier, only accessible by helicopter. Only an hour and a half from Anchorage, we set out for basecamp at Knik River Lodge.</p>
+  <p>
+    As we left Anchorage, we set out for one of the most highly anticipated
+    parts of our trip: visiting a dogsled camp on a glacier, only accessible by
+    helicopter. Only an hour and a half from Anchorage, we set out for basecamp
+    at Knik River Lodge.
+  </p>
 </section>
 
 <section>
   <Image image={import("img/alaska/glacier-view/glacier-view-bridge.jpg")} withViewer caption="We stopped at the side of the road to walk an abandoned bridge."/>
 
-  <ImageSet size="large" captions={["The four of us packed in to the largest helicopter they had, a six-seater, and took off for the glacier."]}>
-    <Image image={import("img/alaska/anchorage/helicopter-grounded.jpg")} withViewer />
-    <Image image={import("img/alaska/anchorage/helicopter-pilot.jpg")} withViewer />
-  </ImageSet>
+<ImageSet
+  size="large"
+  captions={[
+    "The four of us packed in to the largest helicopter they had, a six-seater, and took off for the glacier.",
+  ]}
+>
+  <Image
+    image={import("img/alaska/anchorage/helicopter-grounded.jpg")}
+    withViewer
+  />
+  <Image
+    image={import("img/alaska/anchorage/helicopter-pilot.jpg")}
+    withViewer
+  />
+</ImageSet>
 
-  <Image image={import("img/alaska/anchorage/helicopter-glacier-from-bottom.jpg")} withViewer caption="The glacier has a river of soil sediment running through center of it."/>
+<Image
+  image={import("img/alaska/anchorage/helicopter-glacier-from-bottom.jpg")}
+  withViewer
+  caption="The glacier has a river of soil sediment running through center of it."
+/>
 
-  <ImageSet size="large" captions={["We flew over the ice field, spotting little pools of clear glacial melt."]}>
-    <Image image={import("img/alaska/anchorage/helicopter-glacier.jpg")} withViewer />
-    <Image image={import("img/alaska/anchorage/helicopter-ice-field.jpg")} withViewer />
-  </ImageSet>
+<ImageSet
+  size="large"
+  captions={[
+    "We flew over the ice field, spotting little pools of clear glacial melt.",
+  ]}
+>
+  <Image
+    image={import("img/alaska/anchorage/helicopter-glacier.jpg")}
+    withViewer
+  />
+  <Image
+    image={import("img/alaska/anchorage/helicopter-ice-field.jpg")}
+    withViewer
+  />
+</ImageSet>
 
   <Image image={import("img/alaska/anchorage/helicopter-glacier-side.jpg")} withViewer caption="We were headed higher up into the mountains, and started to ascend after passing over the glacier."/>
 </section>
 
 <section class="text">
-  <p>By the time we got past the main glacier, the wind started really picking up. We heard on the radio that the smaller helicopter behind us had to turn around because of wind speed. We could feel the gusts pushing us around, but our pilot pushed through expertly, to a safe landing on glacier nestled between two mountains.</p>
+  <p>
+    By the time we got past the main glacier, the wind started really picking
+    up. We heard on the radio that the smaller helicopter behind us had to turn
+    around because of wind speed. We could feel the gusts pushing us around, but
+    our pilot pushed through expertly, to a safe landing on glacier nestled
+    between two mountains.
+  </p>
 </section>
 
 <section>
@@ -178,14 +334,27 @@ import ImageSet from "@components/ImageSet.astro";
     <Image image={import("img/alaska/anchorage/helicopter-landed.jpg")} withViewer />
   </ImageSet>
 
-  <Image image={import("img/alaska/anchorage/dogs-houses.jpg")} withViewer caption="Each dog has their own little house. Most of them were hanging out lying in the snow because it was hot (only 20°F)."/>
+<Image
+  image={import("img/alaska/anchorage/dogs-houses.jpg")}
+  withViewer
+  caption="Each dog has their own little house. Most of them were hanging out lying in the snow because it was hot (only 20°F)."
+/>
 
-  <ImageSet size="large" captions={["After some mandatory pictures, we were off! The dogs were <em>very</em> excited to run."]}>
-    <Image image={import("img/alaska/anchorage/dogs-group.jpg")} withViewer />
-    <Image image={import("img/alaska/anchorage/dogs-sledding.jpg")} withViewer />
-  </ImageSet>
+<ImageSet
+  size="large"
+  captions={[
+    "After some mandatory pictures, we were off! The dogs were <em>very</em> excited to run.",
+  ]}
+>
+  <Image image={import("img/alaska/anchorage/dogs-group.jpg")} withViewer />
+  <Image image={import("img/alaska/anchorage/dogs-sledding.jpg")} withViewer />
+</ImageSet>
 
-  <Image image={import("img/alaska/anchorage/dogs-running.jpg")} withViewer caption="Most dogs were paired up with a running partner, except the rowdy ones that were by themselves."/>
+<Image
+  image={import("img/alaska/anchorage/dogs-running.jpg")}
+  withViewer
+  caption="Most dogs were paired up with a running partner, except the rowdy ones that were by themselves."
+/>
 
   <ImageSet size="large" captions={["<strong>Left:</strong> A good boy. <strong>Right:</strong> Our departure."]}>
     <Image image={import("img/alaska/anchorage/dogs-lying-down.jpeg")} withViewer />
@@ -195,34 +364,67 @@ import ImageSet from "@components/ImageSet.astro";
 
 <section class="text" id="denali">
   <h2>Denali</h2>
-  <p>From Knik, we continued north to Denali National Park. Denali had some of the worst weather of our trip, with snow blustering in, especially as we got deeper into the park. We had waited online for a small drop of permits to drive our own car past the Savage River Check Station to Teklanika on the second day, but on the first day we hiked the Savage River Alpine Trail.</p>
+  <p>
+    From Knik, we continued north to Denali National Park. Denali had some of
+    the worst weather of our trip, with snow blustering in, especially as we got
+    deeper into the park. We had waited online for a small drop of permits to
+    drive our own car past the Savage River Check Station to Teklanika on the
+    second day, but on the first day we hiked the Savage River Alpine Trail.
+  </p>
 </section>
 
 <section>
   <Image image={import("img/alaska/denali/hike-ascent.jpg")} withViewer caption="We started at the Savage River Loop Trailhead, and started a switch-backing ascent."/>
 
-  <ImageSet size="large" captions={["<strong>Left:</strong> The hike had a few spots with heavy snow, but it had been cleared by earlier hikers. <strong>Right:</strong> The path snaked between two large hunks of rock."]}>
-    <Image image={import("img/alaska/denali/hike-snow.jpg")} withViewer />
-    <Image image={import("img/alaska/denali/hike-narrows.jpg")} withViewer />
-  </ImageSet>
+<ImageSet
+  size="large"
+  captions={[
+    "<strong>Left:</strong> The hike had a few spots with heavy snow, but it had been cleared by earlier hikers. <strong>Right:</strong> The path snaked between two large hunks of rock.",
+  ]}
+>
+  <Image image={import("img/alaska/denali/hike-snow.jpg")} withViewer />
+  <Image image={import("img/alaska/denali/hike-narrows.jpg")} withViewer />
+</ImageSet>
 
-  <Image image={import("img/alaska/denali/hike-trail.jpg")} withViewer caption="The higher we got, the more things evened out."/>
+<Image
+  image={import("img/alaska/denali/hike-trail.jpg")}
+  withViewer
+  caption="The higher we got, the more things evened out."
+/>
 
-  <Image image={import("img/alaska/denali/hike-view.jpg")} withViewer caption="From the top, we could see more mountains peaking out through the clouds."/>
+<Image
+  image={import("img/alaska/denali/hike-view.jpg")}
+  withViewer
+  caption="From the top, we could see more mountains peaking out through the clouds."
+/>
 
   <Image image={import("img/alaska/denali/hike-descent.jpg")} withViewer caption="As we started our descent, small flakes of snow started to fall."/>
 </section>
 
 <section class="text">
-  <p>That snow continued on to the next day, when we were due to drive deeper into the park. We arrived early at the checkpoint and checked in with the staff. We learned later that if we had arrived a few minutes later, we might not have been let through! The snow ended up being fairly light, though, so we were able to explore the park by foot.</p>
+  <p>
+    That snow continued on to the next day, when we were due to drive deeper
+    into the park. We arrived early at the checkpoint and checked in with the
+    staff. We learned later that if we had arrived a few minutes later, we might
+    not have been let through! The snow ended up being fairly light, though, so
+    we were able to explore the park by foot.
+  </p>
 </section>
 
 <section>
   <Image image={import("img/alaska/denali/denali-road-group.jpg")} withViewer caption="After parking our car at Teklanika, we started walking deeper into the park."/>
 
-  <Image image={import("img/alaska/denali/denali-road.jpg")} withViewer caption="For a while, the weather was clear, and we had good views of the surrounding ranges."/>
+<Image
+  image={import("img/alaska/denali/denali-road.jpg")}
+  withViewer
+  caption="For a while, the weather was clear, and we had good views of the surrounding ranges."
+/>
 
-  <Image image={import("img/alaska/denali/denali-bridge.jpg")} withViewer caption="But soon enough, a light snow returned."/>
+<Image
+  image={import("img/alaska/denali/denali-bridge.jpg")}
+  withViewer
+  caption="But soon enough, a light snow returned."
+/>
 
   <ImageSet size="large" captions={["We took a few stock photos of us enjoying the park, and headed back to our car."]}>
     <Image image={import("img/alaska/denali/denali-laughing-hugh-dan.jpg")} withViewer />
@@ -232,7 +434,14 @@ import ImageSet from "@components/ImageSet.astro";
 
 <section class="text" id="glacier-view">
   <h2>Glacier View</h2>
-  <p>Spending a night glamping in the mountains was on our bucket list, and we were able to squeeze in a reservation the night before our flight to Juneau. If we'd know more about the place ahead of time, we definitely would have booked two nights. The campground, <a href="https://www.alpenglowluxurycamping.com/" target="_blank" rel="noopener noreferrer">Alpenglow</a>, is off-grid and has beautiful views of Matanuska Glacier.</p>
+  <p>
+    Spending a night glamping in the mountains was on our bucket list, and we
+    were able to squeeze in a reservation the night before our flight to Juneau.
+    If we'd know more about the place ahead of time, we definitely would have
+    booked two nights. The campground,
+    [Alpenglow](https://www.alpenglowluxurycamping.com/), is off-grid and has
+    beautiful views of Matanuska Glacier.
+  </p>
 </section>
 
 <section>
@@ -246,84 +455,192 @@ import ImageSet from "@components/ImageSet.astro";
 
 <section class="text" id="juneau">
   <h2>Juneau</h2>
-  <p>After waking up content in our tents, we packed our things and drove down the the Anchorage airport. After a 90 minute flight, we landed in Juneau, the capital of Alaska and heart of the Southeast, a region of Alaska that felt more like the Pacific Northwest than like the untarnished frontier of the Anchorage area. Juneau is only accessible by plane or boat, and is a quite small town. Like most houses in Juneau, our Airbnb had great views of the Gastineau Channel.</p>
+  <p>
+    After waking up content in our tents, we packed our things and drove down
+    the the Anchorage airport. After a 90 minute flight, we landed in Juneau,
+    the capital of Alaska and heart of the Southeast, a region of Alaska that
+    felt more like the Pacific Northwest than like the untarnished frontier of
+    the Anchorage area. Juneau is only accessible by plane or boat, and is a
+    quite small town. Like most houses in Juneau, our Airbnb had great views of
+    the Gastineau Channel.
+  </p>
 </section>
 
 <section>
   <Image image={import("img/alaska/juneau/juneau-morning-light.jpg")} withViewer caption="Golden hour at our Airbnb on Douglass Island."/>
 
-  <Image image={import("img/alaska/juneau/juneau-glacier-pass.jpg")} withViewer caption="We did some hiking near the town center, including an ascent near Mendenhall Glacier."/>
+<Image
+  image={import("img/alaska/juneau/juneau-glacier-pass.jpg")}
+  withViewer
+  caption="We did some hiking near the town center, including an ascent near Mendenhall Glacier."
+/>
 
-  <Image image={import("img/alaska/juneau/juneau-warf.jpg")} withViewer caption="The next day, we drove a few minutes north to Mendenhall, where we took a whale watching boat into the channel."/>
+<Image
+  image={import("img/alaska/juneau/juneau-warf.jpg")}
+  withViewer
+  caption="The next day, we drove a few minutes north to Mendenhall, where we took a whale watching boat into the channel."
+/>
 
-  <ImageSet size="large" captions={["From far away I wasn't sure what they were, but it turns out this brown pile was a big group of seals sunbathing!"]}>
-    <Image image={import("img/alaska/juneau/seals-far.jpg")} withViewer />
-    <Image image={import("img/alaska/juneau/seals-close.jpg")} withViewer />
-  </ImageSet>
+<ImageSet
+  size="large"
+  captions={[
+    "From far away I wasn't sure what they were, but it turns out this brown pile was a big group of seals sunbathing!",
+  ]}
+>
+  <Image image={import("img/alaska/juneau/seals-far.jpg")} withViewer />
+  <Image image={import("img/alaska/juneau/seals-close.jpg")} withViewer />
+</ImageSet>
 
-  <ImageSet size="large" captions={["To overcome the lack of a good zoom lens on my camera, I pressed my lens against some binoculars. It took a while to figure out, but eventually I got some good photos!"]}>
-    <Image image={import("img/alaska/juneau/whales-scope.jpg")} withViewer />
-    <Image image={import("img/alaska/juneau/whales-spout-scope.jpg")} withViewer />
-  </ImageSet>
+<ImageSet size="large">
+  <Image image={import("img/alaska/juneau/whales-scope.jpg")} withViewer />
+  <Image
+    image={import("img/alaska/juneau/whales-spout-scope.jpg")}
+    withViewer
+  />
+</ImageSet>
 
-  <ImageSet size="large" captions={[""]}>
-    <Image image={import("img/alaska/juneau/whales-spout-steam.jpg")} withViewer />
-    <Image image={import("img/alaska/juneau/whales-hump.jpg")} withViewer />
-  </ImageSet>
+<ImageSet
+  size="large"
+  captions={[
+    "To overcome the lack of a good zoom lens on my camera, I pressed my lens against some binoculars. It took a while to figure out, but eventually I got some good photos!",
+  ]}
+>
+  <Image
+    image={import("img/alaska/juneau/whales-spout-steam.jpg")}
+    withViewer
+  />
+  <Image image={import("img/alaska/juneau/whales-hump.jpg")} withViewer />
+</ImageSet>
 
   <Image image={import("img/alaska/juneau/whales-animated.gif")} withViewer caption="Very thankful for live photos in this moment. Two whales swimming along the coast!"/>
 </section>
 
 <section class="text">
-  <p>On our last full day, we set out once last time on a boat tour, this time of Tracy Arm Fjord. We had originally wanted to go in a small fishing boat, but couldn't find a good crew to take us. But I'm quite glad we went the way we did. Our larger boat (with 15-20 passengers) was definitely the right call.</p>
-  <p>The first part of the trip was about an hour full speed through choppy water getting down from Juneau to the mouth of Tracy Arm. In a smaller boat I'm sure it would have taken us much longer and been way more uncomfortable. But the big boat really made a difference when we got further in. With an aluminum bottom, we easily pushed through the floating ice to get closer to the glacier than any other kind of boat could. It was amazing!</p>
+  <p>
+    On our last full day, we set out once last time on a boat tour, this time of
+    Tracy Arm Fjord. We had originally wanted to go in a small fishing boat, but
+    couldn't find a good crew to take us. But I'm quite glad we went the way we
+    did. Our larger boat (with 15-20 passengers) was definitely the right call.
+  </p>
+  <p>
+    The first part of the trip was about an hour full speed through choppy water
+    getting down from Juneau to the mouth of Tracy Arm. In a smaller boat I'm
+    sure it would have taken us much longer and been way more uncomfortable. But
+    the big boat really made a difference when we got further in. With an
+    aluminum bottom, we easily pushed through the floating ice to get closer to
+    the glacier than any other kind of boat could. It was amazing!
+  </p>
 </section>
 
 <section>
   <Image image={import("img/alaska/juneau/cruise-glacier-glimpse.jpg")} withViewer caption="Sawyer Glacier peaks out behind some rock at the end of Tracy Arm."/>
+  <Image
+    image={import("img/alaska/juneau/cruise-mountains.jpg")}
+    withViewer
+    caption="As we entered the arm, we were surrounded by steep verdant cliffs."
+  />
 
-  <Image image={import("img/alaska/juneau/cruise-mountains.jpg")} withViewer caption="As we entered the arm, we were surrounded by steep verdant cliffs."/>
+<Image
+  image={import("img/alaska/juneau/cruise-valley.jpg")}
+  withViewer
+  caption="Even the valleys had some snow on the ground."
+/>
 
-  <Image image={import("img/alaska/juneau/cruise-valley.jpg")} withViewer caption="Even the valleys had some snow on the ground."/>
+<ImageSet
+  size="large"
+  captions={["Everywhere we looked there were waterfalls and glacial melt."]}
+>
+  <Image image={import("img/alaska/juneau/cruise-snowslide.jpg")} withViewer />
+  <Image image={import("img/alaska/juneau/cruise-waterfall.jpg")} withViewer />
+</ImageSet>
 
-  <ImageSet size="large" captions={["Everywhere we looked there were waterfalls and glacial melt."]}>
-    <Image image={import("img/alaska/juneau/cruise-snowslide.jpg")} withViewer />
-    <Image image={import("img/alaska/juneau/cruise-waterfall.jpg")} withViewer />
-  </ImageSet>
+<Image
+  image={import("img/alaska/juneau/cruise-waterfall-close.jpg")}
+  withViewer
+  caption="Our captain took us within just a feet or two of these waterfalls."
+/>
 
-  <Image image={import("img/alaska/juneau/cruise-waterfall-close.jpg")} withViewer caption="Our captain took us within just a feet or two of these waterfalls."/>
+<ImageSet
+  size="large"
+  captions={[
+    "Towards the mouth, some much larger chunks of glacial deposit were still floating down the fjord.",
+  ]}
+>
+  <Image
+    image={import("img/alaska/juneau/juneau-glacier-around.jpg")}
+    withViewer
+  />
+  <Image
+    image={import("img/alaska/juneau/juneau-glacier-wide.jpg")}
+    withViewer
+  />
+</ImageSet>
 
-  <ImageSet size="large" captions={["Towards the mouth, some much larger chunks of glacial deposit were still floating down the fjord."]}>
-    <Image image={import("img/alaska/juneau/juneau-glacier-around.jpg")} withViewer />
-    <Image image={import("img/alaska/juneau/juneau-glacier-wide.jpg")} withViewer />
-  </ImageSet>
+<Image
+  image={import("img/alaska/juneau/juneau-glacier-eagle.jpg")}
+  withViewer
+  caption="I managed to catch some great photos of wildlife, including this bald eagle who had been camping out on the iceberg."
+/>
 
-  <Image image={import("img/alaska/juneau/juneau-glacier-eagle.jpg")} withViewer caption="I managed to catch some great photos of wildlife, including this bald eagle who had been camping out on the iceberg."/>
+<ImageSet size="large">
+  <Image
+    image={import("img/alaska/juneau/cruise-bear-looking.jpg")}
+    withViewer
+  />
+  <Image
+    image={import("img/alaska/juneau/cruise-bear-sitting.jpg")}
+    withViewer
+  />
+</ImageSet>
 
-  <ImageSet size="large" captions={["I used a similar binocular technique to capture this friendly boy."]}>
-    <Image image={import("img/alaska/juneau/cruise-bear-looking.jpg")} withViewer />
-    <Image image={import("img/alaska/juneau/cruise-bear-sitting.jpg")} withViewer />
-  </ImageSet>
+<ImageSet
+  size="large"
+  captions={[
+    "I used a similar binocular technique to capture this friendly boy.",
+  ]}
+>
+  <Image
+    image={import("img/alaska/juneau/cruise-bear-climbing.jpg")}
+    withViewer
+  />
+  <Image
+    image={import("img/alaska/juneau/cruise-bear-climbing-close.jpg")}
+    withViewer
+  />
+</ImageSet>
 
-  <ImageSet size="large" captions={[""]}>
-    <Image image={import("img/alaska/juneau/cruise-bear-climbing.jpg")} withViewer />
-    <Image image={import("img/alaska/juneau/cruise-bear-climbing-close.jpg")} withViewer />
-  </ImageSet>
+<Image
+  image={import("img/alaska/juneau/cruise-floating-ice.jpg")}
+  withViewer
+  caption="As we approached the glacier, the greenery was replaced with snow and ice."
+/>
 
-  <Image image={import("img/alaska/juneau/cruise-floating-ice.jpg")} withViewer caption="As we approached the glacier, the greenery was replaced with snow and ice."/>
-
-  <ImageSet size="large" captions={["When we approached the end, I thought we'd stop, as we started to bump into little chunks of ice."]}>
-    <Image image={import("img/alaska/juneau/cruise-greenery.jpg")} withViewer />
-    <Image image={import("img/alaska/juneau/cruise-ice-field.jpg")} withViewer />
-  </ImageSet>
+<ImageSet
+  size="large"
+  captions={[
+    "When we approached the end, I thought we'd stop, as we started to bump into little chunks of ice.",
+  ]}
+>
+  <Image image={import("img/alaska/juneau/cruise-greenery.jpg")} withViewer />
+  <Image image={import("img/alaska/juneau/cruise-ice-field.jpg")} withViewer />
+</ImageSet>
 
   <Image image={import("img/alaska/juneau/cruise-glacier.jpg")} withViewer caption="After about an hour of pushing through ice, we finally turned off the motor to sit and watch the glacier in silence. It was magnificent!"/>
 </section>
 
 <section class="text">
-  <p>Content, we turned around and headed back for Juneau. The next morning, before heading to the Juneau airport, we made one quick stop to ride the tram, which was open for one of the first days of the season. It was a pretty quick trip, but gave us one last view of town before we headed out.</p>
+  <p>
+    Content, we turned around and headed back for Juneau. The next morning,
+    before heading to the Juneau airport, we made one quick stop to ride the
+    tram, which was open for one of the first days of the season. It was a
+    pretty quick trip, but gave us one last view of town before we headed out.
+  </p>
 </section>
 
 <section>
-  <Image image={import("img/alaska/juneau/juneau-town-view.jpg")} withViewer caption="Juneau from the tram."/>
+  <Image
+    image={import("img/alaska/juneau/juneau-town-view.jpg")}
+    withViewer
+    caption="Juneau from the tram."
+  />
 </section>

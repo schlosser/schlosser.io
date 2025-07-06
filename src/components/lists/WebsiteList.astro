@@ -13,28 +13,43 @@ interface Props {
 }
 
 const { websites } = Astro.props;
+
+// Preload all website images
+const imageModules = import.meta.glob("/src/content/projects/img/**/*.{png,jpg,jpeg,gif,svg,webp}", { eager: true });
 ---
 
 {
-  websites.map(({ id, title, img, link, year, description }) => (
-    <div class="visual-list large">
-      <div class="image screenshot">
-        <Image
-          image={import("/src/content/projects/img/" + img)}
-          withViewer
-          className="force-medium"
-        />
-      </div>
-      <div class="copy">
-        <h3 id={id}>{title}</h3>
-        <h4>
-          {year} |{" "}
-          <a href={link} target="_blank">
-            {link.replace(/https?:\/\//, "").replace("www.", "")}
-          </a>
-        </h4>
-        <p>{description}</p>
-      </div>
-    </div>
-  ))
+  websites
+    .filter(({ img }) => {
+      const imagePath = `/src/content/projects/img/${img}`;
+      const exists = imageModules[imagePath];
+      if (!exists) console.warn(`Missing website image: ${img}`);
+      return exists;
+    })
+    .map(({ id, title, img, link, year, description }) => {
+      const imagePath = `/src/content/projects/img/${img}`;
+      const imageModule = imageModules[imagePath];
+
+      return (
+        <div class="visual-list large">
+          <div class="image screenshot">
+            <Image
+              image={imageModule as ImageMetadata}
+              withViewer
+              className="force-medium"
+            />
+          </div>
+          <div class="copy">
+            <h3 id={id}>{title}</h3>
+            <h4>
+              {year} |{" "}
+              <a href={link} target="_blank">
+                {link.replace(/https?:\/\//, "").replace("www.", "")}
+              </a>
+            </h4>
+            <p>{description}</p>
+          </div>
+        </div>
+      );
+    })
 }
