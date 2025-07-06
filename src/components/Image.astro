@@ -162,12 +162,24 @@ if (withViewer) {
   link ? (
     <a href={link} class="progressive-link" target={target}>
       <figure class={classes.join(" ")} id={hash}>
-        <AstroImage alt={alt ?? urlAsAlt} src={image} />
+        <AstroImage
+          alt={alt ?? urlAsAlt}
+          src={image}
+          decoding="async"
+          format="webp"
+          widths={[320, 640, 1024, 1536]}
+        />
       </figure>
     </a>
   ) : (
     <figure class={classes.join(" ")} id={hash}>
-      <AstroImage alt={alt ?? urlAsAlt} src={image} />
+      <AstroImage
+        alt={alt ?? urlAsAlt}
+        src={image}
+        decoding="async"
+        format="webp"
+        widths={[320, 640, 1024, 1536]}
+      />
       {hash && (
         <a class="self-link" href={`#${hash}`}>
           <i>
