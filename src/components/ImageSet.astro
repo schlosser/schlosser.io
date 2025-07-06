@@ -1,0 +1,204 @@
+---
+import Image from "@components/Image.astro";
+
+interface Props {
+  inline?: boolean;
+  tight?: boolean;
+  size?: "small" | "large" | "xlarge";
+  captions?:
+    | string
+    | [string, string]
+    | [string, string, string]
+    | [string, string, string, string];
+}
+
+const { size = "large", captions, inline, tight } = Astro.props;
+
+const captionsArray = !captions
+  ? []
+  : Array.isArray(captions)
+    ? captions
+    : [captions];
+
+const makeCaptions = () => {
+  switch (captionsArray.length) {
+    case 1:
+      return [
+        {
+          label: "",
+          caption: captionsArray[0],
+        },
+      ];
+    case 2:
+      return [
+        {
+          label: "Left:",
+          caption: captionsArray[0],
+        },
+        {
+          label: "Right:",
+          caption: captionsArray[1],
+        },
+      ];
+    case 3:
+      return [
+        {
+          label: "Left:",
+          caption: captionsArray[0],
+        },
+        {
+          label: "Center:",
+          caption: captionsArray[1],
+        },
+        {
+          label: "Right:",
+          caption: captionsArray[2],
+        },
+      ];
+    case 4:
+      return [
+        {
+          label: "Top Left:",
+          caption: captionsArray[0],
+        },
+        {
+          label: "Top Right:",
+          caption: captionsArray[1],
+        },
+        {
+          label: "Bottom Left:",
+          caption: captionsArray[2],
+        },
+        {
+          label: "Bottom Right:",
+          caption: captionsArray[3],
+        },
+      ];
+    default:
+      return [];
+  }
+};
+---
+
+<style lang="scss" is:global>
+  @import "../styles/media_queries.scss";
+  @import "../styles/colors.scss";
+
+  figure + .image-set {
+    margin-top: -2.5rem;
+  }
+
+  .image-set {
+    margin: 3rem -0.5rem 0;
+
+    &.inline {
+      margin-bottom: 3rem;
+    }
+
+    &.tight {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 30rem;
+    }
+
+    .large,
+    .small,
+    .xsmall,
+    .xl {
+      flex-wrap: wrap;
+      align-items: flex-start;
+      display: flex;
+      font-size: 0;
+      margin-bottom: 1.5rem;
+      width: 100%;
+
+      figure {
+        margin: 0.75rem;
+        width: 50%;
+      }
+    }
+
+    .large figure {
+      width: calc(50% - 1.5rem);
+    }
+
+    .small figure {
+      width: calc(33.333% - 1.5rem);
+    }
+
+    .xsmall figure {
+      width: calc(25% - 1.5rem);
+    }
+
+    .xl figure {
+      width: 100%;
+    }
+
+    + h5 {
+      margin-bottom: 4rem;
+      padding: 0 2rem;
+      text-align: center;
+    }
+
+    .figure-placeholder {
+      background-color: $light-gray;
+
+      a {
+        display: block;
+        height: 0;
+        padding-bottom: 75%;
+        position: relative;
+        width: 100%;
+      }
+
+      i {
+        background-position: center;
+        background-size: cover;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+    }
+  }
+
+  @media screen and (max-width: $phone-landscape-max) {
+    .image-set {
+      margin-top: 3rem;
+
+      .large,
+      .small,
+      .xl {
+        margin-bottom: 1rem;
+
+        figure {
+          margin: 0 0.5rem;
+        }
+      }
+
+      + h5 {
+        margin-bottom: 3rem;
+        padding: 0;
+        text-align: left;
+      }
+    }
+  }
+</style>
+
+<div class={`image-set ${inline ? "inline" : ""} ${tight ? "tight" : ""}`}>
+  <div class={size}>
+    <slot />
+  </div>
+</div>
+{
+  !!captionsArray.length && (
+    <h5>
+      {makeCaptions().map(({ label, caption }) => (
+        <>
+          {label && <strong>{label} </strong>} {caption}{" "}
+        </>
+      ))}
+    </h5>
+  )
+}

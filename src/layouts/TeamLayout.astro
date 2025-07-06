@@ -1,0 +1,27 @@
+---
+import type { CollectionEntry } from "astro:content";
+import PostLayout from "./PostLayout.astro";
+
+type Props = CollectionEntry<"teams">;
+
+const post = Astro.props;
+const { role, start, end, link } = post.data;
+
+const formattedTimePeriod = end ? `${start} - ${end}` : start;
+---
+
+<PostLayout {...Astro.props}>
+  <section class="text">
+    <h3 class="timestamp">
+      {role}, {formattedTimePeriod}
+    </h3>
+    <slot />
+    {
+      link && (
+        <a href={link} class="button cta" target="_blank">
+          {link.replace(/https?:\/\//, "").replace("www.", "")}
+        </a>
+      )
+    }
+  </section>
+</PostLayout>

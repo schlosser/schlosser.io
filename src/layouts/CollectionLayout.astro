@@ -1,0 +1,18 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  title: string;
+  collection: string;
+}
+
+const { title, collection } = Astro.props;
+---
+
+<BaseLayout title={title} collection={collection} heroStyle="normal">
+  <div class="content">
+    <section class="collection">
+      <slot />
+    </section>
+  </div>
+</BaseLayout>

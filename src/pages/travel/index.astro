@@ -1,0 +1,13 @@
+---
+import CollectionLayout from "@layouts/CollectionLayout.astro";
+import PostPreview from "@components/PostPreview.astro";
+import { getCollectionRevChron } from "src/content.config";
+
+const posts = await getCollectionRevChron("travel");
+---
+
+<CollectionLayout title="Travel" collection="travel">
+  <div class="boxes">
+    {posts.map((post) => <PostPreview page={post} />)}
+  </div>
+</CollectionLayout>

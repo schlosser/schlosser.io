@@ -1,0 +1,55 @@
+---
+import { type CollectionEntry } from "astro:content";
+import Image from "./Image.astro";
+import PostExcerpt from "@igor.dvlpr/astro-post-excerpt";
+import { type PostLike, makePostSlug } from "src/content.config";
+
+interface Props {
+  featured?: boolean;
+  page: CollectionEntry<PostLike>;
+}
+
+const { featured, page } = Astro.props;
+const { heroImage, featuredImage, title } = page.data;
+page.body;
+---
+
+<style lang="scss">
+  h3 {
+    text-wrap: balance;
+  }
+</style>
+
+<div class={`box ${featured ? "featured" : ""}`}>
+  <div class="figure-wrapper">
+    {
+      (
+        <Image
+          image={featured ? (heroImage ?? featuredImage) : featuredImage}
+          link={`/${page.collection}/${makePostSlug(page)}`}
+          alt={title}
+          className={featured ? "" : "force-small"}
+        />
+      )
+    }
+  </div>
+  <div>
+    <h3>
+      <a href={`/${page.collection}/${makePostSlug(page)}`}>
+        {title}
+      </a>
+    </h3>
+    {
+      featured && (
+        <>
+          <p>
+            <PostExcerpt post={page} words={40} />
+          </p>
+          <a class="button" href={`/${page.collection}/${makePostSlug(page)}`}>
+            Continue Reading
+          </a>
+        </>
+      )
+    }
+  </div>
+</div>

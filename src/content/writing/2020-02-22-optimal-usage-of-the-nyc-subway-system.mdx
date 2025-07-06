@@ -1,0 +1,354 @@
+---
+title: Optimal Usage of the NYC Subway System
+date: 2020-02-22
+heroImage: img/subway-map-cover.jpg
+heroStyle: normal
+featuredImage: img/subway-map.png
+---
+
+import ScaryMath from "@components/ScaryMath.astro";
+import LookupTable from "@components/LookupTable.astro";
+import Latex from "@components/Latex.astro";
+import Image from "@components/Image.astro";
+
+import Subway1 from "/src/img/svg/subway-lines/Subway1.astro";
+import Subway2 from "/src/img/svg/subway-lines/Subway2.astro";
+import Subway3 from "/src/img/svg/subway-lines/Subway3.astro";
+import Subway4 from "/src/img/svg/subway-lines/Subway4.astro";
+import Subway5 from "/src/img/svg/subway-lines/Subway5.astro";
+import Subway7 from "/src/img/svg/subway-lines/Subway7.astro";
+import SubwayC from "/src/img/svg/subway-lines/SubwayC.astro";
+import SubwayE from "/src/img/svg/subway-lines/SubwayE.astro";
+import SubwayR from "/src/img/svg/subway-lines/SubwayR.astro";
+import SubwayW from "/src/img/svg/subway-lines/SubwayW.astro";
+import SubwayS from "/src/img/svg/subway-lines/SubwayS.astro";
+import Subway6 from "/src/img/svg/subway-lines/Subway6.astro";
+import SubwayA from "/src/img/svg/subway-lines/SubwayA.astro";
+import SubwayN from "/src/img/svg/subway-lines/SubwayN.astro";
+import SubwayQ from "/src/img/svg/subway-lines/SubwayQ.astro";
+import SubwayB from "/src/img/svg/subway-lines/SubwayB.astro";
+import SubwayD from "/src/img/svg/subway-lines/SubwayD.astro";
+import SubwayF from "/src/img/svg/subway-lines/SubwayF.astro";
+import SubwayM from "/src/img/svg/subway-lines/SubwayM.astro";
+import SubwayG from "/src/img/svg/subway-lines/SubwayG.astro";
+import SubwayL from "/src/img/svg/subway-lines/SubwayL.astro";
+import SubwayJ from "/src/img/svg/subway-lines/SubwayJ.astro";
+import SubwayZ from "/src/img/svg/subway-lines/SubwayZ.astro";
+
+There are many unavoidable mistakes a tourist can make in New York City. Visiting Times Square, walking too slow on the sidewalk, and eating the Nuts 4 Nuts nuts from a street vendor, for example, are intrinsic to any person's first experiences in the city.
+
+But not all New York mistakes are inevitable. Un-optimal use of the New York City subway is tragically common and easily preventable. As a public service to all New Yorkers and to help you on your next trip, I’ll offer some tips on how to make so that you can do a little better next time.
+
+If you follow these simple rules, you’ll speed through your next subway session.
+
+<blockquote>
+    Warning! The post contains some math equations that may not be suitiable to all readers. Click to hide equations that follow:
+
+    <div class="button no-arrow hide-all">
+        <span class="show">Show Math Equations</span>
+        <span class="hide">Hide Math Equations</span>
+    </div>
+    <p class="is-hidden-text">Math hidden</p>
+</blockquote>
+
+### Getting an estimate
+
+You probably saw this coming, but your first step will be to plug your destination into your favorite transit app: <a href="https://www.google.com/maps" target="_blank">Google Maps</a>, <a href="https://transitapp.com/" target="_blank">Transit</a>, <a href="https://new.mta.info/">myMTA</a>, and <a href="https://citymapper.com/?lang=en">Citymapper</a> are all viable options.
+
+But what you might not know is to never put blind trust in an app’s estimate or route preference. Some apps only use the “scheduled” train times (which are made up, to be clear), and others use “live” data from the MTA. While live data is better, you should know that even the live data from the MTA doesn’t necessarily represent the facts on the ground. Even apps like Pigeon that crowdsource delays from other riders can be too little, too late.
+
+Instead of relying on an app, you’ll learn to rely on your instincts. Or in my case, a series of simple equations. Let’s walk through some factors to consider.
+
+### Transfers
+
+Transfers are treaturous. Every transfer has the possibility of screwing you up somehow. With each transfer you get both a new station to navigate, and another train line whose delays will affect your trip. For this reason, they should not be taken lightly.
+
+An average transfer is worth a five minute difference in transit time estimate, meaning that a route with 2 transfers has to be 10 minutes faster than a direct route to be worth your while.
+
+<ScaryMath>
+
+    Or more simply,
+
+
+    <Latex formula={`
+
+        f(L)=e_{app}+5(L-1)
+
+        `} />
+
+        Where...
+
+        <Latex formula={`
+        \\begin{align}
+           f(L) =& \\text{ The actual time in minutes of a route} \\\\
+        e_{app} =& \\text{ The estimate your app gave you for the entire trip} \\\\
+              L =& \\text{ Number of legs in this route, implies } L-1 \\text{ transfers }
+    \\end{align}
+
+    `} />
+
+</ScaryMath>
+
+### Bus or Train?
+
+NYC Busses are fraught. There are two main types: regular and SBS (Select Bus Service). During the day, SBS busses are consistently at least 3 minutes late and will ride at 75% of their projected speed. At night, they’ll be more late (by at least 5 minutes), but will travel at more or less their projected speed.
+
+Regular busses are way, way worse. Count on them being 5+ minutes late during the day and traveling at ~60% of their projected speed. At night, they’re faster, maybe 80% of their projected speed, but reliably 10-15 minutes late.
+
+In almost all situations, walking is better than taking a non-SBS bus.
+
+Similarly, all train lines are not created equal. Some lines are notorious for being more or less reliable. It’s not an exact science, despite what <a href="https://www.nytimes.com/interactive/2019/06/23/nyregion/which-subway-lines-improved-the-most.html">The New York Times will tell you</a>, but here are some guidelines:
+
+- **Tier 1:** The <Subway1 />, <Subway2 />, <Subway3 />, <Subway4 />, <Subway5 />, <Subway7 />, <SubwayC />, <SubwayE />, <SubwayR />, <SubwayW />, and <SubwayS /> are usually reliable, even at night.
+- **Tier 2:** The <Subway6 />, <SubwayA />, <SubwayN />, <SubwayQ />, <SubwayB />, <SubwayD />, <SubwayF />, and <SubwayM /> are often delayed, but passable. At night they become especially risky.
+- **Tier 3:** The <SubwayG />, <SubwayL />, <SubwayJ />, and <SubwayZ /> are to be avoided if at all possible. These lines may as well not exist at night. Sorry, Williamsburg.
+
+
+<ScaryMath>
+
+    Or more simply,
+
+        <Latex formula={`
+        f(L,t)= \\sum\\limits_{l=0}^L \\left(\\frac{1}{r_{tl}} \\cdot e_l + d_{tl} \\right)+5(L-1)
+        `}/>
+
+        Where...
+
+        <Latex formula={`
+        \\begin{align}
+        f(L,t) =& \\text{ The actual time in minutes of a route } \\\\
+           e_l =& \\text{ The estimate your app gave for leg } l \\text{, on the local train} \\\\
+        r_{tl} =& \\text{ reliability of train leg } l \\text{ at time } t \\\\
+        d_{tl} =& \\text{ universally understood delay of the mode of transit for leg } l \\text{ at time } t \\\\
+             L =& \\text{ Number of legs in this route, implies } L-1 \\text{ transfers }
+        \\end{align}
+        `}/>
+
+        Using lookup tables...
+
+    <LookupTable />
+</ScaryMath>
+
+### Walking
+
+Most transit trips involve walking. For the most part, your app will account for this, but there are a few exceptions. By positioning yourself on the correct part of the platform to board at the correct car (closest to staircase), you can save 1-2 minutes of walking down the platform at your destination. There’s nothing quite like having the doors open at your destination station and being the very first person to ascend to the street.
+
+Memorizing station layouts is the most reliable way to pick your car, but there are other strategies. The Google Maps app displays all station exits, and it’s often easy to pick the right car by looking there.
+
+<Image image={import("img/subway-exit-locations.png")} className="tight" />
+### When taking the 1 train to Christopher Street or transferring to the 7 at Times Square, riders should choose in the middle car to cut down on wasted time.
+
+If you want to be even more confident, Exit Strategy or CityMapper can be used to determine which car is best to nail your transfer or exit swiftly.
+
+
+<ScaryMath>
+
+    This gives us:
+
+        <Latex formula={`
+        f(L,t)= \\sum\\limits_{l=0}^L \\left(\\frac{1}{r_{tl}} \\cdot e_l + d_{tl}\\right) + 5(L-1) - o_w
+        `} />
+
+        Where...
+
+        <Latex formula={`
+            \\begin{align}
+        f(L,t) =& \\text{ The actual time in minutes of a route } \\\\
+           e_l =& \\text{ The estimate your app gave for leg } l \\text{, on the local train} \\\\
+        r_{tl} =& \\text{ reliability of train leg } l \\text{ at time } l \\\\
+        d_{tl} =& \\text{ universally understood delay of the mode of transit for leg } l \\text{ at time } t \\\\
+             L =& \\text{ Number of legs in this route, implies } L-1 \\text{ transfers} \\\\
+           o_w =& \\text{ The number of minutes to be saved with walking optimizations,} \\\\
+                & \\text{ usually } 1 \\text{ minute, but depends on station layouts.}
+       \\end{align}
+       `} />
+
+
+    Using lookup tables...
+
+    <LookupTable />
+</ScaryMath>
+
+<h3>Managing express trains</h3>
+
+Once you have your route planned, you may find that you’re riding on a line that has local and express trains. So which do you take? Well, it depends. Imagine you’re standing at a station that has both express and local trains departing towards your destination. You look at the arrivals board.
+
+If the express train will arrive first, it’s almost always a good idea to take it. Even if your final destination is a local stop and you need to transfer back to the local, taking the express could get you onto a local train that arrives sooner.
+
+If the local train comes first, though, you have a predicament. The correct train to take depends on how many local stops you could skip on the express, which each train is arriving, and the periodicity of (or distance between) local trains. The time between trains varies greatly, depending on train line and time of day. Go ahead and <a href="https://en.wikipedia.org/wiki/List_of_New_York_City_Subway_services#Train_intervals">memorize this chart</a>, or just look up how frequently your line is running on Google Maps.
+
+<Image image={import("img/subway-local-train-periodicity.png")} className="tight" />
+##### Tapping on the station in the transit overview in Google Maps displays departure times. Here, the 1 train runs every 4-5 minutes.
+
+That said, in general it’s never worth waiting for an express train to skip 2 or fewer local stops. Waiting 2 minutes to skip 3 stops is acceptable, and waiting 3 minutes to skip 4 stops makes sense. Beyond 3 minutes though, the trade off becomes less favorable. I’d be willing to wait 5 minutes to skip 8 stops.
+
+<ScaryMath>
+
+    This simplified general rule can be modeled as:
+
+    <Image image={import("img/subway-tradeoff-graph.png")} className="tight inline" />
+
+    <Latex formula={`
+    6 \\log(s_l-1)
+    `} />
+
+    Where...
+
+    <Latex formula={`
+    s_l = \\text{ The number of skippable local-only stops on the express line for leg } l
+    `} />
+
+
+    If your final destination is an express stop, the total transit time, adjusting for express trains is:
+
+
+    <Latex formula={`
+    e_l+\\min(w_{loc},w_{exp} - 6 \\log(s_l-1))
+    `} />
+
+
+    Where...
+
+    <Latex formula={`
+    \\begin{align}
+        e_l =& \\text{ The estimate your app gave for leg } l \\text{, on the local train} \\\\
+        s_l =& \\text{ The number of skippable local-only stops on express line on leg } l \\\\
+    w_{loc} =& \\text{ The wait for local train at the first express stop} \\
+                & \\text{ (0 if departing from a local-only station)} \\\\
+    w_{exp} =& \\text{ The wait for express train at the first express stop }
+    \\end{align}
+    `} />
+
+
+    If your final destination is a local-only stop, however, the total transit time will depend on the periodicity:
+
+
+    <Latex formula={`
+    e_l+w_{loc}-\\left \\lfloor{\\tfrac{6 \\log(s_l-1)-w_{exp}}{p_t}}\\right \\rfloor p_t
+    `} />
+
+
+    Where...
+
+        <Latex formula={`
+        \\begin{align}
+           e_l =& \\text{ The estimate your app gave for leg } l \\text{, on the local train} \\\\
+           s_l =& \\text{ The number of skippable local-only stops on express line on leg } l \\\\
+       w_{loc} =& \\text{ The wait for local train at the first express stop} \\\\
+                & \\text{ (0 if departing from a local-only station)} \\\\
+       w_{exp} =& \\text{ The wait for express train at the first express stop} \\\\
+           p_t =& \\text{ The periodicity of the local train at time} t
+   \\end{align}
+   `} />
+
+
+
+    Expressed together, we get:
+
+
+    <Latex formula={`
+        \\begin{align}
+                X_l & \\Big[e_l+\\min(w_{loc},w_{exp} - 6 \\log(s_l-1))\\Big] + \\
+            (1-X_l) & \\Big[e_l+w_{loc}-\\left \\lfloor{\\tfrac{6
+                      \\log(s_l-1) - w_{exp}}{p_t}}\\right \\rfloor p_t\\Big]
+        \\end{align}
+    `} />
+
+
+    Where...
+
+        <Latex formula={`
+        \\begin{align}
+            e_l =& \\text{ The estimate your app gave for leg } l \\text{, on the local train} \\\\
+            s_l =& \\text{ The number of skippable local-only stops on express line on leg } l \\\\
+        w_{loc} =& \\text{ The wait for local train at the first express stop} \\\\
+                 & \\text{ (0 if departing from a local-only station)}\\
+        w_{exp} =& \\text{ The wait for express train at the first express stop} \\\\
+            p_t =& \\text{ The periodicity of the local train at time } t \\\\
+            X_l =& \\begin{cases}1 & \\text{if leg } l \\text{ ends at an express stop} \\ 0 & otherwise\\end{cases}
+   \\end{align}
+   `} />
+
+
+    This yields our final equation:
+
+        <Latex formula={`
+        \\begin{alignat*}{3}
+            f(L,t) = \\sum\\limits_{l=0}^L \\bigg\\{
+                & \\frac{1}{r_{tl}} \\cdot \\bigg( && X_l \\Big[ e_l+\\min(w_{loc},w_{exp} - 6 \\log(s_l-1)) \\Big] + \\\\
+                &                     && (1-X_l) \\Big[ e_l+w_{loc}-\\left \\lfloor{ \\tfrac{6
+                                         \\log(s_l-1)-w_{exp}}{p_t}}\\right \\rfloor p_t \\Big] \\bigg) \\\\
+                & + d_{tl}            && \\bigg \\} + 5(L-1) - o_w
+        \\end{alignat*}
+    `} />
+
+
+    Where...
+
+        <Latex formula={`
+        \\begin{align}
+         f(L,t) =& \\text{ The actual time in minutes of a route} \\\\
+         d_{tl} =& \\text{ universally understood delay of the mode of transit for leg } l \\text{ at time } t \\\\
+            e_l =& \\text{ The estimate your app gave for leg } l \\text{, on the local train} \\\\
+              L =& \\text{ Number of legs in this route, implies } L-1 \\text{ transfers} \\\\
+            o_w =& \\text{ The number of minutes to be saved with walking optimizations,} \\
+                 & \\text{ usually 1 minute, but depends on station layouts.} \\\\
+            p_t =& \\text{ The periodicity of the local train at time } t \\\\
+         r_{tl} =& \\text{ reliability of train leg } l \\text{ at time } t \\\\
+            s_l =& \\text{ The number of skippable local-only stops on express line on leg } l \\\\
+        w_{exp} =& \\text{ The wait for express train at the first express stop} \\\\
+        w_{loc} =& \\text{ The wait for local train at the first express stop} \\\\
+                 & \\text{ (0 if departing from a local-only station)}\\
+            X_l =& \\begin{cases}1 & \\text{if leg } l \\text{ ends at an express stop} \\ 0 & \\text{otherwise}\\end{cases}
+    \\end{align}
+    `} />
+
+
+    Using lookup tables...
+
+    <LookupTable />
+</ScaryMath>
+
+<h3>Try it out</h3>
+
+For those of you that prefer apps and websites to good old fashioned math, I also made this handy calculator to determine the real length of your predicted trip.
+
+<form>
+    <div class="form-control">
+        <label>Time of day</label>
+        <ul class="radio-options">
+            <li class="radio-option">
+                <input type="radio" checked name="calc-time-of-day" id="calc-time-of-day-day" value="day" />
+                <label for="calc-time-of-day-day">Day</label>
+            </li>
+            <li class="radio-option">
+                <input type="radio" name="calc-time-of-day" id="calc-time-of-day-night" value="night" />
+                <label for="calc-time-of-day-night">Night</label>
+            </li>
+        </ul>
+    </div>
+
+    <div class="form-control">
+        <label for="calc-walking-optimizations">Walking time avoidable with train car choice (min)</label>
+        <input type="number" min="0" max="5" value="0" id="calc-walking-optimizations" />
+    </div>
+    <ul class="legs" id="legs"></ul>
+    <div class="num-leg-buttons">
+        <div class="button no-arrow" id="add-leg">Add Leg</div>
+        <div class="button no-arrow hidden" id="remove-leg">Remove Leg</div>
+    </div>
+    <div class="form-control output-container">
+        <label><h4>Total Trip Length</h4></label>
+
+        <strong><span id="output-minutes-total">0</span> minutes</strong>
+
+    </div>
+</form>
+
+<h3>You’ve got this</h3>
+
+It can be a lot to take in, I know. But I promise by following my advice you’ll shave seconds, perhaps even low single-digit minutes off of your journey. Happy riding!
+
+<em>Does my math not add up? Shoot me a <a href="https://twitter.com/danrschlosser">tweet</a> or <a href="mailto:dan@schlosser.io">email</a> and let me know.</em>
+
+<script src="/js/scary-math.js"></script>

@@ -1,0 +1,106 @@
+// Font weights
+$extra-bold: 900;
+$bold: 600;
+$regular: 400;
+
+@font-face {
+  font-family: "MD System";
+  font-weight: $regular;
+  src: url("/fonts/MDSystem-Regular.otf") format("opentype");
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "MD System";
+  font-style: italic;
+  font-weight: $regular;
+  src: url("/fonts/MDSystem-Italic.otf") format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "MD System";
+  font-weight: $bold;
+  src: url("/fonts/MDSystem-Dark.otf") format("opentype");
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "MD System";
+  font-weight: $extra-bold;
+  src: url("/fonts/MDSystem-Heavy.otf") format("opentype");
+  font-style: normal;
+  font-display: swap;
+}
+
+$monospace: "Incosolata", monospace;
+$sans: "MD System", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+h1,
+%h1 {
+  font-family: $sans;
+  font-size: 4.5rem;
+  font-weight: $extra-bold;
+  line-height: 5rem;
+  widows: 2;
+}
+
+h2,
+%h2 {
+  font-family: $sans;
+  font-size: 1.75rem;
+  font-weight: $extra-bold;
+}
+
+h3,
+%h3 {
+  font-family: $sans;
+  font-size: 1.125rem;
+  font-weight: $bold;
+  line-height: 1.75rem;
+}
+
+h4,
+%h4 {
+  font-family: $sans;
+  font-size: 1.125rem;
+  font-weight: $bold;
+  margin-bottom: 4rem;
+}
+
+h5,
+%h5 {
+  font-family: $sans;
+  font-size: 0.9375rem;
+  font-weight: $regular;
+  line-height: 1.5rem;
+}
+
+p,
+%p,
+ul li,
+ol li {
+  font-family: $sans;
+  font-size: 1.125rem;
+  font-weight: $regular;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+strong {
+  font-weight: $bold;
+}
+
+@media screen and (max-width: $phone-landscape-max) {
+  h1,
+  %h1 {
+    font-size: 3rem;
+    line-height: 3.5rem;
+  }
+
+  .home-header h1 {
+    font-size: 4.5rem;
+    line-height: 5rem;
+  }
+}

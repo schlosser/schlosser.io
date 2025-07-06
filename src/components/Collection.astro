@@ -1,0 +1,67 @@
+---
+import type { CollectionEntry } from "astro:content";
+import PostPreview from "./PostPreview.astro";
+import type { PostLike } from "src/content.config";
+
+interface Props {
+  title: string;
+  url: string;
+  mini?: boolean;
+  feature?: "first";
+  excludeId?: string;
+  isBottomOfStory?: boolean;
+  entries: CollectionEntry<PostLike>[];
+}
+
+const { title, url, entries, isBottomOfStory, excludeId, feature, mini } =
+  Astro.props;
+
+const collection = entries.filter((entry) => entry.id !== excludeId);
+---
+
+<div class="content">
+  <section class="collection">
+    <div class="collection-header">
+      <h2>
+        <span class="component">
+          <a href={url}>{isBottomOfStory && "More"}{title}</a>
+        </span>
+      </h2>
+      {
+        !isBottomOfStory && (
+          <a href={url} class="text-button">
+            More <span class="hide-mobile">{title}</span>
+          </a>
+        )
+      }
+    </div>
+    <div class={`boxes ${mini ? "mini" : ""}`}>
+      {
+        feature === "first" ? (
+          <>
+            <div class="feature-section">
+              <PostPreview page={collection[0]} featured />
+              <div class="alongside-featured">
+                {collection.slice(1, 7).map((page) => (
+                  <PostPreview page={page} />
+                ))}
+              </div>
+            </div>
+          </>
+        ) : mini ? (
+          <>
+            {collection.slice(0, 4).map((page) => (
+              <PostPreview page={page} />
+            ))}
+          </>
+        ) : (
+          <>
+            {collection.slice(0, 4).map((page) => (
+              <PostPreview page={page} />
+            ))}
+          </>
+        )
+      }
+    </div>
+  </section>
+</div>

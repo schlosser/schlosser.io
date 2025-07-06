@@ -1,0 +1,38 @@
+---
+import Image from "../Image.astro";
+
+interface Props {
+  workflows: {
+    id: string;
+    title: string;
+    img: string;
+    link: string;
+    description: string;
+  }[];
+}
+
+const { workflows } = Astro.props;
+---
+
+{
+  workflows.map(({ id, title, img, link, description }) => (
+    <div class="visual-list">
+      <div class="image">
+        <Image
+          image={import("/src/content/lists/img/" + img)}
+          alt={title}
+          className="force-small"
+        />
+      </div>
+      <div class="copy">
+        <h3 id={id}>{title}</h3>
+        <p>{description}</p>
+        <div class="button-group">
+          <a href={link} class="button">
+            Download
+          </a>
+        </div>
+      </div>
+    </div>
+  ))
+}

@@ -1,0 +1,40 @@
+---
+import Image from "../Image.astro";
+
+interface Props {
+  websites: {
+    id: string;
+    title: string;
+    img: string;
+    link: string;
+    year: string;
+    description: string;
+  }[];
+}
+
+const { websites } = Astro.props;
+---
+
+{
+  websites.map(({ id, title, img, link, year, description }) => (
+    <div class="visual-list large">
+      <div class="image screenshot">
+        <Image
+          image={import("/src/content/projects/img/" + img)}
+          withViewer
+          className="force-medium"
+        />
+      </div>
+      <div class="copy">
+        <h3 id={id}>{title}</h3>
+        <h4>
+          {year} |{" "}
+          <a href={link} target="_blank">
+            {link.replace(/https?:\/\//, "").replace("www.", "")}
+          </a>
+        </h4>
+        <p>{description}</p>
+      </div>
+    </div>
+  ))
+}

@@ -1,0 +1,34 @@
+---
+import BaseHead from "@components/BaseHead.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+interface Props {
+  title: string;
+  collection?: string;
+  heroStyle: "full-bleed" | "large" | "none" | "normal";
+}
+const { title, collection, heroStyle } = Astro.props;
+import ProgressiveImage from "../js/progressive-image";
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={title} description="" />
+  </head>
+  <body class={`with-hero-style-${heroStyle}`}>
+    <div class="scrim"></div>
+    <Header title={title} collection={collection} heroStyle={heroStyle} />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <script src="../js/global-listeners.js"></script>
+    <script>
+      import ProgressiveImage from "../js/progressive-image";
+      var figures = document.getElementsByClassName("progressive-image");
+      for (var i = 0; i < figures.length; i++) {
+        new ProgressiveImage(figures[i] as HTMLElement);
+      }
+    </script>
+  </body>
+</html>

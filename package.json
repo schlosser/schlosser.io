@@ -12,6 +12,16 @@
     "@astrojs/mdx": "^4.3.0",
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.4.0",
-    "astro": "^5.8.0"
+    "@igor.dvlpr/astro-post-excerpt": "^3.0.4",
+    "astro": "^5.8.0",
+    "html-to-text": "^9.0.5",
+    "katex": "^0.16.22",
+    "markdown-it": "^14.1.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-yaml": "^4.1.2",
+    "prettier": "^3.5.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "sass-embedded": "^1.89.0"
   }
 }

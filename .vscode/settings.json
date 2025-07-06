@@ -1,0 +1,19 @@
+{
+    "[mdx]": {
+        "editor.wordWrap": "on",
+        "editor.wordWrapColumn": 100,
+        "editor.formatOnSave": true
+    },
+    "[typescript]": {
+        "editor.formatOnSave": true
+    },
+    "[javascript]": {
+        "editor.formatOnSave": true
+    },
+    "[typescriptreact]": {
+        "editor.formatOnSave": true
+    },
+    "[javascriptreact]": {
+        "editor.formatOnSave": true
+    }
+}

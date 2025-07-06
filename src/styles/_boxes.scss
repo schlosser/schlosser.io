@@ -1,0 +1,160 @@
+@use "sass:math";
+
+$box-spacing: 3rem;
+// scss-lint:disable Syntax
+$half-spacing: math.div($box-spacing, 2);
+
+.boxes {
+  align-items: stretch;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -$half-spacing;
+  margin-right: -$half-spacing;
+  margin-bottom: -$half-spacing;
+
+  .box {
+    justify-content: flex-start;
+    margin-bottom: $box-spacing;
+    padding: 0 $half-spacing;
+    position: relative;
+    width: 25%;
+
+    .figure-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: 0.3s ease all;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      figure {
+        flex: 1;
+      }
+    }
+
+    h3 {
+      margin-top: 1rem;
+    }
+  }
+
+  .feature-section {
+    display: flex;
+    width: 100%;
+  }
+
+  .featured {
+    width: 50%;
+
+    h3 {
+      font-family: $sans;
+      font-size: 2rem;
+      font-weight: $extra-bold;
+      line-height: 1.2;
+      margin: 2rem 0 1.5rem;
+    }
+  }
+
+  .alongside-featured {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    align-self: flex-start;
+
+    > .box {
+      width: 50%;
+    }
+  }
+}
+
+@media screen and (max-width: $tablet-landscape-max) {
+  .boxes {
+    &.mini .box:nth-child(4) {
+      display: none;
+    }
+
+    .box {
+      width: 33.333333%;
+    }
+
+    .feature-section {
+      display: block;
+    }
+
+    .featured {
+      align-items: flex-start;
+      display: flex;
+      width: 100%;
+
+      .figure-wrapper {
+        flex-shrink: 0;
+        padding-right: $half-spacing;
+        width: 50%;
+
+        + div {
+          padding-left: $half-spacing;
+        }
+      }
+
+      h3 {
+        margin-top: 0;
+      }
+    }
+
+    .alongside-featured {
+      width: 100%;
+
+      .box {
+        width: 33%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $tablet-portrait-max) {
+  .boxes {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    margin-bottom: -1rem;
+
+    &.mini .box:nth-child(4) {
+      display: block;
+    }
+
+    .box {
+      width: 50%;
+      padding: 0 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .featured {
+      display: block;
+      width: 100%;
+
+      .figure-wrapper {
+        flex-shrink: 0;
+        padding-right: 0;
+        width: 100%;
+
+        + div {
+          padding-left: 0;
+          padding-top: 1.5rem;
+        }
+      }
+
+      h3 {
+        margin-top: 0;
+      }
+    }
+
+    .alongside-featured {
+      width: 100%;
+      margin-top: 4rem;
+
+      .box {
+        width: 50%;
+      }
+    }
+  }
+}

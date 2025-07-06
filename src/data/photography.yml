@@ -1,0 +1,48 @@
+photography:
+  prefix: 'https://img.schlosser.io/photography/'
+  sizes:
+    large: '1200'
+    medium: '500'
+    small: '200'
+    thumbnail: '20'
+  sets:
+  - title: 'Architecture'
+    description: |
+      I love experiencing stunning architecture, and attempting to capture
+      enourmous buildings in a single photo is a fascinating challenge.
+    images:
+    - name: architecture-1.jpg
+      aspectRatio: 1.505
+    - name: architecture-2.jpg
+      aspectRatio: 1.505
+    - name: architecture-3.jpg
+      aspectRatio: 1.505
+    - name: architecture-4.jpg
+      aspectRatio: 1.505
+    - name: architecture-5.jpg
+      aspectRatio: 1.505
+    - name: architecture-6.jpg
+      aspectRatio: 1.505
+  - title: 'Nature'
+    description: |
+      Nature photos are especailly challenging for me, but when they turn out
+      well they can be very beautiful.
+    images:
+    - name: nature-1.jpg
+      aspectRatio: 1.505
+    - name: nature-2.jpg
+      aspectRatio: 1.505
+  - title: 'Street Art'
+    description: |
+      Despite how intense street art can be, I find myself often walking right
+      past magnificent pieces every day.  I've taken to stopping more frequently,
+      to notice street art, and photographing some of my favorite pieces.
+    images:
+    - name: street-art-1.jpg
+      aspectRatio: 1.505
+    - name: street-art-2.jpg
+      aspectRatio: 1.505
+    - name: street-art-3.jpg
+      aspectRatio: 1.281
+    - name: street-art-4.jpg
+      aspectRatio: 1.281

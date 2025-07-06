@@ -1,0 +1,58 @@
+---
+date: 2019-08-24
+title: Museums
+featuredImage: img/museums.jpg
+heroStyle: none
+redirectFrom:
+  - /museums/
+
+---
+
+import museums from "../../data/museums.yml";
+import Image from "@components/Image.astro";
+
+One of my favorite things to do, both at home and while traveling, is visiting
+museums. As a kid, I hated them, because I always felt pressured to learn and
+understand the story behind everything I saw. In fact, I sort of thought that
+was the <em>point</em>. Over the years, I've found a new joy in just walking
+through museums (especially art museums) aimlessly. And I love it! This is a
+running collection of my favorites, roughly ranked:
+
+{
+  museums.map(({ id, img, title, location, website, trip, description }) => (
+    <div class="visual-list large">
+      <div class="image">
+        <Image
+          image={import("/src/content/" + img)}
+          alt={title}
+          className="museum-image force-small"
+        />
+      </div>
+      <div class="copy">
+        <h3 id={id}>{title}</h3>
+        <h4>
+          {location} |{" "}
+          <a
+            target="_blank"
+            href={`https://google.com/maps?q=${title}, ${location}`}
+          >
+            Map
+          </a>
+        </h4>
+        <p>{description}</p>
+        <div class="button-group">
+          {trip && (
+            <a target="_blank" href={`/travel/${trip}#${id}`} class="button">
+              Photos
+            </a>
+          )}
+          {website && (
+            <a target="_blank" href={website} class="button">
+              Website
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  ))
+}

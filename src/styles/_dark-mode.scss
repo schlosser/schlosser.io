@@ -1,0 +1,138 @@
+// scss-lint:disable ImportantRule
+
+@mixin dark-mode {
+  background-color: $black;
+  color: $white;
+
+  .scrim {
+    background-color: $black;
+  }
+
+  p, h1, h2, h3, h4, h5, h6, .path, .component {
+    color: $white;
+  }
+
+  .button {
+    color: $black;
+  }
+
+  .path a {
+    text-decoration-color: $transparent;
+  }
+
+  .self-link {
+    i {
+      background-color: $black;
+    }
+
+    svg path {
+      fill: $white;
+    }
+
+    label {
+      background-color: $black;
+      color: $white;
+    }
+  }
+
+  article {
+    pre {
+      // background-color: $true-black;
+      // color: $white;
+    }
+
+    code {
+      // background-color: $true-black;
+      // color: $white;
+    }
+
+    .highlight, .scary-math {
+      &::before {
+        background: linear-gradient(to left, rgba($true-black, 0), $true-black);
+      }
+
+      &::after {
+        background: linear-gradient(to right, rgba($true-black, 0), $true-black);
+      }
+    }
+  }
+
+  .scary-math-toggle, .hide-all.button {
+    background-color: $light-gray;
+    color: $black;
+  }
+
+  a {
+    color: $white;
+    text-decoration-color: $white;
+
+    &:hover {
+      color: $medium-gray !important;
+      text-decoration-color: $medium-gray !important;
+    }
+  }
+
+  form input {
+    &[type=text], &[type=email], &[type=number] {
+      background-color: $light-gray;
+      color: $black;
+    }
+
+    &[type=radio] {
+      + label {
+        background-color: $medium-gray;
+        color: $white;
+      }
+
+      &:checked + label {
+        background-color: $light-gray;
+        color: $black;
+      }
+    }
+  }
+
+  ::selection {
+    background-color: $light-gray;
+    color: $white;
+  }
+
+  header a:hover {
+    color: $white !important;
+    text-decoration-color: $white !important;
+  }
+
+  footer {
+    background-color: $black;
+
+    &:hover .footer-wrapper {
+      a {
+        color: $white;
+      }
+    }
+  }
+
+  form, blockquote {
+    background-color: $true-black;
+  }
+
+
+  .astro-code,
+  .astro-code span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+    /* Optional, if you also want font styles */
+    font-style: var(--shiki-dark-font-style) !important;
+    font-weight: var(--shiki-dark-font-weight) !important;
+    text-decoration: var(--shiki-dark-text-decoration) !important;
+  }
+}
+
+.dark-mode {
+  @include dark-mode;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    @include dark-mode;
+  }
+}

@@ -1,0 +1,41 @@
+---
+import type { CollectionEntry } from "astro:content";
+import PostLayout from "./PostLayout.astro";
+
+type Props = CollectionEntry<"talks">;
+
+const post = Astro.props;
+const { location, link, date, cta } = post.data;
+
+const formattedDate = date
+  ? new Date(date).toLocaleDateString("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    })
+  : null;
+---
+
+<PostLayout {...Astro.props}>
+  <section class="text">
+    {
+      date && (
+        <h3 class="timestamp">
+          Presented on {formattedDate}
+          {location && (
+            <>
+              at
+              {location.link ? (
+                <a href={location.link}>{location.name}</a>
+              ) : (
+                location.name
+              )}
+            </>
+          )}
+        </h3>
+      )
+    }
+    <slot />
+    <a href={link} class="button cta" target="_blank">{cta}</a>
+  </section>
+</PostLayout>

@@ -1,0 +1,63 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import Image from "@components/Image.astro";
+import BaseLayout from "./BaseLayout.astro";
+import Collection from "@components/Collection.astro";
+import { getPostDate, type PostLike } from "src/content.config";
+
+type Props = CollectionEntry<PostLike>;
+
+const post = Astro.props;
+const { title, featuredImage, heroImage, heroStyle, link } = post.data;
+
+const collection = post.collection;
+
+const collectionPosts = (await getCollection(collection)).sort((a, b) => {
+  return getPostDate(b).valueOf() - getPostDate(a).valueOf();
+});
+---
+
+<BaseLayout
+  title={title}
+  collection={collection}
+  heroStyle={heroStyle ?? "large"}
+>
+  <style>
+    h1 {
+      text-wrap: balance;
+    }
+  </style>
+  {
+    heroStyle === "full-bleed" && (
+      <div class="full-bleed-hero">
+        <div class="full-bleed-scrim" />
+        <Image image={heroImage ?? featuredImage} link={link} />
+        <h1>
+          <span>{title}</span>
+        </h1>
+      </div>
+    )
+  }
+
+  <div class="content">
+    <article
+      class={`${heroStyle === "full-bleed" ? "with-full-width-image" : heroStyle === "large" ? "with-large-image" : ""}`}
+    >
+      {
+        (heroStyle === "large" || heroStyle === "normal") && (
+          <section class={`text ${heroStyle === "large" ? "hero-image" : ""}`}>
+            <Image image={heroImage ?? featuredImage} link={link} />
+          </section>
+        )
+      }
+      <slot />
+    </article>
+  </div>
+
+  <Collection
+    title={collection.charAt(0).toUpperCase() + collection.slice(1)}
+    url={`/${collection}`}
+    entries={collectionPosts}
+    excludeId={post.id}
+  />
+</BaseLayout>

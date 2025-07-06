@@ -1,0 +1,23 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import { render } from "astro:content";
+import TeamLayout from "@layouts/TeamLayout.astro";
+import { makePostSlug } from "src/content.config";
+import TalkLayout from "@layouts/TalkLayout.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("talks");
+  return posts.map((post) => ({
+    params: { slug: makePostSlug(post) },
+    props: post,
+  }));
+}
+type Props = CollectionEntry<"talks">;
+
+const post = Astro.props;
+const { Content } = await render(post);
+---
+
+<TalkLayout {...post}>
+  <Content />
+</TalkLayout>

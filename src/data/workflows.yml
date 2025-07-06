@@ -1,0 +1,148 @@
+- title: Colors
+  id: colors
+  img: workflows/colors.png
+  link: "https://static.schlosser.io/workflows/Colors.alfredworkflow"
+  description: |
+    Convert color formats to Hexadecimal, RGB, HSL, named colors and copy the
+    result to your clipboard. No more need to search around online for a converter.
+    As a bonus, it even displays the color inline!
+- title: Convert
+  id: convert
+  img: workflows/convert.png
+  link: "https://static.schlosser.io/workflows/Convert.alfredworkflow"
+  description: |
+    Convert between different units of quantities, distances, time and more. No
+    internet connection required. I used this a ton to convert currencies while
+    travelling.
+- title: Domainr
+  id: domainr
+  img: workflows/domainr.png
+  link: "https://static.schlosser.io/workflows/Domainr.alfredworkflow"
+  description: |
+    Search <a href="https://domainr.com/">Domainr</a> to see if a domain has
+    been taken or not. If you are prone to impulse domain purchases, this
+    workflow may not be for you. You have been warned.
+- title: Dropbox Search
+  id: dropbox-search
+  img: workflows/dropbox-search.png
+  link: "https://static.schlosser.io/workflows/Dropbox Search.alfredworkflow"
+  description: |
+    I use dropbox very regularly, and sometimes it's nice to narrow down a file
+    search to just files within my Dropbox folder. I found myself doing this
+    enough that I made a simple workflow for it!
+- title: EggTimer
+  id: eggtimer
+  img: workflows/eggtimer.png
+  link: "https://static.schlosser.io/workflows/EggTimer.alfredworkflow"
+  description: |
+    Set timers and alarms, all without opening a web browser or pulling out your
+    phone.  It will send a mac notification and beep when the timer completes.
+- title: Encode:Decode
+  id: encode-decode
+  img: workflows/encode-decode.png
+  link: "https://static.schlosser.io/workflows/Encode:Decode v1.2.alfredworkflow"
+  description: |
+    Forget what the HTML encoded version of <code>&amp;</code> is? Have a
+    base64-encoded string that you want to parse? This awesome workflow has your
+    back.
+- title: GitHub
+  id: github
+  img: workflows/github.png
+  link: "https://static.schlosser.io/workflows/GitHub.alfredworkflow"
+  description: |
+    Easily launch your Github repos from a list that autocompletes suggests. Works
+    with github.com and GitHub Enterprise.
+- title: Google Suggest
+  id: google-suggest
+  img: workflows/google-suggest.png
+  link: "https://static.schlosser.io/workflows/Google Suggest.alfredworkflow"
+  description: |
+    Want to search Google without all the work of searching Google? This workflow
+    populates with autocomplete search suggestions from Google right in Alfred.
+- title: IP Address
+  id: ip-address
+  img: workflows/ip-address.png
+  link: "https://static.schlosser.io/workflows/IP Address v1.2.alfredworkflow"
+  description: |
+    No more searching "What's my IP Address" in your browser. Just type
+    <code>ip</code> into Alfred to get your local and external IP addresses.
+- title: Kill Process
+  id: kill-process
+  img: workflows/kill-process.png
+  link: "https://static.schlosser.io/workflows/Kill Process v1.2.alfredworkflow"
+  description: |
+    For those of us <em>*cough*</em> who write code that hangs forever, easily kill
+    a process from Alfred.
+- title: Quick REPL Access
+  id: quick-repl-access
+  img: workflows/quick-repl-access.png
+  link: "https://static.schlosser.io/workflows/QuickREPLAccess.alfredworkflow"
+  description: |
+    This workflow lets you quickly jump into a Read-Evaluate-Print Loop (REPL) for
+    JavaScript, Ruby, and Python. Or, as a bonus feature, evaluate Python code
+    right in Alfred: Typing <code>python math.sqrt(100)</code> and then hitting
+    enter will copy <code>10</code> to your clipboard.
+- title: RDM Change Resolution
+  id: rdm-change-resolution
+  img: workflows/rdm-change-resolution.png
+  link: "https://static.schlosser.io/workflows/RDM Change Resolution.alfredworkflow"
+  description: |
+    This workflow is designed for Mac users on retina screens. It uses
+    <a href="https://github.com/avibrazil/RDM">RDM</a> for Mac to set the effective
+    screen resolution of your display. Great for switching between the recommended
+    retina resolution and a lower-resolution, more-real estate one.
+- title: Show Hidden Files
+  id: show-hidden-files
+  img: workflows/show-hidden-files.png
+  link: "https://static.schlosser.io/workflows/Show Hidden Files.alfredworkflow"
+  description: |
+    If you're a programmer you might have noticed that Finder doesn't display
+    dotfiles (files with a leading <code>.</code>) or hidden files.  This is actaully
+    configurable, and this workflow lets you toggle hidden files to be displayed or not.
+- title: Simple Folders Filter
+  id: simple-folders-filter
+  img: workflows/simple-folders-filter.png
+  link: "https://static.schlosser.io/workflows/Simple Folders Filter.alfredworkflow"
+  description: |
+    This dead-simple workflow lets you narrow a file search for just folders, ignoring
+    files, applications, and everything else.
+- title: Symbols
+  id: symbols
+  img: workflows/symbols.png
+  link: "https://static.schlosser.io/workflows/Symbols.alfredworkflow"
+  description: |
+    This workflow makes the entire UTF-8 character set just a simple search away.
+    No need to Google around to find copy and paste ♥♦♠♣ from some table online.
+    Searching <code>utf heart</code> will get you <code>♥</code>
+- title: Tap to Click
+  id: tap-to-click
+  img: workflows/tap-to-click.png
+  link: "https://static.schlosser.io/workflows/Tap to Click.alfredworkflow"
+  description: |
+    This one is super specific. It's an automatic toggle on or off for tap-to-click
+    on a Mac trackpad. I hate digging around in the Mac Preferences app, and this
+    workflow solves that problem for my most common use case: disabling or enabling
+    tap-to-click (depending on my mood).
+- title: TerminalFinder
+  id: terminal-finder
+  img: workflows/terminal-finder.png
+  link: "https://static.schlosser.io/workflows/TerminalFinder.alfredworkflow"
+  description: |
+    Another time saver: Open your current finder location in Terminal (or iTerm),
+    or vice versa.  No more dragging and dropping a URL or anything weird like that.
+    Just type <code>ft</code> and hit enter.
+- title: TimeZones
+  id: timezones
+  img: workflows/timezones.png
+  link: "https://static.schlosser.io/workflows/TimeZones v1.61.alfredworkflow"
+  description: |
+    What time is it in Berlin? How about California? This handy workflow will give
+    you the time pretty much anywhere in the world. It will find everything from a
+    country to a small town.
+- title: Weather
+  id: weather
+  img: workflows/weather.png
+  link: "https://static.schlosser.io/workflows/Weather.alfredworkflow"
+  description: |
+    Get a four-day fourcast right in Alfred! Set your preferred location and
+    weather units and you're all set to go.

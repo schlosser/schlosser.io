@@ -1,0 +1,72 @@
+---
+title: Greece, Spring 2016
+startDate: 2016-03-13
+endDate: 2016-03-17
+cities:
+  - Athens
+  - Santorini
+featuredImage: img/greece/athens-city-cover.jpg
+heroImage: img/greece/athens-city.jpg
+imageRoots:
+  - greece
+redirectFrom:
+  - /greece/
+---
+
+import Image from "@components/Image.astro";
+import ImageSet from "@components/ImageSet.astro";
+
+<section class="text">
+    <p>For my last spring break in college, I went with some friends to Greece, visiting Athens and Santorini.  It was one of my first times in Europe, and my first time in Greece, and I wasn't disappointed. None of us spoke Greek, so we had to get around using the Internet, Google Translate, and the help of many Athenians. Because we avoided tourist season by visiting in March, it wasn't too crowded.  I can imagine that going in the peak of summer would have been a very different experience.</p>
+</section>
+<section class="text">
+    <h2>Athens</h2>
+    <h3>New Life in an Ancient City </h3>
+    <p>We spent most of our trip in Athens. The entire city has a blue-beige color to it, with 1970's white architecture that has lost its color. Visiting the Parthenon and the Acropolis museum are a must in Athens. both were stunning: the Parthenon for its size and history and the Acropolis for its modern aesthetic that somehow fits into such a classical city.</p>
+</section>
+<section>
+    <Image image={import("img/greece/athens-parthenon.jpg")} withViewer caption="The Parthenon, up close. I was glad to be able to visit when not many tourists were there."/>
+
+    <ImageSet size="large" captions={["When we visited, the Parthenon was undergoing construction.", "The Parthenon, viewed from the east.", "The Theatre of Dionysus from above.", "A view of Athens and the Acropolis Museum from the Acropolis."]}>
+        <Image image={import("img/greece/athens-parthenon-construction.jpg")} withViewer />
+        <Image image={import("img/greece/athens-parthenon-alt.jpg")} withViewer />
+        <Image image={import("img/greece/athens-stadium.jpg")} withViewer />
+        <Image image={import("img/greece/athens-city.jpg")} withViewer />
+    </ImageSet>
+
+    <Image image={import("img/greece/athens-museum.jpg")} withViewer caption="Propped up on cement pillars, the Acropolis Museum hovers a few feet above the excavated ruins."/>
+
+    <ImageSet size="large" captions={["The Temple of Hephaestus nearby the Acropolis.", "Nearby, I found this beautiful old church."]}>
+        <Image image={import("img/greece/athens-temple.jpg")} withViewer />
+        <Image image={import("img/greece/athens-church.jpg")} withViewer />
+    </ImageSet>
+</section>
+<section class="text">
+    <p>We also took a trip down the coast to the Temple of Poseidon, which sits on an outcropping on the southern peninsula. We were lucky to have a friend of a friend who was a taxi driver, who was able to help us coordinate transportation around the city. If he hadn't helped us, we might have been stuck in downtown Athens for most of our trip.</p>
+</section>
+<section>
+    <ImageSet size="large" captions={["The Temple of Poseidon has taken a lot more damage then many of the other sites we saw.", "A straight-on shot of a stone wall at the Temple of Poseidon."]}>
+        <Image image={import("img/greece/athens-wall.jpg")} withViewer />
+        <Image image={import("img/greece/athens-ruins.jpg")} withViewer />
+    </ImageSet>
+</section>
+<section class="text">
+    <h2>Santorini</h2>
+    <h3>The Most Beautiful Island in the World</h3>
+    <p>After spending several days in Athens, we took a day trip to Santorini, a Greek Island known for it's distinctive white architecture. We took the first flight there and the last flight back, which gave us plenty of time to walk around the island and eat breakfast, lunch, and dinner. We walked for about six miles along the mountain / coastal trail from Fira to Oia, stopping for water, pictures, and the occasional donkey.</p>
+</section>
+<section>
+    <ImageSet size="large" captions={["The clouds from above, on the plane to Santorini.", "A cliffside pool overlooking the ocean."]}>
+        <Image image={import("img/greece/santorini-plane.jpg")} withViewer />
+        <Image image={import("img/greece/santorini-pool.jpg")} withViewer />
+    </ImageSet>
+
+    <Image image={import("img/greece/santorini-cafe.jpg")} withViewer caption="A cafe in Santorini, with a rare orange and yellow paint job."/>
+
+    <ImageSet size="large" captions={["Churches in Santorini had this bright blue dome.", "We had to stop to let the pack of donkeys by."]}>
+        <Image image={import("img/greece/santorini-church.jpg")} withViewer />
+        <Image image={import("img/greece/santorini-donkey.jpg")} withViewer />
+    </ImageSet>
+
+    <Image image={import("img/greece/santorini-cliff.jpg")} withViewer caption="One of the many moments in Santorini that didn't even feel real."/>
+</section>

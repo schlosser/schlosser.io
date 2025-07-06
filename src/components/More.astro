@@ -1,0 +1,17 @@
+---
+interface Props {
+  href: string;
+  text: string;
+}
+
+const { href, text } = Astro.props;
+---
+
+<div class="box">
+  <div class="figure-wrapper more">
+    <a href={href}>
+      <span class="ellipsis">&middot;&middot;&middot;</span>
+    </a>
+  </div>
+  <h3><a href={href}>{text}</a></h3>
+</div>

@@ -1,0 +1,110 @@
+html,
+body {
+  color: $black;
+  font-family: $sans;
+  font-size: 16px;
+  font-weight: $regular;
+  line-height: 1.65;
+  position: relative;
+}
+
+body {
+  background-color: $white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  a {
+    color: $black;
+    text-decoration-color: $black;
+    text-decoration-line: none;
+    transition: 0.3s ease all;
+
+    &:hover {
+      color: $medium-gray;
+      text-decoration-color: $medium-gray;
+    }
+  }
+}
+
+hr {
+  background-color: $light-gray;
+  border: 0;
+  height: 1px;
+  margin: 0;
+  outline: 0;
+}
+
+p a,
+article h2 a {
+  border: 0;
+  color: $black;
+  text-decoration: underline;
+  transition: 0.3s ease all;
+
+  &:hover {
+    border: 0;
+    color: $medium-gray;
+    text-decoration: underline;
+  }
+}
+
+%subtle-link {
+  text-decoration-color: $transparent;
+  text-decoration-line: underline;
+  transition: 0.3s ease all;
+
+  &:hover {
+    color: $medium-gray;
+    text-decoration-color: $transparent;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+::selection {
+  background-color: $light-gray;
+  color: $black;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+@mixin clearfix {
+  &::after {
+    clear: both;
+    content: " ";
+    display: block;
+  }
+}
+
+.sr-only {
+	border: 0;
+	padding: 0;
+	margin: 0;
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
+	clip: rect(1px 1px 1px 1px);
+	/* maybe deprecated but we need to support legacy browsers */
+	clip: rect(1px, 1px, 1px, 1px);
+	/* modern browsers, clip-path works inwards from each corner */
+	clip-path: inset(50%);
+	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
+	white-space: nowrap;
+}

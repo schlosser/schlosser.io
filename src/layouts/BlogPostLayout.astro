@@ -1,0 +1,30 @@
+---
+import type { CollectionEntry } from "astro:content";
+import PostLayout from "./PostLayout.astro";
+import type { PostLike } from "src/content.config";
+
+type Props = CollectionEntry<Exclude<PostLike, "travel">>;
+
+const post = Astro.props;
+const { date, mediumUrl, width = "normal" } = post.data;
+
+const formattedPublishDate = new Date(date).toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+---
+
+<PostLayout {...Astro.props}>
+  <section class={width === "normal" ? "text" : ""}>
+    {date && <h5 class="timestamp">Published on {formattedPublishDate}.</h5>}
+    <slot />
+    {
+      mediumUrl && (
+        <a href={mediumUrl} class="button cta" target="_blank">
+          Continue on Medium
+        </a>
+      )
+    }
+  </section>
+</PostLayout>

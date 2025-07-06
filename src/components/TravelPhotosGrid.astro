@@ -1,0 +1,111 @@
+---
+import { getCollection } from "astro:content";
+import fs from "node:fs/promises";
+import path from "node:path";
+import { makePostSlug } from "src/content.config";
+import ImageSet from "./ImageSet.astro";
+
+async function walkDir(dir: string): Promise<string[]> {
+  let files: string[] = [];
+
+  try {
+    const entries = await fs.readdir(dir, { withFileTypes: true });
+
+    for (const entry of entries) {
+      const fullPath = path.join(dir, entry.name);
+
+      if (entry.isDirectory()) {
+        // Recursively walk subdirectories
+        files = files.concat(await walkDir(fullPath));
+      } else if (
+        entry.isFile() &&
+        entry.name.toLowerCase().match(/.*\.(png|jpg|jpeg|gif|svg|webp)$/)
+      ) {
+        files.push(fullPath);
+      }
+    }
+  } catch (error) {
+    console.error(`Error walking directory ${dir}:`, error);
+  }
+
+  return files;
+}
+
+const allImages = await walkDir("src/content/travel/img");
+
+const travelPhotos = await Promise.all(
+  allImages.map(async (image) => {
+    const imagePath = image.replace("src/content/travel/img/", "");
+    var parts = imagePath.split(".")[0].split("/");
+    var pageKey = parts[0];
+    var hash = parts.slice(2).join("-");
+    return {
+      image: await import("/src/content/travel/img/" + imagePath),
+      hash,
+      pageKey,
+    };
+  })
+);
+
+const travelPosts = await getCollection("travel");
+const travelPages: Record<string, string> = {};
+for (const post of travelPosts) {
+  for (const imageRoot of post.data.imageRoots) {
+    travelPages[imageRoot] = `/travel/${makePostSlug(post)}`;
+  }
+}
+---
+
+<div class="button cta" id="shuffle-button">Shuffle!</div>
+
+<section>
+  <ImageSet>
+    <div class="xsmall">
+      <figure class="figure-placeholder"></figure>
+      <figure class="figure-placeholder"></figure>
+      <figure class="figure-placeholder"></figure>
+      <figure class="figure-placeholder"></figure>
+    </div>
+    <div class="xsmall">
+      <figure class="figure-placeholder"></figure>
+      <figure class="figure-placeholder"></figure>
+      <figure class="figure-placeholder"></figure>
+      <figure class="figure-placeholder"></figure>
+    </div>
+    <div class="xsmall">
+      <figure class="figure-placeholder"></figure>
+      <figure class="figure-placeholder"></figure>
+      <figure class="figure-placeholder"></figure>
+      <figure class="figure-placeholder"></figure>
+    </div>
+    <div class="xsmall">
+      <figure class="figure-placeholder"></figure>
+      <figure class="figure-placeholder"></figure>
+      <figure class="figure-placeholder"></figure>
+      <figure class="figure-placeholder"></figure>
+    </div>
+  </ImageSet>
+</section>
+
+<script define:vars={{ TRAVEL_PHOTOS: travelPhotos, TRAVEL_PAGES: travelPages }}
+>
+  document.addEventListener("DOMContentLoaded", function () {
+    function injectRandomPhotos() {
+      figures = document.getElementsByClassName("figure-placeholder");
+      [].forEach.call(figures, function (fig) {
+        const randomPhoto =
+          TRAVEL_PHOTOS[Math.floor(Math.random() * TRAVEL_PHOTOS.length)];
+        var page = TRAVEL_PAGES[randomPhoto.pageKey];
+        console.log(randomPhoto.pageKey, page);
+        fig.innerHTML = `
+          <a href="${page}#${randomPhoto.hash}">
+          <i style="background-image:url(${randomPhoto.image.default.src})"></i>
+          </a>`;
+      });
+    }
+
+    shuffleButton = document.getElementById("shuffle-button");
+    shuffleButton.addEventListener("click", injectRandomPhotos);
+    injectRandomPhotos();
+  });
+</script>

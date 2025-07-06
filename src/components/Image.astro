@@ -1,0 +1,183 @@
+---
+import { Image as AstroImage } from "astro:assets";
+import LinkIcon from "src/img/svg/LinkIcon.astro";
+interface Props {
+  image: ImageMetadata | Promise<{ default: ImageMetadata }>;
+  link?: string;
+  target?: string;
+  className?: string;
+  alt?: string;
+  withViewer?: boolean;
+  caption?: string;
+}
+
+const { image, link, target, className, alt, withViewer, caption } =
+  Astro.props;
+
+const imageMetadata = "src" in image ? image : (await image).default;
+const urlAsAlt = imageMetadata.src
+  .replace(/.*\//, "")
+  .replace(/\.*/, "")
+  .replace(/-/g, " ");
+const hash = imageMetadata.src.split("/").pop()?.split(".")[0];
+const classes = [className, "progressive-image"];
+if (withViewer) {
+  classes.push("with-viewer");
+}
+---
+
+<style lang="scss" is:global>
+  @import "../styles/_media_queries.scss";
+  @import "../styles/_colors.scss";
+  @import "../styles/_typography.scss";
+
+  body {
+    .scrim {
+      background-color: $white;
+      bottom: 0;
+      left: 0;
+      opacity: 0;
+      pointer-events: none;
+      position: fixed;
+      right: 0;
+      top: 0;
+      transition: 0.3s ease opacity;
+      z-index: 500;
+    }
+
+    &[class*="viewer-"] .scrim {
+      cursor: zoom-out;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    &.show-image-links {
+      .progressive-image .self-link {
+        display: flex;
+      }
+    }
+  }
+
+  .progressive-image,
+  .progressive-link {
+    user-select: none;
+  }
+
+  .progressive-image {
+    overflow: hidden;
+    position: relative;
+    transform-origin: 0 0;
+    transition: 0.3s ease transform;
+
+    .aspect-ratio-holder {
+      height: 0;
+      width: 100%;
+    }
+
+    &.tight {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 30rem;
+    }
+
+    &.inline {
+      margin-bottom: 1rem;
+      margin-top: 0;
+    }
+
+    &.with-viewer {
+      cursor: zoom-in;
+
+      &.is-open {
+        cursor: zoom-out;
+
+        .self-link {
+          opacity: 0;
+          pointer-events: none;
+        }
+      }
+    }
+
+    .self-link {
+      @extend %h5;
+      align-items: center;
+      bottom: 1rem;
+      display: none;
+      left: 1rem;
+      position: absolute;
+      transition: 0.3s ease opacity;
+      z-index: 100;
+
+      i {
+        align-items: center;
+        background-color: $white;
+        border-radius: 50%;
+        box-sizing: content-box;
+        display: flex;
+        padding: 0.675rem;
+      }
+
+      label {
+        background-color: $white;
+        color: $black;
+        font-size: 0.875rem;
+        left: 100%;
+        margin-left: 0.5rem;
+        opacity: 0;
+        padding: 0 0.5rem;
+        position: absolute;
+        transform: translate3d(0, 1rem, 0);
+        transition: 0.3s ease all;
+        white-space: nowrap;
+      }
+
+      &:hover {
+        label {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      svg {
+        width: 0.75rem;
+
+        path {
+          fill: $black;
+        }
+      }
+    }
+
+    img {
+      transition: 0.3s ease opacity;
+      z-index: 2;
+    }
+  }
+
+  img {
+    height: auto;
+  }
+</style>
+
+{
+  link ? (
+    <a href={link} class="progressive-link" target={target}>
+      <figure class={classes.join(" ")} id={hash}>
+        <AstroImage alt={alt ?? urlAsAlt} src={image} />
+      </figure>
+    </a>
+  ) : (
+    <figure class={classes.join(" ")} id={hash}>
+      <AstroImage alt={alt ?? urlAsAlt} src={image} />
+      {hash && (
+        <a class="self-link" href={`#${hash}`}>
+          <i>
+            <LinkIcon />
+          </i>
+          <label>Copy link to clipboard</label>
+        </a>
+      )}
+    </figure>
+  )
+}
+
+{caption && <h5>{caption}</h5>}

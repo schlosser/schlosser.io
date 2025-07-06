@@ -1,0 +1,44 @@
+---
+import type { CollectionEntry } from "astro:content";
+import PostLayout from "./PostLayout.astro";
+
+type Props = CollectionEntry<"travel">;
+
+const post = Astro.props;
+const { mediumUrl, cities, timePeriod, startDate, endDate } = post.data;
+
+const dateOptions: object = {
+  year: "numeric",
+  month: "short",
+};
+
+let formattedCities = "";
+for (let i = 0; i < cities.length; i++) {
+  formattedCities += cities[i];
+  if (i < cities.length - 1) {
+    formattedCities += ", ";
+  }
+  if (i === cities.length - 2) {
+    formattedCities += " and ";
+  }
+}
+
+const formattedTimePeriod = timePeriod
+  ? timePeriod
+  : startDate && endDate
+    ? `from ${startDate.toLocaleDateString("en-US", dateOptions)} to ${endDate.toLocaleDateString("en-US", dateOptions)}`
+    : null;
+---
+
+<PostLayout
+  {...Astro.props}
+  data={{ ...Astro.props.data, heroStyle: "full-bleed" }}
+>
+  <section class="text">
+    <h3 class="timestamp">
+      Visiting {formattedCities}
+      {formattedTimePeriod}.
+    </h3>
+  </section>
+  <slot />
+</PostLayout>

@@ -1,0 +1,22 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import { render } from "astro:content";
+import TravelLayout from "src/layouts/TravelLayout.astro";
+import { makePostSlug } from "src/content.config";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("travel");
+  return posts.map((post) => ({
+    params: { slug: makePostSlug(post) },
+    props: post,
+  }));
+}
+type Props = CollectionEntry<"travel">;
+
+const post = Astro.props;
+const { Content } = await render(post);
+---
+
+<TravelLayout {...post}>
+  <Content />
+</TravelLayout>

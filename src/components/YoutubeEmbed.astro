@@ -1,0 +1,15 @@
+---
+interface Props {
+  id: string;
+  paddingbottom?: string;
+}
+
+const { id, paddingbottom } = Astro.props;
+---
+
+<figure style={`padding-bottom: 62.5%`} class="video disable-cursor">
+  <iframe
+    src={`https://www.youtube.com/embed/${id}}?loop=1&controls=0&mute=1&autoplay=1&playlist=${id}&showinfo=0&modestbranding=1&rel=0"`}
+    frameborder="0"
+    allowfullscreen></iframe>
+</figure>

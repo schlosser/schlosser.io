@@ -1,0 +1,53 @@
+---
+import Image from "../Image.astro";
+
+interface Props {
+  podcasts: {
+    id: string;
+    title: string;
+    img: string;
+    link: string;
+    itunes: string;
+    description: string;
+    tags: string[];
+  }[];
+}
+
+const { podcasts } = Astro.props;
+---
+
+{
+  podcasts.map(({ id, title, img, link, itunes, description, tags }) => (
+    <div class="podcast" id={id}>
+      <div class="image">
+        <Image
+          image={import("/src/content/lists/img/" + img)}
+          alt={title}
+          className="podcast-image force-small"
+        />
+      </div>
+      <div class="copy">
+        <h3 id="{{ podcast.id }}"> {title}</h3>
+        {tags && (
+          <h5>
+            {tags.map((tag, idx) => (
+              <>
+                <span class="capitalize">{tag}</span>
+                {idx < tags.length - 1 ? ", " : "."}
+              </>
+            ))}
+          </h5>
+        )}
+        <p>{description}</p>
+        <div class="button-group">
+          <a href={link} class="button">
+            {link.replace(/https?:\/\//, "").replace("www.", "")}
+          </a>
+          <a href={itunes} class="button">
+            iTunes
+          </a>
+        </div>
+      </div>
+    </div>
+  ))
+}

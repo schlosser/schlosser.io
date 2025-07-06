@@ -1,0 +1,276 @@
+article {
+  padding-top: 2rem;
+
+  &.with-full-bleed-image {
+    padding-top: 3rem;
+  }
+
+  &.with-large-image {
+    margin-top: -3rem;
+    padding-top: 0;
+  }
+
+  h2 {
+    font-family: $sans;
+    font-size: 3.5rem;
+    font-weight: $extra-bold;
+    line-height: 1.25;
+    margin: 6rem 0 1.5rem;
+
+    + h3 {
+      font-size: 1.5rem;
+      margin: -1.5rem 0 2.5rem;
+    }
+  }
+
+  h3 {
+    font-family: $sans;
+    font-size: 1.5rem;
+    font-weight: $bold;
+    margin-bottom: 1rem;
+  }
+
+  h4 {
+    margin: 1rem 0;
+  }
+
+  aside {
+    border-left: 0.5rem solid $lighter-gray;
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
+  }
+
+  blockquote {
+    background-color: $lighter-gray;
+    margin: 3rem 0;
+    padding: 3rem;
+  }
+
+  .highlight,
+  .scary-math {
+    position: relative;
+
+    &::after,
+    &::before {
+      bottom: 0;
+      content: " ";
+      position: absolute;
+      top: 0;
+      width: 2rem;
+      z-index: 100;
+    }
+
+    &::before {
+      background: linear-gradient(
+        to left,
+        rgba($lighter-gray, 0),
+        $lighter-gray
+      );
+      left: 0;
+    }
+
+    &::after {
+      background: linear-gradient(
+        to right,
+        rgba($lighter-gray, 0),
+        $lighter-gray
+      );
+      right: 0;
+    }
+  }
+
+  pre {
+    // background-color: $lighter-gray;
+    // color: $black;
+    margin: 1.5rem 0;
+    overflow: scroll;
+    padding: 2rem;
+    width: 100%;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    code {
+      // background-color: $lighter-gray;
+      // color: $black;
+      line-height: 1.15;
+      padding: 0;
+    }
+  }
+
+  code {
+    // background-color: $lighter-gray;
+    font-family: $monospace;
+    margin: 0;
+    padding: 0.25rem 0.5rem;
+  }
+
+  ol,
+  ul {
+    margin: 1.5rem 0;
+    padding-left: 3rem;
+
+    li {
+      list-style-position: outside;
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+
+      figure,
+      figure:last-child {
+        margin: 3rem 0;
+      }
+    }
+  }
+
+  ol li {
+    list-style: decimal;
+  }
+
+  ul li {
+    list-style: disc;
+  }
+
+  .twitter-tweet-wrapper {
+    margin: 3rem 0;
+
+    .twitter-tweet {
+      display: inline-block;
+      margin: 0 auto;
+    }
+
+    h5 {
+      padding: 0;
+      text-align: center;
+    }
+  }
+
+  .timestamp,
+  .button {
+    @extend %h5;
+    font-weight: $regular;
+  }
+
+  .button {
+    margin-bottom: 1rem;
+  }
+
+  .button-group .button {
+    margin-right: 1rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .timestamp {
+    margin: 3rem 0;
+  }
+
+  .cta {
+    // compensating for paragraph margin
+    margin: 1.5rem 0 3rem;
+  }
+
+  figure {
+    margin: 4rem 0;
+
+    + h5 {
+      margin: -2.5rem 0 4rem;
+      padding: 0 4rem;
+      text-align: center;
+    }
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  *:first-child {
+    margin-top: 0;
+  }
+
+  *:last-child {
+    margin-bottom: 0;
+  }
+
+  .info {
+    a {
+      @extend %subtle-link;
+    }
+  }
+
+  .video {
+    height: 0;
+    padding-bottom: 56.25%;
+    position: relative;
+    width: 100%;
+
+    &.disable-cursor {
+      pointer-events: none;
+    }
+
+    iframe {
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+  }
+
+  table {
+    thead {
+      font-weight: $bold;
+    }
+
+    td {
+      padding-right: 3rem;
+    }
+  }
+}
+
+@media screen and (max-width: $tablet-portrait-max) {
+  article {
+    blockquote,
+    form {
+      padding: 4rem;
+    }
+  }
+}
+
+@media screen and (max-width: $phone-landscape-max) {
+  article {
+    blockquote,
+    form {
+      padding: 2rem;
+    }
+
+    .tight-figure {
+      margin: 3rem 0;
+    }
+
+    ol,
+    ul {
+      padding-left: 2rem;
+
+      li {
+        padding-left: 0.5rem;
+      }
+    }
+
+    figure {
+      margin: 3rem 0;
+
+      + h5 {
+        margin: -2rem 0 3rem;
+        padding: 0;
+        text-align: left;
+      }
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+  }
+}

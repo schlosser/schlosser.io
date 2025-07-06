@@ -1,0 +1,18 @@
+- name: Substituteteacher.js
+  img: "projects/substituteteacher.png"
+  link: "http://schlosser.github.io/substituteteacher.js/"
+  description: |
+    A small JavaScript library for creating a rotating set of taglines.
+  year: "2015"
+- name: Adicu.com
+  img: "projects/adicu.com.png"
+  link: "https://adicu.com/"
+  description: |
+    The Website for ADI, the tech club at Columbia, built using Eventum.
+  year: "2014"
+- name: Eventum
+  img: "projects/eventum.png"
+  link: "https://github.com/schlosser/eventum"
+  description: |
+    Eventum: an open source content management system for event-driven websites.
+  year: "2014"
