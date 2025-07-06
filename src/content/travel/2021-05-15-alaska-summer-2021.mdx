@@ -582,7 +582,13 @@ import ImageSet from "@components/ImageSet.astro";
   caption="I managed to catch some great photos of wildlife, including this bald eagle who had been camping out on the iceberg."
 />
 
-<ImageSet size="large">
+
+<ImageSet
+  size="large"
+  captions={[
+    "I used a similar binocular technique to capture this friendly boy.",
+  ]}
+>
   <Image
     image={import("img/alaska/juneau/cruise-bear-looking.jpg")}
     withViewer
@@ -591,14 +597,6 @@ import ImageSet from "@components/ImageSet.astro";
     image={import("img/alaska/juneau/cruise-bear-sitting.jpg")}
     withViewer
   />
-</ImageSet>
-
-<ImageSet
-  size="large"
-  captions={[
-    "I used a similar binocular technique to capture this friendly boy.",
-  ]}
->
   <Image
     image={import("img/alaska/juneau/cruise-bear-climbing.jpg")}
     withViewer

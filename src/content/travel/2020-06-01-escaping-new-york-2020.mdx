@@ -135,11 +135,9 @@ import ImageSet from "@components/ImageSet.astro";
         <Image image={import("img/us-escaping-ny-20/me/me-beans.jpg")} withViewer />
     </ImageSet>
 
-    <ImageSet size="large">
+    <ImageSet size="large" captions="The lobster bake is a Maine tradition.">
         <Image image={import("img/us-escaping-ny-20/me/me-boiling-water.jpg")} withViewer />
         <Image image={import("img/us-escaping-ny-20/me/me-lobsters.jpg")} withViewer />
-    </ImageSet>
-    <ImageSet size="large" captions="The lobster bake is a Maine tradition.">
         <Image image={import("img/us-escaping-ny-20/me/me-grab-lobster.jpg")} withViewer />
         <Image image={import("img/us-escaping-ny-20/me/me-seaweed.jpg")} withViewer />
     </ImageSet>
@@ -164,7 +162,7 @@ import ImageSet from "@components/ImageSet.astro";
 
     <Image image={import("img/us-escaping-ny-20/ma/dartmouth-coral-arc.jpg")} withViewer caption="Courtney Mattison's <em>Turn the Tide</em> was a marvelous installation of porcelain corals."/>
 
-    <ImageSet size="large" captions={["The detail work on each one was phenomenal."]}>
+    <ImageSet size="small" captions={["The detail work on each one was phenomenal."]}>
         <Image image={import("img/us-escaping-ny-20/ma/dartmouth-coral-green.jpg")} withViewer />
         <Image image={import("img/us-escaping-ny-20/ma/dartmouth-coral-pink.jpg")} withViewer />
         <Image image={import("img/us-escaping-ny-20/ma/dartmouth-coral-red.jpg")} withViewer />
@@ -195,7 +193,6 @@ import ImageSet from "@components/ImageSet.astro";
         <Image image={import("img/us-escaping-ny-20/ma/jacob-grilling.jpg")} withViewer />
         <Image image={import("img/us-escaping-ny-20/ma/aidan-walk.jpg")} withViewer />
     </ImageSet>
-
 </section>
 
 <section class="text" id="ricketts-glen">

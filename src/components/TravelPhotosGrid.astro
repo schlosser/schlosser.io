@@ -6,12 +6,17 @@ import ImageSet from "./ImageSet.astro";
 // Use import.meta.glob for static builds
 const imageModules = import.meta.glob("/src/content/travel/img/**/*.{png,jpg,jpeg,gif,svg,webp}", { eager: true });
 
-const travelPhotos = await Promise.all(
+const IN_PROGRESS_POSTS = ["us-new-york-20"];
+
+const travelPhotos = (await Promise.all(
   Object.entries(imageModules).map(async ([imagePath, module]) => {
     const relativePath = imagePath.replace("/src/content/travel/img/", "");
     const parts = relativePath.split(".")[0].split("/");
     const pageKey = parts[0];
-    const hash = parts.slice(2).join("-");
+    const hash = parts.pop();
+    if (imagePath.match(/edinburgh-flower-1/) || imagePath.match(/nh-white-mountains/)) {
+      console.log('FOUND', {hash, pageKey, parts, imagePath})
+    }
 
     return {
       image: module,
@@ -19,7 +24,7 @@ const travelPhotos = await Promise.all(
       pageKey,
     };
   })
-);
+)).filter((photo) => !IN_PROGRESS_POSTS.includes(photo.pageKey));
 
 const travelPosts = await getCollection("travel");
 const travelPages: Record<string, string> = {};

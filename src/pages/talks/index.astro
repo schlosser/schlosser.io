@@ -6,7 +6,7 @@ import { getCollectionRevChron } from "src/content.config";
 const posts = await getCollectionRevChron("talks");
 ---
 
-<CollectionLayout title="talks" collection="talks">
+<CollectionLayout title="Talks" collection="talks">
   <div class="boxes">
     {posts.map((post) => <PostPreview page={post} />)}
   </div>

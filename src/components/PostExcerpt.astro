@@ -38,7 +38,6 @@ export function walk(node: RootContent | any): string | undefined {
   const isValidFlowElement = node.type === 'mdxJsxFlowElement' && allowedNodeNames.includes(node.name);
 
   if (!allowedNodes.includes(node.type) && !isValidFlowElement) {
-    console.log('NODE', node.type, JSON.stringify(node, null, 2))
     return
   }
 

@@ -64,11 +64,9 @@ import ImageSet from "@components/ImageSet.astro";
             <Image image={import("img/peru/lima-car.jpg")} withViewer />
     </ImageSet>
 
-    <ImageSet size="large">
-            <Image image={import("img/peru/lima-design-corner.jpg")} withViewer />
-            <Image image={import("img/peru/lima-design-estate.jpg")} withViewer />
-    </ImageSet>
     <ImageSet size="large" captions={['I absolutely love the architecture in Miraflores. On the same street you can find ornate palaces next to ultra-modern houses.']}>
+        <Image image={import("img/peru/lima-design-corner.jpg")} withViewer />
+        <Image image={import("img/peru/lima-design-estate.jpg")} withViewer />
         <Image image={import("img/peru/lima-design-parking.jpg")} withViewer />
         <Image image={import("img/peru/lima-design-white.jpg")} withViewer />
     </ImageSet>
@@ -152,17 +150,13 @@ import ImageSet from "@components/ImageSet.astro";
 </section>
 
 <section>
-    <ImageSet size="small">
+    <ImageSet size="small" captions={['We met a LOT of llamas. So many handsome faces!']}>
             <Image image={import("img/peru/cusco-llama-1.jpg")} withViewer />
             <Image image={import("img/peru/cusco-llama-2.jpg")} withViewer />
             <Image image={import("img/peru/cusco-llama-3.jpg")} withViewer />
-            </ImageSet>
-            <ImageSet size="small">
             <Image image={import("img/peru/cusco-llama-4.jpg")} withViewer />
             <Image image={import("img/peru/cusco-llama-5.jpg")} withViewer />
             <Image image={import("img/peru/cusco-llama-6.jpg")} withViewer />
-    </ImageSet>
-    <ImageSet size="small" captions={['We met a LOT of llamas. So many handsome faces!']}>
             <Image image={import("img/peru/cusco-llama-7.jpg")} withViewer />
             <Image image={import("img/peru/cusco-llama-8.jpg")} withViewer />
             <Image image={import("img/peru/cusco-llama-9.jpg")} withViewer />
@@ -200,13 +194,11 @@ import ImageSet from "@components/ImageSet.astro";
     <Image image={import("img/peru/machu-picchu-hike-terraces.jpg")} withViewer caption="Now you might think that this is a picture of Machu Picchu, but it's actually Winay Wayna, one of the dozens of similar sites in the surrounding mountains." />
 
 
-    <ImageSet size="large">
-            <Image image={import("img/peru/machu-picchu-hike-ruins.jpg")} withViewer />
-            <Image image={import("img/peru/machu-picchu-hike-window.jpg")} withViewer />
-    </ImageSet>
     <ImageSet size="large" captions={['Winay Wayna was a small agricultural village, located about 3 miles from Machu Picchu.']}>
-            <Image image={import("img/peru/machu-picchu-hike-terraces-faceoff.jpg")} withViewer />
-            <Image image={import("img/peru/machu-picchu-hike-terraces-daniela.jpg")} withViewer />
+        <Image image={import("img/peru/machu-picchu-hike-ruins.jpg")} withViewer />
+        <Image image={import("img/peru/machu-picchu-hike-window.jpg")} withViewer />
+        <Image image={import("img/peru/machu-picchu-hike-terraces-faceoff.jpg")} withViewer />
+        <Image image={import("img/peru/machu-picchu-hike-terraces-daniela.jpg")} withViewer />
     </ImageSet>
 
     <Image image={import("img/peru/machu-picchu-hike-terraces-2.jpg")} withViewer caption="A view of the river valley from Winay Wayna." />
